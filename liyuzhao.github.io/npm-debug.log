@@ -1,0 +1,64 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'hexo-generator-cname',
+1 verbose cli   '--save' ]
+2 info using npm@3.6.0
+3 info using node@v5.6.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData hexo-generator-cname
+8 silly fetchNamedPackageData hexo-generator-cname
+9 silly mapToRegistry name hexo-generator-cname
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/hexo-generator-cname
+13 verbose request uri https://registry.npmjs.org/hexo-generator-cname
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 00:24:58
+16 verbose request id a48db78ca7b86b58
+17 http request GET https://registry.npmjs.org/hexo-generator-cname
+18 info retry will retry, error on last attempt: Error: socket hang up
+19 info attempt registry request try #2 at 00:26:13
+20 http request GET https://registry.npmjs.org/hexo-generator-cname
+21 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+22 info attempt registry request try #3 at 00:28:28
+23 http request GET https://registry.npmjs.org/hexo-generator-cname
+24 silly fetchPackageMetaData Error: socket hang up
+24 silly fetchPackageMetaData     at TLSSocket.onHangUp (_tls_wrap.js:1089:19)
+24 silly fetchPackageMetaData     at TLSSocket.g (events.js:273:16)
+24 silly fetchPackageMetaData     at emitNone (events.js:85:20)
+24 silly fetchPackageMetaData     at TLSSocket.emit (events.js:179:7)
+24 silly fetchPackageMetaData     at endReadableNT (_stream_readable.js:906:12)
+24 silly fetchPackageMetaData     at nextTickCallbackWith2Args (node.js:475:9)
+24 silly fetchPackageMetaData     at process._tickCallback (node.js:389:17)
+24 silly fetchPackageMetaData  error for hexo-generator-cname { [Error: socket hang up] code: 'ECONNRESET' }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: socket hang up
+30 verbose stack     at TLSSocket.onHangUp (_tls_wrap.js:1089:19)
+30 verbose stack     at TLSSocket.g (events.js:273:16)
+30 verbose stack     at emitNone (events.js:85:20)
+30 verbose stack     at TLSSocket.emit (events.js:179:7)
+30 verbose stack     at endReadableNT (_stream_readable.js:906:12)
+30 verbose stack     at nextTickCallbackWith2Args (node.js:475:9)
+30 verbose stack     at process._tickCallback (node.js:389:17)
+31 verbose cwd /Users/liyuzhao/githubcode/liyuzhao.github.io
+32 error Darwin 15.3.0
+33 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "hexo-generator-cname" "--save"
+34 error node v5.6.0
+35 error npm  v3.6.0
+36 error code ECONNRESET
+37 error network socket hang up
+38 error network This is most likely not a problem with npm itself
+38 error network and is related to network connectivity.
+38 error network In most cases you are behind a proxy or have bad network settings.
+38 error network
+38 error network If you are behind a proxy, please make sure that the
+38 error network 'proxy' config is set properly.  See: 'npm help config'
+39 verbose exit [ 1, true ]
