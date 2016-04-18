@@ -1,8 +1,8 @@
 ---
 title: Android TextView 部分字体设置颜色或大小
 date: 2016-03-10 21:06:03
-tags: [Android]
-categories: Android
+tags: [android]
+categories: android
 ---
 ### Android TextView 部分字体设置颜色或大小 
 >在某些情况下，会遇到某些关键字需要**高亮**显示，可Android自带的TextView支持很困难。

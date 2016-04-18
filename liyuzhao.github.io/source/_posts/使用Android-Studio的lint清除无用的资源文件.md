@@ -1,8 +1,8 @@
 ---
 title: 使用Android Studio的lint清除无用的资源文件
 date: 2016-03-22 22:15:20
-tags: [Android, lint]
-categories: Android
+tags: [android, lint]
+categories: android
 ---
 
 ## 使用Android Studio的lint清除无用的资源文件
