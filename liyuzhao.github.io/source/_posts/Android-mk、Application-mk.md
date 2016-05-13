@@ -1,8 +1,8 @@
 ---
 title: Android.mk、Application.mk
 date: 2016-03-14 11:42:27
-tags: [ndk]
-categories: ndk
+tags: [ndk, android]
+categories: android
 ---
 
 # Android.mk、Application.mk
