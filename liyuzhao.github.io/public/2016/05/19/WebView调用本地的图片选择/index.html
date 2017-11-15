@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WebView调用本地的图片选择 | 催眠术的博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="Android中WebView调用本地图片选择器
+默认的情况下WebView是不能调用本地图片选择器的，Android的默认浏览器是支持的，因此我可以断定这是完全能做到的
+在做的过程中，确实遇到了一些问题，开始以为是特殊手机原因，后来调查才确定是AndroidSDK的版本问题
+
+Android 3.0 以前的版本
+Android 3.x 版本
+Android 4.x 版本
+Android 5.x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebView调用本地的图片选择">
+<meta property="og:url" content="http://lyuzhao.com/2016/05/19/WebView调用本地的图片选择/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="Android中WebView调用本地图片选择器
+默认的情况下WebView是不能调用本地图片选择器的，Android的默认浏览器是支持的，因此我可以断定这是完全能做到的
+在做的过程中，确实遇到了一些问题，开始以为是特殊手机原因，后来调查才确定是AndroidSDK的版本问题
+
+Android 3.0 以前的版本
+Android 3.x 版本
+Android 4.x 版本
+Android 5.x">
+<meta property="og:updated_time" content="2016-05-19T08:51:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebView调用本地的图片选择">
+<meta name="twitter:description" content="Android中WebView调用本地图片选择器
+默认的情况下WebView是不能调用本地图片选择器的，Android的默认浏览器是支持的，因此我可以断定这是完全能做到的
+在做的过程中，确实遇到了一些问题，开始以为是特殊手机原因，后来调查才确定是AndroidSDK的版本问题
+
+Android 3.0 以前的版本
+Android 3.x 版本
+Android 4.x 版本
+Android 5.x">
+  
+    <link rel="alternate" href="/atom.xml" title="催眠术的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">催眠术的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyuzhao.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-WebView调用本地的图片选择" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/19/WebView调用本地的图片选择/" class="article-date">
+  <time datetime="2016-05-19T08:21:20.000Z" itemprop="datePublished">2016年05月19日</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      WebView调用本地的图片选择
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Android中WebView调用本地图片选择器"><a href="#Android中WebView调用本地图片选择器" class="headerlink" title="Android中WebView调用本地图片选择器"></a>Android中WebView调用本地图片选择器</h2><hr>
+<p>默认的情况下WebView是不能调用本地图片选择器的，Android的默认浏览器是支持的，因此我可以断定这是完全能做到的</p>
+<p>在做的过程中，确实遇到了一些问题，开始以为是特殊手机原因，后来调查才确定是AndroidSDK的版本问题</p>
+<ul>
+<li>Android 3.0 以前的版本</li>
+<li>Android 3.x 版本</li>
+<li>Android 4.x 版本</li>
+<li>Android 5.x 版本</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>主要区别：为 5.x版本以前为ValueCallback&lt;Uri&gt;<br>从5.x版本返回的是ValueCallback&lt;Uri[]&gt;<br>因此只用单独一种的话可能会有一些版本不能用，曾经我就犯过这样的错误</p>
+</blockquote>
+<p>具体实现方式，请看下面的代码部分：</p>
+<h3 id="MainActivity-java-代码如下："><a href="#MainActivity-java-代码如下：" class="headerlink" title="MainActivity.java 代码如下："></a>MainActivity.java 代码如下：</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span>  ValueCallback&lt;Uri&gt; mUploadMessage;</span><br><span class="line">	<span class="keyword">public</span> ValueCallback&lt;Uri[]&gt; mUploadMessageForAndroid5;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> FILECHOOSER_RESULTCODE = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> FILECHOOSER_RESULTCODE_FOR_ANDORID_5 = <span class="number">2</span>;</span><br><span class="line">	ProgressDialog progressBar;</span><br><span class="line">	<span class="keyword">private</span> WebView mWebView;</span><br><span class="line">	<span class="keyword">private</span> ImageButton btnBack;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String remoteUrl = <span class="string">"http://kefu.easemob.com/webim/im.html?tenantId=35"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        initView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressLint</span>(<span class="string">"NewApi"</span>) <span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	mWebView = (WebView) findViewById(R.id.webview);</span><br><span class="line">    	btnBack = (ImageButton) findViewById(R.id.back);</span><br><span class="line">    	btnBack.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">				finish();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">    	progressBar = <span class="keyword">new</span> ProgressDialog(<span class="keyword">this</span>);</span><br><span class="line">    	progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);</span><br><span class="line">    	mWebView.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">    	mWebView.getSettings().setAppCacheEnabled(<span class="keyword">false</span>);</span><br><span class="line">    	mWebView.getSettings().setDomStorageEnabled(<span class="keyword">true</span>);</span><br><span class="line">    	mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);</span><br><span class="line">    	<span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT)&#123;</span><br><span class="line">    		mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);</span><br><span class="line">    	&#125;</span><br><span class="line">    	mWebView.loadUrl(remoteUrl);</span><br><span class="line">    	mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient()&#123;</span><br><span class="line">    		<span class="meta">@Override</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">    			<span class="keyword">handler</span>.sendEmptyMessage(<span class="number">0</span>);</span><br><span class="line">    			view.loadUrl(url);</span><br><span class="line">    			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;);</span><br><span class="line">    	mWebView.setWebChromeClient(<span class="keyword">new</span> WebChromeClient()&#123;</span><br><span class="line">    		<span class="meta">@Override</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onProgressChanged</span><span class="params">(WebView view, <span class="keyword">int</span> newProgress)</span> </span>&#123;</span><br><span class="line">    			<span class="keyword">if</span>(newProgress == <span class="number">100</span>)&#123;</span><br><span class="line">    				<span class="keyword">handler</span>.sendEmptyMessage(<span class="number">1</span>);<span class="comment">//如果全部载入，隐藏进度对话框</span></span><br><span class="line">    			&#125;</span><br><span class="line"></span><br><span class="line">    			<span class="keyword">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="comment">//扩展支持alert事件</span></span><br><span class="line">    		<span class="meta">@Override</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onJsAlert</span><span class="params">(WebView view, String url, String message,</span><br><span class="line">    				JsResult result)</span> </span>&#123;</span><br><span class="line">    			AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(view.getContext());</span><br><span class="line">    			builder.setTitle(<span class="string">"提示"</span>).setMessage(message).setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">null</span>);</span><br><span class="line">    			builder.setCancelable(<span class="keyword">false</span>);</span><br><span class="line">    			builder.setIcon(R.drawable.ic_launcher);</span><br><span class="line">    			AlertDialog dialog = builder.create();</span><br><span class="line">    			dialog.show();</span><br><span class="line">    			result.confirm();</span><br><span class="line">    			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="comment">//扩展浏览器上传文件</span></span><br><span class="line">    		<span class="comment">//3.0++版本</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooser</span><span class="params">(ValueCallback&lt;Uri&gt; uploadMsg, String acceptType)</span></span>&#123;</span><br><span class="line">    			openFileChooserImpl(uploadMsg);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">//3.0--版本</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooser</span><span class="params">(ValueCallback&lt;Uri&gt; uploadMsg)</span></span>&#123;</span><br><span class="line">    			openFileChooserImpl(uploadMsg);</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooser</span><span class="params">(ValueCallback&lt;Uri&gt; uploadMsg, String acceptType, String capture)</span></span>&#123;</span><br><span class="line">    			openFileChooserImpl(uploadMsg);</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="comment">// For Android &gt; 5.0</span></span><br><span class="line">    		<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onShowFileChooser</span><span class="params">(WebView webView, ValueCallback&lt;Uri[]&gt; uploadMsg, WebChromeClient.FileChooserParams fileChooserParams)</span></span>&#123;</span><br><span class="line">    			openFileChooserImplForAndroid5(uploadMsg);</span><br><span class="line">    			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    	&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooserImpl</span><span class="params">(ValueCallback&lt;Uri&gt; uploadMsg)</span></span>&#123;</span><br><span class="line">    	mUploadMessage = uploadMsg;</span><br><span class="line">    	Intent i = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">    	i.addCategory(Intent.CATEGORY_OPENABLE);</span><br><span class="line">    	i.setType(<span class="string">"image/*"</span>);</span><br><span class="line">    	startActivityForResult(Intent.createChooser(i, <span class="string">"File Chooser"</span>), FILECHOOSER_RESULTCODE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooserImplForAndroid5</span><span class="params">(ValueCallback&lt;Uri[]&gt; uploadMsg)</span></span>&#123;</span><br><span class="line">    	mUploadMessageForAndroid5 = uploadMsg;</span><br><span class="line">    	Intent contentSelectionIntent = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">    	contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);</span><br><span class="line">    	contentSelectionIntent.setType(<span class="string">"image/*"</span>);</span><br><span class="line"></span><br><span class="line">    	Intent chooserIntent = <span class="keyword">new</span> Intent(Intent.ACTION_CHOOSER);</span><br><span class="line">    	chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);</span><br><span class="line">    	chooserIntent.putExtra(Intent.EXTRA_TITLE, <span class="string">"Image Chooser"</span>);</span><br><span class="line">    	startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE_FOR_ANDORID_5);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(mWebView.canGoBack() &amp;&amp; event.getKeyCode() == KeyEvent.KEYCODE_BACK)&#123;</span><br><span class="line">    		<span class="comment">//获取历史列表</span></span><br><span class="line">    		WebBackForwardList mWebBackForwardList = mWebView.copyBackForwardList();</span><br><span class="line">    		<span class="comment">//判断当前历史列表是否最顶端，其实canGoBack已经判断过</span></span><br><span class="line">    		<span class="keyword">if</span>(mWebBackForwardList.getCurrentIndex() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    			mWebView.goBack();</span><br><span class="line">    			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onKeyDown</span><span class="params">(keyCode, event)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent intent)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(requestCode == FILECHOOSER_RESULTCODE)&#123;</span><br><span class="line">    		<span class="keyword">if</span>(<span class="keyword">null</span> == mUploadMessage)</span><br><span class="line">    			<span class="keyword">return</span>;</span><br><span class="line">    		Uri result = intent == <span class="keyword">null</span> || resultCode != RESULT_OK ? <span class="keyword">null</span> : intent.getData();</span><br><span class="line">    		mUploadMessage.onReceiveValue(result);</span><br><span class="line">    		mUploadMessage = <span class="keyword">null</span>;</span><br><span class="line">    	&#125;<span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(requestCode == FILECHOOSER_RESULTCODE_FOR_ANDORID_5)</span></span>&#123;</span><br><span class="line">    		<span class="keyword">if</span>(<span class="keyword">null</span> == mUploadMessageForAndroid5)</span><br><span class="line">    			<span class="keyword">return</span>;</span><br><span class="line">    		Uri result = (intent == <span class="keyword">null</span> || resultCode != RESULT_OK) ? <span class="keyword">null</span>: intent.getData();</span><br><span class="line">    		<span class="keyword">if</span>(result != <span class="keyword">null</span>)&#123;</span><br><span class="line">    			mUploadMessageForAndroid5.onReceiveValue(<span class="keyword">new</span> Uri[]&#123;result&#125;);</span><br><span class="line">    		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    			mUploadMessageForAndroid5.onReceiveValue(<span class="keyword">new</span> Uri[]&#123;&#125;);</span><br><span class="line">    		&#125;</span><br><span class="line">    		mUploadMessageForAndroid5 = <span class="keyword">null</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Handler <span class="keyword">handler</span> = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    	<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(android.os.Message msg)</span> </span>&#123;<span class="comment">//定义一个Handler， 用于处理下载线程与UI间通讯</span></span><br><span class="line">    		<span class="keyword">if</span>(!Thread.currentThread().isInterrupted())&#123;</span><br><span class="line">    			<span class="keyword">switch</span>(msg.what)&#123;</span><br><span class="line">    			<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    				progressBar.show();<span class="comment">//显示进度框</span></span><br><span class="line">    				<span class="keyword">break</span>;</span><br><span class="line">    			<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    				progressBar.hide();<span class="comment">//隐藏进度对话框不可使用dismiss()、cancel()，否则再次调用show()时,显示的对话框小圆圈不会动</span></span><br><span class="line">    				<span class="keyword">break</span>;</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">super</span>.handleMessage(msg);</span><br><span class="line">    	&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="activity-main-xml的代码"><a href="#activity-main-xml的代码" class="headerlink" title="activity_main.xml的代码"></a>activity_main.xml的代码</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"45dip"</span></span><br><span class="line">        <span class="attr">android:background</span>=<span class="string">"@android:color/darker_gray"</span></span><br><span class="line">        &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ImageButton</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/back"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@android:drawable/ic_delete"</span></span><br><span class="line">            <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span></span><br><span class="line">            /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/title"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"WebViewDemo"</span></span><br><span class="line">            <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span></span><br><span class="line">            <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></span><br><span class="line">            /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">WebView</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/webview"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="最后在AndroidManifest-xml中不要忘记权限"><a href="#最后在AndroidManifest-xml中不要忘记权限" class="headerlink" title="最后在AndroidManifest.xml中不要忘记权限"></a>最后在AndroidManifest.xml中不要忘记权限</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>什么？你告诉我你不喜欢自己写？好吧，我提供源码下载。</p>
+<p><a href="http://7xpj58.com1.z0.glb.clouddn.com/WebViewTest.zip" target="_blank" rel="external">Demo源码下载</a></p>
+<p>到此结束，欢迎提供bug和意见！</p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyuzhao.com/2016/05/19/WebView调用本地的图片选择/" data-id="cja10ejol00136fv2n034cohl" class="article-share-link">Delen</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebView/">WebView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/05/30/编程中的命名设计那点事/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          编程中的命名设计那点事
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/18/Hexo常用命令记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Hexo常用命令记录</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mac/atom/">atom</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAML/">RAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebView/">WebView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dns/">dns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide/">glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grep/">grep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intent/">intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/round/">round</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名/">命名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EditText/" style="font-size: 10px">EditText</a> <a href="/tags/Git/" style="font-size: 10px">Git</a> <a href="/tags/RAML/" style="font-size: 10px">RAML</a> <a href="/tags/WebView/" style="font-size: 10px">WebView</a> <a href="/tags/android/" style="font-size: 20px">android</a> <a href="/tags/atom/" style="font-size: 10px">atom</a> <a href="/tags/dns/" style="font-size: 10px">dns</a> <a href="/tags/english/" style="font-size: 10px">english</a> <a href="/tags/git/" style="font-size: 12.5px">git</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/glide/" style="font-size: 10px">glide</a> <a href="/tags/grep/" style="font-size: 10px">grep</a> <a href="/tags/hexo/" style="font-size: 10px">hexo</a> <a href="/tags/intent/" style="font-size: 10px">intent</a> <a href="/tags/ios/" style="font-size: 10px">ios</a> <a href="/tags/java/" style="font-size: 15px">java</a> <a href="/tags/lint/" style="font-size: 10px">lint</a> <a href="/tags/linux/" style="font-size: 12.5px">linux</a> <a href="/tags/mac/" style="font-size: 17.5px">mac</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/mysql/" style="font-size: 10px">mysql</a> <a href="/tags/ndk/" style="font-size: 10px">ndk</a> <a href="/tags/python/" style="font-size: 12.5px">python</a> <a href="/tags/qq/" style="font-size: 10px">qq</a> <a href="/tags/qt/" style="font-size: 12.5px">qt</a> <a href="/tags/round/" style="font-size: 10px">round</a> <a href="/tags/tools/" style="font-size: 10px">tools</a> <a href="/tags/wechat/" style="font-size: 10px">wechat</a> <a href="/tags/命名/" style="font-size: 10px">命名</a> <a href="/tags/安全/" style="font-size: 10px">安全</a> <a href="/tags/微信/" style="font-size: 10px">微信</a> <a href="/tags/数据库/" style="font-size: 10px">数据库</a> <a href="/tags/缓存/" style="font-size: 10px">缓存</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-常用组件/">iPhone开发-常用组件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/11/Github-安全类Repo收集整理-转载/">Github 安全类Repo收集整理[转载]</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/08/命名规则-阿里巴巴Java开发/">命名规则-阿里巴巴Java开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/升级Xcode后Qt问题了/">升级Xcode后Qt问题了</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/03/gitignore文件不起作用/">.gitignore文件不起作用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 催眠术<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>

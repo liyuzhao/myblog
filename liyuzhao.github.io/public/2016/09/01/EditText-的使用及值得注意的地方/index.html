@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>EditText 的使用及值得注意的地方 | 催眠术的博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="来源：http://www.jianshu.com/p/1f05bb1fde3e作者：张明云（@UperOne）
+
+Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EditText 的使用及值得注意的地方">
+<meta property="og:url" content="http://lyuzhao.com/2016/09/01/EditText-的使用及值得注意的地方/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="来源：http://www.jianshu.com/p/1f05bb1fde3e作者：张明云（@UperOne）
+
+Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。">
+<meta property="og:updated_time" content="2016-09-01T05:05:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EditText 的使用及值得注意的地方">
+<meta name="twitter:description" content="来源：http://www.jianshu.com/p/1f05bb1fde3e作者：张明云（@UperOne）
+
+Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。">
+  
+    <link rel="alternate" href="/atom.xml" title="催眠术的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">催眠术的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyuzhao.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EditText-的使用及值得注意的地方" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/EditText-的使用及值得注意的地方/" class="article-date">
+  <time datetime="2016-09-01T04:54:29.000Z" itemprop="datePublished">2016年09月01日</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      EditText 的使用及值得注意的地方
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>来源：<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="external">http://www.jianshu.com/p/1f05bb1fde3e</a><br>作者：张明云（@UperOne）</p>
+</blockquote>
+<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。</p>
+<a id="more"></a>
+<h3 id="设置默认输入法"><a href="#设置默认输入法" class="headerlink" title="设置默认输入法"></a>设置默认输入法</h3><p>有时候为了提高用户体验，在弹出输入法时需要设置默认的输入状态，比如单词应用弹出输入法时，输入法最好是在英文输入状态下。如果是字典应用，弹出输入法时最好是在中文输入状态下，Android并没有提供设置默认的输入状态的接口，但我们可以通过如下方法一样能够达到想要的效果：</p>
+<h4 id="默认中文："><a href="#默认中文：" class="headerlink" title="默认中文："></a>默认中文：</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mEditText</span><span class="selector-class">.setInputType</span>(<span class="selector-tag">EditorInfo</span><span class="selector-class">.TYPE_CLASS_TEXT</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="默认英文："><a href="#默认英文：" class="headerlink" title="默认英文："></a>默认英文：</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mEditText</span><span class="selector-class">.setInputType</span>(<span class="selector-tag">EditorInfo</span><span class="selector-class">.TYPE_TEXT_VARIATION_URI</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="打开和关闭输入法"><a href="#打开和关闭输入法" class="headerlink" title="打开和关闭输入法"></a>打开和关闭输入法</h3><p>手动控制输入法的开关状态也能提升用户体验，比如：</p>
+<ul>
+<li>有的搜索框会有一个清除按钮，点击清除按钮时就应该弹出输入法，因为用户清除搜索内容的目的多数时候是需要输入新的内容；</li>
+<li>执行搜索时应该隐藏输入法，因为显示输入法时会遮挡搜索结果，用户体验不太好；</li>
+<li>闹钟来时或者有其它window弹出时应该隐藏输入法，因为输入法也是window，如果不隐藏可能导致输入法遮挡住了其它window等用户体验不太友好的问题。</li>
+</ul>
+<h4 id="打开输入法："><a href="#打开输入法：" class="headerlink" title="打开输入法："></a>打开输入法：</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private void open(<span class="built_in">Context</span> <span class="built_in">context</span>, View editText)&#123;</span><br><span class="line">    InputMethodManager inputMethodManager = (InputMethodManager) <span class="built_in">context</span>.getSystemService(<span class="built_in">Context</span>.INPUT_METHOD_SERVICE)<span class="comment">;</span></span><br><span class="line">    inputMethodManager.<span class="keyword">showSoftInput(editText, </span><span class="number">0</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="关闭输入法："><a href="#关闭输入法：" class="headerlink" title="关闭输入法："></a>关闭输入法：</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private void <span class="keyword">close(Context </span><span class="built_in">context</span>, View editText)&#123;</span><br><span class="line">    InputMethodManager inputMethodManager = (InputMethodManager) <span class="built_in">context</span>.getSystemService(<span class="built_in">Context</span>.INPUT_METHOD_SERVICE)<span class="comment">;</span></span><br><span class="line">    inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), <span class="number">0</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="监听EditText的输入状态"><a href="#监听EditText的输入状态" class="headerlink" title="监听EditText的输入状态"></a>监听EditText的输入状态</h3><ul>
+<li>类似新浪微博，在输入内容时会提示还可以输入多少字；</li>
+<li>有的搜索引擎，输入内容时实时显示搜索结果；</li>
+<li>有的输入框有输入长度限制，输入内容超过长度限制时弹出提示信息。</li>
+</ul>
+<p>上面这些都可以通过监听EditText的输入状态来实现，具体实现方式如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mInputEditTxt.addTextChangedListener(<span class="keyword">new</span> TextWatcher() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"监听EditText输入内容的变化，在这里可以监听输入内容的长度。"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"这里可以实现所输即所得，用户输入的同时可以立即在这里根据输入内容执行操作，显示搜索结果！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="监听输入法中的回车按钮"><a href="#监听输入法中的回车按钮" class="headerlink" title="监听输入法中的回车按钮"></a>监听输入法中的回车按钮</h4><p>比如搜狗输入法的右下角有一个回车按钮，我们希望用户点击它时也执行确认功能，可以通过监听EditText的按键点击事件来实现：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * 监听输入法按键</span><br><span class="line">     *</span><br><span class="line">     * */</span></span><br><span class="line">    mInputEditTxt.setOnKeyListener(<span class="keyword">new</span> OnKeyListener() &#123;</span><br><span class="line">        @<span class="function">Override</span><br><span class="line">        <span class="keyword">public</span> boolean <span class="title">onKey</span>(<span class="params">View v, <span class="keyword">int</span> keyCode, KeyEvent <span class="keyword">event</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_ENTER &amp;&amp; <span class="keyword">event</span>.getAction() == KeyEvent.ACTION_UP) &#123;</span><br><span class="line">                System.<span class="keyword">out</span>.println(<span class="string">"手指弹起时执行确认功能"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="改变输入法中回车按钮的显示内容"><a href="#改变输入法中回车按钮的显示内容" class="headerlink" title="改变输入法中回车按钮的显示内容"></a>改变输入法中回车按钮的显示内容</h4><p>如果回车按钮是执行搜索功能，则回车按钮上显示”搜索”，如果是执行发送功能，则显示”发送”,如果是下一步，则显示”下一步”。</p>
+<p>实现这个功能需要调用EditText的setImeOptions方法：<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"><span class="keyword">*</span></span><br><span class="line"><span class="keyword">*</span> IME_ACTION_SEARCH 搜索</span><br><span class="line"><span class="keyword">*</span> IME_ACTION_SEND 发送</span><br><span class="line"><span class="keyword">*</span> IME_ACTION_NEXT 下一步</span><br><span class="line"><span class="keyword">*</span> IME_ACTION_DONE 完成</span><br><span class="line"><span class="keyword">*</span>/</span><br><span class="line">mInputEditTxt.setImeOptions(EditorInfo.IME_ACTION_SEARCH);</span><br></pre></td></tr></table></figure></p>
+<h4 id="限制输入内容"><a href="#限制输入内容" class="headerlink" title="限制输入内容"></a>限制输入内容</h4><p>有时候我们根本就不想用户输入一些杂七杂八的内容，因为这需要程序针对输入的内容做各种处理，如果处理不当还会有好多不可预见的问题，索性在输入内容时就禁止用户输入一些非法字符，这可以通过下面的方式实现，新建一个类InputTxtFilter：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> InputTxtFilter&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INPUT_TYPE_EN = <span class="number">0</span>x01;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INPUT_TYPE_CH = <span class="number">0</span>x02;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] SPELL = <span class="keyword">new</span> String[]&#123;</span><br><span class="line">        <span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>,<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>,<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>,<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>,<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>,</span><br><span class="line">        <span class="string">"ā"</span>,<span class="string">"á"</span>,<span class="string">"ǎ"</span>,<span class="string">"à"</span>,<span class="string">"ō"</span>,<span class="string">"ó"</span>,<span class="string">"ǒ"</span>,<span class="string">"ò"</span>,<span class="string">"ē"</span>,<span class="string">"é"</span>,<span class="string">"ě"</span>,<span class="string">"è"</span>,<span class="string">"ī"</span>,<span class="string">"í"</span>,<span class="string">"ǐ"</span>,<span class="string">"ì"</span>,<span class="string">"ū"</span>,<span class="string">"ú"</span>,<span class="string">"ǔ"</span>,<span class="string">"ù"</span>,<span class="string">"ǖ"</span>,<span class="string">"ǘ"</span>,<span class="string">"ǚ"</span>,<span class="string">"ǜ"</span>,<span class="string">"ü"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">char</span>[] chineseParam = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'」'</span>,<span class="string">'，'</span>,<span class="string">'。'</span>,<span class="string">'？'</span>,<span class="string">'…'</span>,<span class="string">'：'</span>,<span class="string">'～'</span>,<span class="string">'【'</span>,<span class="string">'＃'</span>,<span class="string">'、'</span>,<span class="string">'％'</span>,<span class="string">'＊'</span>,<span class="string">'＆'</span>,<span class="string">'＄'</span>,<span class="string">'（'</span>,<span class="string">'‘'</span>,<span class="string">'’'</span>,<span class="string">'“'</span>,<span class="string">'”'</span>,<span class="string">'『'</span>,<span class="string">'〔'</span>,<span class="string">'｛'</span>,<span class="string">'【'</span></span><br><span class="line">        ,<span class="string">'￥'</span>,<span class="string">'￡'</span>,<span class="string">'‖'</span>,<span class="string">'〖'</span>,<span class="string">'《'</span>,<span class="string">'「'</span>,<span class="string">'》'</span>,<span class="string">'〗'</span>,<span class="string">'】'</span>,<span class="string">'｝'</span>,<span class="string">'〕'</span>,<span class="string">'』'</span>,<span class="string">'”'</span>,<span class="string">'）'</span>,<span class="string">'！'</span>,<span class="string">'；'</span>,<span class="string">'—'</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> InputTxtFilter( )&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> inputFilter( <span class="keyword">final</span> Context context, <span class="keyword">final</span> EditText editText, <span class="keyword">final</span> <span class="keyword">int</span> type, <span class="keyword">final</span> <span class="keyword">int</span> inputLimit)&#123;</span><br><span class="line">        InputFilter[] filters = <span class="keyword">new</span> InputFilter[<span class="number">1</span>];</span><br><span class="line">        filters[<span class="number">0</span>] = <span class="keyword">new</span> InputFilter.LengthFilter(inputLimit)&#123;</span><br><span class="line">            <span class="keyword">public</span> CharSequence filter(CharSequence <span class="keyword">source</span>, <span class="keyword">int</span> start, <span class="keyword">int</span> end, Spanned dest, <span class="keyword">int</span> dstart, <span class="keyword">int</span> dend)&#123;</span><br><span class="line">                <span class="keyword">boolean</span> isRightCharater = <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(type == INPUT_TYPE_EN)&#123;</span><br><span class="line">                    isRightCharater = isLetter(<span class="keyword">source</span>.toString());</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == INPUT_TYPE_CH)&#123;</span><br><span class="line">                    isRightCharater = isChineseWord(<span class="keyword">source</span>.toString());</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> ( !isRightCharater|| dest.toString( ).length( )&gt;=inputLimit )&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">source</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        editText.setFilters(filters);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 检测String是否全是中文</span><br><span class="line">     *</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isChineseWord( String name )&#123;</span><br><span class="line">        <span class="keyword">boolean</span> res=<span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">char</span>[] cTemp = name.toCharArray( );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; name.length( ); i++ )&#123;</span><br><span class="line">            <span class="keyword">if</span>( !isChinese( cTemp[ i ] ) )&#123;</span><br><span class="line">                res=<span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 是否为英文字母</span><br><span class="line">     *</span><br><span class="line">     * */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isLetter( String inputStr )&#123;</span><br><span class="line">        <span class="keyword">char</span>[] inputArray = inputStr.toCharArray( );</span><br><span class="line">        List&lt;String&gt; spellList = Arrays.<span class="keyword">asList</span>( SPELL );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">char</span> input : inputArray )&#123;</span><br><span class="line">            <span class="keyword">if</span>( !spellList.contains( input + <span class="string">""</span> ) )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 判定输入汉字</span><br><span class="line">     * @param c</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isChinese( <span class="keyword">char</span> c )&#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">char</span> param : chineseParam )&#123;</span><br><span class="line">            <span class="keyword">if</span>( param == c )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Character.UnicodeBlock ub = Character.UnicodeBlock.of( c );</span><br><span class="line">        <span class="keyword">if</span> ( ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS</span><br><span class="line">            || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS</span><br><span class="line">            || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A</span><br><span class="line">            || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION</span><br><span class="line">            || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION</span><br><span class="line">            || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS )&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在初始化EditText时，调用InputTxtFilter的inputFilter方法，传入输入长度限制、输入内容的类型限制等即可，eg：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">InputTxtFilter</span><span class="selector-class">.inputFilter</span>(<span class="selector-tag">this</span>, <span class="selector-tag">mInputEditTxt</span>, <span class="selector-tag">InputTxtFilter</span><span class="selector-class">.INPUT_TYPE_EN</span>, 5);</span><br></pre></td></tr></table></figure>
+<h3 id="屏蔽EditText的复制、粘贴功能"><a href="#屏蔽EditText的复制、粘贴功能" class="headerlink" title="屏蔽EditText的复制、粘贴功能"></a>屏蔽EditText的复制、粘贴功能</h3><p>在低版本的Android SDK中，如果对EditText的输入长度有限制时，长按EditText并将选中的内容拖动到EditText输入框中，如果这时候的长度超过了EditText的输入长度限制，程序会直接崩溃掉，在高版本的Android SDK中这个问题已经改了，如果出现上面的情况会直接清空输入框中的内容，为了避免这种讨厌的问题，我们可以屏蔽EditText的复制和粘贴功能，只需要屏蔽EditText的长按响应即可：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 屏蔽复制、粘贴功能</span><br><span class="line">     *</span><br><span class="line">     * */</span></span><br><span class="line">    mInputEditTxt.setCustomSelectionActionModeCallback(<span class="keyword">new</span> ActionMode.Callback() &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onCreateActionMode</span><span class="params">(ActionMode actionMode, Menu menu)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onPrepareActionMode</span><span class="params">(ActionMode actionMode, Menu menu)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onActionItemClicked</span><span class="params">(ActionMode actionMode, MenuItem menuItem)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDestroyActionMode</span><span class="params">(ActionMode mode)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    mInputEditTxt.setLongClickable(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyuzhao.com/2016/09/01/EditText-的使用及值得注意的地方/" data-id="cja10ejnr000c6fv2ktacy85l" class="article-share-link">Delen</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EditText/">EditText</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/09/01/grep-find命令用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          grep &amp;&amp; find命令用法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/29/一句代码搞定-Android-图片压缩/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">一句代码搞定 Android 图片压缩</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mac/atom/">atom</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAML/">RAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebView/">WebView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dns/">dns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide/">glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grep/">grep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intent/">intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/round/">round</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名/">命名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EditText/" style="font-size: 10px">EditText</a> <a href="/tags/Git/" style="font-size: 10px">Git</a> <a href="/tags/RAML/" style="font-size: 10px">RAML</a> <a href="/tags/WebView/" style="font-size: 10px">WebView</a> <a href="/tags/android/" style="font-size: 20px">android</a> <a href="/tags/atom/" style="font-size: 10px">atom</a> <a href="/tags/dns/" style="font-size: 10px">dns</a> <a href="/tags/english/" style="font-size: 10px">english</a> <a href="/tags/git/" style="font-size: 12.5px">git</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/glide/" style="font-size: 10px">glide</a> <a href="/tags/grep/" style="font-size: 10px">grep</a> <a href="/tags/hexo/" style="font-size: 10px">hexo</a> <a href="/tags/intent/" style="font-size: 10px">intent</a> <a href="/tags/ios/" style="font-size: 10px">ios</a> <a href="/tags/java/" style="font-size: 15px">java</a> <a href="/tags/lint/" style="font-size: 10px">lint</a> <a href="/tags/linux/" style="font-size: 12.5px">linux</a> <a href="/tags/mac/" style="font-size: 17.5px">mac</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/mysql/" style="font-size: 10px">mysql</a> <a href="/tags/ndk/" style="font-size: 10px">ndk</a> <a href="/tags/python/" style="font-size: 12.5px">python</a> <a href="/tags/qq/" style="font-size: 10px">qq</a> <a href="/tags/qt/" style="font-size: 12.5px">qt</a> <a href="/tags/round/" style="font-size: 10px">round</a> <a href="/tags/tools/" style="font-size: 10px">tools</a> <a href="/tags/wechat/" style="font-size: 10px">wechat</a> <a href="/tags/命名/" style="font-size: 10px">命名</a> <a href="/tags/安全/" style="font-size: 10px">安全</a> <a href="/tags/微信/" style="font-size: 10px">微信</a> <a href="/tags/数据库/" style="font-size: 10px">数据库</a> <a href="/tags/缓存/" style="font-size: 10px">缓存</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-常用组件/">iPhone开发-常用组件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/11/Github-安全类Repo收集整理-转载/">Github 安全类Repo收集整理[转载]</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/08/命名规则-阿里巴巴Java开发/">命名规则-阿里巴巴Java开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/升级Xcode后Qt问题了/">升级Xcode后Qt问题了</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/03/gitignore文件不起作用/">.gitignore文件不起作用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 催眠术<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>

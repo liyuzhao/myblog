@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python字符串的去除空格函数 字符串的内建函数 | 催眠术的博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="python字符串的去除空格函数 字符串的内建函数
+
+strip 同时去掉左右两边的空格
+lstrip 去掉左边的空格
+rstrip 去掉右边的空格">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python字符串的去除空格函数 字符串的内建函数">
+<meta property="og:url" content="http://lyuzhao.com/2016/08/24/python字符串的去除空格函数-字符串的内建函数/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="python字符串的去除空格函数 字符串的内建函数
+
+strip 同时去掉左右两边的空格
+lstrip 去掉左边的空格
+rstrip 去掉右边的空格">
+<meta property="og:updated_time" content="2016-08-24T15:37:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python字符串的去除空格函数 字符串的内建函数">
+<meta name="twitter:description" content="python字符串的去除空格函数 字符串的内建函数
+
+strip 同时去掉左右两边的空格
+lstrip 去掉左边的空格
+rstrip 去掉右边的空格">
+  
+    <link rel="alternate" href="/atom.xml" title="催眠术的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">催眠术的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyuzhao.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python字符串的去除空格函数-字符串的内建函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/" class="article-date">
+  <time datetime="2016-08-24T15:11:52.000Z" itemprop="datePublished">2016年08月24日</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      python字符串的去除空格函数 字符串的内建函数
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="python字符串的去除空格函数-字符串的内建函数"><a href="#python字符串的去除空格函数-字符串的内建函数" class="headerlink" title="python字符串的去除空格函数 字符串的内建函数"></a>python字符串的去除空格函数 字符串的内建函数</h2><hr>
+<ul>
+<li>strip 同时去掉左右两边的空格</li>
+<li>lstrip 去掉左边的空格</li>
+<li>rstrip 去掉右边的空格</li>
+</ul>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">string.capitalize()</td>
+<td style="text-align:left">把字符串的第一个字符大写</td>
+</tr>
+<tr>
+<td style="text-align:left">string.center(width)</td>
+<td style="text-align:left">返回一个原字符串居中,并使用空格填充至长度width的新字串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.count(str, beg=0, end=len(string))</td>
+<td style="text-align:left">返回str在string里面出现的次数，如果beg或者end指定则返回指定范围内 str 出现的次数</td>
+</tr>
+<tr>
+<td style="text-align:left">string.decode(encoding=’UTF-8’, errors=’strict’)</td>
+<td style="text-align:left">以 encoding 指定的编码格式解码string，如果出错默认报一个 ValueError的异常 ，除非errors 指定的是 ‘ignore’’replace’ string.encode(encoding=’UTF-8’, errors=’strict’)  以 encoding 指定的编码格式编码string，如果出错默认报一个ValueError 的异常，除非 errors指定的是’ignore’或者’replace’</td>
+</tr>
+<tr>
+<td style="text-align:left">string.endswith(obj, beg=0, end=len(string))</td>
+<td style="text-align:left">检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回True,否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.expandtabs(tabsize=8)</td>
+<td style="text-align:left">把字符串string中的tab符号转为空格,默认的空格数tabsize是 8.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.find(str, beg=0, end=len(string))</td>
+<td style="text-align:left">检测str是否包含在 string 中,如果 beg 和 end 指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1</td>
+</tr>
+<tr>
+<td style="text-align:left">string.index(str, beg=0, end=len(string))</td>
+<td style="text-align:left">跟find()方法一样，只不过如果str不在 string中会报一个异常.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isalnum()</td>
+<td style="text-align:left">R如果 string 至少有一个字符并且所有字符都是字母或数字则返回True,否则返回False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isalpha()</td>
+<td style="text-align:left">如果 string 至少有一个字符并且所有字符都是字母则返回 True,否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isdecimal()</td>
+<td style="text-align:left">如果 string 只包含十进制数字则返回True 否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isdigit()</td>
+<td style="text-align:left">如果 string 只包含数字则返回 True 否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.islower()</td>
+<td style="text-align:left">如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isnumeric()</td>
+<td style="text-align:left">如果 string 中只包含数字字符，则返回True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isspace()</td>
+<td style="text-align:left">如果 string 中只包含空格，则返回True，否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.istitle()</td>
+<td style="text-align:left">如果 string 是标题化的(见 title())则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isupper()</td>
+<td style="text-align:left">如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.join(seq)</td>
+<td style="text-align:left">Merges (concatenates)以 string 作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.ljust(width)</td>
+<td style="text-align:left">返回一个原字符串左对齐,并使用空格填充至长度width 的新字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.lower()</td>
+<td style="text-align:left">转换 string 中所有大写字符为小写.</td>
+</tr>
+<tr>
+<td style="text-align:left"><font color="#DC143C">string.lstrip() </font></td>
+<td style="text-align:left"><font color="#DC143C">截掉 string 左边的空格.</font></td>
+</tr>
+<tr>
+<td style="text-align:left">string.partition(str)</td>
+<td style="text-align:left">有点像 find()和 split()的结合体,从 str 出现的第一个位置起,把字符 串string分成一个3元素的元组(string_pre_str,str,strig_post_str),如果 string中不包含str则string_pre_str == string.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.replace(str1, str2,num=string.count(str1))</td>
+<td style="text-align:left">把 string中的str1替换成str2,如果num指定，则替换不超过 num 次.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.rfind(str, beg=0,end=len(string) )</td>
+<td style="text-align:left">类似于 find()函数，不过是从右边开始查找.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.rindex( str, beg=0,end=len(string))</td>
+<td style="text-align:left">类似于 index()，不过是从右边开始.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.rjust(width)</td>
+<td style="text-align:left">返回一个原字符串右对齐,并使用空格填充至长度width 的新字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.rpartition(str)</td>
+<td style="text-align:left">类似于 partition()函数,不过是从右边开始查找.</td>
+</tr>
+<tr>
+<td style="text-align:left"><font color="#DC143C">string.rstrip() </font></td>
+<td style="text-align:left"><font color="#DC143C">          删除 string 字符串末尾的空格.</font></td>
+</tr>
+<tr>
+<td style="text-align:left">string.split(str=””, num=string.count(str))</td>
+<td style="text-align:left">以 str 为分隔符切片string，如果num有指定值，则仅分隔num个子字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.splitlines(num=string.count(‘\n’))</td>
+<td style="text-align:left">按照行分隔，返回一个包含各行作为元素的列表，如果num指定则仅切片 num 个行.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.startswith(obj, beg=0,end=len(string))</td>
+<td style="text-align:left">检查字符串是否是以 obj 开头，是则返回True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查.</td>
+</tr>
+<tr>
+<td style="text-align:left"><font color="#DC143C">string.strip([obj]) </font></td>
+<td style="text-align:left"><font color="#DC143C">    在string 上执行 lstrip()和 rstrip().</font></td>
+</tr>
+<tr>
+<td style="text-align:left">string.swapcase()</td>
+<td style="text-align:left">翻转 string 中的大小写</td>
+</tr>
+<tr>
+<td style="text-align:left">string.title()</td>
+<td style="text-align:left">返回”标题化”的 string,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())</td>
+</tr>
+<tr>
+<td style="text-align:left">string.translate(str, del=””)</td>
+<td style="text-align:left">根据 str 给出的表(包含 256 个字符)转换 string 的字符,要过滤掉的字符放到 del 参数中</td>
+</tr>
+<tr>
+<td style="text-align:left">string.upper()</td>
+<td style="text-align:left">转换 string 中的小写字母为大写</td>
+</tr>
+<tr>
+<td style="text-align:left">string.zfill(width)</td>
+<td style="text-align:left">返回长度为width的字符串,原字符串 string 右对齐,前面填充0</td>
+</tr>
+</tbody>
+</table>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyuzhao.com/2016/08/24/python字符串的去除空格函数-字符串的内建函数/" data-id="cja10ejpc001x6fv2rjbh2kyt" class="article-share-link">Delen</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/08/29/linux之cut用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          linux之cut用法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">知道Android 中Gradle 的这些技巧，提升编译构建速度</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mac/atom/">atom</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAML/">RAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebView/">WebView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dns/">dns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide/">glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grep/">grep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intent/">intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/round/">round</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名/">命名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EditText/" style="font-size: 10px">EditText</a> <a href="/tags/Git/" style="font-size: 10px">Git</a> <a href="/tags/RAML/" style="font-size: 10px">RAML</a> <a href="/tags/WebView/" style="font-size: 10px">WebView</a> <a href="/tags/android/" style="font-size: 20px">android</a> <a href="/tags/atom/" style="font-size: 10px">atom</a> <a href="/tags/dns/" style="font-size: 10px">dns</a> <a href="/tags/english/" style="font-size: 10px">english</a> <a href="/tags/git/" style="font-size: 12.5px">git</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/glide/" style="font-size: 10px">glide</a> <a href="/tags/grep/" style="font-size: 10px">grep</a> <a href="/tags/hexo/" style="font-size: 10px">hexo</a> <a href="/tags/intent/" style="font-size: 10px">intent</a> <a href="/tags/ios/" style="font-size: 10px">ios</a> <a href="/tags/java/" style="font-size: 15px">java</a> <a href="/tags/lint/" style="font-size: 10px">lint</a> <a href="/tags/linux/" style="font-size: 12.5px">linux</a> <a href="/tags/mac/" style="font-size: 17.5px">mac</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/mysql/" style="font-size: 10px">mysql</a> <a href="/tags/ndk/" style="font-size: 10px">ndk</a> <a href="/tags/python/" style="font-size: 12.5px">python</a> <a href="/tags/qq/" style="font-size: 10px">qq</a> <a href="/tags/qt/" style="font-size: 12.5px">qt</a> <a href="/tags/round/" style="font-size: 10px">round</a> <a href="/tags/tools/" style="font-size: 10px">tools</a> <a href="/tags/wechat/" style="font-size: 10px">wechat</a> <a href="/tags/命名/" style="font-size: 10px">命名</a> <a href="/tags/安全/" style="font-size: 10px">安全</a> <a href="/tags/微信/" style="font-size: 10px">微信</a> <a href="/tags/数据库/" style="font-size: 10px">数据库</a> <a href="/tags/缓存/" style="font-size: 10px">缓存</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-常用组件/">iPhone开发-常用组件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/11/Github-安全类Repo收集整理-转载/">Github 安全类Repo收集整理[转载]</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/08/命名规则-阿里巴巴Java开发/">命名规则-阿里巴巴Java开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/升级Xcode后Qt问题了/">升级Xcode后Qt问题了</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/03/gitignore文件不起作用/">.gitignore文件不起作用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 催眠术<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>

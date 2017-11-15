@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>知道Android 中Gradle 的这些技巧，提升编译构建速度 | 催眠术的博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="现在基本上都使用Android Studio 来开发，使用Gradle 构建项目，Gradle 的种种优点，多渠道打包方便，依赖类库统一管理，基于Groovy 的DSL 语言简洁方便。这些好处在我们开发省了我们不少事，但是唯一的问题就是编译构建运行的时候特别慢，甚至是致命的，最后发现加班的时间都浪费在编译构建上（说多了都是泪）。
+下面有几个技巧，让你你的Android Gradle 运行，编译更加">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知道Android 中Gradle 的这些技巧，提升编译构建速度">
+<meta property="og:url" content="http://lyuzhao.com/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="现在基本上都使用Android Studio 来开发，使用Gradle 构建项目，Gradle 的种种优点，多渠道打包方便，依赖类库统一管理，基于Groovy 的DSL 语言简洁方便。这些好处在我们开发省了我们不少事，但是唯一的问题就是编译构建运行的时候特别慢，甚至是致命的，最后发现加班的时间都浪费在编译构建上（说多了都是泪）。
+下面有几个技巧，让你你的Android Gradle 运行，编译更加">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/68622377gw1f480c56owej20z50dedj1.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/68622377gw1f480znt81ij20z50dutd3.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/68622377gw1f480bomjc0j20ry0am42c.jpg">
+<meta property="og:updated_time" content="2016-06-07T07:16:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="知道Android 中Gradle 的这些技巧，提升编译构建速度">
+<meta name="twitter:description" content="现在基本上都使用Android Studio 来开发，使用Gradle 构建项目，Gradle 的种种优点，多渠道打包方便，依赖类库统一管理，基于Groovy 的DSL 语言简洁方便。这些好处在我们开发省了我们不少事，但是唯一的问题就是编译构建运行的时候特别慢，甚至是致命的，最后发现加班的时间都浪费在编译构建上（说多了都是泪）。
+下面有几个技巧，让你你的Android Gradle 运行，编译更加">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/68622377gw1f480c56owej20z50dedj1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="催眠术的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">催眠术的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyuzhao.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-知道Android-中Gradle-的这些技巧，提升编译构建速度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/" class="article-date">
+  <time datetime="2016-06-07T06:58:45.000Z" itemprop="datePublished">2016年06月07日</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      知道Android 中Gradle 的这些技巧，提升编译构建速度
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在基本上都使用Android Studio 来开发，使用Gradle 构建项目，Gradle 的种种优点，多渠道打包方便，依赖类库统一管理，基于Groovy 的DSL 语言简洁方便。这些好处在我们开发省了我们不少事，但是唯一的问题就是编译构建运行的时候特别慢，甚至是致命的，最后发现加班的时间都浪费在编译构建上（说多了都是泪）。</p>
+<p>下面有几个技巧，让你你的Android Gradle 运行，编译更加快速。</p>
+<blockquote>
+<p>原文链接：<a href="http://tikitoo.github.io/2016/05/26/android-studio-gradle-build-run-faster/" target="_blank" rel="external">http://tikitoo.github.io/2016/05/26/android-studio-gradle-build-run-faster/</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><p>因为依赖要从Jcenter/Maven 仓库上下载，但是网络还是时不时地抽风。如果你使用VPN 或者全局代码可以从本地网络配置，就不需要在Android Studio 配置了（好像并没有什么用？）。给Gradle 设置代码需要在根目录的gradle.properties 配置。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 举例ShadowSocket</span></span><br><span class="line">systemProp<span class="selector-class">.http</span><span class="selector-class">.proxyHost</span>=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp<span class="selector-class">.http</span><span class="selector-class">.proxyPort</span>=<span class="number">1080</span></span><br><span class="line">systemProp<span class="selector-class">.https</span><span class="selector-class">.proxyHost</span>=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp<span class="selector-class">.https</span><span class="selector-class">.proxyPort</span>=<span class="number">1080</span></span><br></pre></td></tr></table></figure>
+<p>如果你用ShadowSocket，记得在本地开启。如果你使用其他代理软件，也类似，会有主机和端口。</p>
+<h2 id="更新Gradle-设置离线状态"><a href="#更新Gradle-设置离线状态" class="headerlink" title="更新Gradle,设置离线状态"></a>更新Gradle,设置离线状态</h2><p>Android Studio 的版本一般都跟随着Gradle 的版本，在安装目录的根目录有个gradle 目录，就是最新版，我们可以在设置中打开Gradle，选择Use local gradle distribution，然后选择Gradle 的目录即可，这样就不会每次根据项目中./gradle/xxx 中的gradle 版本每次再下载。理论上Gradle 的版本越新构建运行越快，也只是理论上，所以推荐稳定版的版本。</p>
+<p><img src="http://ww3.sinaimg.cn/large/68622377gw1f480c56owej20z50dedj1.jpg" alt="image"></p>
+<p>如果需要使用命令行编译，可以配置—daemon —parallel —offline。</p>
+<p><img src="http://ww3.sinaimg.cn/large/68622377gw1f480znt81ij20z50dutd3.jpg" alt="image"></p>
+<h2 id="守护进程，并行编译"><a href="#守护进程，并行编译" class="headerlink" title="守护进程，并行编译"></a>守护进程，并行编译</h2><p>在项目的根目录中有一个gradle.properties 文件，<br><img src="http://ww3.sinaimg.cn/large/68622377gw1f480bomjc0j20ry0am42c.jpg" alt="image"></p>
+<p>org.gradle.daemon=true 就是让你让你编译时使用守护进程。</p>
+<p>org.gradle.parallel=true 使用并行编译</p>
+<p>org.gradle.jvmargs=-Xmx2048m JVM最大允许分配的堆内存，按需分配</p>
+<p>-XX:MaxPermSize=512m JVM最大允许分配的非堆内存，按需分配</p>
+<p>当然你也可以在下面的目录下面创建<code>gradle.properties</code>,来配置全局的属性，在所有的项目中起作用。<br>    <code>/home//.gradle/</code>(Linux)<br>    <code>/Users//.gradle/</code>(Mac)<br>    <code>C:\Users\\.gradle</code>(Windows)<br>当然也可以修改xxx\android studio 安装目录\bin\studio64.exe.vmoptions 文件来配置JVM 的相关的参数。</p>
+<p>开发使用SDK=21</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">android </span>&#123;</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">    <span class="class">productFlavors </span>&#123;</span><br><span class="line">        <span class="class">dev </span>&#123;</span><br><span class="line">            minSdkVersion <span class="number">21</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="class">release </span>&#123;</span><br><span class="line">            minSdkVersion <span class="number">14</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们都知道当API 不小于21，使用 ART，在 Build 时只做 class to dex，不做 mergeing dex，会省下大量的时间。</p>
+<h2 id="使用aar依赖"><a href="#使用aar依赖" class="headerlink" title="使用aar依赖"></a>使用aar依赖</h2><p>我们都知道我们或多或少使用第三方的开源库或者工具，还有自己封装的类库，但是一次编译的时候在Library Module 目录下， 打开build/outputs/aar，就有生成的aar 文件。把他放在libs 目录下，在build.gradle 添加。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="decorator">allprojects</span> &#123;</span><br><span class="line">   <span class="decorator">repositories</span> &#123;</span><br><span class="line">      jcenter()</span><br><span class="line">      <span class="decorator">flatDir</span> &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="decorator">dependencies</span> &#123;</span><br><span class="line">    compile(<span class="attribute">name</span>:<span class="string">'cards'</span>, <span class="attribute">ext</span>:<span class="string">'aar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>当然也可以这样添加</strong></p>
+<p>我们可以新建一个jar/aar Module，选择aar 文件，然后新建的Module 目录下，就会多了个build.gradle 和xxx.aar。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">configurations</span>.maybeCreate(<span class="string">"default"</span>)</span><br><span class="line"><span class="keyword">artifacts</span>.add(<span class="string">"default"</span>, <span class="keyword">file</span>(<span class="string">'mylibrary-debug.aar'</span>))</span><br></pre></td></tr></table></figure>
+<p>然后在我们的Module 中这样引用即可。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':mylibrary-debug'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="dexOptions"><a href="#dexOptions" class="headerlink" title="dexOptions"></a>dexOptions</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.0.0-alpha9'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default value: -Xmx10248m -XX:MaxPermSize=256m</span></span><br><span class="line">org.gradle.<span class="attr">jvmargs=-Xmx4g</span> -XX:<span class="attr">MaxPermSize=512m</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">dexOptions</span> &#123;</span><br><span class="line">    <span class="attribute">preDexLibraries</span> <span class="literal">true</span></span><br><span class="line">    javaMaxHeapSize <span class="string">"3g"</span></span><br><span class="line">    incremental <span class="literal">true</span></span><br><span class="line">    dexInProcess = <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里是参考stackoverflow 上的，好像有Bug，作者本人试了Android gradle 的版本至少是2.0.0-alpha9，然后配置一些参数。这里为JVM 设置4G，给Dex 设置3G。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://stackoverflow.com/questions/35224255/to-run-dex-in-process-the-gradle-daemon-needs-a-larger-heap-it-currently-has-9" target="_blank" rel="external">android - To run dex in process, the Gradle daemon needs a larger heap. It currently has 910 MB | Stack Overflow</a></p>
+<p><a href="http://stackoverflow.com/questions/16682847/how-to-manually-include-external-aar-package-using-new-gradle-android-build-syst" target="_blank" rel="external">How to manually include external aar package using new Gradle Android Build System | Stack Overflow</a></p>
+<p><a href="http://www.devtf.cn/?p=585" target="_blank" rel="external">优化android studio编译效率的方法 | 开发技术前线</a></p>
+<p><a href="http://blog.isming.me/2015/03/18/android-build-speed-up/" target="_blank" rel="external">加速Android Studio/Gradle构建 | 码农明明桑</a></p>
+<p><a href="http://stackoverflow.com/questions/21882804/adding-local-aar-files-to-my-gradle-build" target="_blank" rel="external">android - Adding local .aar files to my gradle build | Stack Overflow</a></p>
+<p><a href="http://stormzhang.com/android/2015/03/01/android-reference-local-aar/" target="_blank" rel="external">Android模块化编程之引用本地的aar | Stormzhang</a></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyuzhao.com/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/" data-id="cja10ejq2002p6fv23c9a696x" class="article-share-link">Delen</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          python字符串的去除空格函数 字符串的内建函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/30/编程中的命名设计那点事/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">编程中的命名设计那点事</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mac/atom/">atom</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAML/">RAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebView/">WebView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dns/">dns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide/">glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grep/">grep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intent/">intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/round/">round</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名/">命名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EditText/" style="font-size: 10px">EditText</a> <a href="/tags/Git/" style="font-size: 10px">Git</a> <a href="/tags/RAML/" style="font-size: 10px">RAML</a> <a href="/tags/WebView/" style="font-size: 10px">WebView</a> <a href="/tags/android/" style="font-size: 20px">android</a> <a href="/tags/atom/" style="font-size: 10px">atom</a> <a href="/tags/dns/" style="font-size: 10px">dns</a> <a href="/tags/english/" style="font-size: 10px">english</a> <a href="/tags/git/" style="font-size: 12.5px">git</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/glide/" style="font-size: 10px">glide</a> <a href="/tags/grep/" style="font-size: 10px">grep</a> <a href="/tags/hexo/" style="font-size: 10px">hexo</a> <a href="/tags/intent/" style="font-size: 10px">intent</a> <a href="/tags/ios/" style="font-size: 10px">ios</a> <a href="/tags/java/" style="font-size: 15px">java</a> <a href="/tags/lint/" style="font-size: 10px">lint</a> <a href="/tags/linux/" style="font-size: 12.5px">linux</a> <a href="/tags/mac/" style="font-size: 17.5px">mac</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/mysql/" style="font-size: 10px">mysql</a> <a href="/tags/ndk/" style="font-size: 10px">ndk</a> <a href="/tags/python/" style="font-size: 12.5px">python</a> <a href="/tags/qq/" style="font-size: 10px">qq</a> <a href="/tags/qt/" style="font-size: 12.5px">qt</a> <a href="/tags/round/" style="font-size: 10px">round</a> <a href="/tags/tools/" style="font-size: 10px">tools</a> <a href="/tags/wechat/" style="font-size: 10px">wechat</a> <a href="/tags/命名/" style="font-size: 10px">命名</a> <a href="/tags/安全/" style="font-size: 10px">安全</a> <a href="/tags/微信/" style="font-size: 10px">微信</a> <a href="/tags/数据库/" style="font-size: 10px">数据库</a> <a href="/tags/缓存/" style="font-size: 10px">缓存</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-常用组件/">iPhone开发-常用组件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/11/Github-安全类Repo收集整理-转载/">Github 安全类Repo收集整理[转载]</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/08/命名规则-阿里巴巴Java开发/">命名规则-阿里巴巴Java开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/升级Xcode后Qt问题了/">升级Xcode后Qt问题了</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/03/gitignore文件不起作用/">.gitignore文件不起作用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 催眠术<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
