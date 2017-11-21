@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>http://lyuzhao.com/tags/mysql/</loc>
-        <lastmod>2016-03-20T04:22:13.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://lyuzhao.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
         <lastmod>2016-03-20T04:22:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -227,7 +220,14 @@
 
     <url>
         <loc>http://lyuzhao.com/tags/ios/</loc>
-        <lastmod>2017-11-15T12:14:29.000Z</lastmod>
+        <lastmod>2017-11-15T13:19:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://lyuzhao.com/tags/mysql/</loc>
+        <lastmod>2017-11-16T06:09:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

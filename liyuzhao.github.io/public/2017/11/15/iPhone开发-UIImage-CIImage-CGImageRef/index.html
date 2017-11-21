@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iPhone开发-UIImage,CIImage,CGImageRef | 催眠术的博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。
+12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPhone开发-UIImage,CIImage,CGImageRef">
+<meta property="og:url" content="http://lyuzhao.com/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。
+12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+<meta property="og:updated_time" content="2017-11-15T12:54:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPhone开发-UIImage,CIImage,CGImageRef">
+<meta name="twitter:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。
+12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+  
+    <link rel="alternate" href="/atom.xml" title="催眠术的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">催眠术的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyuzhao.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iPhone开发-UIImage-CIImage-CGImageRef" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" class="article-date">
+  <time datetime="2017-11-15T12:47:08.000Z" itemprop="datePublished">2017年11月15日</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/ios/">ios</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      iPhone开发-UIImage,CIImage,CGImageRef
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>IOS编程揭秘 书中记录着如下一段话。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span>类的Core Graphics</span><br><span class="line">版本是<span class="built_in">CGImage</span>（<span class="built_in">CGImageRef</span>）这两个类之间很容易进行转换，因为一个<span class="built_in">UIImage</span>类有一个<span class="built_in">CGImage</span>的属性“</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="1-创建过程"><a href="#1-创建过程" class="headerlink" title="1.创建过程"></a>1.创建过程</h3><p>UIImage 常规创建过程<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br></pre></td></tr></table></figure></p>
+<p>CGImage的创建过程<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGImageRef imageRef = CGImageCreateWithImageInRect(<span class="built_in">image</span>.CGImage,CGRectMake(<span class="number">0</span>,<span class="number">0</span>,<span class="built_in">size</span>.<span class="built_in">width</span>,<span class="built_in">size</span>.<span class="built_in">height</span>));</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure></p>
+<p>CIImage的创建过程</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"bbg"</span> ofType:<span class="string">@"jpg"</span>];</span><br><span class="line"><span class="built_in">NSURL</span> *myURL = [<span class="built_in">NSURL</span> fileURLWithPath:path];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CIImage</span> *ciImage = [<span class="built_in">CIImage</span> imageWithContentsOfURL:myURL];</span><br></pre></td></tr></table></figure>
+<h3 id="2-相互转换"><a href="#2-相互转换" class="headerlink" title="2.相互转换"></a>2.相互转换</h3><p>UIImage， CGImageRef， CIImage 三者之间可以通过一些联系进行转换</p>
+<h4 id="2-1-UIImage-转换CGImageRef"><a href="#2-1-UIImage-转换CGImageRef" class="headerlink" title="2.1 UIImage 转换CGImageRef"></a>2.1 UIImage 转换CGImageRef</h4><p>UIImage 类当中包含了CGImage的属性，所以很方便地就能转换，方法如下<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-2-CGImageRef-转换UIImage"><a href="#2-2-CGImageRef-转换UIImage" class="headerlink" title="2.2 CGImageRef 转换UIImage"></a>2.2 CGImageRef 转换UIImage</h4><p>UIImage里面包含了一个方法imageWithCGImage，如果知道了CGImage，则这样子也可以创建得到UIIamge类，在上面我们可以看到关系 UIImage 通过属性得到CGImageRef，同样地两者也可以关联起来。</p>
+<p>UIImage—&gt;CGImageRef<br>CGImageRef –&gt; UIImage</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *uiImage =[<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgImage];</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-CIImage-转换CGImageRef"><a href="#2-3-CIImage-转换CGImageRef" class="headerlink" title="2.3 CIImage 转换CGImageRef"></a>2.3 CIImage 转换CGImageRef</h4><p>CIContext 当中有一个方法createCGImage，可以创建得到CGImageRef，换句话可知道CIImage 可以通过其他方式转换CGImageRef<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CIContext</span> *context = [<span class="built_in">CIContext</span> contextWithOptions:<span class="literal">nil</span>];                </span><br><span class="line"> <span class="built_in">CIImage</span> *ciImage = [<span class="built_in">CIImage</span> imageWithContentsOfURL:myURL];                </span><br><span class="line"> filter = [filterWithName:<span class="string">@"CISepiaTone"</span>];            </span><br><span class="line"> [filter setValue:ciImage forKey:k<span class="built_in">CIInputImageKey</span>];</span><br><span class="line"> [filter setValue:@<span class="number">0.8</span>f forKey:k<span class="built_in">CIInputIntensityKey</span>];</span><br><span class="line"> <span class="built_in">CIImage</span> *outputImg = [filter outputImage];   </span><br><span class="line"> <span class="built_in">CGImageRef</span> cgImage = [context create<span class="built_in">CGImage</span>:outputImg fromRect:[outputImg extent]];</span><br></pre></td></tr></table></figure></p>
+<p>最主要的一句<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGImageRef cgImage = [context <span class="string">createCGImage:</span>outputImg <span class="string">fromRect:</span>[outputImg extent]];</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-4-UIImage-转换CIImage"><a href="#2-4-UIImage-转换CIImage" class="headerlink" title="2.4 UIImage 转换CIImage"></a>2.4 UIImage 转换CIImage</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CIImage</span>  *ciImage = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>].CIImage</span><br><span class="line"><span class="built_in">UIImage</span> *image = [[<span class="built_in">UIImage</span> alloc] initWith<span class="built_in">CIImage</span>:ciImage];</span><br></pre></td></tr></table></figure>
+<p>但是采用这种方式转换，CIImage的值会是nil，<br>相反 采用CIImage 的initWithCGImage初始化的方式 则有值，很奇怪<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>];</span><br><span class="line"><span class="built_in">CIImage</span> *ciImage = [[<span class="built_in">CIImage</span> alloc]initWith<span class="built_in">CGImage</span>:image.CGImage];</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，三者都可以实现转换了，通过直接或者间接把他们联系起来。<br>UIImage –&gt; CGImageRef –&gt; CIImage<br>UIImage &lt;– CGImageRef &lt;– CIImage</p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyuzhao.com/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" data-id="cja22t3p9001mjjv29qcw7khc" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/11/15/iPhone开发-GCD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iPhone开发-GCD
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/15/iPhone开发-UILabel/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iPhone开发-UILabel</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mac/atom/">atom</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAML/">RAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebView/">WebView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dns/">dns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide/">glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grep/">grep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intent/">intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/round/">round</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名/">命名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EditText/" style="font-size: 10px">EditText</a> <a href="/tags/Git/" style="font-size: 10px">Git</a> <a href="/tags/RAML/" style="font-size: 10px">RAML</a> <a href="/tags/WebView/" style="font-size: 10px">WebView</a> <a href="/tags/android/" style="font-size: 20px">android</a> <a href="/tags/atom/" style="font-size: 10px">atom</a> <a href="/tags/dns/" style="font-size: 10px">dns</a> <a href="/tags/english/" style="font-size: 10px">english</a> <a href="/tags/git/" style="font-size: 12px">git</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/glide/" style="font-size: 10px">glide</a> <a href="/tags/grep/" style="font-size: 10px">grep</a> <a href="/tags/hexo/" style="font-size: 10px">hexo</a> <a href="/tags/intent/" style="font-size: 10px">intent</a> <a href="/tags/ios/" style="font-size: 18px">ios</a> <a href="/tags/java/" style="font-size: 14px">java</a> <a href="/tags/lint/" style="font-size: 10px">lint</a> <a href="/tags/linux/" style="font-size: 12px">linux</a> <a href="/tags/mac/" style="font-size: 16px">mac</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/mysql/" style="font-size: 12px">mysql</a> <a href="/tags/ndk/" style="font-size: 10px">ndk</a> <a href="/tags/python/" style="font-size: 12px">python</a> <a href="/tags/qq/" style="font-size: 10px">qq</a> <a href="/tags/qt/" style="font-size: 12px">qt</a> <a href="/tags/round/" style="font-size: 10px">round</a> <a href="/tags/tools/" style="font-size: 10px">tools</a> <a href="/tags/wechat/" style="font-size: 10px">wechat</a> <a href="/tags/命名/" style="font-size: 10px">命名</a> <a href="/tags/安全/" style="font-size: 10px">安全</a> <a href="/tags/微信/" style="font-size: 10px">微信</a> <a href="/tags/数据库/" style="font-size: 10px">数据库</a> <a href="/tags/缓存/" style="font-size: 10px">缓存</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/16/MySQL常用命令总结/">MySQL常用命令总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-Keyboard/">iPhone开发-Keyboard</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-GCD/">iPhone开发-GCD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">iPhone开发-UIImage,CIImage,CGImageRef</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/iPhone开发-UILabel/">iPhone开发-UILabel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 催眠术<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
