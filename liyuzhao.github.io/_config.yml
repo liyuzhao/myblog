@@ -27,8 +27,8 @@ category_dir: categories  #分类文件夹
 code_dir: downloads/code  #Include code文件夹
 i18n_dir: :lang #国际化文件夹
 skip_render: #跳过指定文件的渲染，您可使用 glob 来配置路径
-	- README.md
-	- CNAME
+  - README.md
+  - CNAME
 
 # Writing 文章布局、写作格式的定义，不修改
 new_post_name: :title.md # File name of new posts
@@ -86,8 +86,26 @@ disqus_shortname:
 # Extensions 这里配置站点所用主题和插件，暂默认，后面会介绍怎么修改
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape  #landscape or next
+theme: yilia  #landscape or next
 
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
 
 # Deployment 站点部署到github要配置
 ## Docs: https://hexo.io/docs/deployment.html
