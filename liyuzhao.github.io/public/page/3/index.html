@@ -155,30 +155,29 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-glide的简单用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iPhone开发-GCD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/29/glide的简单用法/">glide的简单用法</a>
+      <a class="article-title" href="/2017/11/15/iPhone开发-GCD/">iPhone开发-GCD</a>
     </h1>
   
 
         
-        <a href="/2016/08/29/glide的简单用法/" class="archive-article-date">
-  	<time datetime="2016-08-29T12:15:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月29日</time>
+        <a href="/2017/11/15/iPhone开发-GCD/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先需要在app的build.gradle中加入<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:+'</span></span><br></pre></td></tr></table></figure></p>
-<p>注：”+”表示始终请求最新版</p>
+        <p>一些常用的API</p>
         
-          <a class="article-more-a" href="/2016/08/29/glide的简单用法/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-GCD/#more">more >></a>
         
       
 
@@ -192,7 +191,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">glide</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
         		</li>
       		
 		</ul>
@@ -204,7 +203,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
         		</li>
       		
 		</ul>
@@ -213,7 +212,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/29/glide的简单用法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-GCD/">展开全文 >></a>
         </p>
       
 
@@ -243,29 +242,752 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Git忽略文件-ignore模板（Android-Studio）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iPhone开发-UIImage-CIImage-CGImageRef" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/29/Git忽略文件-ignore模板（Android-Studio）/">Git忽略文件.ignore模板（Android Studio）</a>
+      <a class="article-title" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">iPhone开发-UIImage,CIImage,CGImageRef</a>
     </h1>
   
 
         
-        <a href="/2016/08/29/Git忽略文件-ignore模板（Android-Studio）/" class="archive-article-date">
-  	<time datetime="2016-08-29T12:06:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月29日</time>
+        <a href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Git忽略文件-ignore模板（Android-Studio）"><a href="#Git忽略文件-ignore模板（Android-Studio）" class="headerlink" title="Git忽略文件.ignore模板（Android Studio）"></a>Git忽略文件.ignore模板（Android Studio）</h4>
+        <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>IOS编程揭秘 书中记录着如下一段话。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span>类的Core Graphics</span><br><span class="line">版本是<span class="built_in">CGImage</span>（<span class="built_in">CGImageRef</span>）这两个类之间很容易进行转换，因为一个<span class="built_in">UIImage</span>类有一个<span class="built_in">CGImage</span>的属性“</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2016/08/29/Git忽略文件-ignore模板（Android-Studio）/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iPhone开发-UILabel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/iPhone开发-UILabel/">iPhone开发-UILabel</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/15/iPhone开发-UILabel/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:38:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UILable 的用法涉及内容有如下</p>
+<ol>
+<li>创建与显示</li>
+<li>文本内容和字体设置</li>
+<li>背景颜色指定</li>
+<li>计算高度。</li>
+<li>行数指定和计算</li>
+</ol>
+<p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
+<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
+<p>下面计算一下高度，当采用默认字体的时候，字体号为17，其高度约为20, 字体为14的时候，高度约为16~17之间</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">字体号：<span class="number">17</span> ，文本高：<span class="number">20</span></span><br><span class="line">字体号：<span class="number">16</span> ，文本高：<span class="number">19</span></span><br><span class="line">字体号：<span class="number">15</span> ，文本高：<span class="number">17</span>~<span class="number">18</span> 之间</span><br><span class="line">字体号：<span class="number">14</span>， 文本高：<span class="number">16</span>~<span class="number">17</span> 之间</span><br></pre></td></tr></table></figure>
+<p>这些字体是默认字体，要是采用其他字体或者设置粗体 ，估计值会受到一些浮动影响。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> getTextHeight:<span class="number">17</span> width:<span class="keyword">self</span>.view.frame.size.width<span class="number">-85</span>];   </span><br><span class="line">-(<span class="keyword">void</span>) getTextHeight:(<span class="built_in">CGFloat</span>) fontSize width:(<span class="built_in">CGFloat</span>) textWidth</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic =@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    <span class="built_in">CGSize</span> curSize = <span class="built_in">CGSizeMake</span>(textWidth, MAXFLOAT);</span><br><span class="line">    <span class="built_in">CGRect</span> rect =   [<span class="keyword">self</span>.label.text boundingRectWithSize:curSize</span><br><span class="line">                                                  options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>|<span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                               attributes:dic context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="built_in">NSStringFromCGRect</span>(rect);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-UILabel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iPhone开发-leftBarButtonItem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/iPhone开发-leftBarButtonItem/">iPhone开发-leftBarButtonItem</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/15/iPhone开发-leftBarButtonItem/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:27:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-设置leftBarButtonItem的文字"><a href="#1-设置leftBarButtonItem的文字" class="headerlink" title="1.设置leftBarButtonItem的文字"></a>1.设置leftBarButtonItem的文字</h3><p>在设置 leftBarButtonItem的时候，又会少了一个左箭头。</p>
+<p>一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]<span class="string">initWithTitle:</span>@<span class="string">"返回"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self  <span class="string">action:</span><span class="meta">@selector</span>(onSelect)];</span><br></pre></td></tr></table></figure></p>
+<p>一般情况下，自定义 UIBarButtonItem 使用设置图片有如下，但发现文本不能设置显示了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIBarButtonItem alloc]</span><span class="selector-tag">initWithImage</span><span class="selector-pseudo">:image</span> <span class="selector-tag">style</span><span class="selector-pseudo">:UIBarButtonItemStylePlain</span> <span class="selector-tag">target</span><span class="selector-pseudo">:self</span></span><br><span class="line">                                   <span class="selector-tag">action</span>:@<span class="keyword">selector</span>(<span class="keyword">onSelect</span>)];</span><br></pre></td></tr></table></figure></p>
+<p>还有一种方式，既有文本又有左箭头的需求，只能使用下面这种方式，自定义一个按钮视图。<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="name">UIBarButtonItem</span> alloc]initWithCustomView:backButton]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>问题前提： 使用pushViewController的时候，该界面返回情况会默认是上一级的标题， 更改文字，又会对本身产生影响。原本意图很简单，就是想设置自己的文字，又想有左箭头。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self.navigationController </span><span class="keyword">pushViewController:cityController </span>animated:YES]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-leftBarButtonItem/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-leftBarButtonItem/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iPhone开发-截屏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/iPhone开发-截屏/">iPhone开发-截屏</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/15/iPhone开发-截屏/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:23:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iPhone 截屏并本地存储</p>
+<p>使用UIGraphicsBeginImageContext 相关绘图API 获取到图像信息，使用UIImageWriteToSavedPhotosAlbum 方法就可以保存到相关的库里面去</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIWindow</span> *window =[<span class="built_in">UIApplication</span> sharedApplication].keyWindow;</span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContext</span>(window.frame.size);</span><br><span class="line">[window.layer renderInContext:<span class="built_in">UIGraphicsGetCurrentContext</span>()];</span><br><span class="line"><span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"><span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(image, <span class="keyword">self</span>, <span class="keyword">@selector</span>(image:didFinishSavingWithError:contextInfo:), <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) image:(<span class="built_in">UIImage</span> *) image didFinishSavingWithError:(<span class="built_in">NSError</span> *) error contextInfo:(<span class="keyword">void</span> *) contextInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"保存失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIAlertView</span> *alertView = [[<span class="built_in">UIAlertView</span> alloc]initWithTitle:<span class="string">@"提示"</span> message:<span class="string">@"保存成功！"</span> delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"确定"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">        [alertView show];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-截屏/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iPhone开发-常用组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/iPhone开发-常用组件/">iPhone开发-常用组件</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/15/iPhone开发-常用组件/" class="archive-article-date">
+  	<time datetime="2017-11-15T09:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-UIButton"><a href="#1-UIButton" class="headerlink" title="1. UIButton"></a>1. UIButton</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">80</span>, <span class="number">40</span>);</span><br><span class="line"><span class="built_in">UIButton</span> *button = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeRoundedRect</span>];</span><br><span class="line">button.frame = frame;</span><br><span class="line">[button setTitle:<span class="string">@"click"</span> forState: <span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">button.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">[button addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(buttonClicked:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:button];</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) buttonClicked:(<span class="built_in">UIButton</span> *)button</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//添加code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-UIAlertView"><a href="#2-UIAlertView" class="headerlink" title="2. UIAlertView"></a>2. UIAlertView</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIAlertView *alert = [[UIAlertView alloc]<span class="string">initWithTitle:</span>@<span class="string">"标题"</span> <span class="string">message:</span>@<span class="string">"你的内存已满"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"取消"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">   [alert show];</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-常用组件/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-常用组件/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Github-安全类Repo收集整理-转载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/11/Github-安全类Repo收集整理-转载/">Github 安全类Repo收集整理[转载]</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/11/Github-安全类Repo收集整理-转载/" class="archive-article-date">
+  	<time datetime="2017-09-11T03:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年09月11日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>漏洞及渗透练习平台：<br>WebGoat漏洞练习环境<br><a href="https://github.com/WebGoat/WebGoat" target="_blank" rel="noopener">https://github.com/WebGoat/WebGoat</a><br><a href="https://github.com/WebGoat/WebGoat-Legacy" target="_blank" rel="noopener">https://github.com/WebGoat/WebGoat-Legacy</a><br>Damn Vulnerable Web Application(漏洞练习平台)<br><a href="https://github.com/RandomStorm/DVWA" target="_blank" rel="noopener">https://github.com/RandomStorm/DVWA</a><br>数据库注入练习平台<br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br>用node编写的漏洞练习平台，like OWASP Node Goat<br><a href="https://github.com/cr0hn/vulnerable-node" target="_blank" rel="noopener">https://github.com/cr0hn/vulnerable-node</a></p>
+        
+          <a class="article-more-a" href="/2017/09/11/Github-安全类Repo收集整理-转载/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/github//" class="article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/11/Github-安全类Repo收集整理-转载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-命名规则-阿里巴巴Java开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/08/命名规则-阿里巴巴Java开发/">命名规则-阿里巴巴Java开发</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/08/命名规则-阿里巴巴Java开发/" class="archive-article-date">
+  	<time datetime="2017-08-08T03:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年08月08日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例： <em>name / __name / $Object / name</em> / name$ / Object$</li>
+</ol>
+        
+          <a class="article-more-a" href="/2017/08/08/命名规则-阿里巴巴Java开发/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/08/命名规则-阿里巴巴Java开发/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-升级Xcode后Qt问题了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/23/升级Xcode后Qt问题了/">升级Xcode后Qt问题了</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/23/升级Xcode后Qt问题了/" class="archive-article-date">
+  	<time datetime="2017-01-23T06:21:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年01月23日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>升级XCode后，Qt新建项目出现了问题：</p>
+<p>  <code>Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.</code></p>
+        
+          <a class="article-more-a" href="/2017/01/23/升级Xcode后Qt问题了/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">qt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/qt//" class="article-tag-list-link color3">qt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/23/升级Xcode后Qt问题了/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-gitignore文件不起作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/03/gitignore文件不起作用/">.gitignore文件不起作用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/03/gitignore文件不起作用/" class="archive-article-date">
+  	<time datetime="2017-01-03T07:38:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年01月03日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，<br>但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。</p>
+        
+          <a class="article-more-a" href="/2017/01/03/gitignore文件不起作用/#more">more >></a>
         
       
 
@@ -300,740 +1022,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/29/Git忽略文件-ignore模板（Android-Studio）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux命令wc的详细用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/29/Linux命令wc的详细用法/">Linux命令wc的详细用法</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/29/Linux命令wc的详细用法/" class="archive-article-date">
-  	<time datetime="2016-08-29T08:59:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月29日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>wc命令用来打印文件的文本行数、单词数、字节数等（print the number of newlines, words, and bytes in files）。在Windows的Word中有个“字数统计”的工具，可以帮我们把选中范围的字数、字符数统计出来。Linux下的wc命令可以实现这个 功能。使用vi打开文件的时候，底下的信息也会显示行数和字节数。</p>
-        
-          <a class="article-more-a" href="/2016/08/29/Linux命令wc的详细用法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/29/Linux命令wc的详细用法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux之cut用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/29/linux之cut用法/">linux之cut用法</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/29/linux之cut用法/" class="archive-article-date">
-  	<time datetime="2016-08-29T08:10:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月29日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>cut是一个选取命令，就是将一段数据经过分析，取出我们想要的。一般来说，选取信息通常是针对“行”来进行分析的，并不是整篇信息分析的。</p>
-        
-          <a class="article-more-a" href="/2016/08/29/linux之cut用法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/29/linux之cut用法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python字符串的去除空格函数-字符串的内建函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/">python字符串的去除空格函数 字符串的内建函数</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/" class="archive-article-date">
-  	<time datetime="2016-08-24T15:11:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月24日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="python字符串的去除空格函数-字符串的内建函数"><a href="#python字符串的去除空格函数-字符串的内建函数" class="headerlink" title="python字符串的去除空格函数 字符串的内建函数"></a>python字符串的去除空格函数 字符串的内建函数</h2><hr>
-<ul>
-<li>strip 同时去掉左右两边的空格</li>
-<li>lstrip 去掉左边的空格</li>
-<li>rstrip 去掉右边的空格</li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/24/python字符串的去除空格函数-字符串的内建函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-知道Android-中Gradle-的这些技巧，提升编译构建速度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/">知道Android 中Gradle 的这些技巧，提升编译构建速度</a>
-    </h1>
-  
-
-        
-        <a href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/" class="archive-article-date">
-  	<time datetime="2016-06-07T06:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年06月07日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>现在基本上都使用Android Studio 来开发，使用Gradle 构建项目，Gradle 的种种优点，多渠道打包方便，依赖类库统一管理，基于Groovy 的DSL 语言简洁方便。这些好处在我们开发省了我们不少事，但是唯一的问题就是编译构建运行的时候特别慢，甚至是致命的，最后发现加班的时间都浪费在编译构建上（说多了都是泪）。</p>
-<p>下面有几个技巧，让你你的Android Gradle 运行，编译更加快速。</p>
-<blockquote>
-<p>原文链接：<a href="http://tikitoo.github.io/2016/05/26/android-studio-gradle-build-run-faster/" target="_blank" rel="noopener">http://tikitoo.github.io/2016/05/26/android-studio-gradle-build-run-faster/</a></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/07/知道Android-中Gradle-的这些技巧，提升编译构建速度/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-编程中的命名设计那点事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/编程中的命名设计那点事/">编程中的命名设计那点事</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/30/编程中的命名设计那点事/" class="archive-article-date">
-  	<time datetime="2016-05-30T04:56:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年05月30日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="编程中的命名设计那点事"><a href="#编程中的命名设计那点事" class="headerlink" title="编程中的命名设计那点事"></a>编程中的命名设计那点事</h1><p>在我开始设计系统的时候，我会花去很多时间去设计命名，因为好的命名和好的设计是分不开的。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In <span class="keyword">the</span> beginning was <span class="keyword">the</span> Word, <span class="keyword">and</span> <span class="keyword">the</span> Word was <span class="keyword">with</span> God, <span class="keyword">and</span> <span class="keyword">the</span> Word was God</span><br><span class="line">太初有道。道与神同在，道就是神。 (约翰福音第一章，第一节)</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2016/05/30/编程中的命名设计那点事/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">命名</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/30/编程中的命名设计那点事/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WebView调用本地的图片选择" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/19/WebView调用本地的图片选择/">WebView调用本地的图片选择</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/19/WebView调用本地的图片选择/" class="archive-article-date">
-  	<time datetime="2016-05-19T08:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年05月19日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Android中WebView调用本地图片选择器"><a href="#Android中WebView调用本地图片选择器" class="headerlink" title="Android中WebView调用本地图片选择器"></a>Android中WebView调用本地图片选择器</h2><hr>
-<p>默认的情况下WebView是不能调用本地图片选择器的，Android的默认浏览器是支持的，因此我可以断定这是完全能做到的</p>
-<p>在做的过程中，确实遇到了一些问题，开始以为是特殊手机原因，后来调查才确定是AndroidSDK的版本问题</p>
-<ul>
-<li>Android 3.0 以前的版本</li>
-<li>Android 3.x 版本</li>
-<li>Android 4.x 版本</li>
-<li>Android 5.x 版本</li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/05/19/WebView调用本地的图片选择/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WebView</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/19/WebView调用本地的图片选择/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hexo常用命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/Hexo常用命令记录/">Hexo常用命令记录</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/18/Hexo常用命令记录/" class="archive-article-date">
-  	<time datetime="2016-05-18T10:24:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年05月18日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hexo常用命令记录"><a href="#Hexo常用命令记录" class="headerlink" title="Hexo常用命令记录"></a>Hexo常用命令记录</h1><p>由于博客是用的hexo, 方便以后忘记来此查询</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> #新建文章</span><br><span class="line">hexo new<span class="built_in"> page </span><span class="string">"pageName"</span> #新建页面</span><br><span class="line">hexo new draft <span class="string">"draftName"</span> #新建草稿</span><br><span class="line">hexo publish draft <span class="string">"draftName"</span> #草稿变成正文</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo<span class="built_in"> server </span>#开启预览(可以访问localhost:4000)</span><br><span class="line">hexo deploy #部署到github, gitcafe等</span><br></pre></td></tr></table></figure>
-<p>简写命令</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attribute">hexo</span> n <span class="comment">#新生成</span></span><br><span class="line">hexo g <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo s <span class="comment">#开启预览(可以访问localhost:4000)</span></span><br><span class="line">hexo d <span class="comment">#部署</span></span><br><span class="line"></span><br><span class="line">hexo d -g <span class="comment">#重新生成并发布</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官方文档</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/18/Hexo常用命令记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-iOS打开手机QQ与指定聊天界面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/15/Android-iOS打开手机QQ与指定聊天界面/">Android,iOS打开手机QQ与指定聊天界面</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/15/Android-iOS打开手机QQ与指定聊天界面/" class="archive-article-date">
-  	<time datetime="2016-04-15T02:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年04月15日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Android，iOS打开手机QQ与指定聊天界面"><a href="#Android，iOS打开手机QQ与指定聊天界面" class="headerlink" title="Android，iOS打开手机QQ与指定聊天界面"></a>Android，iOS打开手机QQ与指定聊天界面</h3><blockquote>
-<p>在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。<br>在移动端可以使用schema模式来启动手机QQ。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2016/04/15/Android-iOS打开手机QQ与指定聊天界面/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">qq</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">intent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/15/Android-iOS打开手机QQ与指定聊天界面/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/01/03/gitignore文件不起作用/">展开全文 >></a>
         </p>
       
 
@@ -1065,7 +1054,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1077,7 +1066,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 催眠术
+    		&copy; 2019 催眠术
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1175,6 +1164,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qq</a>
               </li>
              
@@ -1183,7 +1176,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">jni</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,11 +1224,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,7 +1240,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,6 +1272,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
@@ -1271,7 +1284,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1283,11 +1296,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">process</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">apk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">backup</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1364,26 +1397,6 @@ var _hmt = _hmt || [];
           
             <li class="search-li">
               <a href="http://www.cnblogs.com/liyuzhao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>博客园</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>

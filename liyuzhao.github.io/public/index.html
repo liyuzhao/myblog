@@ -155,211 +155,30 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Gyp-学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JNI-异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Gyp-学习记录/">Gyp-学习记录</a>
+      <a class="article-title" href="/2019/01/04/JNI-异常处理/">JNI-异常处理</a>
     </h1>
   
 
         
-        <a href="/2017/12/25/Gyp-学习记录/" class="archive-article-date">
-  	<time datetime="2017-12-25T12:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年12月25日</time>
+        <a href="/2019/01/04/JNI-异常处理/" class="archive-article-date">
+  	<time datetime="2019-01-04T04:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019年01月04日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Gyp 学习记录</p>
-<p>GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。</p>
-<h5 id="gyp简述"><a href="#gyp简述" class="headerlink" title="gyp简述"></a>gyp简述</h5><p>GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。</p>
-<p>gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj。</p>
+        <h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4><p>JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。<br>
         
-          <a class="article-more-a" href="/2017/12/25/Gyp-学习记录/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/04/JNI-异常处理/#more">more >></a>
         
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gyp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/25/Gyp-学习记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于Android中软键盘与布局的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/05/关于Android中软键盘与布局的问题/">关于Android中软键盘与布局的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/05/关于Android中软键盘与布局的问题/" class="archive-article-date">
-  	<time datetime="2017-12-05T09:28:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年12月05日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>当在Android的layout设计里面如果输入框过多，则在输入弹出软键盘的时候，下面的输入框会有一部分被软件盘挡住，从而不能获取焦点输入。</p>
-</blockquote>
-<p><strong>解决办法：</strong></p>
-<p>方法一、在Activity中的onCreate中setContentView之前写上如下代码</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getWindow</span><span class="params">()</span></span>.setSoftInputMode(WindowManager<span class="selector-class">.LayoutParams</span><span class="selector-class">.SOFT_INPUT_ADJUST_PAN</span>)</span><br></pre></td></tr></table></figure>
-<p>方法二、在项目的AndroidManifest.xml文件中界面对应<activity>里加上 <code>android:windowSoftInputMode=&quot;stateVisible|adjustResize&quot;</code>,这样会让屏幕整体上移。如果加上的是<code>android:windowSoftInputMode=&quot;adjustPan&quot;</code>这样键盘就会覆盖屏幕。</activity></p>
-<p>方法三、把顶级的layout替换为ScrollView, 或者在顶级的layout外再嵌套一层ScrollView。这样页面就可以一起滚动了，软键盘会一直处于底部。</p>
-<p><strong>注意：</strong> 方法一和二应该是同一种方法，只不过一个是在代码中实现一个是在xml中实现。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">keyboard</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/05/关于Android中软键盘与布局的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android中通过反射获取资源ID" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/05/Android中通过反射获取资源ID/">Android中通过反射获取资源ID</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/05/Android中通过反射获取资源ID/" class="archive-article-date">
-  	<time datetime="2017-12-05T09:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年12月05日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>某些时候，自己把代码打包成工具jar包，但jar包中可能引用到res中的资源，这时候不能将资源一起打包，只能通过反射机制动态获取</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过反射获取组件的id号</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> getCompentID(<span class="keyword">String</span> packageName, <span class="keyword">String</span> className,<span class="keyword">String</span> idName) &#123;</span><br><span class="line">	<span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">try</span> &#123;</span><br><span class="line">		Class&lt;?&gt; cls = Class.forName(packageName + <span class="string">".R$"</span> + className);</span><br><span class="line">		id = cls.getField(idName).getInt(cls);</span><br><span class="line">	&#125; <span class="built_in">catch</span> (Exception e) &#123;</span><br><span class="line">		LogUtil.LogPrint(LogUtil.LOG_ERROR, <span class="string">"缺少"</span> + idName + <span class="string">"文件!"</span>);</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -374,6 +193,14 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jni</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -393,7 +220,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/05/Android中通过反射获取资源ID/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/04/JNI-异常处理/">展开全文 >></a>
         </p>
       
 
@@ -423,30 +250,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iOS设置AppIcon-LauncherImages尺寸和位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JNI-数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/">iOS设置AppIcon&amp;LauncherImages尺寸和位置</a>
+      <a class="article-title" href="/2019/01/03/JNI-数据类型/">JNI-数据类型</a>
     </h1>
   
 
         
-        <a href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" class="archive-article-date">
-  	<time datetime="2017-12-05T08:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年12月05日</time>
+        <a href="/2019/01/03/JNI-数据类型/" class="archive-article-date">
+  	<time datetime="2019-01-03T09:36:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019年01月03日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="iOS-AppIcon图标布局及尺寸"><a href="#iOS-AppIcon图标布局及尺寸" class="headerlink" title="iOS AppIcon图标布局及尺寸"></a>iOS AppIcon图标布局及尺寸</h3><hr>
-<h4 id="AppIcon图标尺寸："><a href="#AppIcon图标尺寸：" class="headerlink" title="AppIcon图标尺寸："></a>AppIcon图标尺寸：</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1024</span>px*<span class="number">1024</span>px     <span class="number">180</span>px*<span class="number">180</span>px    <span class="number">120</span>px*<span class="number">120</span>px  <span class="number">87</span>px*<span class="number">87</span>px  <span class="number">80</span>px*<span class="number">80</span>px   <span class="number">60</span>px*<span class="number">60</span>px  <span class="number">58</span>px*<span class="number">58</span>px    <span class="number">40</span>px*<span class="number">40</span>px</span><br></pre></td></tr></table></figure>
+        <h3 id="JNI的数据类型"><a href="#JNI的数据类型" class="headerlink" title="JNI的数据类型"></a>JNI的数据类型</h3><p>Java 中有两种数据类型：</p>
+<ul>
+<li>基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。</li>
+<li>引用类型：字符串类型、数组类及其他类。</li>
+</ul>
         
-          <a class="article-more-a" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/03/JNI-数据类型/#more">more >></a>
         
       
 
@@ -460,7 +290,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">appicon</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jni</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -472,7 +310,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
         		</li>
       		
 		</ul>
@@ -481,7 +319,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/03/JNI-数据类型/">展开全文 >></a>
         </p>
       
 
@@ -511,29 +349,38 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MySQL常用命令总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Android-NDK结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/16/MySQL常用命令总结/">MySQL常用命令总结</a>
+      <a class="article-title" href="/2018/12/28/Android-NDK结构/">Android-NDK结构</a>
     </h1>
   
 
         
-        <a href="/2017/11/16/MySQL常用命令总结/" class="archive-article-date">
-  	<time datetime="2017-11-16T04:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月16日</time>
+        <a href="/2018/12/28/Android-NDK结构/" class="archive-article-date">
+  	<time datetime="2018-12-28T03:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月28日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、连接MYSQL"><a href="#一、连接MYSQL" class="headerlink" title="一、连接MYSQL"></a>一、连接MYSQL</h3><p>格式： mysql -h主机地址 -u用户名 －p用户密码<br>或者： mysql -u 用户名 -p // 回车后要求输入密码，密码不可见</p>
+        <h3 id="Android-NDK-的结构"><a href="#Android-NDK-的结构" class="headerlink" title="Android NDK 的结构"></a>Android NDK 的结构</h3><ul>
+<li>ndk-build: 该shell脚本是Android NDK构建系统的起始点。</li>
+<li>ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。</li>
+<li>ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪</li>
+<li>build: 该目录包含了Android NDK构建系统的所有模块。</li>
+<li>platforms: 该目录包含了支持不同Android目标版本的头文件和库文件。</li>
+<li>samples: 该目录包含了一些示例应用程序，这些程序可以体现Android NDK的性能。</li>
+<li>sources: 该目录包含了可供开发人员导入到现有的Android NDK项目的一些共享模块。</li>
+<li>toolchains: 该目录包含目录Android NDK支持的不用目标机体系结构的交叉编译器。Android NDK目前支持ARM、X86 和MIPS机体系结构。Android NDK 构建系统根据选定的体系结构使用不同的交叉编译器。</li>
+</ul>
         
-          <a class="article-more-a" href="/2017/11/16/MySQL常用命令总结/#more">more >></a>
+          <a class="article-more-a" href="/2018/12/28/Android-NDK结构/#more">more >></a>
         
       
 
@@ -547,7 +394,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ndk</a>
         		</li>
       		
 		</ul>
@@ -559,7 +410,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/mysql//" class="article-tag-list-link color1">mysql</a>
+        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
         		</li>
       		
 		</ul>
@@ -568,7 +419,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/16/MySQL常用命令总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/28/Android-NDK结构/">展开全文 >></a>
         </p>
       
 
@@ -598,31 +449,30 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iPhone开发-Keyboard" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-linux下查看监听端口对应的进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iPhone开发-Keyboard/">iPhone开发-Keyboard</a>
+      <a class="article-title" href="/2018/12/10/linux下查看监听端口对应的进程/">linux下查看监听端口对应的进程</a>
     </h1>
   
 
         
-        <a href="/2017/11/15/iPhone开发-Keyboard/" class="archive-article-date">
-  	<time datetime="2017-11-15T13:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+        <a href="/2018/12/10/linux下查看监听端口对应的进程/" class="archive-article-date">
+  	<time datetime="2018-12-10T04:54:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>文本经常需要和键盘打交道，现在记录一下初步的键盘相关的知识点。<br>键盘出现和消失促发两个消息。</p>
-<p>UIKeyboardWillShowNotification （出现通知）<br>UIKeyboardWillHideNotification （隐藏通知）</p>
-<p>NSNotificationCenter 监听两个消息即可捕捉到键盘弹出和隐藏的两个消息。</p>
+        <h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><h5 id="1-通过lsof命令查看PID"><a href="#1-通过lsof命令查看PID" class="headerlink" title="1.通过lsof命令查看PID"></a>1.通过lsof命令查看PID</h5><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[root@test <span class="keyword">proc</span>]#<span class="title"> lsof</span> -Pnl +M -i4          </span><br><span class="line">COMMAND<span class="title">     PID</span> <span class="title">    USER</span> <span class="title">  FD</span> <span class="title">  TYPE</span> <span class="title"> DEVICE</span> SIZE<span class="title"> NODE</span> NAME</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401    6u<span class="title">  IPv4</span> 7597365<span class="title">       TCP</span> *:20003 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401   14u<span class="title">  IPv4</span> 7597369<span class="title">       TCP</span> *:20000 (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test<span class="title"> proc]#</span> lsof -Pnl +M -i4|grep 8453</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipv6</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6</span><br><span class="line">COMMAND     PID    <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span> DEVICE SIZE NODE NAME</span><br><span class="line">java       1419     1401  286u <span class="built_in"> IPv6 </span>7616547       TCP 192.168.1.29:55829-&gt;192.168.1.17:7001 (CLOSE_WAIT)</span><br><span class="line">java       1419     1401  290u <span class="built_in"> IPv6 </span>6987470       TCP 192.168.1.29:33836-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  297u <span class="built_in"> IPv6 </span>6793642       UDP *:1133 </span><br><span class="line">java       1419     1401  304u <span class="built_in"> IPv6 </span>6987472       TCP 192.168.1.29:33838-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  306u <span class="built_in"> IPv6 </span>6987479       TCP 192.168.1.29:33839-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  307u <span class="built_in"> IPv6 </span>7006208       TCP 192.168.1.29:60340-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6|grep 5001</span><br><span class="line">java      12886        0  530u <span class="built_in"> IPv6 </span>6988341       TCP *:5001 (LISTEN)</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-Keyboard/#more">more >></a>
+          <a class="article-more-a" href="/2018/12/10/linux下查看监听端口对应的进程/#more">more >></a>
         
       
 
@@ -636,7 +486,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">process</a>
         		</li>
       		
 		</ul>
@@ -648,7 +502,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -657,7 +511,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-Keyboard/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/10/linux下查看监听端口对应的进程/">展开全文 >></a>
         </p>
       
 
@@ -687,30 +541,36 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iPhone开发-GCD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-wireshark过滤器规则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iPhone开发-GCD/">iPhone开发-GCD</a>
+      <a class="article-title" href="/2018/12/10/wireshark过滤器规则/">wireshark过滤器规则</a>
     </h1>
   
 
         
-        <a href="/2017/11/15/iPhone开发-GCD/" class="archive-article-date">
-  	<time datetime="2017-11-15T12:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+        <a href="/2018/12/10/wireshark过滤器规则/" class="archive-article-date">
+  	<time datetime="2018-12-10T04:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一些常用的API</p>
-        
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-GCD/#more">more >></a>
-        
+        <a id="more"></a>
+<h4 id="一、IP过滤：包括来源IP或者目标IP等于某个IP"><a href="#一、IP过滤：包括来源IP或者目标IP等于某个IP" class="headerlink" title="一、IP过滤：包括来源IP或者目标IP等于某个IP"></a>一、IP过滤：包括来源IP或者目标IP等于某个IP</h4><p>比如：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ip</span>.src addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.src addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示来源<span class="built_in">IP</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ip</span>.dst addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.dst addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示目标<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、端口过滤："><a href="#二、端口过滤：" class="headerlink" title="二、端口过滤："></a>二、端口过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> <span class="comment">// 不管端口是来源的还是目标的都显示</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> == <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">2722</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> or udp<span class="selector-class">.port</span> eq <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.dstport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的目标端口80</span></span><br><span class="line"> tcp<span class="selector-class">.srcport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的来源端口80</span></span><br><span class="line"></span><br><span class="line">过滤端口范围</span><br><span class="line">tcp<span class="selector-class">.port</span> &gt;= <span class="number">1</span> and tcp<span class="selector-class">.port</span> &lt;= <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、协议过滤：tcp"><a href="#三、协议过滤：tcp" class="headerlink" title="三、协议过滤：tcp"></a>三、协议过滤：tcp</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">udp</span><br><span class="line">arp</span><br><span class="line">icmp</span><br><span class="line">http</span><br><span class="line">smtp</span><br><span class="line">ftp</span><br><span class="line">dns</span><br><span class="line">msnms</span><br><span class="line">ip</span><br><span class="line">ssl</span><br><span class="line">等等</span><br><span class="line">排除ssl包，如!ssl 或者  <span class="keyword">not</span> ssl</span><br></pre></td></tr></table></figure>
+<h4 id="四、包长度过滤："><a href="#四、包长度过滤：" class="headerlink" title="四、包长度过滤："></a>四、包长度过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">udp<span class="selector-class">.length</span> == <span class="number">26</span> 这个长度是指udp本身固定长度<span class="number">8</span>加上udp下面那块数据包之和</span><br><span class="line">tcp<span class="selector-class">.len</span> &gt;= <span class="number">7</span>  指的是ip数据包(tcp下面那块数据),不包括tcp本身</span><br><span class="line">ip<span class="selector-class">.len</span> == <span class="number">94</span> 除了以太网头固定长度<span class="number">14</span>,其它都算是ip<span class="selector-class">.len</span>,即从ip本身到最后</span><br><span class="line">frame<span class="selector-class">.len</span> == <span class="number">119</span> 整个数据包长度,从eth开始到最后</span><br></pre></td></tr></table></figure>
+<h4 id="五、http模式过滤："><a href="#五、http模式过滤：" class="headerlink" title="五、http模式过滤："></a>五、http模式过滤：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子:</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.uri</span> == “/img/logo-edu.gif”</span><br><span class="line">http contains “GET”</span><br><span class="line">http contains “HTTP/<span class="number">1</span>.”</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// POST包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// 响应包</span></span><br><span class="line">http contains “HTTP/<span class="number">1.1</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">http contains “HTTP/<span class="number">1.0</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">一定包含如下</span><br><span class="line">Content-Type:</span><br></pre></td></tr></table></figure>
+<h4 id="六、连接符-and-or"><a href="#六、连接符-and-or" class="headerlink" title="六、连接符 and / or"></a>六、连接符 and / or</h4><h4 id="七、表达式："><a href="#七、表达式：" class="headerlink" title="七、表达式："></a>七、表达式：</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) and !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -723,7 +583,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wireshark</a>
         		</li>
       		
 		</ul>
@@ -735,7 +599,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -744,7 +608,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-GCD/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/10/wireshark过滤器规则/">展开全文 >></a>
         </p>
       
 
@@ -774,31 +638,36 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iPhone开发-UIImage-CIImage-CGImageRef" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git-submodule的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">iPhone开发-UIImage,CIImage,CGImageRef</a>
+      <a class="article-title" href="/2018/12/10/git-submodule的使用/">git submodule的使用</a>
     </h1>
   
 
         
-        <a href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" class="archive-article-date">
-  	<time datetime="2017-11-15T12:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+        <a href="/2018/12/10/git-submodule的使用/" class="archive-article-date">
+  	<time datetime="2018-12-10T02:48:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>IOS编程揭秘 书中记录着如下一段话。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span>类的Core Graphics</span><br><span class="line">版本是<span class="built_in">CGImage</span>（<span class="built_in">CGImageRef</span>）这两个类之间很容易进行转换，因为一个<span class="built_in">UIImage</span>类有一个<span class="built_in">CGImage</span>的属性“</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/#more">more >></a>
-        
+        <a id="more"></a>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><p>为当前工程添加submodule，命令如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">submodule </span><span class="keyword">add </span>仓库地址 路径</span><br></pre></td></tr></table></figure>
+<p>其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。<br><strong>注意</strong>：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone）</p>
+<p>命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子模块所在的文件夹添加到工程中即可。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>submodule的删除稍微麻烦点：首先，要在“.gitmodules”文件中删除相应配置信息。然后，执行“git rm –cached ”命令将子模块所在的文件从git中删除。</p>
+<h3 id="下载的工程带有submodule"><a href="#下载的工程带有submodule" class="headerlink" title="下载的工程带有submodule"></a>下载的工程带有submodule</h3><p>当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">submodule</span> <span class="comment">update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">init</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recursive</span></span><br></pre></td></tr></table></figure>
+<p>即可将子模块内容下载下来后工程才不会缺少相应的文件。</p>
+
       
 
       
@@ -811,7 +680,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -823,7 +692,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -832,7 +701,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/10/git-submodule的使用/">展开全文 >></a>
         </p>
       
 
@@ -862,43 +731,27 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iPhone开发-UILabel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Android-mk简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iPhone开发-UILabel/">iPhone开发-UILabel</a>
+      <a class="article-title" href="/2018/12/07/Android-mk简介/">Android.mk简介</a>
     </h1>
   
 
         
-        <a href="/2017/11/15/iPhone开发-UILabel/" class="archive-article-date">
-  	<time datetime="2017-11-15T12:38:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+        <a href="/2018/12/07/Android-mk简介/" class="archive-article-date">
+  	<time datetime="2018-12-07T11:50:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月07日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>UILable 的用法涉及内容有如下</p>
-<ol>
-<li>创建与显示</li>
-<li>文本内容和字体设置</li>
-<li>背景颜色指定</li>
-<li>计算高度。</li>
-<li>行数指定和计算</li>
-</ol>
-<p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
-<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
-<p>下面计算一下高度，当采用默认字体的时候，字体号为17，其高度约为20, 字体为14的时候，高度约为16~17之间</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">字体号：<span class="number">17</span> ，文本高：<span class="number">20</span></span><br><span class="line">字体号：<span class="number">16</span> ，文本高：<span class="number">19</span></span><br><span class="line">字体号：<span class="number">15</span> ，文本高：<span class="number">17</span>~<span class="number">18</span> 之间</span><br><span class="line">字体号：<span class="number">14</span>， 文本高：<span class="number">16</span>~<span class="number">17</span> 之间</span><br></pre></td></tr></table></figure>
-<p>这些字体是默认字体，要是采用其他字体或者设置粗体 ，估计值会受到一些浮动影响。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> getTextHeight:<span class="number">17</span> width:<span class="keyword">self</span>.view.frame.size.width<span class="number">-85</span>];   </span><br><span class="line">-(<span class="keyword">void</span>) getTextHeight:(<span class="built_in">CGFloat</span>) fontSize width:(<span class="built_in">CGFloat</span>) textWidth</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic =@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    <span class="built_in">CGSize</span> curSize = <span class="built_in">CGSizeMake</span>(textWidth, MAXFLOAT);</span><br><span class="line">    <span class="built_in">CGRect</span> rect =   [<span class="keyword">self</span>.label.text boundingRectWithSize:curSize</span><br><span class="line">                                                  options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>|<span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                               attributes:dic context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="built_in">NSStringFromCGRect</span>(rect);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Android-mk简介"><a href="#Android-mk简介" class="headerlink" title="Android.mk简介"></a>Android.mk简介</h2><p><a href="https://blog.csdn.net/fyfcauc/article/details/27545507" target="_blank" rel="noopener">跳转链接</a></p>
 
       
 
@@ -912,7 +765,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jni</a>
         		</li>
       		
 		</ul>
@@ -924,7 +777,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
         		</li>
       		
 		</ul>
@@ -933,7 +786,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-UILabel/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/07/Android-mk简介/">展开全文 >></a>
         </p>
       
 
@@ -963,33 +816,29 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iPhone开发-leftBarButtonItem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Sublime快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iPhone开发-leftBarButtonItem/">iPhone开发-leftBarButtonItem</a>
+      <a class="article-title" href="/2018/08/15/Sublime快捷键/">Sublime快捷键</a>
     </h1>
   
 
         
-        <a href="/2017/11/15/iPhone开发-leftBarButtonItem/" class="archive-article-date">
-  	<time datetime="2017-11-15T12:27:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+        <a href="/2018/08/15/Sublime快捷键/" class="archive-article-date">
+  	<time datetime="2018-08-15T14:42:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年08月15日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-设置leftBarButtonItem的文字"><a href="#1-设置leftBarButtonItem的文字" class="headerlink" title="1.设置leftBarButtonItem的文字"></a>1.设置leftBarButtonItem的文字</h3><p>在设置 leftBarButtonItem的时候，又会少了一个左箭头。</p>
-<p>一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]<span class="string">initWithTitle:</span>@<span class="string">"返回"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self  <span class="string">action:</span><span class="meta">@selector</span>(onSelect)];</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下，自定义 UIBarButtonItem 使用设置图片有如下，但发现文本不能设置显示了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIBarButtonItem alloc]</span><span class="selector-tag">initWithImage</span><span class="selector-pseudo">:image</span> <span class="selector-tag">style</span><span class="selector-pseudo">:UIBarButtonItemStylePlain</span> <span class="selector-tag">target</span><span class="selector-pseudo">:self</span></span><br><span class="line">                                   <span class="selector-tag">action</span>:@<span class="keyword">selector</span>(<span class="keyword">onSelect</span>)];</span><br></pre></td></tr></table></figure></p>
-<p>还有一种方式，既有文本又有左箭头的需求，只能使用下面这种方式，自定义一个按钮视图。<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="name">UIBarButtonItem</span> alloc]initWithCustomView:backButton]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>问题前提： 使用pushViewController的时候，该界面返回情况会默认是上一级的标题， 更改文字，又会对本身产生影响。原本意图很简单，就是想设置自己的文字，又想有左箭头。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self.navigationController </span><span class="keyword">pushViewController:cityController </span>animated:YES]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+        <h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>
         
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-leftBarButtonItem/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/15/Sublime快捷键/#more">more >></a>
         
       
 
@@ -1003,7 +852,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sublime</a>
         		</li>
       		
 		</ul>
@@ -1015,7 +864,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        			<a href="/categories/mac//" class="article-tag-list-link color4">mac</a>
         		</li>
       		
 		</ul>
@@ -1024,7 +873,202 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/iPhone开发-leftBarButtonItem/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/15/Sublime快捷键/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vim-Cheat-Sheet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/18/Vim-Cheat-Sheet/">Vim Cheat Sheet</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/18/Vim-Cheat-Sheet/" class="archive-article-date">
+  	<time datetime="2018-05-18T03:00:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年05月18日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h4><ul>
+<li>h - 左移光标</li>
+<li>j - 下移光标</li>
+<li>k - 上移光标</li>
+<li>l - 右移光标</li>
+<li>w - 移动到下个单词开头</li>
+<li>W - 移动到下个单词开头(单词含标点)</li>
+<li>e - 移动到下个单词结尾</li>
+<li>E - 移动到下个单词结尾(单词含标点)</li>
+<li>b - 移动到上个单词结尾</li>
+<li>B -移动到上个单词结尾(单词含标点)</li>
+<li>O - 移动到行首</li>
+<li>^ - 移动到行首的非空白符</li>
+<li>$ - 移动到行尾</li>
+<li>G - 移动到文档末行行首</li>
+<li>{n}G - 移动到第{n}行</li>
+</ul>
+<p>Tip: 命令前追加数字表示命令的重复次数，比如5j表示向下移动4行 </p>
+        
+          <a class="article-more-a" href="/2018/05/18/Vim-Cheat-Sheet/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/18/Vim-Cheat-Sheet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AsyncTask源码了解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/AsyncTask源码了解/">AsyncTask源码了解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/AsyncTask源码了解/" class="archive-article-date">
+  	<time datetime="2018-04-11T03:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年04月11日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单了解下AsyncTask源码，作为以后复习时用。</p>
+        
+          <a class="article-more-a" href="/2018/04/11/AsyncTask源码了解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AsyncTask</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/AsyncTask源码了解/">展开全文 >></a>
         </p>
       
 
@@ -1056,7 +1100,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1068,7 +1112,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 催眠术
+    		&copy; 2019 催眠术
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1166,6 +1210,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qq</a>
               </li>
              
@@ -1174,7 +1222,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">jni</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,11 +1270,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,7 +1286,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,6 +1318,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
@@ -1262,7 +1330,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,11 +1342,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">process</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">apk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">backup</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1355,26 +1443,6 @@ var _hmt = _hmt || [];
           
             <li class="search-li">
               <a href="http://www.cnblogs.com/liyuzhao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>博客园</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>
