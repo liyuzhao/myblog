@@ -46,6 +46,16 @@ highlight:  #代码块的设置
   auto_detect: true
   tab_replace:
 
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+
 # Category & Tag
 default_category: uncategorized #默认分类
 category_map:  #分类别名
@@ -86,7 +96,7 @@ disqus_shortname:
 # Extensions 这里配置站点所用主题和插件，暂默认，后面会介绍怎么修改
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia  #landscape or next
+theme: next  #landscape or next or yilia or cactus
 
 jsonContent:
     meta: false
@@ -106,7 +116,6 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
-
 # Deployment 站点部署到github要配置
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
