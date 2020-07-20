@@ -419,7 +419,7 @@
 </ul>
 <p>在定义<code>MY_LOG_TAG</code> 和 <code>MY_LOG_LEVEL</code> 构建系统变量时，可以将日志系统配置应用在模块中。</p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 将日志系统配置应用在模块中</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := hello-jni</span><br><span class="line">...</span><br><span class="line"><span class="comment"># 定义日志标签</span></span><br><span class="line">MY_LOG_TAG := hello-jni</span><br><span class="line"><span class="comment"># 定义基于构建类型的默认日志等级</span></span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(APP_OPTIM)</span>, release)</span><br><span class="line">	MY_LOG_LEVEL := MY_LOG_LEVEL_ERROR</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	MY_LOG_LEVEL := MY_LOG_LEVEL_VERBOSE</span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 追加编译标记</span></span><br><span class="line">LOCAL_CFLAGS += -DMY_LOG_TAG=<span class="variable">$(MY_LOG_TAG)</span></span><br><span class="line">LOCAL_CFLAGS += -DMY_LOG_LEVEL=<span class="variable">$(MY_LOG_LEVEL)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 动态链接日志库</span></span><br><span class="line">LOCAL_LDLIBS += -llog</span><br></pre></td></tr></table></figure>
-<h5 id="控制台日志"><a href="#控制台日志" class="headerlink" title="控制台日志"></a>控制台日志</h5><p>默认情况下，控制台文件描述符–STDOUT 和 STDERR 在Android 平台上是不可见的。要想将这些日志消息重定向到 Android 系统日志中， 需要打开一个命令提示符或一个终端窗口，并执行如下所示的ADB命令。</p>
+<h5 id="控制台日志"><a href="#控制台日志" class="headerlink" title="控制台日志"></a>控制台日志</h5><p>默认情况下，控制台文件描述符—STDOUT 和 STDERR 在Android 平台上是不可见的。要想将这些日志消息重定向到 Android 系统日志中， 需要打开一个命令提示符或一个终端窗口，并执行如下所示的ADB命令。</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 将控制台日志重定向到 Android 系统日志中</span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> stop</span></span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> setprop log.redirect-stdio <span class="literal">true</span></span></span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> start</span></span><br></pre></td></tr></table></figure>
 <p>在重新启动应用程序时，用Logcat视图可以看到控制台日志信息。</p>
 
@@ -578,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +589,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -600,7 +600,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -653,7 +653,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -381,7 +381,7 @@
 <p>LOCAL_PATH := $(call my-dir)</p>
 </blockquote>
 <p>Android 构建系统利用LOCAL_PATH来定位源文件。因为将该变量设置为硬编码值并不合适，所以 Android 构建系统提供了一个名为 my-dir 的宏功能。通过该变量设置为 my-dir 宏功能的返回值， 可以将其放在当前目录下。</p>
-<p>Android 构建系统将CLEAR_VARS变量设置为clear-vars.mk片段的位置。包含Makefile片段可以清除除了LOCAL_PATH以外的LOCAL_<name>变量，例如 LOCAL_MODULE 与 LOCAL_SRC_FILES 等。</name></p>
+<p>Android 构建系统将CLEAR<em>VARS变量设置为clear-vars.mk片段的位置。包含Makefile片段可以清除除了LOCAL_PATH以外的LOCAL</em><name>变量，例如 LOCAL_MODULE 与 LOCAL_SRC_FILES 等。</name></p>
 <blockquote>
 <p>Include $(CLEAR_VARS)</p>
 </blockquote>
@@ -670,7 +670,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +681,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -692,7 +692,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -745,7 +745,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

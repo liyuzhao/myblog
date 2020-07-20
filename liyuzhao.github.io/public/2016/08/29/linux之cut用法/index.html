@@ -358,7 +358,7 @@
 <p>(1) 其语法格式为：</p>
 <font color="red">cut [-bn] [file] 或 cut [-c] [file] 或者 cut [-df] [file]</font>
 
-<p>使用说明<br>cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。<br><br>如果不指定 File 参数，cut 命令将读取标准输入。必须指定 -b、-c 或 -f 标志之一。</p>
+<p>使用说明<br>cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。&lt;/br&gt;<br>如果不指定 File 参数，cut 命令将读取标准输入。必须指定 -b、-c 或 -f 标志之一。</p>
 <p>主要参数</p>
 <ul>
 <li>-b ：以字节为单位进行分割。这些字节位置将忽略多字节字符边界，除非也指定了 -n 标志。</li>
@@ -390,7 +390,7 @@
 <p>其实cut的-d选项的默认间隔符就是制表符，所以当你就是要使用制表符的时候，完全就可以省略-d选项，而直接用－f来取域就可以了。</p>
 <p>如果你设定一个空格为间隔符，那么就这样：</p>
 <p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ‘ ‘ -f 1<br>this<br>this<br>注意，两个单引号之间可确实要有一个空格哦，不能偷懒。<br>而且，你只能在-d后面设置一个空格，可不许设置多个空格，因为cut只允许间隔符是一个字符。</p>
-<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ‘ ‘ -f 1<br>cut: the delimiter must be a single character<br>Try `cut –help’ for more information.</p>
+<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ‘ ‘ -f 1<br>cut: the delimiter must be a single character<br>Try `cut —help’ for more information.</p>
 <p>（10）cut有哪些缺陷和不足？</p>
 <p>猜出来了吧？对，就是在处理多空格时。<br>如果文件里面的某些域是由若干个空格来间隔的，那么用cut就有点麻烦了，因为cut只擅长处理“以一个字符间隔”的文本内容</p>
 
@@ -534,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +545,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -556,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -593,7 +593,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

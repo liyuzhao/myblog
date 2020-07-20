@@ -360,6 +360,7 @@
 </ul>
 <a id="more"></a>
 <p>Java 基本数据类型</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -420,7 +421,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Java 引用类型映射</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -495,6 +498,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="对引用数据类型的操作"><a href="#对引用数据类型的操作" class="headerlink" title="对引用数据类型的操作"></a>对引用数据类型的操作</h4><h5 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h5><p>JNI把 Java 字符串当成应用类型处理。这些引用类型并不像原生 C 字符串一样可以直接使用， JNI 提供了 Java 字符串与C字符串之间相互转化的必要函数。因为Java字符串对象是不可变的，因此JNI不提供任何修改现有的Java字符串内容的函数。</p>
 <p>JNI支持Unicode编码格式和UTF-8编码格式的字符串，还提供两组函数通过JNIEnv接口指针处理这些字符串编码。</p>
 <ul>
@@ -537,6 +541,7 @@
 <p>  该函数带有四个函数，第四个函数是释放模式，下面列出了支持的释放模式列表。</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -559,6 +564,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="NIO操作"><a href="#NIO操作" class="headerlink" title="NIO操作"></a>NIO操作</h5><p>原生I/O（NIO）在缓冲管理区、大规模网络和文件I/O及字符集支持方面的性能有所改进。JNI提供了在原生代码中使用NIO的函数。与数组操作相比，NIO缓冲区的数据传送性能较好，更适合在原生代码和Java应用程序之间传送大量数据。</p>
 <ul>
 <li><p>1.创建直接字节缓冲区</p>
@@ -629,6 +635,7 @@
 </li>
 </ul>
 <p>下表为 Java类型签名映射</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -675,6 +682,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p>用类型签名映射手工生成域和方法描述符并让它们与Java代码同步是一件非常繁琐的任务。通常都是借助Java的类文件反汇编程序：javap</p>
 </blockquote>
@@ -832,7 +840,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -843,7 +851,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -854,7 +862,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -907,7 +915,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

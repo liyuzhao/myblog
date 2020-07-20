@@ -358,7 +358,7 @@
 <a id="more"></a>
 <p>在Google找到了解决方法。<br><a href="http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t" target="_blank" rel="noopener">http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t</a></p>
 <p>~&gt; Xcode 8</p>
-<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to <code></code>/Library/Developer/CommandLineTools`.</p>
+<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to <code>`/Library/Developer/CommandLineTools</code>.</p>
 <p>Step 1:</p>
 <p>Point <code>Xcode-select</code> to the correct Xcode Developer directory with the command:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select -<span class="keyword">switch</span> <span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -535,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -546,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -599,7 +599,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

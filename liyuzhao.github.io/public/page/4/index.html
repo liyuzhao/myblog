@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-常用组件/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/05/18/Vim-Cheat-Sheet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-常用组件/" itemprop="url">iPhone开发-常用组件</a></h1>
+                <a class="post-title-link" href="/2018/05/18/Vim-Cheat-Sheet/" itemprop="url">Vim Cheat Sheet</a></h1>
         
 
         <div class="post-meta">
@@ -273,1014 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T17:35:41+08:00">
-                2017年11月15日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/iPhone开发-常用组件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-常用组件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/iPhone开发-常用组件/" class="leancloud_visitors" data-flag-title="iPhone开发-常用组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-UIButton"><a href="#1-UIButton" class="headerlink" title="1. UIButton"></a>1. UIButton</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">80</span>, <span class="number">40</span>);</span><br><span class="line"><span class="built_in">UIButton</span> *button = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeRoundedRect</span>];</span><br><span class="line">button.frame = frame;</span><br><span class="line">[button setTitle:<span class="string">@"click"</span> forState: <span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">button.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">[button addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(buttonClicked:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:button];</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) buttonClicked:(<span class="built_in">UIButton</span> *)button</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//添加code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-UIAlertView"><a href="#2-UIAlertView" class="headerlink" title="2. UIAlertView"></a>2. UIAlertView</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIAlertView *alert = [[UIAlertView alloc]<span class="string">initWithTitle:</span>@<span class="string">"标题"</span> <span class="string">message:</span>@<span class="string">"你的内存已满"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"取消"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">   [alert show];</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/iPhone开发-常用组件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/09/11/Github-安全类Repo收集整理-转载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/Github-安全类Repo收集整理-转载/" itemprop="url">Github 安全类Repo收集整理[转载]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T11:32:59+08:00">
-                2017年09月11日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/github/" itemprop="url" rel="index">
-                    <span itemprop="name">github</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/11/Github-安全类Repo收集整理-转载/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/09/11/Github-安全类Repo收集整理-转载/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/09/11/Github-安全类Repo收集整理-转载/" class="leancloud_visitors" data-flag-title="Github 安全类Repo收集整理[转载]">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>漏洞及渗透练习平台：<br>WebGoat漏洞练习环境<br><a href="https://github.com/WebGoat/WebGoat" target="_blank" rel="noopener">https://github.com/WebGoat/WebGoat</a><br><a href="https://github.com/WebGoat/WebGoat-Legacy" target="_blank" rel="noopener">https://github.com/WebGoat/WebGoat-Legacy</a><br>Damn Vulnerable Web Application(漏洞练习平台)<br><a href="https://github.com/RandomStorm/DVWA" target="_blank" rel="noopener">https://github.com/RandomStorm/DVWA</a><br>数据库注入练习平台<br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br>用node编写的漏洞练习平台，like OWASP Node Goat<br><a href="https://github.com/cr0hn/vulnerable-node" target="_blank" rel="noopener">https://github.com/cr0hn/vulnerable-node</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/Github-安全类Repo收集整理-转载/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/08/08/命名规则-阿里巴巴Java开发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/08/命名规则-阿里巴巴Java开发/" itemprop="url">命名规则-阿里巴巴Java开发</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T11:53:14+08:00">
-                2017年08月08日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/08/命名规则-阿里巴巴Java开发/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/08/命名规则-阿里巴巴Java开发/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/08/08/命名规则-阿里巴巴Java开发/" class="leancloud_visitors" data-flag-title="命名规则-阿里巴巴Java开发">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例： <em>name / __name / $Object / name</em> / name$ / Object$</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/08/命名规则-阿里巴巴Java开发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/01/23/升级Xcode后Qt问题了/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/23/升级Xcode后Qt问题了/" itemprop="url">升级Xcode后Qt问题了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-23T14:21:18+08:00">
-                2017年01月23日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/qt/" itemprop="url" rel="index">
-                    <span itemprop="name">qt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/23/升级Xcode后Qt问题了/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/01/23/升级Xcode后Qt问题了/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/01/23/升级Xcode后Qt问题了/" class="leancloud_visitors" data-flag-title="升级Xcode后Qt问题了">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>升级XCode后，Qt新建项目出现了问题：</p>
-<p>  <code>Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.</code></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/23/升级Xcode后Qt问题了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/01/03/gitignore文件不起作用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/03/gitignore文件不起作用/" itemprop="url">.gitignore文件不起作用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-03T15:38:24+08:00">
-                2017年01月03日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/03/gitignore文件不起作用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/01/03/gitignore文件不起作用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/01/03/gitignore文件不起作用/" class="leancloud_visitors" data-flag-title=".gitignore文件不起作用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，<br>但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/03/gitignore文件不起作用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/11/14/Qt-Creator常用快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/14/Qt-Creator常用快捷键/" itemprop="url">Qt Creator常用快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-14T15:33:19+08:00">
-                2016年11月14日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/qt/" itemprop="url" rel="index">
-                    <span itemprop="name">qt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/14/Qt-Creator常用快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/11/14/Qt-Creator常用快捷键/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/11/14/Qt-Creator常用快捷键/" class="leancloud_visitors" data-flag-title="Qt Creator常用快捷键">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Qt Creator常用快捷键<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/14/Qt-Creator常用快捷键/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/09/01/grep-find命令用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/01/grep-find命令用法/" itemprop="url">grep && find命令用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-01T19:26:58+08:00">
-                2016年09月01日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T11:00:55+08:00">
+                2018年05月18日
               </time>
             
 
@@ -1320,8 +314,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/01/grep-find命令用法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/01/grep-find命令用法/" itemprop="commentCount"></span>
+                <a href="/2018/05/18/Vim-Cheat-Sheet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/18/Vim-Cheat-Sheet/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1329,7 +323,7 @@
 
           
           
-             <span id="/2016/09/01/grep-find命令用法/" class="leancloud_visitors" data-flag-title="grep && find命令用法">
+             <span id="/2018/05/18/Vim-Cheat-Sheet/" class="leancloud_visitors" data-flag-title="Vim Cheat Sheet">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1361,18 +355,34 @@
 
       
         
-          <blockquote>
-<p>Linux下搜索文件内容常用grep，搜索文件信息使用find<br>
+          <h4 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h4><ul>
+<li>h - 左移光标</li>
+<li>j - 下移光标</li>
+<li>k - 上移光标</li>
+<li>l - 右移光标</li>
+<li>w - 移动到下个单词开头</li>
+<li>W - 移动到下个单词开头(单词含标点)</li>
+<li>e - 移动到下个单词结尾</li>
+<li>E - 移动到下个单词结尾(单词含标点)</li>
+<li>b - 移动到上个单词结尾</li>
+<li>B -移动到上个单词结尾(单词含标点)</li>
+<li>O - 移动到行首</li>
+<li>^ - 移动到行首的非空白符</li>
+<li>$ - 移动到行尾</li>
+<li>G - 移动到文档末行行首</li>
+<li>{n}G - 移动到第{n}行</li>
+</ul>
+<p>Tip: 命令前追加数字表示命令的重复次数，比如5j表示向下移动4行 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/09/01/grep-find命令用法/#more" rel="contents">
+            <a class="btn" href="/2018/05/18/Vim-Cheat-Sheet/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </p></blockquote></div>
+    </div>
     
     
     
@@ -1416,7 +426,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/09/01/EditText-的使用及值得注意的地方/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/04/11/AsyncTask源码了解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -1435,7 +445,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/01/EditText-的使用及值得注意的地方/" itemprop="url">EditText 的使用及值得注意的地方</a></h1>
+                <a class="post-title-link" href="/2018/04/11/AsyncTask源码了解/" itemprop="url">AsyncTask源码了解</a></h1>
         
 
         <div class="post-meta">
@@ -1447,8 +457,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-01T12:54:29+08:00">
-                2016年09月01日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T11:13:33+08:00">
+                2018年04月11日
               </time>
             
 
@@ -1488,8 +498,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/01/EditText-的使用及值得注意的地方/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/01/EditText-的使用及值得注意的地方/" itemprop="commentCount"></span>
+                <a href="/2018/04/11/AsyncTask源码了解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/11/AsyncTask源码了解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1497,7 +507,7 @@
 
           
           
-             <span id="/2016/09/01/EditText-的使用及值得注意的地方/" class="leancloud_visitors" data-flag-title="EditText 的使用及值得注意的地方">
+             <span id="/2018/04/11/AsyncTask源码了解/" class="leancloud_visitors" data-flag-title="AsyncTask源码了解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1529,17 +539,1023 @@
 
       
         
-          <blockquote>
-<p>来源：<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="noopener">http://www.jianshu.com/p/1f05bb1fde3e</a><br>作者：张明云（@UperOne）</p>
+          <p>简单了解下AsyncTask源码，作为以后复习时用。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/11/AsyncTask源码了解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/04/09/从Android手机内提取已安装的apk文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/09/从Android手机内提取已安装的apk文件/" itemprop="url">从Android手机内提取已安装的apk文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T14:44:50+08:00">
+                2018年04月09日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/09/从Android手机内提取已安装的apk文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/09/从Android手机内提取已安装的apk文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/09/从Android手机内提取已安装的apk文件/" class="leancloud_visitors" data-flag-title="从Android手机内提取已安装的apk文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/09/从Android手机内提取已安装的apk文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/04/08/Apktool反编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/Apktool反编译/" itemprop="url">Apktool反编译</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T13:41:44+08:00">
+                2018年04月08日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/08/Apktool反编译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/08/Apktool反编译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/08/Apktool反编译/" class="leancloud_visitors" data-flag-title="Apktool反编译">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Android的反编译，一般需要用到apktool，这里记录下当用到apktool时，基本的用法</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/08/Apktool反编译/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/03/13/Integer比较的误区/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/Integer比较的误区/" itemprop="url">Integer比较的误区</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T14:57:21+08:00">
+                2018年03月13日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/13/Integer比较的误区/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/13/Integer比较的误区/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/13/Integer比较的误区/" class="leancloud_visitors" data-flag-title="Integer比较的误区">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Integer比较时不准确的原因"><a href="#Integer比较时不准确的原因" class="headerlink" title="Integer比较时不准确的原因"></a>Integer比较时不准确的原因</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/Integer比较的误区/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/03/13/AndroidStudio打包Jar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/AndroidStudio打包Jar/" itemprop="url">AndroidStudio打包Jar</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T14:49:21+08:00">
+                2018年03月13日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/13/AndroidStudio打包Jar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/13/AndroidStudio打包Jar/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/13/AndroidStudio打包Jar/" class="leancloud_visitors" data-flag-title="AndroidStudio打包Jar">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Android-Studio-打包Jar"><a href="#Android-Studio-打包Jar" class="headerlink" title="Android Studio 打包Jar"></a>Android Studio 打包Jar</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/AndroidStudio打包Jar/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/25/Gyp-学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/25/Gyp-学习记录/" itemprop="url">Gyp-学习记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T20:12:20+08:00">
+                2017年12月25日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/Gyp-学习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/25/Gyp-学习记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/25/Gyp-学习记录/" class="leancloud_visitors" data-flag-title="Gyp-学习记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Gyp 学习记录</p>
+<p>GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。</p>
+<h5 id="gyp简述"><a href="#gyp简述" class="headerlink" title="gyp简述"></a>gyp简述</h5><p>GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。</p>
+<p>gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/25/Gyp-学习记录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/关于Android中软键盘与布局的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/05/关于Android中软键盘与布局的问题/" itemprop="url">关于Android中软键盘与布局的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T17:28:06+08:00">
+                2017年12月05日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/05/关于Android中软键盘与布局的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/关于Android中软键盘与布局的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/05/关于Android中软键盘与布局的问题/" class="leancloud_visitors" data-flag-title="关于Android中软键盘与布局的问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>当在Android的layout设计里面如果输入框过多，则在输入弹出软键盘的时候，下面的输入框会有一部分被软件盘挡住，从而不能获取焦点输入。</p>
 </blockquote>
-<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/01/EditText-的使用及值得注意的地方/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p><strong>解决办法：</strong></p>
+<p>方法一、在Activity中的onCreate中setContentView之前写上如下代码</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getWindow</span><span class="params">()</span></span>.setSoftInputMode(WindowManager<span class="selector-class">.LayoutParams</span><span class="selector-class">.SOFT_INPUT_ADJUST_PAN</span>)</span><br></pre></td></tr></table></figure>
+<p>方法二、在项目的AndroidManifest.xml文件中界面对应<activity>里加上 <code>android:windowSoftInputMode=&quot;stateVisible|adjustResize&quot;</code>,这样会让屏幕整体上移。如果加上的是<code>android:windowSoftInputMode=&quot;adjustPan&quot;</code>这样键盘就会覆盖屏幕。</activity></p>
+<p>方法三、把顶级的layout替换为ScrollView, 或者在顶级的layout外再嵌套一层ScrollView。这样页面就可以一起滚动了，软键盘会一直处于底部。</p>
+<p><strong>注意：</strong> 方法一和二应该是同一种方法，只不过一个是在代码中实现一个是在xml中实现。</p>
+
+          
         
       
     </div>
@@ -1586,7 +1602,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/08/29/一句代码搞定-Android-图片压缩/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/Android中通过反射获取资源ID/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -1605,7 +1621,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/08/29/一句代码搞定-Android-图片压缩/" itemprop="url">一句代码搞定 Android 图片压缩</a></h1>
+                <a class="post-title-link" href="/2017/12/05/Android中通过反射获取资源ID/" itemprop="url">Android中通过反射获取资源ID</a></h1>
         
 
         <div class="post-meta">
@@ -1617,8 +1633,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-29T20:30:58+08:00">
-                2016年08月29日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T17:19:32+08:00">
+                2017年12月05日
               </time>
             
 
@@ -1658,8 +1674,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/08/29/一句代码搞定-Android-图片压缩/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/08/29/一句代码搞定-Android-图片压缩/" itemprop="commentCount"></span>
+                <a href="/2017/12/05/Android中通过反射获取资源ID/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/Android中通过反射获取资源ID/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1667,7 +1683,7 @@
 
           
           
-             <span id="/2016/08/29/一句代码搞定-Android-图片压缩/" class="leancloud_visitors" data-flag-title="一句代码搞定 Android 图片压缩">
+             <span id="/2017/12/05/Android中通过反射获取资源ID/" class="leancloud_visitors" data-flag-title="Android中通过反射获取资源ID">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1699,14 +1715,10 @@
 
       
         
-          <p>一个Android图片压缩工具</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/29/一句代码搞定-Android-图片压缩/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>某些时候，自己把代码打包成工具jar包，但jar包中可能引用到res中的资源，这时候不能将资源一起打包，只能通过反射机制动态获取</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过反射获取组件的id号</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static <span class="built_in">int</span> get<span class="constructor">CompentID(String <span class="params">packageName</span>, String <span class="params">className</span>,String <span class="params">idName</span>)</span> &#123;</span><br><span class="line">	<span class="built_in">int</span> id = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Class&lt;?&gt; cls = <span class="module-access"><span class="module"><span class="identifier">Class</span>.</span></span>for<span class="constructor">Name(<span class="params">packageName</span> + <span class="string">".R$"</span> + <span class="params">className</span>)</span>;</span><br><span class="line">		id = cls.get<span class="constructor">Field(<span class="params">idName</span>)</span>.get<span class="constructor">Int(<span class="params">cls</span>)</span>;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		LogUtil.<span class="constructor">LogPrint(LogUtil.LOG_ERROR, <span class="string">"缺少"</span> + <span class="params">idName</span> + <span class="string">"文件!"</span>)</span>;</span><br><span class="line">		e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	return id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -1753,7 +1765,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/08/29/glide的简单用法/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -1772,7 +1784,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/08/29/glide的简单用法/" itemprop="url">glide的简单用法</a></h1>
+                <a class="post-title-link" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" itemprop="url">iOS设置AppIcon&LauncherImages尺寸和位置</a></h1>
         
 
         <div class="post-meta">
@@ -1784,8 +1796,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-29T20:15:27+08:00">
-                2016年08月29日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T16:28:45+08:00">
+                2017年12月05日
               </time>
             
 
@@ -1807,8 +1819,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
+                  <a href="/categories/ios/" itemprop="url" rel="index">
+                    <span itemprop="name">ios</span>
                   </a>
                 </span>
 
@@ -1825,8 +1837,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/08/29/glide的简单用法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/08/29/glide的简单用法/" itemprop="commentCount"></span>
+                <a href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1834,7 +1846,7 @@
 
           
           
-             <span id="/2016/08/29/glide的简单用法/" class="leancloud_visitors" data-flag-title="glide的简单用法">
+             <span id="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" class="leancloud_visitors" data-flag-title="iOS设置AppIcon&LauncherImages尺寸和位置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1866,11 +1878,11 @@
 
       
         
-          <p>首先需要在app的build.gradle中加入<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:+'</span></span><br></pre></td></tr></table></figure></p>
-<p>注：”+”表示始终请求最新版</p>
+          <h3 id="iOS-AppIcon图标布局及尺寸"><a href="#iOS-AppIcon图标布局及尺寸" class="headerlink" title="iOS AppIcon图标布局及尺寸"></a>iOS AppIcon图标布局及尺寸</h3><hr>
+<h4 id="AppIcon图标尺寸："><a href="#AppIcon图标尺寸：" class="headerlink" title="AppIcon图标尺寸："></a>AppIcon图标尺寸：</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1024</span>px*<span class="number">1024</span>px     <span class="number">180</span>px*<span class="number">180</span>px    <span class="number">120</span>px*<span class="number">120</span>px  <span class="number">87</span>px*<span class="number">87</span>px  <span class="number">80</span>px*<span class="number">80</span>px   <span class="number">60</span>px*<span class="number">60</span>px  <span class="number">58</span>px*<span class="number">58</span>px    <span class="number">40</span>px*<span class="number">40</span>px</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/08/29/glide的简单用法/#more" rel="contents">
+            <a class="btn" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1912,7 +1924,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1960,7 +1972,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1971,7 +1983,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1982,7 +1994,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2019,7 +2031,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

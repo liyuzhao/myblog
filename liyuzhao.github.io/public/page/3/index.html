@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/关于Android中软键盘与布局的问题/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2019/01/07/JNI-日志/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/05/关于Android中软键盘与布局的问题/" itemprop="url">关于Android中软键盘与布局的问题</a></h1>
+                <a class="post-title-link" href="/2019/01/07/JNI-日志/" itemprop="url">JNI-日志</a></h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T17:28:06+08:00">
-                2017年12月05日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T16:56:32+08:00">
+                2019年01月07日
               </time>
             
 
@@ -314,8 +314,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/05/关于Android中软键盘与布局的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/关于Android中软键盘与布局的问题/" itemprop="commentCount"></span>
+                <a href="/2019/01/07/JNI-日志/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/07/JNI-日志/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -323,7 +323,7 @@
 
           
           
-             <span id="/2017/12/05/关于Android中软键盘与布局的问题/" class="leancloud_visitors" data-flag-title="关于Android中软键盘与布局的问题">
+             <span id="/2019/01/07/JNI-日志/" class="leancloud_visitors" data-flag-title="JNI-日志">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,18 +355,21 @@
 
       
         
-          
-            <blockquote>
-<p>当在Android的layout设计里面如果输入框过多，则在输入弹出软键盘的时候，下面的输入框会有一部分被软件盘挡住，从而不能获取焦点输入。</p>
-</blockquote>
-<p><strong>解决办法：</strong></p>
-<p>方法一、在Activity中的onCreate中setContentView之前写上如下代码</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getWindow</span><span class="params">()</span></span>.setSoftInputMode(WindowManager<span class="selector-class">.LayoutParams</span><span class="selector-class">.SOFT_INPUT_ADJUST_PAN</span>)</span><br></pre></td></tr></table></figure>
-<p>方法二、在项目的AndroidManifest.xml文件中界面对应<activity>里加上 <code>android:windowSoftInputMode=&quot;stateVisible|adjustResize&quot;</code>,这样会让屏幕整体上移。如果加上的是<code>android:windowSoftInputMode=&quot;adjustPan&quot;</code>这样键盘就会覆盖屏幕。</activity></p>
-<p>方法三、把顶级的layout替换为ScrollView, 或者在顶级的layout外再嵌套一层ScrollView。这样页面就可以一起滚动了，软键盘会一直处于底部。</p>
-<p><strong>注意：</strong> 方法一和二应该是同一种方法，只不过一个是在代码中实现一个是在xml中实现。</p>
-
-          
+          <h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><p>Android 日志框架把日志消息分成4个日志缓冲区：</p>
+<ul>
+<li>Main: 主要应用程序的日志信息</li>
+<li>Event: 系统事件</li>
+<li>Radio: Radio相关的日志信息</li>
+<li>System: 调试时产生的低级系统调试信息</li>
+</ul>
+<p>这 4 个缓冲区以伪设备的形式保存在/dev/log 系统目录中。因为移动平台上的 I/O 操作代价很大，所以日志信息要保存到内存中，而不能保存在永久性存储器(例如磁盘)中。为了有效控制对存储日志信息的内存空间的利用， logger 模块把日志信息放在固定大小的缓冲区。 Main、radio 和 system 日志以自由文本的格式保存在 64KB的日志缓存区中。事件日志信息带有额外的二进制形式信息，因此保存在256KB的日志缓存区中。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/07/JNI-日志/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -413,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/Android中通过反射获取资源ID/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2019/01/04/JNI-局部和全局引用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -432,7 +435,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/05/Android中通过反射获取资源ID/" itemprop="url">Android中通过反射获取资源ID</a></h1>
+                <a class="post-title-link" href="/2019/01/04/JNI-局部和全局引用/" itemprop="url">JNI-局部和全局引用</a></h1>
         
 
         <div class="post-meta">
@@ -444,8 +447,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T17:19:32+08:00">
-                2017年12月05日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T12:44:53+08:00">
+                2019年01月04日
               </time>
             
 
@@ -485,8 +488,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/05/Android中通过反射获取资源ID/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/Android中通过反射获取资源ID/" itemprop="commentCount"></span>
+                <a href="/2019/01/04/JNI-局部和全局引用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/04/JNI-局部和全局引用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -494,7 +497,7 @@
 
           
           
-             <span id="/2017/12/05/Android中通过反射获取资源ID/" class="leancloud_visitors" data-flag-title="Android中通过反射获取资源ID">
+             <span id="/2019/01/04/JNI-局部和全局引用/" class="leancloud_visitors" data-flag-title="JNI-局部和全局引用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -527,8 +530,39 @@
       
         
           
-            <p>某些时候，自己把代码打包成工具jar包，但jar包中可能引用到res中的资源，这时候不能将资源一起打包，只能通过反射机制动态获取</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过反射获取组件的id号</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static <span class="built_in">int</span> get<span class="constructor">CompentID(String <span class="params">packageName</span>, String <span class="params">className</span>,String <span class="params">idName</span>)</span> &#123;</span><br><span class="line">	<span class="built_in">int</span> id = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Class&lt;?&gt; cls = <span class="module-access"><span class="module"><span class="identifier">Class</span>.</span></span>for<span class="constructor">Name(<span class="params">packageName</span> + <span class="string">".R$"</span> + <span class="params">className</span>)</span>;</span><br><span class="line">		id = cls.get<span class="constructor">Field(<span class="params">idName</span>)</span>.get<span class="constructor">Int(<span class="params">cls</span>)</span>;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		LogUtil.<span class="constructor">LogPrint(LogUtil.LOG_ERROR, <span class="string">"缺少"</span> + <span class="params">idName</span> + <span class="string">"文件!"</span>)</span>;</span><br><span class="line">		e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	return id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="局部引用和全局引用"><a href="#局部引用和全局引用" class="headerlink" title="局部引用和全局引用"></a>局部引用和全局引用</h3><p>JNI支持三种引用：局部引用、全局引用和弱全局引用。</p>
+<h4 id="局部引用"><a href="#局部引用" class="headerlink" title="局部引用"></a>局部引用</h4><p>大多数JNI函数返回局部应用。局部引用不能在后续的调用中被缓存及重用，主要因为它们的使用期限仅限于原生方法，一旦原生函数返回，局部引用即被释放。例如：FindClass 函数返回一个局部引用，当原生方法返回时，它被自动释放，也可以用DeleteLocalRef 函数显式的是否原生代码。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">删除一个局部引用</span><br><span class="line">jclass clazz;</span><br><span class="line"><span class="function"><span class="title">clazz</span> = <span class="params">(*env)</span>-&gt;</span>FindClass(env, <span class="string">"java/lang/String"</span>);</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>DeleteLocalRef(env, clazz);</span><br></pre></td></tr></table></figure>
+<p>根据JNI的规范，虚拟机应该允许原生代码创建最少16个局部引用。在单个方法调用时进行多个内存密集型操作的最佳实践是删除未用的局部引用。如果不可能，原生代码可以在使用之前用 EnsureLocalCapacity 方法请求更多的局部引用槽。</p>
+<h4 id="全局引用"><a href="#全局引用" class="headerlink" title="全局引用"></a>全局引用</h4><p>全局引用在原生方法的后续调用过程中依然有效，除非它们被原生代码显式释放。</p>
+<ul>
+<li>1.创建全局引用</li>
+</ul>
+<p>可以用 NewGlobalRef 函数将局部引用初始化为全局引用。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用给定的局部引用创建全局引用</span><br><span class="line">jclass localClazz;</span><br><span class="line">jclass globalClazz;</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="title">localClazz</span> = <span class="params">(*env)</span>-&gt;</span>FindClass(env, <span class="string">"java/lang/String"</span>);</span><br><span class="line"><span class="function"><span class="title">globalClazz</span> = <span class="params">(*env)</span>-&gt;</span>NewGlobalRef(env, localClazz);</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>DeleteLocalRef(env, localClazz);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.删除全局引用</li>
+</ul>
+<p>当原生代码不再需要一个全局引用时，可以随时用 DeleteGlobalRef 函数释放它，如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除一个全局应用</span></span><br><span class="line">(*env)-&gt;<span class="constructor">DeleteGlobalRef(<span class="params">env</span>, <span class="params">globalClazz</span>)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="弱全局引用"><a href="#弱全局引用" class="headerlink" title="弱全局引用"></a>弱全局引用</h4><p>全局引用的另一种类型是弱全局引用。与全局引用一样，弱全局引用在原生方法的后续调用过程中依然有效，与全局引用不同，弱全局引用并不阻止潜在的对象被垃圾收回。</p>
+<ul>
+<li>1.创建弱全局引用</li>
+</ul>
+<p>可以用 NewWeakGlobalRef 函数对弱全局引用进行初始化。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jclass weakGlobalClazz<span class="comment">;</span></span><br><span class="line">weakGlobalClazz = (<span class="name">*env</span>)-&gt;NewWeakGlobalRef(<span class="name">env</span>, localClazz)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.弱全局引用的有效性检验</li>
+</ul>
+<p>可以用 IsSameObject 函数检验一个弱全局引用是否仍然指向活动的类实例。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">检验弱全局变量是否仍然有效</span><br><span class="line"><span class="keyword">if</span>(JNI_FALSE<span class="operator"> == </span>(*env)-&gt;<span class="constructor">IsSameObject(<span class="params">env</span>, <span class="params">weakGlobalClazz</span>, NULL)</span>)&#123;</span><br><span class="line">	<span class="comment">/** 对象仍然处于活动状态且可以使用 */</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">/** 对象被垃圾回收器收回，不能使用 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.删除弱全局引用</li>
+</ul>
+<p>可以随时用 DeleteWeakGlobalRef 函数是否弱全局引用。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">删除一个弱全局引用</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>DeleteWeakGlobalRef(env, weakGlobalClazz);</span><br></pre></td></tr></table></figure>
+<p>全局引用显式释放前一直有效，他们可以被其他原生函数及原生线程使用。</p>
+
           
         
       
@@ -576,7 +610,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2019/01/04/JNI-异常处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -595,7 +629,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" itemprop="url">iOS设置AppIcon&LauncherImages尺寸和位置</a></h1>
+                <a class="post-title-link" href="/2019/01/04/JNI-异常处理/" itemprop="url">JNI-异常处理</a></h1>
         
 
         <div class="post-meta">
@@ -607,8 +641,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T16:28:45+08:00">
-                2017年12月05日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T12:22:10+08:00">
+                2019年01月04日
               </time>
             
 
@@ -630,8 +664,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -648,8 +682,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" itemprop="commentCount"></span>
+                <a href="/2019/01/04/JNI-异常处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/04/JNI-异常处理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -657,7 +691,7 @@
 
           
           
-             <span id="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/" class="leancloud_visitors" data-flag-title="iOS设置AppIcon&LauncherImages尺寸和位置">
+             <span id="/2019/01/04/JNI-异常处理/" class="leancloud_visitors" data-flag-title="JNI-异常处理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -689,11 +723,181 @@
 
       
         
-          <h3 id="iOS-AppIcon图标布局及尺寸"><a href="#iOS-AppIcon图标布局及尺寸" class="headerlink" title="iOS AppIcon图标布局及尺寸"></a>iOS AppIcon图标布局及尺寸</h3><hr>
-<h4 id="AppIcon图标尺寸："><a href="#AppIcon图标尺寸：" class="headerlink" title="AppIcon图标尺寸："></a>AppIcon图标尺寸：</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1024</span>px*<span class="number">1024</span>px     <span class="number">180</span>px*<span class="number">180</span>px    <span class="number">120</span>px*<span class="number">120</span>px  <span class="number">87</span>px*<span class="number">87</span>px  <span class="number">80</span>px*<span class="number">80</span>px   <span class="number">60</span>px*<span class="number">60</span>px  <span class="number">58</span>px*<span class="number">58</span>px    <span class="number">40</span>px*<span class="number">40</span>px</span><br></pre></td></tr></table></figure>
+          <h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4><p>JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/05/iOS设置AppIcon-LauncherImages尺寸和位置/#more" rel="contents">
+            <a class="btn" href="/2019/01/04/JNI-异常处理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2019/01/03/JNI-数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/03/JNI-数据类型/" itemprop="url">JNI-数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T17:36:46+08:00">
+                2019年01月03日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/03/JNI-数据类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/03/JNI-数据类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/03/JNI-数据类型/" class="leancloud_visitors" data-flag-title="JNI-数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="JNI的数据类型"><a href="#JNI的数据类型" class="headerlink" title="JNI的数据类型"></a>JNI的数据类型</h3><p>Java 中有两种数据类型：</p>
+<ul>
+<li>基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。</li>
+<li>引用类型：字符串类型、数组类及其他类。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/03/JNI-数据类型/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -744,7 +948,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/16/MySQL常用命令总结/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/12/28/Android-NDK结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -763,7 +967,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/16/MySQL常用命令总结/" itemprop="url">MySQL常用命令总结</a></h1>
+                <a class="post-title-link" href="/2018/12/28/Android-NDK结构/" itemprop="url">Android-NDK结构</a></h1>
         
 
         <div class="post-meta">
@@ -775,8 +979,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T12:41:35+08:00">
-                2017年11月16日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T11:15:20+08:00">
+                2018年12月28日
               </time>
             
 
@@ -798,8 +1002,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -816,8 +1020,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/16/MySQL常用命令总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/16/MySQL常用命令总结/" itemprop="commentCount"></span>
+                <a href="/2018/12/28/Android-NDK结构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/28/Android-NDK结构/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -825,7 +1029,7 @@
 
           
           
-             <span id="/2017/11/16/MySQL常用命令总结/" class="leancloud_visitors" data-flag-title="MySQL常用命令总结">
+             <span id="/2018/12/28/Android-NDK结构/" class="leancloud_visitors" data-flag-title="Android-NDK结构">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -857,10 +1061,19 @@
 
       
         
-          <h3 id="一、连接MYSQL"><a href="#一、连接MYSQL" class="headerlink" title="一、连接MYSQL"></a>一、连接MYSQL</h3><p>格式： mysql -h主机地址 -u用户名 －p用户密码<br>或者： mysql -u 用户名 -p // 回车后要求输入密码，密码不可见</p>
+          <h3 id="Android-NDK-的结构"><a href="#Android-NDK-的结构" class="headerlink" title="Android NDK 的结构"></a>Android NDK 的结构</h3><ul>
+<li>ndk-build: 该shell脚本是Android NDK构建系统的起始点。</li>
+<li>ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。</li>
+<li>ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪</li>
+<li>build: 该目录包含了Android NDK构建系统的所有模块。</li>
+<li>platforms: 该目录包含了支持不同Android目标版本的头文件和库文件。</li>
+<li>samples: 该目录包含了一些示例应用程序，这些程序可以体现Android NDK的性能。</li>
+<li>sources: 该目录包含了可供开发人员导入到现有的Android NDK项目的一些共享模块。</li>
+<li>toolchains: 该目录包含目录Android NDK支持的不用目标机体系结构的交叉编译器。Android NDK目前支持ARM、X86 和MIPS机体系结构。Android NDK 构建系统根据选定的体系结构使用不同的交叉编译器。</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/16/MySQL常用命令总结/#more" rel="contents">
+            <a class="btn" href="/2018/12/28/Android-NDK结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -911,7 +1124,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-Keyboard/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/12/10/linux下查看监听端口对应的进程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -930,7 +1143,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-Keyboard/" itemprop="url">iPhone开发-Keyboard</a></h1>
+                <a class="post-title-link" href="/2018/12/10/linux下查看监听端口对应的进程/" itemprop="url">linux下查看监听端口对应的进程</a></h1>
         
 
         <div class="post-meta">
@@ -942,8 +1155,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T21:17:18+08:00">
-                2017年11月15日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T12:54:11+08:00">
+                2018年12月10日
               </time>
             
 
@@ -965,8 +1178,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -983,8 +1196,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/15/iPhone开发-Keyboard/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-Keyboard/" itemprop="commentCount"></span>
+                <a href="/2018/12/10/linux下查看监听端口对应的进程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/10/linux下查看监听端口对应的进程/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -992,7 +1205,7 @@
 
           
           
-             <span id="/2017/11/15/iPhone开发-Keyboard/" class="leancloud_visitors" data-flag-title="iPhone开发-Keyboard">
+             <span id="/2018/12/10/linux下查看监听端口对应的进程/" class="leancloud_visitors" data-flag-title="linux下查看监听端口对应的进程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1024,12 +1237,11 @@
 
       
         
-          <p>文本经常需要和键盘打交道，现在记录一下初步的键盘相关的知识点。<br>键盘出现和消失促发两个消息。</p>
-<p>UIKeyboardWillShowNotification （出现通知）<br>UIKeyboardWillHideNotification （隐藏通知）</p>
-<p>NSNotificationCenter 监听两个消息即可捕捉到键盘弹出和隐藏的两个消息。</p>
+          <h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><h5 id="1-通过lsof命令查看PID"><a href="#1-通过lsof命令查看PID" class="headerlink" title="1.通过lsof命令查看PID"></a>1.通过lsof命令查看PID</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4          </span><br><span class="line">COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAME</span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>    <span class="number">6</span>u  IPv4 <span class="number">7597365</span>       TCP *:<span class="number">20003</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>   <span class="number">14</span>u  IPv4 <span class="number">7597369</span>       TCP *:<span class="number">20000</span> (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4|grep <span class="number">8453</span></span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipv6</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6</span><br><span class="line">COMMAND     PID    <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span> DEVICE SIZE NODE NAME</span><br><span class="line">java       1419     1401  286u <span class="built_in"> IPv6 </span>7616547       TCP 192.168.1.29:55829-&gt;192.168.1.17:7001 (CLOSE_WAIT)</span><br><span class="line">java       1419     1401  290u <span class="built_in"> IPv6 </span>6987470       TCP 192.168.1.29:33836-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  297u <span class="built_in"> IPv6 </span>6793642       UDP *:1133 </span><br><span class="line">java       1419     1401  304u <span class="built_in"> IPv6 </span>6987472       TCP 192.168.1.29:33838-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  306u <span class="built_in"> IPv6 </span>6987479       TCP 192.168.1.29:33839-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  307u <span class="built_in"> IPv6 </span>7006208       TCP 192.168.1.29:60340-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6|grep 5001</span><br><span class="line">java      12886        0  530u <span class="built_in"> IPv6 </span>6988341       TCP *:5001 (LISTEN)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/iPhone开发-Keyboard/#more" rel="contents">
+            <a class="btn" href="/2018/12/10/linux下查看监听端口对应的进程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1080,7 +1292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-GCD/">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/12/10/wireshark过滤器规则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="催眠术">
@@ -1099,7 +1311,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-GCD/" itemprop="url">iPhone开发-GCD</a></h1>
+                <a class="post-title-link" href="/2018/12/10/wireshark过滤器规则/" itemprop="url">wireshark过滤器规则</a></h1>
         
 
         <div class="post-meta">
@@ -1111,8 +1323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:57:52+08:00">
-                2017年11月15日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T12:31:22+08:00">
+                2018年12月10日
               </time>
             
 
@@ -1134,8 +1346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -1152,8 +1364,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/15/iPhone开发-GCD/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-GCD/" itemprop="commentCount"></span>
+                <a href="/2018/12/10/wireshark过滤器规则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/10/wireshark过滤器规则/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1161,7 +1373,7 @@
 
           
           
-             <span id="/2017/11/15/iPhone开发-GCD/" class="leancloud_visitors" data-flag-title="iPhone开发-GCD">
+             <span id="/2018/12/10/wireshark过滤器规则/" class="leancloud_visitors" data-flag-title="wireshark过滤器规则">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1193,697 +1405,519 @@
 
       
         
-          <p>一些常用的API</p>
+          
+            <a id="more"></a>
+<h4 id="一、IP过滤：包括来源IP或者目标IP等于某个IP"><a href="#一、IP过滤：包括来源IP或者目标IP等于某个IP" class="headerlink" title="一、IP过滤：包括来源IP或者目标IP等于某个IP"></a>一、IP过滤：包括来源IP或者目标IP等于某个IP</h4><p>比如：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ip</span>.src addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.src addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示来源<span class="built_in">IP</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ip</span>.dst addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.dst addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示目标<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、端口过滤："><a href="#二、端口过滤：" class="headerlink" title="二、端口过滤："></a>二、端口过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> <span class="comment">// 不管端口是来源的还是目标的都显示</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> == <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">2722</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> or udp<span class="selector-class">.port</span> eq <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.dstport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的目标端口80</span></span><br><span class="line"> tcp<span class="selector-class">.srcport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的来源端口80</span></span><br><span class="line"></span><br><span class="line">过滤端口范围</span><br><span class="line">tcp<span class="selector-class">.port</span> &gt;= <span class="number">1</span> and tcp<span class="selector-class">.port</span> &lt;= <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、协议过滤：tcp"><a href="#三、协议过滤：tcp" class="headerlink" title="三、协议过滤：tcp"></a>三、协议过滤：tcp</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">udp</span><br><span class="line">arp</span><br><span class="line">icmp</span><br><span class="line">http</span><br><span class="line">smtp</span><br><span class="line">ftp</span><br><span class="line">dns</span><br><span class="line">msnms</span><br><span class="line">ip</span><br><span class="line">ssl</span><br><span class="line">等等</span><br><span class="line">排除ssl包，如!ssl 或者  <span class="keyword">not</span> ssl</span><br></pre></td></tr></table></figure>
+<h4 id="四、包长度过滤："><a href="#四、包长度过滤：" class="headerlink" title="四、包长度过滤："></a>四、包长度过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">udp<span class="selector-class">.length</span> == <span class="number">26</span> 这个长度是指udp本身固定长度<span class="number">8</span>加上udp下面那块数据包之和</span><br><span class="line">tcp<span class="selector-class">.len</span> &gt;= <span class="number">7</span>  指的是ip数据包(tcp下面那块数据),不包括tcp本身</span><br><span class="line">ip<span class="selector-class">.len</span> == <span class="number">94</span> 除了以太网头固定长度<span class="number">14</span>,其它都算是ip<span class="selector-class">.len</span>,即从ip本身到最后</span><br><span class="line">frame<span class="selector-class">.len</span> == <span class="number">119</span> 整个数据包长度,从eth开始到最后</span><br></pre></td></tr></table></figure>
+<h4 id="五、http模式过滤："><a href="#五、http模式过滤：" class="headerlink" title="五、http模式过滤："></a>五、http模式过滤：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子:</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.uri</span> == “/img/logo-edu.gif”</span><br><span class="line">http contains “GET”</span><br><span class="line">http contains “HTTP/<span class="number">1</span>.”</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// POST包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// 响应包</span></span><br><span class="line">http contains “HTTP/<span class="number">1.1</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">http contains “HTTP/<span class="number">1.0</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">一定包含如下</span><br><span class="line">Content-Type:</span><br></pre></td></tr></table></figure>
+<h4 id="六、连接符-and-or"><a href="#六、连接符-and-or" class="headerlink" title="六、连接符 and / or"></a>六、连接符 and / or</h4><h4 id="七、表达式："><a href="#七、表达式：" class="headerlink" title="七、表达式："></a>七、表达式：</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) <span class="keyword">and</span> !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/12/10/git-submodule的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/git-submodule的使用/" itemprop="url">git submodule的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T10:48:46+08:00">
+                2018年12月10日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/10/git-submodule的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/10/git-submodule的使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/10/git-submodule的使用/" class="leancloud_visitors" data-flag-title="git submodule的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><p>为当前工程添加submodule，命令如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">submodule </span><span class="keyword">add </span>仓库地址 路径</span><br></pre></td></tr></table></figure>
+<p>其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。<br><strong>注意</strong>：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone）</p>
+<p>命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子模块所在的文件夹添加到工程中即可。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>submodule的删除稍微麻烦点：首先，要在“.gitmodules”文件中删除相应配置信息。然后，执行“git rm –cached ”命令将子模块所在的文件从git中删除。</p>
+<h3 id="下载的工程带有submodule"><a href="#下载的工程带有submodule" class="headerlink" title="下载的工程带有submodule"></a>下载的工程带有submodule</h3><p>当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">submodule</span> <span class="comment">update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">init</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recursive</span></span><br></pre></td></tr></table></figure>
+<p>即可将子模块内容下载下来后工程才不会缺少相应的文件。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/12/07/Android-mk简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/Android-mk简介/" itemprop="url">Android.mk简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T19:50:25+08:00">
+                2018年12月07日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/07/Android-mk简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/07/Android-mk简介/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/07/Android-mk简介/" class="leancloud_visitors" data-flag-title="Android.mk简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Android-mk简介"><a href="#Android-mk简介" class="headerlink" title="Android.mk简介"></a>Android.mk简介</h2><p><a href="https://blog.csdn.net/fyfcauc/article/details/27545507" target="_blank" rel="noopener">跳转链接</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2018/08/15/Sublime快捷键/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/15/Sublime快捷键/" itemprop="url">Sublime快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T22:42:55+08:00">
+                2018年08月15日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mac/" itemprop="url" rel="index">
+                    <span itemprop="name">mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/15/Sublime快捷键/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/15/Sublime快捷键/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/15/Sublime快捷键/" class="leancloud_visitors" data-flag-title="Sublime快捷键">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/iPhone开发-GCD/#more" rel="contents">
+            <a class="btn" href="/2018/08/15/Sublime快捷键/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" itemprop="url">iPhone开发-UIImage,CIImage,CGImageRef</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:47:08+08:00">
-                2017年11月15日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/" class="leancloud_visitors" data-flag-title="iPhone开发-UIImage,CIImage,CGImageRef">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>IOS编程揭秘 书中记录着如下一段话。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span>类的Core Graphics</span><br><span class="line">版本是<span class="built_in">CGImage</span>（<span class="built_in">CGImageRef</span>）这两个类之间很容易进行转换，因为一个<span class="built_in">UIImage</span>类有一个<span class="built_in">CGImage</span>的属性“</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-UILabel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-UILabel/" itemprop="url">iPhone开发-UILabel</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:38:52+08:00">
-                2017年11月15日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/iPhone开发-UILabel/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-UILabel/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/iPhone开发-UILabel/" class="leancloud_visitors" data-flag-title="iPhone开发-UILabel">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>UILable 的用法涉及内容有如下</p>
-<ol>
-<li>创建与显示</li>
-<li>文本内容和字体设置</li>
-<li>背景颜色指定</li>
-<li>计算高度。</li>
-<li>行数指定和计算</li>
-</ol>
-<p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
-<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
-<p>下面计算一下高度，当采用默认字体的时候，字体号为17，其高度约为20, 字体为14的时候，高度约为16~17之间</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">字体号：<span class="number">17</span> ，文本高：<span class="number">20</span></span><br><span class="line">字体号：<span class="number">16</span> ，文本高：<span class="number">19</span></span><br><span class="line">字体号：<span class="number">15</span> ，文本高：<span class="number">17</span>~<span class="number">18</span> 之间</span><br><span class="line">字体号：<span class="number">14</span>， 文本高：<span class="number">16</span>~<span class="number">17</span> 之间</span><br></pre></td></tr></table></figure>
-<p>这些字体是默认字体，要是采用其他字体或者设置粗体 ，估计值会受到一些浮动影响。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> getTextHeight:<span class="number">17</span> width:<span class="keyword">self</span>.view.frame.size.width<span class="number">-85</span>];   </span><br><span class="line">-(<span class="keyword">void</span>) getTextHeight:(<span class="built_in">CGFloat</span>) fontSize width:(<span class="built_in">CGFloat</span>) textWidth</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic =@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    <span class="built_in">CGSize</span> curSize = <span class="built_in">CGSizeMake</span>(textWidth, MAXFLOAT);</span><br><span class="line">    <span class="built_in">CGRect</span> rect =   [<span class="keyword">self</span>.label.text boundingRectWithSize:curSize</span><br><span class="line">                                                  options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>|<span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                               attributes:dic context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="built_in">NSStringFromCGRect</span>(rect);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-leftBarButtonItem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-leftBarButtonItem/" itemprop="url">iPhone开发-leftBarButtonItem</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:27:50+08:00">
-                2017年11月15日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/iPhone开发-leftBarButtonItem/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-leftBarButtonItem/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/iPhone开发-leftBarButtonItem/" class="leancloud_visitors" data-flag-title="iPhone开发-leftBarButtonItem">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-设置leftBarButtonItem的文字"><a href="#1-设置leftBarButtonItem的文字" class="headerlink" title="1.设置leftBarButtonItem的文字"></a>1.设置leftBarButtonItem的文字</h3><p>在设置 leftBarButtonItem的时候，又会少了一个左箭头。</p>
-<p>一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]<span class="string">initWithTitle:</span>@<span class="string">"返回"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self  <span class="string">action:</span><span class="meta">@selector</span>(onSelect)];</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下，自定义 UIBarButtonItem 使用设置图片有如下，但发现文本不能设置显示了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIBarButtonItem alloc]</span><span class="selector-tag">initWithImage</span><span class="selector-pseudo">:image</span> <span class="selector-tag">style</span><span class="selector-pseudo">:UIBarButtonItemStylePlain</span> <span class="selector-tag">target</span><span class="selector-pseudo">:self</span></span><br><span class="line">                                   <span class="selector-tag">action</span>:@<span class="keyword">selector</span>(<span class="keyword">onSelect</span>)];</span><br></pre></td></tr></table></figure></p>
-<p>还有一种方式，既有文本又有左箭头的需求，只能使用下面这种方式，自定义一个按钮视图。<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="name">UIBarButtonItem</span> alloc]initWithCustomView:backButton]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>问题前提： 使用pushViewController的时候，该界面返回情况会默认是上一级的标题， 更改文字，又会对本身产生影响。原本意图很简单，就是想设置自己的文字，又想有左箭头。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self.navigationController </span><span class="keyword">pushViewController:cityController </span>animated:YES]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/iPhone开发-leftBarButtonItem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-截屏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/iPhone开发-截屏/" itemprop="url">iPhone开发-截屏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:23:09+08:00">
-                2017年11月15日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/iPhone开发-截屏/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-截屏/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/iPhone开发-截屏/" class="leancloud_visitors" data-flag-title="iPhone开发-截屏">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>iPhone 截屏并本地存储</p>
-<p>使用UIGraphicsBeginImageContext 相关绘图API 获取到图像信息，使用UIImageWriteToSavedPhotosAlbum 方法就可以保存到相关的库里面去</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIWindow</span> *window =[<span class="built_in">UIApplication</span> sharedApplication].keyWindow;</span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContext</span>(window.frame.size);</span><br><span class="line">[window.layer renderInContext:<span class="built_in">UIGraphicsGetCurrentContext</span>()];</span><br><span class="line"><span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"><span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(image, <span class="keyword">self</span>, <span class="keyword">@selector</span>(image:didFinishSavingWithError:contextInfo:), <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) image:(<span class="built_in">UIImage</span> *) image didFinishSavingWithError:(<span class="built_in">NSError</span> *) error contextInfo:(<span class="keyword">void</span> *) contextInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"保存失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIAlertView</span> *alertView = [[<span class="built_in">UIAlertView</span> alloc]initWithTitle:<span class="string">@"提示"</span> message:<span class="string">@"保存成功！"</span> delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"确定"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">        [alertView show];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
         
       
     </div>
@@ -1921,7 +1955,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1969,7 +2003,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1980,7 +2014,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1991,7 +2025,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2028,7 +2062,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
