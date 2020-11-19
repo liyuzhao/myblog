@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="升级XCode后，Qt新建项目出现了问题：   Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-23T06:30:01.000Z">
+<meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级Xcode后Qt问题了">
 <meta name="twitter:description" content="升级XCode后，Qt新建项目出现了问题：   Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
@@ -358,7 +358,7 @@
 <a id="more"></a>
 <p>在Google找到了解决方法。<br><a href="http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t" target="_blank" rel="noopener">http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t</a></p>
 <p>~&gt; Xcode 8</p>
-<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to <code>`/Library/Developer/CommandLineTools</code>.</p>
+<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to <code></code>/Library/Developer/CommandLineTools`.</p>
 <p>Step 1:</p>
 <p>Point <code>Xcode-select</code> to the correct Xcode Developer directory with the command:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select -<span class="keyword">switch</span> <span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -535,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -546,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

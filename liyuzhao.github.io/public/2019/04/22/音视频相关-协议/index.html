@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="【转载：51cto】">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T09:15:26.461Z">
+<meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音视频相关-视频协议">
 <meta name="twitter:description" content="【转载：51cto】">
@@ -361,7 +361,7 @@
 <p>从应用的角度看，mpeg系列在消费类应用更广些，大家也更熟悉些，我们熟悉的VCD格式视频主要是mpeg-1，DVD的视频则是mpeg-2，早期大家看的电影在电脑上存盘文件格式都是*.mpg，基本上也都是mpeg做的压缩了。在行业上，国内的监控行业，也是从mpeg-1到mpeg-2，到前两三年的mpeg-4，再到最近的H.264。而H系列的标准，用得最多的是视频会议，从H.261到H.263，再到H.263 、H.263 等，再到现在的H.264。<br>从技术角度说，H系列的协议对网络的支持更好些，这点mpeg系列要差一些，但是，mpeg它每一代都比H系列同一代的协议要出得晚些，算法也相对更先进些，因此，它用来做存储协议是很合适的，这也就是为什么普通消费类产品用户很少了解到H系列协议的原因。<br>H.264是两大组织最新的算法成果，它在算法层面应该说是非常先进了，有人评价，H.264是视频压缩技术的一个里程碑，在可预见的5到10年内，出现新的视频压缩协议可能性很小，除非压缩理论有重大突破。<br>除了上面说的协议，还有很多公司也有自己的压缩算法，不过基本上都是不公开的了，他们这些算法也都非常好，不过和开发人员关系倒不是很大了，典型的是微软的wmv、realplay公司的rm和rmvb等，他们的使用者也很多，而且他们都偏向流媒体应用。</p>
 <h5 id="1-1-3-音频协议"><a href="#1-1-3-音频协议" class="headerlink" title="1.1.3 音频协议"></a>1.1.3 音频协议</h5><p>音频协议也分两大类，ITU组织的主要是用于视频会议的G系列协议，包括g.711、g.722、g.723、g.726、g.728、g.729等。这些协议主要有两大特点，第一是比较关注语音压缩，毕竟开会主要是要听人讲话；对音乐的压缩效果可能就不是太好了；第二是压缩率都比较大，码率都比较低，典型的g.723支持5.9k/s这样的码率，而且语音音质还很不错。ISO的音频可能更为人熟知一些，最流行的就是mp3，它的全称是mpeg-1 Audio layer 3，意思是mpeg-1的音频第三层；另外，最新的音频算法被称为aac（也称为mp4），它定义在mpeg-2或mpeg-4的音频部分。他们的特点是音质好，支持多声道，高采样精度和采样频率，尤其对音乐的压缩效果比G系列要好太多。当然，这也是因为它们的应用领域侧重点不同造成的。<br>同样的，很多大公司也有自己的语音压缩标准，效果也非常好。不过都是他们自己的知识产权和算法，通用市场用的还是少。</p>
 <h5 id="1-1-4-上层通讯协议"><a href="#1-1-4-上层通讯协议" class="headerlink" title="1.1.4 上层通讯协议"></a>1.1.4 上层通讯协议</h5><p>在视频会议系统中，目前最流行的有H.323和SIP协议，在流媒体应用中，ISMA rtsp应用得比较多，它属于开源项目，而很多流媒体产商有自己的流媒体传输协议，比如微软的mms等。<br>H.323主要用于视频会议，被称为协议簇，我们前面提到的H系列视频压缩协议和G系列音频压缩协议都属于它的子协议。除了音视频编×××外；它还定义了各种数据应用，包括T.120、T.84、T.434等；另外还包括H.245控制信道、H.225.0呼叫信令信道以及RAS信道。详细的H.323的知识，这里就不深入介绍了。</p>
-<p>SIP是由IETF提出来的一个应用控制（信令）协议。正如名字所隐含的—用于发起会话。它可用来创建、修改以及终结多个参与者参加的多媒体会话进程。参与会话的成员可以通过组播方式、单播连网或者两者结合的形式进行通信。</p>
+<p>SIP是由IETF提出来的一个应用控制（信令）协议。正如名字所隐含的–用于发起会话。它可用来创建、修改以及终结多个参与者参加的多媒体会话进程。参与会话的成员可以通过组播方式、单播连网或者两者结合的形式进行通信。</p>
 <p>H.323和SIP分别是通信领域与因特网两大阵营推出的建议。 H.323企图把IP电话当作是众所周知的传统电话，只是传输方式发生了改变，由电路交换变成了分组交换。而SIP协议侧重于将IP电话作为因特网上的一个应用，较其实应用（如FTP，E-mail等）增加了信令和QoS的要求，它们支持的业务基本相同，也都利用RTP作为媒体传输的协议。但H.323是一个相对复杂的协议。<br>RTSP主要用于流媒体传输，它的英文全称是real time streaming protocol。典型的应用就是网络电视的应用，由客户向服务器进行点播，如果在监控行业应用的话，建议当用户进行远程回放录像时，可采用RTSP协议。 </p>
 <h4 id="1-2-音视频基本概念介绍"><a href="#1-2-音视频基本概念介绍" class="headerlink" title="1.2 音视频基本概念介绍"></a>1.2 音视频基本概念介绍</h4><h5 id="1-2-1-视频的基本概念"><a href="#1-2-1-视频的基本概念" class="headerlink" title="1.2.1 视频的基本概念"></a>1.2.1 视频的基本概念</h5><h6 id="RGB和YUV"><a href="#RGB和YUV" class="headerlink" title="RGB和YUV"></a>RGB和YUV</h6><p>RGB指的是红绿蓝，应用还是很广泛的，比如显示器显示，BMP文件格式中的像素值等；而YUV主要指亮度和两个色差信号，被称为luminance和chrominance他们的转化关系可以自己去查一下，我们视频里面基本上都是用YUV格式。</p>
 <h6 id="YUV格式"><a href="#YUV格式" class="headerlink" title="YUV格式"></a>YUV格式</h6><p>YUV文件格式又分很多种，如果算上存储格式，就更多了，比如YUV444、YUV422、YUV411、YUV420等等，视频压缩用到的是420格式，这是因为人眼对亮度更敏感些，对色度相对要差些。另外要注意几个英文单词的意思，比如：packet、planar、interlace、progressive等。</p>
@@ -371,8 +371,8 @@
 <h6 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h6><p>图像的分辨率指的是它的像素数，一般用得最多的是CIF，也就是352*288，4cif自然就是指704*576，而D1的分辨率严格意义上是720*576，大小来说和4cif差不多了。当然现在还有很多高清的分辨率，这些我不是太了解，大家感兴趣可以查一下。另外，国外很多时候，对cif的高度取240，这是因为他们的帧率比我们高（29.97hz），自然，高度要小一些了。</p>
 <h6 id="实时与非实时"><a href="#实时与非实时" class="headerlink" title="实时与非实时"></a>实时与非实时</h6><p>主要用来形容编码器，它含有两个意思，一个是要保证帧率，也就是每秒25帧，另一个是“live”的意思，意味着直播，所谓的“实况转播”的“实”。 延时<br>也是形容编码器的一个重要指标，一般来说，200ms到300ms人的感觉不会很明显，到了500毫秒的话，还是可以很明显感觉到的。</p>
 <h6 id="音视频同步"><a href="#音视频同步" class="headerlink" title="音视频同步"></a>音视频同步</h6><p>作为视频会议的应用，一般要求做到所谓的“唇同步”。基本的保证音视频同步的手段就是时间戳（time stamp）。</p>
-<h6 id="复合视频和S-Video"><a href="#复合视频和S-Video" class="headerlink" title="复合视频和S-Video"></a>复合视频和S-Video</h6><p>NTSC和PAL彩色视频信号是这样构成的—首先有一个基本的黑白视频信号，然后在每个水平同步脉冲之后，加入一个颜色脉冲和一个亮度信号。因为彩色信号是由多种数据“叠加”起来的，故称之为“复合视频”。S-Video则是一种信号质量更高的视频接口，它取消了信号叠加的方法，可有效避免一些无谓的质量损失。它的 功能是将RGB三原色和亮度进行分离处理。</p>
-<h6 id="NTSC、PAL和SECAM"><a href="#NTSC、PAL和SECAM" class="headerlink" title="NTSC、PAL和SECAM"></a>NTSC、PAL和SECAM</h6><p>基带视频是一种简单的模拟信号，由视频模拟数据和视频同步数据构成，用于接收端正确地显示图像。信号的细节取决于应用的视频标准或者“制式”—NTSC（美国全国电视标准委员会，National Television Standards Committee）、PAL（逐行倒相，Phase Alternate Line）以及SECAM（顺序传送与存储彩色电视系统，法国采用的一种电视制式，SEquential Couleur Avec Memoire）。<br>中国的电视信号一般都是PAL，而美日则是NTSC。这2个制式的帧率，图像尺寸都有所不同。<br>线数<br>我们在买摄像头的时候，经常会提到一个叫线数的概念，它其实就是分辨率中的高（height）。举个例子：PAL制式的D1图像，线数就是576。</p>
+<h6 id="复合视频和S-Video"><a href="#复合视频和S-Video" class="headerlink" title="复合视频和S-Video"></a>复合视频和S-Video</h6><p>NTSC和PAL彩色视频信号是这样构成的–首先有一个基本的黑白视频信号，然后在每个水平同步脉冲之后，加入一个颜色脉冲和一个亮度信号。因为彩色信号是由多种数据“叠加”起来的，故称之为“复合视频”。S-Video则是一种信号质量更高的视频接口，它取消了信号叠加的方法，可有效避免一些无谓的质量损失。它的 功能是将RGB三原色和亮度进行分离处理。</p>
+<h6 id="NTSC、PAL和SECAM"><a href="#NTSC、PAL和SECAM" class="headerlink" title="NTSC、PAL和SECAM"></a>NTSC、PAL和SECAM</h6><p>基带视频是一种简单的模拟信号，由视频模拟数据和视频同步数据构成，用于接收端正确地显示图像。信号的细节取决于应用的视频标准或者“制式”–NTSC（美国全国电视标准委员会，National Television Standards Committee）、PAL（逐行倒相，Phase Alternate Line）以及SECAM（顺序传送与存储彩色电视系统，法国采用的一种电视制式，SEquential Couleur Avec Memoire）。<br>中国的电视信号一般都是PAL，而美日则是NTSC。这2个制式的帧率，图像尺寸都有所不同。<br>线数<br>我们在买摄像头的时候，经常会提到一个叫线数的概念，它其实就是分辨率中的高（height）。举个例子：PAL制式的D1图像，线数就是576。</p>
 <h6 id="亮度、饱和度和对比度"><a href="#亮度、饱和度和对比度" class="headerlink" title="亮度、饱和度和对比度"></a>亮度、饱和度和对比度</h6><p>英文名分别是：brightness、saturation和 contrast。这是三个表示图像的重要指标。</p>
 <h5 id="1-2-2-音频的基本概念"><a href="#1-2-2-音频的基本概念" class="headerlink" title="1.2.2 音频的基本概念"></a>1.2.2 音频的基本概念</h5><h6 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h6><p>音频的采样率其实类似视频的帧率，意思是每秒钟采样的次数。G.711的采样率是8k（人的语音大概就在这个频率范围以内），而mp3支持的典型采样率是 44.1kHz（超过人耳响应频率的2倍多一点——奈奎斯特定理）。很明显，mp3压缩的原始声音要比g.711好多了。</p>
 <h6 id="采样精度"><a href="#采样精度" class="headerlink" title="采样精度"></a>采样精度</h6><p>就是每个采样进行模数转换时的量化系数。G.711是8bit采样精度，而mp3典型的是16bit。</p>
@@ -532,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +543,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -554,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
