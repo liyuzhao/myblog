@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c++,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C++语言ctime库">
+<meta name="keywords" content="c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++语言ctime库">
+<meta property="og:url" content="http://lyuzhao.com/2021/04/19/C-语言ctime库/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="C++语言ctime库">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-04-20T04:20:50.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++语言ctime库">
+<meta name="twitter:description" content="C++语言ctime库">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lyuzhao.com/2021/04/19/C-语言ctime库/">
+
+
+
+
+
+  <title>C++语言ctime库 | 催眠术的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9b14e8e9abf2dbd975832c83cdf15b71";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">催眠术的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2021/04/19/C-语言ctime库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++语言ctime库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-19T17:44:04+08:00">
+                2021年04月19日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/19/C-语言ctime库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/C-语言ctime库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2021/04/19/C-语言ctime库/" class="leancloud_visitors" data-flag-title="C++语言ctime库">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>C++语言ctime库</p>
+<a id="more"></a>
+<h3 id="类型"><a class="markdownIt-Anchor" href="#类型"></a> 类型</h3>
+<p><code>clock_t</code>: 是个long型，用来记录一段时间内的时钟计时单元数，即CPU的运行单元时间。</p>
+<p><code>size_t</code>:标准C库中定义的，应为unsigned int, 在64位系统中为long unsigned int。</p>
+<p><code>time_t</code>:从1970年1月1日0时0分0秒到该时间点所经过的秒数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tm</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> tm_sec; <span class="comment">/* 秒 - 取值区间为[0,59] */</span></span><br><span class="line">	<span class="keyword">int</span> tm_min; <span class="comment">/* 分 - 取值区间为[0,59] */</span></span><br><span class="line">	<span class="keyword">int</span> tm_hour; <span class="comment">/* 时 - 取值区间为[0,23] */</span></span><br><span class="line">	<span class="keyword">int</span> tm_mday; <span class="comment">/* 一个月中的日期 - 取值区间为[1,31] */</span></span><br><span class="line">	<span class="keyword">int</span> tm_mon; <span class="comment">/* 月份(从一月开始，0代表一月) - 取值区间为[0,11] */</span></span><br><span class="line">	<span class="keyword">int</span> tm_year; <span class="comment">/* 年份，其值等于实际年份减去1900 */</span></span><br><span class="line">	<span class="keyword">int</span> tm_wday; <span class="comment">/* 星期 - 取值区间为[0,6]，其中0代表星期日，1代表星期一，以此类推。 */</span></span><br><span class="line">	<span class="keyword">int</span> tm_yday; <span class="comment">/* 从每年的1月1日开始的天数 - 取值区间为[0,365]，其中0代表1月1日，1代表1月2日，以此类推。 */</span></span><br><span class="line">	<span class="keyword">int</span> tm_isdst; <span class="comment">/* 夏令时标识符，实行夏令时的时候，tm_isdst为正。不实行夏令时的时候，tm_isdst为0；不了解情况时，tm_isdst()为负。 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="时间的操作"><a class="markdownIt-Anchor" href="#时间的操作"></a> 时间的操作</h3>
+<p>clock: 返回时钟计时单元数，自从这个程序开始运行。</p>
+<p>time: 返回当前的time_t。</p>
+<p>difftime: 计算time_t两个之间的时间差。</p>
+<h3 id="转换"><a class="markdownIt-Anchor" href="#转换"></a> 转换</h3>
+<p>mktime: 转换tm structure成time_t</p>
+<p>asctime: 转换tm structure成字符串</p>
+<p>ctime: 转换time_t成字符串</p>
+<p>gmtime: 转换time_t 成tm as UTC time</p>
+<p>localtime: 转换time_t 成tm as local time</p>
+<p>strftime: 格式时间成字符串</p>
+<p>转换成字符串的几个函数：asctime, ctime, strftime</p>
+<h3 id="宏"><a class="markdownIt-Anchor" href="#宏"></a> 宏</h3>
+<p><code>CLOCKS_PER_SEC</code>: 它用来表示一秒钟会有多少个时钟计时单元。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测量事件的持续时间</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_clock_t</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> i = <span class="number">100000000L</span>;</span><br><span class="line">	<span class="keyword">clock_t</span> start, finish;</span><br><span class="line">	<span class="keyword">double</span> duration;</span><br><span class="line">	start = clock();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i--)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	finish = clock();</span><br><span class="line">	duration = (<span class="keyword">double</span>)(finish - start)/CLOCKS_PER_SEC;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Time to do 100000000 empty loops is %f seconds\n"</span>, duration);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_time_t</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">time_t</span> t = time(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The Calendar time now is %ld \n"</span>, t);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_difftime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">time_t</span> start, end;</span><br><span class="line">	start = time(<span class="literal">NULL</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">long</span> i = <span class="number">100000000L</span>;</span><br><span class="line">	<span class="keyword">while</span>(i--)&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	end = time(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Time pause used %5.4f seconds.\n"</span>, difftime(end, start));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面都是一些转换函数的应用</span></span><br><span class="line"><span class="comment">// mktime: tm --&gt; time_t</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_mktime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">tm</span> <span class="title">t</span>;</span></span><br><span class="line">	<span class="keyword">time_t</span> t_of_day;</span><br><span class="line">	t.tm_year = <span class="number">1997</span> - <span class="number">1990</span>;</span><br><span class="line">	t.tm_mon = <span class="number">6</span>;</span><br><span class="line">	t.tm_mday = <span class="number">1</span>;</span><br><span class="line">	t.tm_hour = <span class="number">0</span>;</span><br><span class="line">	t.tm_sec = <span class="number">1</span>;</span><br><span class="line">	t.tm_wday = <span class="number">4</span>; <span class="comment">/* Day of the week */</span></span><br><span class="line">	t.tm_yday = <span class="number">0</span>; <span class="comment">/* Does not show in asctime  */</span></span><br><span class="line">	t.tm_isdst = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	t_of_day = mktime(&amp;t);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,ctime(&amp;t_of_day));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// localtime: time_t --&gt; tm</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_localtime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">time_t</span> rawtime;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">tm</span>* <span class="title">timeinfo</span>;</span></span><br><span class="line"></span><br><span class="line">	time(&amp;rawtime);</span><br><span class="line"></span><br><span class="line">	timeinfo = localtime(&amp;rawtime);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Current local time and date: %s"</span>, asctime(timeinfo));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// gmtime: time_t --&gt; tm</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_gmtime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">time_t</span> rawtime;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">tm</span>* <span class="title">timeinfo</span>;</span></span><br><span class="line"></span><br><span class="line">	time(&amp;rawtime);</span><br><span class="line">	timeinfo = gmtime(&amp;rawtime);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"UTC time and date: %s"</span>, asctime(timeinfo));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ctime: time_t --&gt; string</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_ctime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">time_t</span> t = time(<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> str = ctime(&amp;t);</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">test_clock_t</span>();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">test_time_t</span>();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">test_difftime();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">test_mktime();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">test_localtime();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">test_gmtime();</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"=========================="</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">test_ctime();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以使用strftime()函数将时间格式化为我们想要的格式。它的原型如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">size_t</span> strftime(</span><br><span class="line">	<span class="keyword">char</span> *strDest,</span><br><span class="line">	<span class="keyword">size_t</span> maxsize,</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span> *format,</span><br><span class="line">	<span class="keyword">const</span> struct tm *timeptr</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们可以根据format指向字符串中格式命令把timeptr中保存的时间信息放在strDest指向的字符串中，最多向strDest中存放maxsize个字符。该函数返回向strDest指向的字符串中放置的字符数。</p>
+<p>函数strftime()的操作有些类似于sprintf():识别以百分号(%)开始的格式命令集合，格式化输出结果放在一个字符串中。格式化命令说明串strDest中各种日期和时间信息的确切表示方式。格式串中的其他字符原样放进串中。格式命令列在下面，它们是区分大小写的。</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">%<span class="selector-tag">a</span></span>	星期几的简写</span><br><span class="line"><span class="tag">%<span class="selector-tag">A</span></span>	星期几的全称</span><br><span class="line"><span class="tag">%<span class="selector-tag">b</span></span>	月份的简写</span><br><span class="line"><span class="tag">%<span class="selector-tag">B</span></span>	月份的全称</span><br><span class="line"><span class="tag">%<span class="selector-tag">c</span></span>	标准的日期的时间串</span><br><span class="line"><span class="tag">%<span class="selector-tag">C</span></span>	年份的后两位数字</span><br><span class="line"><span class="tag">%<span class="selector-tag">d</span></span>	十进制表示的每月的第几天</span><br><span class="line"><span class="tag">%<span class="selector-tag">D</span></span>	月/天/年</span><br><span class="line"><span class="tag">%<span class="selector-tag">e</span></span>	在两字符域中，十进制表示的每月的第几天</span><br><span class="line"><span class="tag">%<span class="selector-tag">F</span></span>	年-月-日</span><br><span class="line"><span class="tag">%<span class="selector-tag">g</span></span>	年份的后两位数字，使用基于周的年</span><br><span class="line"><span class="tag">%<span class="selector-tag">G</span></span>	年份，使用基于周的年</span><br><span class="line"><span class="tag">%<span class="selector-tag">h</span></span>	简写的月份名</span><br><span class="line"><span class="tag">%<span class="selector-tag">H</span></span>	24小时制的小时</span><br><span class="line"><span class="tag">%<span class="selector-tag">I</span></span>	12小时制的小时</span><br><span class="line"><span class="tag">%<span class="selector-tag">j</span></span>	十进制表示的每年的第几天</span><br><span class="line"><span class="tag">%<span class="selector-tag">m</span></span>	十进制表示的月份</span><br><span class="line"><span class="tag">%<span class="selector-tag">M</span></span>	十进制表示的分钟数</span><br><span class="line"><span class="tag">%<span class="selector-tag">n</span></span>	新行符</span><br><span class="line"><span class="tag">%<span class="selector-tag">p</span></span>	本地的AM或PM的等价显示</span><br><span class="line"><span class="tag">%<span class="selector-tag">r</span></span>	12小时的时间</span><br><span class="line"><span class="tag">%<span class="selector-tag">R</span></span>	显示小时和分钟：hh:mm</span><br><span class="line"><span class="tag">%<span class="selector-tag">S</span></span>	十进制的秒数</span><br><span class="line"><span class="tag">%<span class="selector-tag">t</span></span>	水平制表符</span><br><span class="line"><span class="tag">%<span class="selector-tag">T</span></span>	显示时分秒：hh:mm:ss</span><br><span class="line"><span class="tag">%<span class="selector-tag">u</span></span>	每周的第几天，星期一为第一天（值从0到6，星期一为0）</span><br><span class="line"><span class="tag">%<span class="selector-tag">U</span></span>	每年的第几周，把星期日作为第一天（值从0到53）</span><br><span class="line"><span class="tag">%<span class="selector-tag">V</span></span>	每年的第几周，使用基于周的年</span><br><span class="line"><span class="tag">%<span class="selector-tag">w</span></span>	十进制表示的星期几（值从0到6，星期天为0）</span><br><span class="line"><span class="tag">%<span class="selector-tag">W</span></span>	每年的第几周，把星期一作为第一天（值从0到53）</span><br><span class="line"><span class="tag">%<span class="selector-tag">x</span></span>	标准的日期串</span><br><span class="line"><span class="tag">%<span class="selector-tag">X</span></span>	标准的时间串</span><br><span class="line"><span class="tag">%<span class="selector-tag">y</span></span>	不带世纪的十进制年份（值从0到99）</span><br><span class="line"><span class="tag">%<span class="selector-tag">Y</span></span>	带世纪部分的十进制年份</span><br><span class="line"><span class="tag">%<span class="selector-tag">z</span></span>	%Z时区名称，如果不能得到时区则返回空字符。</span><br><span class="line"><span class="tag">%</span>%	百分号</span><br></pre></td></tr></table></figure>
+<h4 id="strftime函数的声明"><a class="markdownIt-Anchor" href="#strftime函数的声明"></a> strftime()函数的声明</h4>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size_t strftime(<span class="built_in">char</span> *<span class="built_in">str</span>, size_t maxsize, <span class="keyword">const</span> <span class="built_in">char</span> *format, <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">tm</span></span> *timeptr)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>str – 这是指向目标数组的指针，用来复制产生的 C 字符串。</li>
+<li>maxsize – 这是被复制到 str 的最大字符数。</li>
+<li>format – 这是 C 字符串，包含了普通字符和特殊格式说明符的任何组合。这些格式说明符由函数替换为表示 tm 中所指定时间的相对应值。格式说明符是：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">time_t</span> rawtime;</span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">tm</span> *<span class="title">info</span>;</span></span><br><span class="line">   <span class="keyword">char</span> buffer[<span class="number">80</span>];</span><br><span class="line"> </span><br><span class="line">   time( &amp;rawtime );</span><br><span class="line"> </span><br><span class="line">   info = localtime( &amp;rawtime );</span><br><span class="line"> </span><br><span class="line">   strftime(buffer, <span class="number">80</span>, <span class="string">"%Y-%m-%d %H:%M:%S"</span>, info);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"格式化的日期 &amp; 时间 : |%s|\n"</span>, buffer );</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>多谢您的大力支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/assets/blogImg/wechat.jpg" alt="催眠术 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/19/std-string常用函数/" rel="next" title="std string常用函数">
+                <i class="fa fa-chevron-left"></i> std string常用函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjcwNC85MjY1"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/blogImg/avatar.jpg" alt="催眠术">
+            
+              <p class="site-author-name" itemprop="name">催眠术</p>
+              <p class="site-description motion-element" itemprop="description">催眠术的技术博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型"><span class="nav-number">1.</span> <span class="nav-text"> 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间的操作"><span class="nav-number">2.</span> <span class="nav-text"> 时间的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换"><span class="nav-number">3.</span> <span class="nav-text"> 转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏"><span class="nav-number">4.</span> <span class="nav-text"> 宏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#strftime函数的声明"><span class="nav-number">4.1.</span> <span class="nav-text"> strftime()函数的声明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">催眠术</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz',
+        appKey: 'FAY02ARertEPSzSaWCAowemt',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("m2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz", "FAY02ARertEPSzSaWCAowemt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

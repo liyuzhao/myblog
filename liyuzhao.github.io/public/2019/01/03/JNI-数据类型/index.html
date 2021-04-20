@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="JNI的数据类型Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
+<meta name="description" content="JNI的数据类型 Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
 <meta name="keywords" content="android,jni,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI-数据类型">
 <meta property="og:url" content="http://lyuzhao.com/2019/01/03/JNI-数据类型/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="JNI的数据类型Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
+<meta property="og:description" content="JNI的数据类型 Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI-数据类型">
-<meta name="twitter:description" content="JNI的数据类型Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
+<meta name="twitter:description" content="JNI的数据类型 Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
 
 
 
@@ -353,7 +353,8 @@
       
 
       
-        <h3 id="JNI的数据类型"><a href="#JNI的数据类型" class="headerlink" title="JNI的数据类型"></a>JNI的数据类型</h3><p>Java 中有两种数据类型：</p>
+        <h3 id="jni的数据类型"><a class="markdownIt-Anchor" href="#jni的数据类型"></a> JNI的数据类型</h3>
+<p>Java 中有两种数据类型：</p>
 <ul>
 <li>基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。</li>
 <li>引用类型：字符串类型、数组类及其他类。</li>
@@ -495,46 +496,56 @@
 </tr>
 </tbody>
 </table>
-<h4 id="对引用数据类型的操作"><a href="#对引用数据类型的操作" class="headerlink" title="对引用数据类型的操作"></a>对引用数据类型的操作</h4><h5 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h5><p>JNI把 Java 字符串当成应用类型处理。这些引用类型并不像原生 C 字符串一样可以直接使用， JNI 提供了 Java 字符串与C字符串之间相互转化的必要函数。因为Java字符串对象是不可变的，因此JNI不提供任何修改现有的Java字符串内容的函数。</p>
+<h4 id="对引用数据类型的操作"><a class="markdownIt-Anchor" href="#对引用数据类型的操作"></a> 对引用数据类型的操作</h4>
+<h5 id="字符串操作"><a class="markdownIt-Anchor" href="#字符串操作"></a> 字符串操作</h5>
+<p>JNI把 Java 字符串当成应用类型处理。这些引用类型并不像原生 C 字符串一样可以直接使用， JNI 提供了 Java 字符串与C字符串之间相互转化的必要函数。因为Java字符串对象是不可变的，因此JNI不提供任何修改现有的Java字符串内容的函数。</p>
 <p>JNI支持Unicode编码格式和UTF-8编码格式的字符串，还提供两组函数通过JNIEnv接口指针处理这些字符串编码。</p>
 <ul>
-<li><p>1.创建字符串</p>
-<p>  可以在原生代码中用 NewString 函数构建Unicode编码格式的字符串实例，用NewStringUTF函数构建UTF-8编码格式的字符串实例。这些函数以一个C字符串为参数，并返回一个Java字符串引用类型jstring值。</p>
+<li>
+<p>1.创建字符串</p>
+<p>可以在原生代码中用 NewString 函数构建Unicode编码格式的字符串实例，用NewStringUTF函数构建UTF-8编码格式的字符串实例。这些函数以一个C字符串为参数，并返回一个Java字符串引用类型jstring值。</p>
   <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jstring javaString<span class="comment">;</span></span><br><span class="line">javaString = (<span class="name">*env</span>)-&gt;NewStringUTF(<span class="name">env</span>, <span class="string">"Hello world!"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>  在内存溢出的情况下，这些函数返回NULL以通过原生代码虚拟机中抛出异常，这样原生代码就会停止运行。</p>
+<p>在内存溢出的情况下，这些函数返回NULL以通过原生代码虚拟机中抛出异常，这样原生代码就会停止运行。</p>
 </li>
-<li><p>2.把 Java 字符串转换成 C 字符串</p>
-<p>  为了在原生代码中使用 Java 字符串，需要先将 Java 字符串转换成 C 字符串。用 GetStringChars 函数可以将Unicode格式的Java字符串转换成 C 字符串， 用GetStringUTFChars 函数可以将UTF-8格式的Java字符串转换成C字符串。 这些函数的第三个参数均为可选参数，该可选参数名是isCopy, 它让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
+<li>
+<p>2.把 Java 字符串转换成 C 字符串</p>
+<p>为了在原生代码中使用 Java 字符串，需要先将 Java 字符串转换成 C 字符串。用 GetStringChars 函数可以将Unicode格式的Java字符串转换成 C 字符串， 用GetStringUTFChars 函数可以将UTF-8格式的Java字符串转换成C字符串。 这些函数的第三个参数均为可选参数，该可选参数名是isCopy, 它让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">		将<span class="keyword">Java字符串转换成C字符串</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">const </span><span class="keyword">jbyte* </span>str<span class="comment">;</span></span><br><span class="line"><span class="keyword">jboolean </span>isCopy<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">str = (*env)-&gt;GetStringUTFChars(env, <span class="keyword">javaString, </span>&amp;isCopy)<span class="comment">;</span></span><br><span class="line">if(<span class="number">0</span> != str)&#123;</span><br><span class="line">	printf(<span class="string">"Java string: %s"</span>, str)<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	if(<span class="keyword">JNI_TRUE </span>== isCopy)&#123;</span><br><span class="line">		printf(<span class="string">"C string is a copy of the Java string."</span>)</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		printf(<span class="string">"C string points to actual string."</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>3.释放字符串</p>
-<p>  通过JNI GetStringChars 函数和 GetStringUTFChars 函数获得的C字符串在原生代码中使用完之后需要正确地释放，否则将会引起内存泄露。 JNI提供了 ReleaseStringChars 函数释放 Unicode编码格式的字符串，而用ReleaseStringUTFChars函数释放UTF-8编码格式的字符串。</p>
+<li>
+<p>3.释放字符串</p>
+<p>通过JNI GetStringChars 函数和 GetStringUTFChars 函数获得的C字符串在原生代码中使用完之后需要正确地释放，否则将会引起内存泄露。 JNI提供了 ReleaseStringChars 函数释放 Unicode编码格式的字符串，而用ReleaseStringUTFChars函数释放UTF-8编码格式的字符串。</p>
   <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放 JNI 函数返回的 C 字符串</span><br><span class="line">(*env)-&gt;<span class="constructor">ReleaseStringUTFChars(<span class="params">env</span>, <span class="params">javaString</span>, <span class="params">str</span>)</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h5><p>JNI 把 Java 数组当成引用类型来处理，JNI提供必要的函数访问和处理Java数组。</p>
+<h5 id="数组操作"><a class="markdownIt-Anchor" href="#数组操作"></a> 数组操作</h5>
+<p>JNI 把 Java 数组当成引用类型来处理，JNI提供必要的函数访问和处理Java数组。</p>
 <ul>
-<li><p>1.创建数组</p>
-<p>  用 New&lt;Type&gt;Array 函数在原生代码中创建数组实例，其中&lt;Type&gt;可以是 Int, Char 和 Boolean 等，例如 NewIntArray。使用这些函数时应该以参数的形式给出数组的大小。</p>
+<li>
+<p>1.创建数组</p>
+<p>用 New&lt;Type&gt;Array 函数在原生代码中创建数组实例，其中&lt;Type&gt;可以是 Int, Char 和 Boolean 等，例如 NewIntArray。使用这些函数时应该以参数的形式给出数组的大小。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在原生代码中创建数组</span><br><span class="line"></span><br><span class="line"><span class="keyword">jintArray </span><span class="keyword">javaArray;</span></span><br><span class="line"><span class="keyword">javaArray </span>= (*env)-&gt;NewIntArray(env, <span class="number">10</span>)<span class="comment">;</span></span><br><span class="line">if(<span class="number">0</span> != <span class="keyword">javaArray)&#123;</span></span><br><span class="line"><span class="keyword">	</span><span class="comment">/* 现在可以使用数组了。 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  与 NewString 函数一样，在内存溢出的情况下，New&lt;Type&gt;Array 函数将返回 NULL 以通知原生代码虚拟机中有异常抛出，这样原生代码就会停止运行。</p>
+<p>与 NewString 函数一样，在内存溢出的情况下，New&lt;Type&gt;Array 函数将返回 NULL 以通知原生代码虚拟机中有异常抛出，这样原生代码就会停止运行。</p>
 </li>
-<li><p>2.访问数组元素</p>
-<p>  JNI 提供两种访问 Java 数组元素的方法，可以将数组的代码复制成C数组或者让JNI提供直接指向数组元素的指针。</p>
+<li>
+<p>2.访问数组元素</p>
+<p>JNI 提供两种访问 Java 数组元素的方法，可以将数组的代码复制成C数组或者让JNI提供直接指向数组元素的指针。</p>
 </li>
-<li><p>3.对副本的操作</p>
-<p>  Get&lt;Type&gt;ArrayRegion 函数将给定的基本Java数组复制到给定的C数组中。</p>
+<li>
+<p>3.对副本的操作</p>
+<p>Get&lt;Type&gt;ArrayRegion 函数将给定的基本Java数组复制到给定的C数组中。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将<span class="keyword">Java数组区复制到C数组中</span></span><br><span class="line"><span class="keyword">jint </span>nativeArray[<span class="number">10</span>]<span class="comment">;</span></span><br><span class="line">(*env)-&gt;GetIntArrayRegion(env, <span class="keyword">javaArray, </span><span class="number">0</span>, <span class="number">10</span>, nativeArray)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>  原生代码可以像使用普通的C数组一样使用和修改数组元素。当原生代码想将所做的修改提交给Java数组时，可以使用 Set&lt;Type&gt;ArrayRegion 函数将C数组复制回Java数组中。</p>
+<p>原生代码可以像使用普通的C数组一样使用和修改数组元素。当原生代码想将所做的修改提交给Java数组时，可以使用 Set&lt;Type&gt;ArrayRegion 函数将C数组复制回Java数组中。</p>
   <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">从C数组向Java数组提交所作的修改</span><br><span class="line"></span><br><span class="line">(*env)-&gt;<span class="constructor">SetIntArrayRegion(<span class="params">env</span>, <span class="params">javaArray</span>, 0, 10, <span class="params">nativeArray</span>)</span>;</span><br></pre></td></tr></table></figure>
-<p>  当数组很大时，为了对数组进行操作而复制数组会引起性能问题。在这种情况下，如果可能的话，原生代码只获取或设置数组元素区域而不是获取整个数组。另外，JNI 提供了不同的函数集以获得数组元素而非其副本的直接指针。</p>
+<p>当数组很大时，为了对数组进行操作而复制数组会引起性能问题。在这种情况下，如果可能的话，原生代码只获取或设置数组元素区域而不是获取整个数组。另外，JNI 提供了不同的函数集以获得数组元素而非其副本的直接指针。</p>
 </li>
-<li><p>4.对直接指针的操作</p>
-<p>  可能的话，原生代码可以用Get&lt;Type&gt;ArrayElements函数获取指向数组元素的直接指针。函数带有三个参数，第三个参数是可选参数，该可选参数名是isCopy, 让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
+<li>
+<p>4.对直接指针的操作</p>
+<p>可能的话，原生代码可以用Get&lt;Type&gt;ArrayElements函数获取指向数组元素的直接指针。函数带有三个参数，第三个参数是可选参数，该可选参数名是isCopy, 让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">获得指向<span class="keyword">Java数组元素的直接指针</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">jint* </span>nativeDirectArray<span class="comment">;</span></span><br><span class="line"><span class="keyword">jboolean </span>isCopy<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">nativeDirectArray = (*env)-&gt;GetIntArrayElements(env, <span class="keyword">javaArray, </span>&amp;isCopy)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>  因为可以像普通的C数组一样访问和处理数组元素，因此JNI没提供访问和处理数组元素的方法，JNI 要求原生代码用完这些指针立即释放，否则会出现内存溢出。原生代码可以使用JNI提供的 Release&lt;Type&gt;ArrayElements函数释放 Get&lt;Type&gt;ArrayElements函数返回C数组。</p>
+<p>因为可以像普通的C数组一样访问和处理数组元素，因此JNI没提供访问和处理数组元素的方法，JNI 要求原生代码用完这些指针立即释放，否则会出现内存溢出。原生代码可以使用JNI提供的 Release&lt;Type&gt;ArrayElements函数释放 Get&lt;Type&gt;ArrayElements函数返回C数组。</p>
   <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放指向Java数组元素的直接指针</span><br><span class="line">(*env)-&gt;<span class="constructor">ReleaseIntArrayElements(<span class="params">env</span>, <span class="params">javaArray</span>, <span class="params">nativeDirectArray</span>, 0)</span>;</span><br></pre></td></tr></table></figure>
-<p>  该函数带有四个函数，第四个函数是释放模式，下面列出了支持的释放模式列表。</p>
+<p>该函数带有四个函数，第四个函数是释放模式，下面列出了支持的释放模式列表。</p>
 </li>
 </ul>
 <table>
@@ -559,73 +570,80 @@
 </tr>
 </tbody>
 </table>
-<h5 id="NIO操作"><a href="#NIO操作" class="headerlink" title="NIO操作"></a>NIO操作</h5><p>原生I/O（NIO）在缓冲管理区、大规模网络和文件I/O及字符集支持方面的性能有所改进。JNI提供了在原生代码中使用NIO的函数。与数组操作相比，NIO缓冲区的数据传送性能较好，更适合在原生代码和Java应用程序之间传送大量数据。</p>
+<h5 id="nio操作"><a class="markdownIt-Anchor" href="#nio操作"></a> NIO操作</h5>
+<p>原生I/O（NIO）在缓冲管理区、大规模网络和文件I/O及字符集支持方面的性能有所改进。JNI提供了在原生代码中使用NIO的函数。与数组操作相比，NIO缓冲区的数据传送性能较好，更适合在原生代码和Java应用程序之间传送大量数据。</p>
 <ul>
-<li><p>1.创建直接字节缓冲区</p>
-<p>  原生代码可以创建Java应用程序使用的直接字节缓冲区，该过程是以一个原生C字节数组为基础，下面列出了NewDirectByteBuffer的使用。</p>
+<li>
+<p>1.创建直接字节缓冲区</p>
+<p>原生代码可以创建Java应用程序使用的直接字节缓冲区，该过程是以一个原生C字节数组为基础，下面列出了NewDirectByteBuffer的使用。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">基于给定的C字节数组创建字节缓冲区</span><br><span class="line"></span><br><span class="line">unsigned char* <span class="keyword">buffer </span>= (unsigned char*) malloc(<span class="number">1024</span>)<span class="comment">;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">jobject </span><span class="keyword">directBuffer;</span></span><br><span class="line"><span class="keyword">directBuffer </span>= (*env)-&gt;NewDirectByteBuffer(env, <span class="keyword">buffer, </span><span class="number">1024</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>  <strong>注意</strong></p>
-<p>  原生方法中的内存分配超出了虚拟机的管理范围，且不能用虚拟机的垃圾回收器回收原生方法中的内存。原生函数应该通过释放未使用的内存分配以避免内存泄露来正确管理内存。</p>
+<p><strong>注意</strong></p>
+<p>原生方法中的内存分配超出了虚拟机的管理范围，且不能用虚拟机的垃圾回收器回收原生方法中的内存。原生函数应该通过释放未使用的内存分配以避免内存泄露来正确管理内存。</p>
 </li>
-<li><p>2.直接字节缓冲区获取</p>
-<p>  Java应用程序中也可以创建直接字节缓冲区，在原生代码中调用 GetDirectBufferAddress 函数可以获得原生字节数组的内存地址。</p>
+<li>
+<p>2.直接字节缓冲区获取</p>
+<p>Java应用程序中也可以创建直接字节缓冲区，在原生代码中调用 GetDirectBufferAddress 函数可以获得原生字节数组的内存地址。</p>
   <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过Java字节缓冲区获取原生字节数组</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span>* <span class="built_in">buffer</span>;</span><br><span class="line"><span class="built_in">buffer</span> = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)(*env)-&gt;GetDirectBufferAddress(env, directBuffer);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="访问域"><a href="#访问域" class="headerlink" title="访问域"></a>访问域</h5><p>Java 有两类域：实例域和静态域。类的每个实例都有自己的实例域副本，而一个类的所有实例共享同一个静态域。</p>
+<h5 id="访问域"><a class="markdownIt-Anchor" href="#访问域"></a> 访问域</h5>
+<p>Java 有两类域：实例域和静态域。类的每个实例都有自己的实例域副本，而一个类的所有实例共享同一个静态域。</p>
 <p>JNI提供了访问两类域的函数，下面代码显示了带有静态域和实例域的Java类</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">带有静态域和实例域的 Java 类</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaClass</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** 实例域 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">String</span> instanceField = <span class="string">"Instance Field"</span>;</span><br><span class="line">	<span class="comment">/** 静态域 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">String</span> staticField = <span class="string">"Static Field"</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>1.获取域ID</p>
-<p>  JNI提供了用域ID访问两类域的方法，可以通过给定实例的class对象获取域ID,用GetObjectClass 函数获得 class 对象，</p>
+<li>
+<p>1.获取域ID</p>
+<p>JNI提供了用域ID访问两类域的方法，可以通过给定实例的class对象获取域ID,用GetObjectClass 函数获得 class 对象，</p>
   <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用对象引用获取类</span><br><span class="line">jclass clazz;</span><br><span class="line"><span class="function"><span class="title">clazz</span> = <span class="params">(*env)</span>-&gt;</span>GetObjectClass(env, instance);</span><br></pre></td></tr></table></figure>
-<p>  有两个获得域ID的函数分别适用于不同类型域，GetFieldId 函数用于获取实例域，如下：</p>
+<p>有两个获得域ID的函数分别适用于不同类型域，GetFieldId 函数用于获取实例域，如下：</p>
   <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获取实例域的域ID</span><br><span class="line"></span><br><span class="line">jfieldID instanceFieldId;</span><br><span class="line"><span class="function"><span class="title">instanceFieldId</span> = <span class="params">(*env)</span>-&gt;</span>GetFieldID(env, clazz, <span class="string">"instanceField"</span>, <span class="string">"Ljava/lang/String;"</span>)</span><br></pre></td></tr></table></figure>
+<p>GetStaticFieldId用于获取静态域ID， 这两个函数均返回 jfieldID 类型的域ID.</p>
+  <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">获得静态域的域ID</span><br><span class="line"></span><br><span class="line">jfieldID staticFieldId;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">staticFieldId</span> = <span class="params">(*env)</span>-&gt;</span>GetStaticFieldID(env, clazz, <span class="string">"staticField"</span>, <span class="string">"Ljava/lang/String;"</span>);</span><br></pre></td></tr></table></figure>
+<p>两个函数的最后一个参数是Java中表示域类型的域描述符。在上述示例代码中，“Ljava/lang/String” 表明域类型是String。</p>
+<blockquote>
+<p>为了提高应用程序的性能，可以缓存域ID。一般总是缓存使用最频繁的域ID。</p>
+</blockquote>
 </li>
-</ul>
-<pre><code>GetStaticFieldId用于获取静态域ID， 这两个函数均返回 jfieldID 类型的域ID.
-
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">获得静态域的域ID</span><br><span class="line"></span><br><span class="line">jfieldID staticFieldId;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">staticFieldId</span> = <span class="params">(*env)</span>-&gt;</span>GetStaticFieldID(env, clazz, <span class="string">"staticField"</span>, <span class="string">"Ljava/lang/String;"</span>);</span><br></pre></td></tr></table></figure>
-
-两个函数的最后一个参数是Java中表示域类型的域描述符。在上述示例代码中，&quot;Ljava/lang/String&quot; 表明域类型是String。
-
-&gt;为了提高应用程序的性能，可以缓存域ID。一般总是缓存使用最频繁的域ID。
-</code></pre><ul>
-<li><p>2.获取域</p>
-<p>  在获得域ID之后，可以用Get&lt;Type&gt;Field 函数获得实际的实例域，</p>
+<li>
+<p>2.获取域</p>
+<p>在获得域ID之后，可以用Get&lt;Type&gt;Field 函数获得实际的实例域，</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获得实例域</span><br><span class="line"></span><br><span class="line"><span class="keyword">jstring </span><span class="keyword">instanceField;</span></span><br><span class="line"><span class="keyword">instanceField </span>= (*env)-&gt;GetObjectField(env, <span class="keyword">instance, </span><span class="keyword">instanceFieldId);</span></span><br></pre></td></tr></table></figure>
-<p>  用GetStatic&lt;Type&gt;Field函数获得静态域</p>
+<p>用GetStatic&lt;Type&gt;Field函数获得静态域</p>
   <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获得静态域</span><br><span class="line">jstring staticField;</span><br><span class="line">staticField = (*env)-&gt;<span class="constructor">GetStaticObjectField(<span class="params">env</span>, <span class="params">clazz</span>, <span class="params">staticFieldId</span>)</span>;</span><br></pre></td></tr></table></figure>
-<p>  在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
+<p>在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
 <blockquote>
 <p>获得单个域值需要调用两到三个JNI函数，原生代码回到Java中获取每个单独的域值，这给应用程序增加了额外的负担，进而导致性能下降。强烈建议将所有需要的参数传递给原生方法调用，而不是让原生代码回到Java中。</p>
 </blockquote>
 </li>
 </ul>
-<h5 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h5><p>与域一样，Java中有两类方法：实例方法和静态方法。JNI 提供访问两类方法的函数， 如下代码给出了含有一个静态方法和一个实例方法的Java类。</p>
+<h5 id="调用方法"><a class="markdownIt-Anchor" href="#调用方法"></a> 调用方法</h5>
+<p>与域一样，Java中有两类方法：实例方法和静态方法。JNI 提供访问两类方法的函数， 如下代码给出了含有一个静态方法和一个实例方法的Java类。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">带有静态方法和实例方法的Java类</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaClass</span> &#123;</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 实例方法</span></span><br><span class="line"><span class="comment">	 */</span>	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">instanceMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"instance Method"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 静态方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">staticMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Static Method"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>1.获取方法ID</p>
-<p>  JNI 提供了用方法ID访问两类方法的途径，可以用给定的实例的 class 对象获得方法ID。 用GetMethodID 函数获得实例方法的方法ID,</p>
+<li>
+<p>1.获取方法ID</p>
+<p>JNI 提供了用方法ID访问两类方法的途径，可以用给定的实例的 class 对象获得方法ID。 用GetMethodID 函数获得实例方法的方法ID,</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获得实例方法的方法ID</span><br><span class="line"><span class="keyword">jmethodID </span><span class="keyword">instanceMethodId;</span></span><br><span class="line"><span class="keyword">instanceMethodId </span>= (*env)-&gt;GetMethodID(env, clazz, <span class="string">"instanceMethod"</span>, <span class="string">"()Ljava/lang/String;"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>  用GetStaticMethodID 函数获得静态域的方法ID， 两个函数均返回 jmethodID 类型的方法ID.</p>
+<p>用GetStaticMethodID 函数获得静态域的方法ID， 两个函数均返回 jmethodID 类型的方法ID.</p>
   <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获得静态方法的方法ID</span><br><span class="line"></span><br><span class="line">jmethodID staticMethodId;</span><br><span class="line"><span class="function"><span class="title">staticMethodId</span> = <span class="params">(*env)</span>-&gt;</span>GetStaticMethodID(env, clazz, <span class="string">"staticMethod"</span>, <span class="string">"()Ljava/lang/String;"</span>);</span><br></pre></td></tr></table></figure>
-<p>  与字段ID获取方法一样，两个函数的最后一个参数均表示方法描述符，在Java中它表示方法签名。</p>
+<p>与字段ID获取方法一样，两个函数的最后一个参数均表示方法描述符，在Java中它表示方法签名。</p>
 <blockquote>
 <p>为了提升应用程序性能，可以缓存方法ID。一般总是缓存使用最频繁的方法ID。</p>
 </blockquote>
 </li>
-<li><p>2.调用方法</p>
-<p>  可以以方法ID为参数通过Call&lt;Type&gt;Method 类函数调用实际的实例方法， 如下：</p>
+<li>
+<p>2.调用方法</p>
+<p>可以以方法ID为参数通过Call&lt;Type&gt;Method 类函数调用实际的实例方法， 如下：</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用实例方法</span><br><span class="line"><span class="keyword">jstring </span><span class="keyword">instanceMethodResult;</span></span><br><span class="line"><span class="keyword">instanceMethodResult </span>= (*env)-&gt;CallStringMethod(env, <span class="keyword">instance, </span><span class="keyword">instanceMethodId);</span></span><br></pre></td></tr></table></figure>
-<p>  用CallStatic&lt;Type&gt;Field类函数调用静态方法，如下：</p>
+<p>用CallStatic&lt;Type&gt;Field类函数调用静态方法，如下：</p>
   <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用静态方法</span><br><span class="line">jstring staticMethodResult;</span><br><span class="line">staticMethodResult = (*env)-&gt;<span class="constructor">CallStaticStringMethod(<span class="params">env</span>, <span class="params">clazz</span>, <span class="params">staticMethodId</span>)</span>;</span><br></pre></td></tr></table></figure>
-<p>  在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
+<p>在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
 <blockquote>
 <p>Java和原生代码之间的转换是代价较大的操作，强烈建议规划Java代码和原生代码的任务时考虑这种代价，最小化这种转换可以大大提高应用程序的性能。</p>
 </blockquote>
 </li>
-<li><p>3.域和方法的描述符</p>
+<li>
+<p>3.域和方法的描述符</p>
 </li>
 </ul>
 <p>下表为 Java类型签名映射</p>
@@ -832,7 +850,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -854,7 +872,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -887,7 +905,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JNI的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JNI的数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对引用数据类型的操作"><span class="nav-number">1.1.</span> <span class="nav-text">对引用数据类型的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">字符串操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">数组操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NIO操作"><span class="nav-number">1.1.3.</span> <span class="nav-text">NIO操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问域"><span class="nav-number">1.1.4.</span> <span class="nav-text">访问域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">调用方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jni的数据类型"><span class="nav-number">1.</span> <span class="nav-text"> JNI的数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对引用数据类型的操作"><span class="nav-number">1.1.</span> <span class="nav-text"> 对引用数据类型的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串操作"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 字符串操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组操作"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 数组操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nio操作"><span class="nav-number">1.1.3.</span> <span class="nav-text"> NIO操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问域"><span class="nav-number">1.1.4.</span> <span class="nav-text"> 访问域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用方法"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 调用方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -907,7 +925,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

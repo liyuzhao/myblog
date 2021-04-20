@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="添加为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子">
+<meta name="description" content="添加 为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。 注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git submodule的使用">
 <meta property="og:url" content="http://lyuzhao.com/2018/12/10/git-submodule的使用/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="添加为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子">
+<meta property="og:description" content="添加 为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。 注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git submodule的使用">
-<meta name="twitter:description" content="添加为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子">
+<meta name="twitter:description" content="添加 为当前工程添加submodule，命令如下： 1git submodule add 仓库地址 路径 其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。 注意：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone） 命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，">
 
 
 
@@ -354,12 +354,16 @@
 
       
         <a id="more"></a>
-<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><p>为当前工程添加submodule，命令如下：</p>
+<h3 id="添加"><a class="markdownIt-Anchor" href="#添加"></a> 添加</h3>
+<p>为当前工程添加submodule，命令如下：</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">submodule </span><span class="keyword">add </span>仓库地址 路径</span><br></pre></td></tr></table></figure>
-<p>其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。<br><strong>注意</strong>：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone）</p>
+<p>其中，仓库地址是指子模块仓库地址，路径指将子模块放置在当前工程下的路径。<br>
+<strong>注意</strong>：路径不能以 / 结尾（会造成修改不生效）、不能是现有工程已有的目录（不能顺利 clone）</p>
 <p>命令执行完成，会在当前工程根路径下生成一个名为“.gitmodules”的文件，其中记录了子模块的信息。添加完成以后，再将子模块所在的文件夹添加到工程中即可。</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>submodule的删除稍微麻烦点：首先，要在“.gitmodules”文件中删除相应配置信息。然后，执行“git rm –cached ”命令将子模块所在的文件从git中删除。</p>
-<h3 id="下载的工程带有submodule"><a href="#下载的工程带有submodule" class="headerlink" title="下载的工程带有submodule"></a>下载的工程带有submodule</h3><p>当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：</p>
+<h3 id="删除"><a class="markdownIt-Anchor" href="#删除"></a> 删除</h3>
+<p>submodule的删除稍微麻烦点：首先，要在“.gitmodules”文件中删除相应配置信息。然后，执行“git rm –cached ”命令将子模块所在的文件从git中删除。</p>
+<h3 id="下载的工程带有submodule"><a class="markdownIt-Anchor" href="#下载的工程带有submodule"></a> 下载的工程带有submodule</h3>
+<p>当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：</p>
 <figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">submodule</span> <span class="comment">update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">init</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recursive</span></span><br></pre></td></tr></table></figure>
 <p>即可将子模块内容下载下来后工程才不会缺少相应的文件。</p>
 
@@ -512,7 +516,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -534,7 +538,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-number">1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载的工程带有submodule"><span class="nav-number">3.</span> <span class="nav-text">下载的工程带有submodule</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-number">1.</span> <span class="nav-text"> 添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text"> 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载的工程带有submodule"><span class="nav-number">3.</span> <span class="nav-text"> 下载的工程带有submodule</span></a></li></ol></div>
             
 
           </div>
@@ -587,7 +591,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

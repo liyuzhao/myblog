@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="升级XCode后，Qt新建项目出现了问题：   Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
+<meta name="description" content="升级XCode后，Qt新建项目出现了问题： Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
 <meta name="keywords" content="qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级Xcode后Qt问题了">
 <meta property="og:url" content="http://lyuzhao.com/2017/01/23/升级Xcode后Qt问题了/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="升级XCode后，Qt新建项目出现了问题：   Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
+<meta property="og:description" content="升级XCode后，Qt新建项目出现了问题： Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级Xcode后Qt问题了">
-<meta name="twitter:description" content="升级XCode后，Qt新建项目出现了问题：   Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
+<meta name="twitter:description" content="升级XCode后，Qt新建项目出现了问题： Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.">
 
 
 
@@ -354,21 +354,25 @@
 
       
         <p>升级XCode后，Qt新建项目出现了问题：</p>
-<p>  <code>Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.</code></p>
+<p><code>Xcode not set up properly. You may need to confirm the license agreement by running /usr/bin/xcodebuild.</code></p>
 <a id="more"></a>
-<p>在Google找到了解决方法。<br><a href="http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t" target="_blank" rel="noopener">http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t</a></p>
+<p>在Google找到了解决方法。<br>
+<a href="http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t" target="_blank" rel="noopener">http://stackoverflow.com/questions/33728905/qt-creator-project-error-xcode-not-set-up-properly-you-may-need-to-confirm-t</a></p>
 <p>~&gt; Xcode 8</p>
-<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to <code></code>/Library/Developer/CommandLineTools`.</p>
+<p>This problem occurs when command line tools are installed after Xcode is installed. What happens is the <code>Xcode-select</code> developer directory gets pointed to ``/Library/Developer/CommandLineTools`.</p>
 <p>Step 1:</p>
 <p>Point <code>Xcode-select</code> to the correct Xcode Developer directory with the command:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select -<span class="keyword">switch</span> <span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer</span><br></pre></td></tr></table></figure>
 <p>Step 2:</p>
-<p>Confirm the license agreement with the command:<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -<span class="meta">license</span></span><br></pre></td></tr></table></figure></p>
+<p>Confirm the license agreement with the command:</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -<span class="meta">license</span></span><br></pre></td></tr></table></figure>
 <p>This will prompt you to read through the license agreement.</p>
 <p>Enter <code>agree</code> to accept the terms.</p>
-<h4 id="gt-Xcode-8"><a href="#gt-Xcode-8" class="headerlink" title="&gt;= Xcode 8"></a>&gt;= Xcode 8</h4><p>Step 1:</p>
+<h4 id="xcode-8"><a class="markdownIt-Anchor" href="#xcode-8"></a> &gt;= Xcode 8</h4>
+<p>Step 1:</p>
 <p>As Bruce said, this happens when Qt tries to find <code>xcrun</code> when it should be looking for <code>xcodebuild</code>.</p>
-<p>Open the file:<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qt_install_folder<span class="regexp">/5.7/</span>clang_64<span class="regexp">/mkspecs/</span>features<span class="regexp">/mac/</span>default_pre.prf</span><br></pre></td></tr></table></figure></p>
+<p>Open the file:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qt_install_folder<span class="regexp">/5.7/</span>clang_64<span class="regexp">/mkspecs/</span>features<span class="regexp">/mac/</span>default_pre.prf</span><br></pre></td></tr></table></figure>
 <p>Step 2:</p>
 <p>Replace:</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isEmpty(<span class="symbol">$</span><span class="symbol">$</span>list(<span class="symbol">$</span><span class="symbol">$</span><span class="keyword">system</span>(<span class="string">"/usr/bin/xcrun -find xcrun 2&gt;/dev/null"</span>))))</span><br></pre></td></tr></table></figure>
@@ -524,7 +528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -579,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-Xcode-8"><span class="nav-number">1.</span> <span class="nav-text">&gt;= Xcode 8</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#xcode-8"><span class="nav-number">1.</span> <span class="nav-text"> &gt;= Xcode 8</span></a></li></ol></div>
             
 
           </div>
@@ -599,7 +603,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

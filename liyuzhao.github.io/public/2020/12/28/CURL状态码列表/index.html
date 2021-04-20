@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,curl,linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CURL状态码列表">
+<meta name="keywords" content="android,curl,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CURL状态码列表">
+<meta property="og:url" content="http://lyuzhao.com/2020/12/28/CURL状态码列表/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="CURL状态码列表">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-28T06:06:21.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CURL状态码列表">
+<meta name="twitter:description" content="CURL状态码列表">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lyuzhao.com/2020/12/28/CURL状态码列表/">
+
+
+
+
+
+  <title>CURL状态码列表 | 催眠术的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9b14e8e9abf2dbd975832c83cdf15b71";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">催眠术的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2020/12/28/CURL状态码列表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CURL状态码列表</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-28T13:43:12+08:00">
+                2020年12月28日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/curl/" itemprop="url" rel="index">
+                    <span itemprop="name">curl</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/28/CURL状态码列表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/28/CURL状态码列表/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/12/28/CURL状态码列表/" class="leancloud_visitors" data-flag-title="CURL状态码列表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CURL状态码列表</p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">状态原因</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">正常访问</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">错误的协议</td>
+<td style="text-align:center">未支持的协议。此版cURL 不支持这一协议。</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">初始化代码失败</td>
+<td style="text-align:center">初始化失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">URL格式不正确</td>
+<td style="text-align:center">URL 格式错误。语法不正确。</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">请求协议错误</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">无法解析代理</td>
+<td style="text-align:center">无法解析代理。无法解析给定代理主机。</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">无法解析主机地址</td>
+<td style="text-align:center">无法解析主机。无法解析给定的远程主机。</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">无法连接到主机</td>
+<td style="text-align:center">无法连接到主机。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">远程服务器不可用</td>
+<td style="text-align:center">FTP 非正常的服务器应答。cURL 无法解析服务器发送的数据。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">访问资源错误</td>
+<td style="text-align:center">FTP 访问被拒绝。服务器拒绝登入或无法获取您想要的特定资源或目录。最有可能的是您试图进入一个在此服务器上不存在的目录。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">FTP密码错误</td>
+<td style="text-align:center">FTP 非正常的PASS 回复。cURL 无法解析发送到PASS 请求的应答。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">结果错误</td>
+<td style="text-align:center">FTP 非正常的的PASV 应答，cURL 无法解析发送到PASV 请求的应答。</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">FTP回应PASV命令</td>
+<td style="text-align:center">FTP 非正常的227格式。cURL 无法解析服务器发送的227行。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">内部故障</td>
+<td style="text-align:center">FTP 无法连接到主机。无法解析在227行中获取的主机IP</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">设置传输模式为二进制</td>
+<td style="text-align:center">FTP 无法设定为二进制传输。无法改变传输方式到二进制。</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">文件传输短或大于预期</td>
+<td style="text-align:center">部分文件。只有部分文件被传输。</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">RETR命令传输完成</td>
+<td style="text-align:center">FTP 不能下载/访问给定的文件， RETR (或类似)命令失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">命令成功完成</td>
+<td style="text-align:center">FTP quote 错误。quote 命令从服务器返回错误。</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">返回正常</td>
+<td style="text-align:center">HTTP 找不到网页。找不到所请求的URL 或返回另一个HTTP 400或以上错误。此返回代码只出现在使用了-f/–fail 选项以后。</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">数据写入失败</td>
+<td style="text-align:center">写入错误。cURL 无法向本地文件系统或类似目的写入数据。</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">无法启动上传</td>
+<td style="text-align:center">FTP 无法STOR 文件。服务器拒绝了用于FTP 上传的STOR 操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:center">回调错误</td>
+<td style="text-align:center">读错误。各类读取问题。</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">内存分配请求失败</td>
+<td style="text-align:center">内存不足。内存分配请求失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:center">访问超时</td>
+<td style="text-align:center">操作超时。到达指定的超时期限条件。</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">FTP端口错误</td>
+<td style="text-align:center">FTP PORT 失败。PORT 命令失败。并非所有的FTP 服务器支持PORT 命令，请尝试使用被动(PASV)传输代替！</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">FTP错误</td>
+<td style="text-align:center">FTP 无法使用REST 命令。REST 命令失败。此命令用来恢复的FTP 传输。</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">不支持请求</td>
+<td style="text-align:center">HTTP range 错误。range &quot;命令&quot;不起作用。</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:center">内部发生错误</td>
+<td style="text-align:center">HTTP POST 错误。内部POST 请求产生错误。</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">SSL/TLS握手失败</td>
+<td style="text-align:center">SSL 连接错误。SSL 握手失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:center">下载无法恢复</td>
+<td style="text-align:center">FTP 续传损坏。不能继续早些时候被中止的下载。</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">文件权限错误</td>
+<td style="text-align:center">文件无法读取。无法打开文件。权限问题？</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:center">LDAP可没有约束力</td>
+<td style="text-align:center">LDAP 无法绑定。LDAP 绑定(bind)操作失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:center">LDAP搜索失败</td>
+<td style="text-align:center">LDAP 搜索失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td style="text-align:center">函数没有找到</td>
+<td style="text-align:center">功能无法找到。无法找到必要的LDAP 功能。</td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td style="text-align:center">中止的回调</td>
+<td style="text-align:center">由回调终止。应用程序告知cURL 终止运作。</td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td style="text-align:center">内部错误</td>
+<td style="text-align:center">内部错误。由一个不正确参数调用了功能。</td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td style="text-align:center">接口错误</td>
+<td style="text-align:center">接口错误。指定的外发接口无法使用。</td>
+</tr>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:center">过多的重定向</td>
+<td style="text-align:center">过多的重定向。cURL 达到了跟随重定向设定的最大限额跟</td>
+</tr>
+<tr>
+<td style="text-align:center">48</td>
+<td style="text-align:center">无法识别选项</td>
+<td style="text-align:center">指定了未知TELNET 选项。</td>
+</tr>
+<tr>
+<td style="text-align:center">49</td>
+<td style="text-align:center">TELNET格式错误</td>
+<td style="text-align:center">不合式的telnet 选项。</td>
+</tr>
+<tr>
+<td style="text-align:center">51</td>
+<td style="text-align:center">远程服务器的SSL证书</td>
+<td style="text-align:center">peer 的SSL 证书或SSH 的MD5指纹没有确定。</td>
+</tr>
+<tr>
+<td style="text-align:center">52</td>
+<td style="text-align:center">服务器无返回内容</td>
+<td style="text-align:center">服务器无任何应答，该情况在此处被认为是一个错误。</td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:center">加密引擎未找到</td>
+<td style="text-align:center">找不到SSL 加密引擎。</td>
+</tr>
+<tr>
+<td style="text-align:center">54</td>
+<td style="text-align:center">设定默认SSL加密失败</td>
+<td style="text-align:center">无法将SSL 加密引擎设置为默认。</td>
+</tr>
+<tr>
+<td style="text-align:center">55</td>
+<td style="text-align:center">无法发送网络数据</td>
+<td style="text-align:center">发送网络数据失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">56</td>
+<td style="text-align:center">衰竭接收网络数据</td>
+<td style="text-align:center">在接收网络数据时失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">57</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">58</td>
+<td style="text-align:center">本地客户端证书</td>
+<td style="text-align:center">本地证书有问题。</td>
+</tr>
+<tr>
+<td style="text-align:center">59</td>
+<td style="text-align:center">无法使用密码</td>
+<td style="text-align:center">无法使用指定的SSL 密码。</td>
+</tr>
+<tr>
+<td style="text-align:center">60</td>
+<td style="text-align:center">凭证无法验证</td>
+<td style="text-align:center">peer 证书无法被已知的CA 证书验证。</td>
+</tr>
+<tr>
+<td style="text-align:center">61</td>
+<td style="text-align:center">无法识别的传输编码</td>
+<td style="text-align:center">无法辨识的传输编码。</td>
+</tr>
+<tr>
+<td style="text-align:center">62</td>
+<td style="text-align:center">无效的LDAP URL</td>
+<td style="text-align:center">无效的LDAP URL。</td>
+</tr>
+<tr>
+<td style="text-align:center">63</td>
+<td style="text-align:center">文件超过最大大小</td>
+<td style="text-align:center">超过最大文件尺寸。</td>
+</tr>
+<tr>
+<td style="text-align:center">64</td>
+<td style="text-align:center">FTP失败</td>
+<td style="text-align:center">要求的FTP 的SSL 水平失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">65</td>
+<td style="text-align:center">倒带操作失败</td>
+<td style="text-align:center">发送此数据需要的回卷(rewind)失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">66</td>
+<td style="text-align:center">SSL引擎失败</td>
+<td style="text-align:center">初始化SSL 引擎失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">67</td>
+<td style="text-align:center">服务器拒绝登录</td>
+<td style="text-align:center">用户名、密码或类似的信息未被接受，cURL 登录失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">68</td>
+<td style="text-align:center">未找到文件</td>
+<td style="text-align:center">在TFTP 服务器上找不到文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:center">无权限</td>
+<td style="text-align:center">TFTP 服务器权限有问题。</td>
+</tr>
+<tr>
+<td style="text-align:center">70</td>
+<td style="text-align:center">超出服务器磁盘空间</td>
+<td style="text-align:center">TFTP 服务器磁盘空间不足。</td>
+</tr>
+<tr>
+<td style="text-align:center">71</td>
+<td style="text-align:center">非法TFTP操作</td>
+<td style="text-align:center">非法的TFTP 操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">72</td>
+<td style="text-align:center">未知TFTP传输的ID</td>
+<td style="text-align:center">未知TFTP 传输编号(ID)。</td>
+</tr>
+<tr>
+<td style="text-align:center">73</td>
+<td style="text-align:center">文件已经存在</td>
+<td style="text-align:center">文件已存在(TFTP) 。</td>
+</tr>
+<tr>
+<td style="text-align:center">74</td>
+<td style="text-align:center">错误TFTP服务器</td>
+<td style="text-align:center">无此用户(TFTP) 。</td>
+</tr>
+<tr>
+<td style="text-align:center">75</td>
+<td style="text-align:center">字符转换失败</td>
+<td style="text-align:center">字符转换失败。</td>
+</tr>
+<tr>
+<td style="text-align:center">76</td>
+<td style="text-align:center">必须记录回调</td>
+<td style="text-align:center">需要字符转换功能。</td>
+</tr>
+<tr>
+<td style="text-align:center">77</td>
+<td style="text-align:center">CA证书权限</td>
+<td style="text-align:center">读SSL 证书出现问题(路径？访问权限？ ) 。</td>
+</tr>
+<tr>
+<td style="text-align:center">78</td>
+<td style="text-align:center">URL中引用资源不存在</td>
+<td style="text-align:center">URL 中引用的资源不存在。</td>
+</tr>
+<tr>
+<td style="text-align:center">79</td>
+<td style="text-align:center">错误发生在SSH会话</td>
+<td style="text-align:center">SSH 会话期间发生一个未知错误。</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">无法关闭SSL连接</td>
+<td style="text-align:center">未能关闭SSL 连接。</td>
+</tr>
+<tr>
+<td style="text-align:center">81</td>
+<td style="text-align:center">服务未准备</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">82</td>
+<td style="text-align:center">无法载入CRL文件</td>
+<td style="text-align:center">无法加载CRL 文件，丢失或格式不正确(在7.19.0版中增加) 。</td>
+</tr>
+<tr>
+<td style="text-align:center">83</td>
+<td style="text-align:center">发行人检查失败</td>
+<td style="text-align:center">签发检查失败(在7.19.0版中增加) 。</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>多谢您的大力支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/assets/blogImg/wechat.jpg" alt="催眠术 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/curl/" rel="tag"># curl</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/19/将make的输出重定向到文件/" rel="next" title="将make的输出重定向到文件">
+                <i class="fa fa-chevron-left"></i> 将make的输出重定向到文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/15/C-文件读写详解/" rel="prev" title="C++文件读写详解">
+                C++文件读写详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjcwNC85MjY1"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/blogImg/avatar.jpg" alt="催眠术">
+            
+              <p class="site-author-name" itemprop="name">催眠术</p>
+              <p class="site-description motion-element" itemprop="description">催眠术的技术博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">催眠术</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz',
+        appKey: 'FAY02ARertEPSzSaWCAowemt',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("m2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz", "FAY02ARertEPSzSaWCAowemt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

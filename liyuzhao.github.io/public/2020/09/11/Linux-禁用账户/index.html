@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1、可直接修改/etc/passwd相关项来禁用账户：/etc/passwd username:x:uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的">
+<meta name="description" content="1、可直接修改/etc/passwd相关项来禁用账户： /etc/passwd username❌uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的系">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 禁用账户">
 <meta property="og:url" content="http://lyuzhao.com/2020/09/11/Linux-禁用账户/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="1、可直接修改/etc/passwd相关项来禁用账户：/etc/passwd username:x:uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的">
+<meta property="og:description" content="1、可直接修改/etc/passwd相关项来禁用账户： /etc/passwd username❌uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的系">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-09-11T10:15:32.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 禁用账户">
-<meta name="twitter:description" content="1、可直接修改/etc/passwd相关项来禁用账户：/etc/passwd username:x:uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的">
+<meta name="twitter:description" content="1、可直接修改/etc/passwd相关项来禁用账户： /etc/passwd username❌uid:gid:explain:home:shell x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代 uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的系">
 
 
 
@@ -353,7 +353,8 @@
       
 
       
-        <p>1、可直接修改/etc/passwd相关项来禁用账户：<br>/etc/passwd username:x:uid:gid:explain:home:shell</p>
+        <p>1、可直接修改/etc/passwd相关项来禁用账户：<br>
+/etc/passwd username❌uid:gid:explain:home:shell</p>
 <p>x-用户的密码原来直接存储在第二字段，但是为了安全，最后专门有了/etc/shadow文件，现在默认用x替代</p>
 <p>uid-用户的uid,一般情况下root为0，1-499默认为系统账号，有的更大些到1000，500-65535为用户的可登录账号，有的系统从1000开始</p>
 <a id="more"></a>
@@ -381,7 +382,8 @@
 <p>usermod -L 用户            //锁定帐号，-L:lock</p>
 <p>usermod -U 用户            //解锁帐号，-U:unlock</p>
 <p>usermod -e 1970-01-02 用户            //该账号的密码自1970年1月1日起，过一天后立即过期</p>
-<p>usermod 用户 -s /sbin/nologin        //修改用户的shell类型<br>用usermod -s禁用的用户，禁用的提示信息可加在 /etc/nologin.txt ，若没有此文件可新建</p>
+<p>usermod 用户 -s /sbin/nologin        //修改用户的shell类型<br>
+用usermod -s禁用的用户，禁用的提示信息可加在 /etc/nologin.txt ，若没有此文件可新建</p>
 
       
     </div>
@@ -523,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +547,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -582,7 +584,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

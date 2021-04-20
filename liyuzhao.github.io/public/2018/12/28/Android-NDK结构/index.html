@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Android NDK 的结构 ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头文件">
+<meta name="description" content="Android NDK 的结构  ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头">
 <meta name="keywords" content="android,ndk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android-NDK结构">
 <meta property="og:url" content="http://lyuzhao.com/2018/12/28/Android-NDK结构/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="Android NDK 的结构 ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头文件">
+<meta property="og:description" content="Android NDK 的结构  ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-NDK结构">
-<meta name="twitter:description" content="Android NDK 的结构 ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头文件">
+<meta name="twitter:description" content="Android NDK 的结构  ndk-build: 该shell脚本是Android NDK构建系统的起始点。 ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。 ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪 build: 该目录包含了Android NDK构建系统的所有模块。 platforms: 该目录包含了支持不同Android目标版本的头">
 
 
 
@@ -353,7 +353,8 @@
       
 
       
-        <h3 id="Android-NDK-的结构"><a href="#Android-NDK-的结构" class="headerlink" title="Android NDK 的结构"></a>Android NDK 的结构</h3><ul>
+        <h3 id="android-ndk-的结构"><a class="markdownIt-Anchor" href="#android-ndk-的结构"></a> Android NDK 的结构</h3>
+<ul>
 <li>ndk-build: 该shell脚本是Android NDK构建系统的起始点。</li>
 <li>ndk-gdb: 该shell脚本允许用GNU调试器调试原生组件。</li>
 <li>ndk-stack: 该shell脚本可以帮助分析原生组件崩溃时的堆栈追踪</li>
@@ -376,7 +377,8 @@
 <li>其他构件系统变量和宏</li>
 <li>定义新变量和条件操作</li>
 </ul>
-<h3 id="Android-mk"><a href="#Android-mk" class="headerlink" title="Android.mk"></a>Android.mk</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := hello-jni</span><br><span class="line">LOCAL_SRC_FILES := hello-jni.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
+<h3 id="androidmk"><a class="markdownIt-Anchor" href="#androidmk"></a> <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a></h3>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := hello-jni</span><br><span class="line">LOCAL_SRC_FILES := hello-jni.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>LOCAL_PATH := $(call my-dir)</p>
 </blockquote>
@@ -397,25 +399,26 @@
 </blockquote>
 <p>这里，hello-jni 模块只由一个源文件生成，而 LOCAL_SRC_FILES 变量可以包含用空格分开的多个源文件名。</p>
 <hr>
-<p> 构建多个共享库模块的 Androd.mk 构建文件</p>
+<p>构建多个共享库模块的 <a href="http://Androd.mk" target="_blank" rel="noopener">Androd.mk</a> 构建文件</p>
  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 模块 1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := module1</span><br><span class="line">LOCAL_SRC_FILES := module1.c</span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 模块2</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := module2</span><br><span class="line">LOCAL_SRC_FILES := module2.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p> 构建静态库的 Android.mk 构建文件</p>
+<p>构建静态库的 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 构建文件</p>
  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 第三方 AVI 库</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := avilib</span><br><span class="line">LOCAL_SRC_FILES := avilib.c platform_posix.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_STATIC_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 原生模块</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := module</span><br><span class="line">LOCAL_SRC_FILES := module.c</span><br><span class="line"></span><br><span class="line">LOCAL_STATIC_LIBRARIES := avilib</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
-<p> 在将第三方代码模块生成静态库之后，共享库就可以通过将它的模块名添加到<code>LOCAL_STATIC_LIBRARIES</code> 变量中来使用该模块。</p>
+<p>在将第三方代码模块生成静态库之后，共享库就可以通过将它的模块名添加到<code>LOCAL_STATIC_LIBRARIES</code> 变量中来使用该模块。</p>
 <hr>
-<h5 id="用共享库共享通用模块"><a href="#用共享库共享通用模块" class="headerlink" title="用共享库共享通用模块"></a>用共享库共享通用模块</h5><p> 静态库可以保证源代码模块化；但是，在静态库与共享库相连时，它就变成了共享库的一部分。在多个共享库的情况下，多个共享库与同一个静态库连接时，需要将通用模块的多个副本与不同共享库重复相连，这样就增加了应用程序的大小。在这种情况下，不用构建静态库，而是将通用模块作为共享库建立起来，而动态连接依赖模块以便消除重复的副本。</p>
-<p> Android.mk 文件中共享库之间的代码共享</p>
+<h5 id="用共享库共享通用模块"><a class="markdownIt-Anchor" href="#用共享库共享通用模块"></a> 用共享库共享通用模块</h5>
+<p>静态库可以保证源代码模块化；但是，在静态库与共享库相连时，它就变成了共享库的一部分。在多个共享库的情况下，多个共享库与同一个静态库连接时，需要将通用模块的多个副本与不同共享库重复相连，这样就增加了应用程序的大小。在这种情况下，不用构建静态库，而是将通用模块作为共享库建立起来，而动态连接依赖模块以便消除重复的副本。</p>
+<p><a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 文件中共享库之间的代码共享</p>
  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 第三方 AVI 库</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := avilib</span><br><span class="line">LOCAL_SRC_FILES := avilib.c platform_posix.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 原生模块1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULES := module1</span><br><span class="line">LOCAL_SRC_FILES := module1.c</span><br><span class="line"></span><br><span class="line">LOCAL_SHARED_LIBRARIES := avilib</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 原生模块2</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := module2</span><br><span class="line">LOCAL_SRC_FILES := module2.c</span><br><span class="line"></span><br><span class="line">LOCAL_SHARED_LIBRARIES := avilib</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h5 id="不同NDK项目间共享模块"><a href="#不同NDK项目间共享模块" class="headerlink" title="不同NDK项目间共享模块"></a>不同NDK项目间共享模块</h5><p> <strong>注意：</strong> 在 Android NDK 构建系统中，共享模块路径不能包含空格。</p>
+<h5 id="不同ndk项目间共享模块"><a class="markdownIt-Anchor" href="#不同ndk项目间共享模块"></a> 不同NDK项目间共享模块</h5>
+<p><strong>注意：</strong> 在 Android NDK 构建系统中，共享模块路径不能包含空格。</p>
 <ul>
-<li><p>作为共享模块，avilib 需要自己的 Android.mk 文件</p>
-<p>共享 avilib 模块的 Android.mk 文件</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 第三方 AVI 库</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := avilib</span><br><span class="line">LOCAL_SRC_FILES := avilib.c platform_posix.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>作为共享模块，avilib 需要自己的 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 文件</li>
 </ul>
-<p> 使用共享模块的 NDK项目</p>
+<p>共享 avilib 模块的 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 文件</p>
+ <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 第三方 AVI 库</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := avilib</span><br><span class="line">LOCAL_SRC_FILES := avilib.c platform_posix.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
+<p>使用共享模块的 NDK项目</p>
  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 原生模块</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := module</span><br><span class="line">LOCAL_SRC_FILES := module.c</span><br><span class="line">LOCAL_SHARED_LIBRARIES := avilib</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(<span class="built_in">call</span> import-module, transcode/avilib)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>import-module 函数库需要先定位共享模块，然后再将它导入到 NDK 项目中。默认情况下，import-module 函数库只搜索<android ndk>/sources 目录。为了搜索 c:\android\shared-modules 目录，定义一个名为 <code>NDK_MODULE_PATH</code> 的新环境变量并将它设置成共享库的根目录，例如：c:\android\shared-modules。</android></li>
@@ -425,14 +428,15 @@
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 第三方预构建 AVI 库</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := avilib</span><br><span class="line">LOCAL_SRC_FILES := libavilib.so</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(PREBUILT_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
 <p><code>LOCAL_SRC_FILES</code> 变量指向的不是源文件，而是实际 Prebuilt 库相对于 <code>LOCAL_PATH</code> 的位置。</p>
 <p><strong>注意:</strong> Prebuilt 库定义中不包含任何关于该库所构建的实际机器体系结构的信息。开发人员需要确保 Prebuilt 库是为与 NDK 项目相同的机器的体系结构而构建的。</p>
-<p><code>PREBUILT_SHARED_LIBRARY</code> 变量指向 prebuilt-shared-library.mk MakeFile 片段。它什么都没有构建，但是它将Prebuilt 库复制到 NDK 项目的libs目录下。通过使用 <code>PREBUILT_STATIC_LIBRARY</code> 变量，静态库可以像共享库一样被用作 Prebuilt 库，NDK 项目可以像普通共享库一样使用 Prebuilt库了。</p>
+<p><code>PREBUILT_SHARED_LIBRARY</code> 变量指向 <a href="http://prebuilt-shared-library.mk" target="_blank" rel="noopener">prebuilt-shared-library.mk</a> MakeFile 片段。它什么都没有构建，但是它将Prebuilt 库复制到 NDK 项目的libs目录下。通过使用 <code>PREBUILT_STATIC_LIBRARY</code> 变量，静态库可以像共享库一样被用作 Prebuilt 库，NDK 项目可以像普通共享库一样使用 Prebuilt库了。</p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">LOCAL_SHARED_LIBRARIES := avilib</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <hr>
-<p> 独立可执行模块的 Android.mk 文件</p>
+<p>独立可执行模块的 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 文件</p>
  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 独立的可执行的原生模块</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line">LOCAL_MODULE := module</span><br><span class="line">LOCAL_SRC_FILES := module.c</span><br><span class="line"></span><br><span class="line">LOCAL_STATIC_LIBRARIES := avilib</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_EXECUTABLE)</span></span><br></pre></td></tr></table></figure>
-<p> <code>BUILD_EXECUTABLE</code> 变量指向 build-executable.mk Makefile 片段，该片段包含了在 Android 平台上生成独立可执行文件的必要步骤。独立可执行文件以与模块相同的名称被放在libs/<machine architecture>目录下。尽管放在该目录下，但在打包阶段它并没有被包含在APK文件中。</machine></p>
+<p><code>BUILD_EXECUTABLE</code> 变量指向 <a href="http://build-executable.mk" target="_blank" rel="noopener">build-executable.mk</a> Makefile 片段，该片段包含了在 Android 平台上生成独立可执行文件的必要步骤。独立可执行文件以与模块相同的名称被放在libs/<machine architecture>目录下。尽管放在该目录下，但在打包阶段它并没有被包含在APK文件中。</machine></p>
 <hr>
-<h4 id="其他构建系统变量"><a href="#其他构建系统变量" class="headerlink" title="其他构建系统变量"></a>其他构建系统变量</h4><p>构建系统定义的变量有：</p>
+<h4 id="其他构建系统变量"><a class="markdownIt-Anchor" href="#其他构建系统变量"></a> 其他构建系统变量</h4>
+<p>构建系统定义的变量有：</p>
 <ul>
 <li><code>TARGET_ARCH</code>: 目标 CPU 体系结构的名称，例如 arm</li>
 <li><code>TARGET_PLATFORM</code>: 目标 Android 平台的名称，例如: android-8</li>
@@ -441,9 +445,11 @@
 </ul>
 <p>可被定义为模块说明部分的变量有：</p>
 <ul>
-<li><p><code>LOCAL_MODULE_FILENAME</code>: 可选变量，用来重新定义生成的输出文件名称。默认情况下，构建系统使用<code>LOCAL_MODULE</code> 的值作为生成的输出文件名称，但变量 <code>LOCAL_MODULE_FILENAME</code> 可以覆盖 <code>LOCAL_MODULE</code> 的值。</p>
+<li>
+<p><code>LOCAL_MODULE_FILENAME</code>: 可选变量，用来重新定义生成的输出文件名称。默认情况下，构建系统使用<code>LOCAL_MODULE</code> 的值作为生成的输出文件名称，但变量 <code>LOCAL_MODULE_FILENAME</code> 可以覆盖 <code>LOCAL_MODULE</code> 的值。</p>
 </li>
-<li><p><code>LOCAL_CPP_EXTENSION</code>: C++源文件的默认扩展名是 .cpp。这个变量可以用来为C++源代码指定一个或多个文件扩展名。</p>
+<li>
+<p><code>LOCAL_CPP_EXTENSION</code>: C<ins>源文件的默认扩展名是 .cpp。这个变量可以用来为C</ins>源代码指定一个或多个文件扩展名。</p>
 </li>
 </ul>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line">LOCAL_CPP_EXTENSION := <span class="string">.cpp</span> <span class="string">.cxx</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
@@ -465,9 +471,10 @@
 </ul>
 <p><strong>小贴士</strong>: 当几个静态库之间有循环依赖时，<code>LOCAL_WHOLE_STATIC_LIBRARIES</code> 很有用。</p>
 <ul>
-<li><code>LOCAL_LDLIBS</code>:链接标志的可选列表，当对目标文件进行链接以生成输出文件时该标志将被传送给链接器。它主要用于传送要进行动态链接的系统库列表。<br>例如：要与 Android NDK 日志库链接，使用以下代码：<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_LDFLAGS := -llog</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>LOCAL_LDLIBS</code>:链接标志的可选列表，当对目标文件进行链接以生成输出文件时该标志将被传送给链接器。它主要用于传送要进行动态链接的系统库列表。<br>
+例如：要与 Android NDK 日志库链接，使用以下代码：</li>
 </ul>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_LDFLAGS := -llog</span><br></pre></td></tr></table></figure>
 <p>-<code>LOCAL_ALLOW_UNDEFINED_SYMBOLS</code>: 可选参数，它禁止在生成的文件中进行缺失符号检查。若没有定义，链接器会在符号缺失时生成错误信息。</p>
 <ul>
 <li><code>LOCAL_ARM_MODE</code>: 可选参数，ARM机器体系结构特有变量，用于指定要生成的ARM 二进制类型。默认情况下，构建系统在拇指模式下用16位指令生成，但该变量可以被设置为 arm 来指定使用 32 位指令。</li>
@@ -498,15 +505,16 @@
 <li><code>LOCAL_FILTER_ASM</code>:该变量定义了用于过滤来自<code>LOCAL_SRC_FILES</code>变量的装配文件的应用程序。</li>
 </ul>
 <hr>
-<p>包含条件操作的构建文件 Android.mk</p>
+<p>包含条件操作的构建文件 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a></p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">ife<span class="string">q ($(TARGET_ARCH)</span>, arm)</span><br><span class="line">	LOCAL_SRC_FILES += armonly.c</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	LOCAL_SRC_FILES += generic.c</span><br><span class="line">endif</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="Application-mk"><a href="#Application-mk" class="headerlink" title="Application.mk"></a>Application.mk</h3><p>以下是Application.mk 构建文件指出的变量：</p>
+<h3 id="applicationmk"><a class="markdownIt-Anchor" href="#applicationmk"></a> <a href="http://Application.mk" target="_blank" rel="noopener">Application.mk</a></h3>
+<p><a href="http://xn--Application-cq8qr2g328j.mk" target="_blank" rel="noopener">以下是Application.mk</a> 构建文件指出的变量：</p>
 <ul>
-<li><code>APP_MODULES</code>: 默认情况下，Android NDK 构建系统构建 Android.mk 文件声明的所有模块。该变量可以覆盖上述行为并提供一个空格分开的、需要被构建的模块列表。</li>
+<li><code>APP_MODULES</code>: 默认情况下，Android NDK 构建系统构建 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 文件声明的所有模块。该变量可以覆盖上述行为并提供一个空格分开的、需要被构建的模块列表。</li>
 <li><code>APP_OPTIM</code>: 该变量可以被设置为 release 或 debug 以改变生成的二进制文件的优化级别。默认情况下使用的是 release 模式，并且此时生成的二进制文件被高度优化。该变量可以被设置为debug模式以生成更容易调试的未优化二进制文件。</li>
 <li><code>APP_CLAGS</code>: 该变量列出了一些编译器标志，在编译任何模块的 C 和 C++源文件时这些标志都会被传给编译器。</li>
 <li><code>APP_CPPFLAGS</code>: 该变量列出了一些编译器标志，在编译任何模块的 C++ 源文件时这些标志都会被传给编译器。</li>
-<li><code>APP_BUILD_SCRIPT</code>:默认情况下， Android NDK 构建系统在项目的 jni 子目录下查找 Android.mk 构建文件。可以用该变量改变上述行为，并使用不同的生成文件。</li>
+<li><code>APP_BUILD_SCRIPT</code>:默认情况下， Android NDK 构建系统在项目的 jni 子目录下查找 <a href="http://Android.mk" target="_blank" rel="noopener">Android.mk</a> 构建文件。可以用该变量改变上述行为，并使用不同的生成文件。</li>
 <li><code>APP_ABI</code>:默认情况下，Android NDK构建系统为armeabi  ABI 生成二进制文件。可以用该变量改变上述行为，并为其他 ABI 生成二进制文件，例如：</li>
 </ul>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">APP_ABI :=mips</span><br><span class="line">另外， 可以设置多个 ABI </span><br><span class="line">APP_ABI := armeabi mips</span><br><span class="line"></span><br><span class="line">为所有支持的ABI生成二进制文件</span><br><span class="line">APP_ABI := all</span><br></pre></td></tr></table></figure>
@@ -670,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -692,7 +700,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -725,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-NDK-的结构"><span class="nav-number">1.</span> <span class="nav-text">Android NDK 的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-mk"><span class="nav-number">2.</span> <span class="nav-text">Android.mk</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用共享库共享通用模块"><span class="nav-number">2.0.1.</span> <span class="nav-text">用共享库共享通用模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不同NDK项目间共享模块"><span class="nav-number">2.0.2.</span> <span class="nav-text">不同NDK项目间共享模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他构建系统变量"><span class="nav-number">2.1.</span> <span class="nav-text">其他构建系统变量</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-mk"><span class="nav-number">3.</span> <span class="nav-text">Application.mk</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#android-ndk-的结构"><span class="nav-number">1.</span> <span class="nav-text"> Android NDK 的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#androidmk"><span class="nav-number">2.</span> <span class="nav-text"> Android.mk</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用共享库共享通用模块"><span class="nav-number">2.0.1.</span> <span class="nav-text"> 用共享库共享通用模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不同ndk项目间共享模块"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 不同NDK项目间共享模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他构建系统变量"><span class="nav-number">2.1.</span> <span class="nav-text"> 其他构建系统变量</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#applicationmk"><span class="nav-number">3.</span> <span class="nav-text"> Application.mk</span></a></li></div>
             
 
           </div>
@@ -745,7 +753,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -2,7 +2,7 @@
 title: C++流操作的控制
 date: 2019-04-16 12:14:44
 tags: [c++]
-categories: c++
+categories: cpp
 ---
 
 在头文件 `iomainip.h` 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。

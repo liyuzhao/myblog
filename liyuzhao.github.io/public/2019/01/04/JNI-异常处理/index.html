@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="异常处理捕获异常JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
+<meta name="description" content="异常处理  捕获异常 JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
 <meta name="keywords" content="android,jni,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI-异常处理">
 <meta property="og:url" content="http://lyuzhao.com/2019/01/04/JNI-异常处理/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="异常处理捕获异常JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
+<meta property="og:description" content="异常处理  捕获异常 JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI-异常处理">
-<meta name="twitter:description" content="异常处理捕获异常JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
+<meta name="twitter:description" content="异常处理  捕获异常 JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。">
 
 
 
@@ -353,11 +353,15 @@
       
 
       
-        <h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4><p>JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。<br><a id="more"></a></p>
+        <h3 id="异常处理"><a class="markdownIt-Anchor" href="#异常处理"></a> 异常处理</h3>
+<h4 id="捕获异常"><a class="markdownIt-Anchor" href="#捕获异常"></a> 捕获异常</h4>
+<p>JNIEnv 接口提供了一组与异常相关的函数集，在运行过程中可以使用Java类查看这些函数。</p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">抛出异常的 Java 例子</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaClass</span> &#123;</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 抛出方法.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">throwingMethod</span><span class="params">()</span> throws NullPointerException </span>&#123;</span><br><span class="line">	 	<span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"Null pointer"</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="comment">/**</span></span><br><span class="line"><span class="comment">	  * 访问方法(原生方法).</span></span><br><span class="line"><span class="comment">	  */</span></span><br><span class="line">	 <span class="function"><span class="keyword">private</span> native <span class="keyword">void</span> <span class="title">accessMethods</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>调用 throwingMethod 方法时， accessMethods 原生方法需要显示地做异常处理。 JNI提供了 ExceptionOccurred 函数查询虚拟机中是否有挂起的异常。在使用完之后，异常处理程序需要用 ExceptionClear 函数显式地清除异常。</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">原生代码中的异常处理</span><br><span class="line">jthrowable ex;</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>CallVoidMethod(env, instance, throwingMethodId);</span><br><span class="line"><span class="function"><span class="title">ex</span> = <span class="params">(*env)</span>-&gt;</span>ExceptionOccurred(env);</span><br><span class="line"><span class="keyword">if</span> (<span class="number">0</span> != ex) &#123;</span><br><span class="line">	<span class="function"><span class="params">(*env)</span>-&gt;</span>ExceptionClear(env);</span><br><span class="line">	<span class="comment">/* Exception handler. */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h4><p>JNI 也允许原生代码抛出异常。因为异常是Java类，应该先用FindClass函数找到异常类，用ThrowNew 函数可以初始化且抛出新的异常。</p>
+<h4 id="抛出异常"><a class="markdownIt-Anchor" href="#抛出异常"></a> 抛出异常</h4>
+<p>JNI 也允许原生代码抛出异常。因为异常是Java类，应该先用FindClass函数找到异常类，用ThrowNew 函数可以初始化且抛出新的异常。</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">原生代码中抛出异常</span><br><span class="line">jclass clazz;</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="title">clazz</span> = <span class="params">(*env)</span>-&gt;</span>FindClass(env, <span class="string">"java/lang/NullPointerException"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="number">0</span> != clazz) &#123;</span><br><span class="line">	<span class="function"><span class="params">(*env)</span>-&gt;</span>ThrowNew(env, clazz, <span class="string">"Exception message."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>因为原生函数的代码执行不受虚拟机的控制，因此抛出异常并不会停止原生函数的执行并把控制权转交给异常处理程序。到抛出异常时，原生函数应该释放所有已分配的原生资源，例如内存及合适的返回值等。通过 JNIEnv 接口获得的引用是局部引用且一旦返回原生函数，它们自动地被虚拟机释放。</p>
 
@@ -514,7 +518,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +540,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -569,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理"><span class="nav-number">1.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获异常"><span class="nav-number">1.1.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出异常"><span class="nav-number">1.2.</span> <span class="nav-text">抛出异常</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理"><span class="nav-number">1.</span> <span class="nav-text"> 异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获异常"><span class="nav-number">1.1.</span> <span class="nav-text"> 捕获异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出异常"><span class="nav-number">1.2.</span> <span class="nav-text"> 抛出异常</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -589,7 +593,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

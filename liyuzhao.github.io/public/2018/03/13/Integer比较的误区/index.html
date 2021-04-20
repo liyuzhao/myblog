@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="integer,java,">
+  <meta name="keywords" content="java,integer,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="Integer比较时不准确的原因">
-<meta name="keywords" content="integer,java">
+<meta name="keywords" content="java,integer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Integer比较的误区">
 <meta property="og:url" content="http://lyuzhao.com/2018/03/13/Integer比较的误区/index.html">
@@ -353,22 +353,27 @@
       
 
       
-        <h2 id="Integer比较时不准确的原因"><a href="#Integer比较时不准确的原因" class="headerlink" title="Integer比较时不准确的原因"></a>Integer比较时不准确的原因</h2><a id="more"></a>
+        <h2 id="integer比较时不准确的原因"><a class="markdownIt-Anchor" href="#integer比较时不准确的原因"></a> Integer比较时不准确的原因</h2>
+<a id="more"></a>
 <p>首先理解的是：Java的装箱和拆箱</p>
-<h5 id="什么时候会进行装箱"><a href="#什么时候会进行装箱" class="headerlink" title="什么时候会进行装箱"></a>什么时候会进行装箱</h5><blockquote>
+<h5 id="什么时候会进行装箱"><a class="markdownIt-Anchor" href="#什么时候会进行装箱"></a> 什么时候会进行装箱</h5>
+<blockquote>
 <p>装箱用到的方法：Integer.valueOf()</p>
 </blockquote>
 <blockquote>
 <p>Integer i = 100;</p>
 </blockquote>
-<h5 id="什么是会进行拆箱"><a href="#什么是会进行拆箱" class="headerlink" title="什么是会进行拆箱"></a>什么是会进行拆箱</h5><blockquote>
+<h5 id="什么是会进行拆箱"><a class="markdownIt-Anchor" href="#什么是会进行拆箱"></a> 什么是会进行拆箱</h5>
+<blockquote>
 <p>如果其中有一个操作数是表达式(即包含算术运算)则比较的是数值(即会触发自动拆箱的过程)，例如：a + b</p>
 </blockquote>
-<h5 id="Integer-valueOf-中的cache问题"><a href="#Integer-valueOf-中的cache问题" class="headerlink" title="Integer.valueOf()中的cache问题"></a>Integer.valueOf()中的cache问题</h5><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static Integer value<span class="constructor">Of(<span class="params">int</span> <span class="params">i</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i &gt;= - <span class="number">128</span><span class="operator"> &amp;&amp; </span>i &lt;= <span class="module-access"><span class="module"><span class="identifier">IntegerCache</span>.</span></span>high)</span><br><span class="line">		return <span class="module-access"><span class="module"><span class="identifier">IntegerCache</span>.</span></span>cache<span class="literal">[<span class="identifier">i</span> + <span class="number">128</span>]</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		return <span class="keyword">new</span> <span class="constructor">Integer(<span class="params">i</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="integervalueof中的cache问题"><a class="markdownIt-Anchor" href="#integervalueof中的cache问题"></a> Integer.valueOf()中的cache问题</h5>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static Integer value<span class="constructor">Of(<span class="params">int</span> <span class="params">i</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i &gt;= - <span class="number">128</span><span class="operator"> &amp;&amp; </span>i &lt;= <span class="module-access"><span class="module"><span class="identifier">IntegerCache</span>.</span></span>high)</span><br><span class="line">		return <span class="module-access"><span class="module"><span class="identifier">IntegerCache</span>.</span></span>cache<span class="literal">[<span class="identifier">i</span> + <span class="number">128</span>]</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		return <span class="keyword">new</span> <span class="constructor">Integer(<span class="params">i</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果数值在[-128, 127]之间，便返回指向IntegerCache.cache中已经存在的对象的引用</p>
 </blockquote>
-<h5 id="的比较问题"><a href="#的比较问题" class="headerlink" title="== 的比较问题"></a>== 的比较问题</h5><blockquote>
+<h5 id="的比较问题"><a class="markdownIt-Anchor" href="#的比较问题"></a> == 的比较问题</h5>
+<blockquote>
 <p>当“==”运算符的两个操作数都是包装类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式(即包含算术运算)则比较的是数值(即会触发自动拆箱的过程)。</p>
 </blockquote>
 <p>例如：</p>
@@ -413,9 +418,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/integer/" rel="tag"># integer</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/integer/" rel="tag"># integer</a>
           
         </div>
       
@@ -524,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -579,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer比较时不准确的原因"><span class="nav-number">1.</span> <span class="nav-text">Integer比较时不准确的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么时候会进行装箱"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">什么时候会进行装箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是会进行拆箱"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">什么是会进行拆箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Integer-valueOf-中的cache问题"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Integer.valueOf()中的cache问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#的比较问题"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">== 的比较问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#integer比较时不准确的原因"><span class="nav-number">1.</span> <span class="nav-text"> Integer比较时不准确的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么时候会进行装箱"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 什么时候会进行装箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是会进行拆箱"><span class="nav-number">1.0.0.2.</span> <span class="nav-text"> 什么是会进行拆箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#integervalueof中的cache问题"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"> Integer.valueOf()中的cache问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#的比较问题"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"> == 的比较问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -599,7 +604,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

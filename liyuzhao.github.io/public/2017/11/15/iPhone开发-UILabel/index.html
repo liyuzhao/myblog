@@ -362,7 +362,8 @@
 <li>行数指定和计算</li>
 </ol>
 <p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
-<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
+<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>
+注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
@@ -511,7 +512,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,7 +534,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -570,7 +571,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

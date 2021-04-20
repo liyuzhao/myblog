@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="在头文件 iomainip.h 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。 流操作的控制具体函数如下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
+<meta property="og:updated_time" content="2021-04-19T04:54:00.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++流操作的控制">
 <meta name="twitter:description" content="在头文件 iomainip.h 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。 流操作的控制具体函数如下。">
@@ -295,8 +295,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
                   </a>
                 </span>
 
@@ -354,16 +354,27 @@
 
       
         <p>在头文件 <code>iomainip.h</code> 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。</p>
-<p>流操作的控制具体函数如下。<br><a id="more"></a></p>
-<h5 id="1-long-setf-long-f"><a href="#1-long-setf-long-f" class="headerlink" title="(1) long setf(long f);"></a>(1) long setf(long f);</h5><p>根据参数 f 设置相应的格式标志，返回此前的设置。该参数 f 所对应的实参为无名枚举类型中的枚举常量(又称格式化常量)，可以同时使用一个或多个常量，每两个常量之间要用按位或操作符连接。<br>如需要左对齐输出，并使数值中的字母大写时，则调用该函数的实参为 <code>ios::left|ios::uppercase</code>。</p>
-<h5 id="2-long-unsetf-long-f"><a href="#2-long-unsetf-long-f" class="headerlink" title="(2) long unsetf(long f);"></a>(2) long unsetf(long f);</h5><p>根据参数 f 清除相应的格式化标志，返回此前的设置。 如果要清除此前左对齐输出设置，恢复默认的右对齐输出设置，则调用该函数的实参为 <code>ios::left</code>。</p>
-<h5 id="3-int-width"><a href="#3-int-width" class="headerlink" title="(3) int width();"></a>(3) int width();</h5><p>返回当前的输出域宽。若返回数值为0，则表明没为刚才输出的数值设置输出域宽。输出域宽是指输出的值在流中所占有的字节数。</p>
-<h5 id="4-int-width-int-w"><a href="#4-int-width-int-w" class="headerlink" title="(4) int width(int w);"></a>(4) int width(int w);</h5><p>设置下一个数据值的输出域宽为w, 返回为输出上一个数据值所规定的域宽，若无规定则返回0.注意，此设置不是一直有效，而只是对下一个输出数据有效。</p>
-<h5 id="5-setiosflags-long-f"><a href="#5-setiosflags-long-f" class="headerlink" title="(5) setiosflags(long f);"></a>(5) setiosflags(long f);</h5><p>设置f所对应的格式标志，功能与setf(long f)成员函数相同，当然，在输出该操作符后返回的是一个输出流。如果采用标准输出流 cout 输出它时，则返回 cout。输出每个操作符后都是如此，即返回输出它的流，以便向流中继续插入下一个数据。</p>
-<h5 id="6-resetiosflags-long-f"><a href="#6-resetiosflags-long-f" class="headerlink" title="(6) resetiosflags(long f);"></a>(6) resetiosflags(long f);</h5><p>清除 f 所对应的格式化标志，功能与 unsetf(long f)成员函数相同。输出后返回一个流。</p>
-<h5 id="7-setfill-int-c"><a href="#7-setfill-int-c" class="headerlink" title="(7) setfill(int c);"></a>(7) setfill(int c);</h5><p>设置填充字符的 ASCⅡ 码为 c 的字符。</p>
-<h5 id="8-setprecision-int-n"><a href="#8-setprecision-int-n" class="headerlink" title="(8) setprecision(int n);"></a>(8) setprecision(int n);</h5><p>设置浮点数的输出精度为 n 。</p>
-<h5 id="9-setw-int-w"><a href="#9-setw-int-w" class="headerlink" title="(9) setw(int w);"></a>(9) setw(int w);</h5><p>设置下一个数据的输出域宽为 w 。</p>
+<p>流操作的控制具体函数如下。</p>
+<a id="more"></a>
+<h5 id="1-long-setflong-f"><a class="markdownIt-Anchor" href="#1-long-setflong-f"></a> (1) long setf(long f);</h5>
+<p>根据参数 f 设置相应的格式标志，返回此前的设置。该参数 f 所对应的实参为无名枚举类型中的枚举常量(又称格式化常量)，可以同时使用一个或多个常量，每两个常量之间要用按位或操作符连接。<br>
+如需要左对齐输出，并使数值中的字母大写时，则调用该函数的实参为 <code>ios::left|ios::uppercase</code>。</p>
+<h5 id="2-long-unsetflong-f"><a class="markdownIt-Anchor" href="#2-long-unsetflong-f"></a> (2) long unsetf(long f);</h5>
+<p>根据参数 f 清除相应的格式化标志，返回此前的设置。 如果要清除此前左对齐输出设置，恢复默认的右对齐输出设置，则调用该函数的实参为 <code>ios::left</code>。</p>
+<h5 id="3-int-width"><a class="markdownIt-Anchor" href="#3-int-width"></a> (3) int width();</h5>
+<p>返回当前的输出域宽。若返回数值为0，则表明没为刚才输出的数值设置输出域宽。输出域宽是指输出的值在流中所占有的字节数。</p>
+<h5 id="4-int-widthint-w"><a class="markdownIt-Anchor" href="#4-int-widthint-w"></a> (4) int width(int w);</h5>
+<p>设置下一个数据值的输出域宽为w, 返回为输出上一个数据值所规定的域宽，若无规定则返回0.注意，此设置不是一直有效，而只是对下一个输出数据有效。</p>
+<h5 id="5-setiosflagslong-f"><a class="markdownIt-Anchor" href="#5-setiosflagslong-f"></a> (5) setiosflags(long f);</h5>
+<p>设置f所对应的格式标志，功能与setf(long f)成员函数相同，当然，在输出该操作符后返回的是一个输出流。如果采用标准输出流 cout 输出它时，则返回 cout。输出每个操作符后都是如此，即返回输出它的流，以便向流中继续插入下一个数据。</p>
+<h5 id="6-resetiosflagslong-f"><a class="markdownIt-Anchor" href="#6-resetiosflagslong-f"></a> (6) resetiosflags(long f);</h5>
+<p>清除 f 所对应的格式化标志，功能与 unsetf(long f)成员函数相同。输出后返回一个流。</p>
+<h5 id="7-setfillint-c"><a class="markdownIt-Anchor" href="#7-setfillint-c"></a> (7) setfill(int c);</h5>
+<p>设置填充字符的 ASCⅡ 码为 c 的字符。</p>
+<h5 id="8-setprecisionint-n"><a class="markdownIt-Anchor" href="#8-setprecisionint-n"></a> (8) setprecision(int n);</h5>
+<p>设置浮点数的输出精度为 n 。</p>
+<h5 id="9-setwint-w"><a class="markdownIt-Anchor" href="#9-setwint-w"></a> (9) setw(int w);</h5>
+<p>设置下一个数据的输出域宽为 w 。</p>
 <p>数据输入/输出的格式控制还有更简便的形式，就是使用头文件 iomainip.h 中提供的操作符。使用这些操作符不需要调用成员函数，只要把它们作为插入操作符 “” 的输出对象即可。</p>
 <p>☑ dec: 转换为按十进制输出整数，是默认的输出格式。</p>
 <p>☑ oct: 转换为按八进制输出整数。</p>
@@ -529,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -584,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-long-setf-long-f"><span class="nav-number">1.</span> <span class="nav-text">(1) long setf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-long-unsetf-long-f"><span class="nav-number">2.</span> <span class="nav-text">(2) long unsetf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-int-width"><span class="nav-number">3.</span> <span class="nav-text">(3) int width();</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-int-width-int-w"><span class="nav-number">4.</span> <span class="nav-text">(4) int width(int w);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-setiosflags-long-f"><span class="nav-number">5.</span> <span class="nav-text">(5) setiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-resetiosflags-long-f"><span class="nav-number">6.</span> <span class="nav-text">(6) resetiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-setfill-int-c"><span class="nav-number">7.</span> <span class="nav-text">(7) setfill(int c);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-setprecision-int-n"><span class="nav-number">8.</span> <span class="nav-text">(8) setprecision(int n);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-setw-int-w"><span class="nav-number">9.</span> <span class="nav-text">(9) setw(int w);</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-long-setflong-f"><span class="nav-number">1.</span> <span class="nav-text"> (1) long setf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-long-unsetflong-f"><span class="nav-number">2.</span> <span class="nav-text"> (2) long unsetf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-int-width"><span class="nav-number">3.</span> <span class="nav-text"> (3) int width();</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-int-widthint-w"><span class="nav-number">4.</span> <span class="nav-text"> (4) int width(int w);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-setiosflagslong-f"><span class="nav-number">5.</span> <span class="nav-text"> (5) setiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-resetiosflagslong-f"><span class="nav-number">6.</span> <span class="nav-text"> (6) resetiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-setfillint-c"><span class="nav-number">7.</span> <span class="nav-text"> (7) setfill(int c);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-setprecisionint-n"><span class="nav-number">8.</span> <span class="nav-text"> (8) setprecision(int n);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-setwint-w"><span class="nav-number">9.</span> <span class="nav-text"> (9) setw(int w);</span></a></li></ol></div>
             
 
           </div>
@@ -604,7 +615,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

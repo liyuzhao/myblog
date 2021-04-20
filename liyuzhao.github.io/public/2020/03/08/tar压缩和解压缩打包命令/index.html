@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="tar压缩和解压缩打包命令: 压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
+<meta name="description" content="tar压缩和解压缩打包命令:  压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
 <meta name="keywords" content="linux,tar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tar压缩和解压缩打包命令">
 <meta property="og:url" content="http://lyuzhao.com/2020/03/08/tar压缩和解压缩打包命令/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="tar压缩和解压缩打包命令: 压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
+<meta property="og:description" content="tar压缩和解压缩打包命令:  压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tar压缩和解压缩打包命令">
-<meta name="twitter:description" content="tar压缩和解压缩打包命令: 压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
+<meta name="twitter:description" content="tar压缩和解压缩打包命令:  压缩成gzip文件：  1tar -zcvf shell.tar.gz shell/  将gzip文件解压：  1tar -zxvf shell.tar.gz  压缩为bz2文件：  1tar -jcvf shell.tar.bz2 shell/  将bz2文件解压：  1tar -jxvf shell.tar.bz2">
 
 
 
@@ -353,7 +353,8 @@
       
 
       
-        <h3 id="tar压缩和解压缩打包命令"><a href="#tar压缩和解压缩打包命令" class="headerlink" title="tar压缩和解压缩打包命令:"></a>tar压缩和解压缩打包命令:</h3><ul>
+        <h3 id="tar压缩和解压缩打包命令"><a class="markdownIt-Anchor" href="#tar压缩和解压缩打包命令"></a> tar压缩和解压缩打包命令:</h3>
+<ul>
 <li>压缩成gzip文件：</li>
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf shell<span class="selector-class">.tar</span><span class="selector-class">.gz</span> shell/</span><br></pre></td></tr></table></figure>
@@ -372,7 +373,8 @@
 <a id="more"></a>
 <p>tar [-cxtzjvfpPN] <strong>文件与目录</strong></p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">-<span class="string">c :</span>建立压缩文件的参数命令（creat的意思）</span><br><span class="line">-<span class="string">x :</span>解压缩文件的参数命令</span><br><span class="line">-<span class="string">t :</span>查看tar包里文件的命令特别注意，在使用参数时,c<span class="regexp">/x/</span>t只能有一个，不能同时存在 因为不可能同时压缩与解压缩。</span><br><span class="line">-<span class="string">z :</span>是否同时具有gzip的属性，即是否需要用gzip压缩</span><br><span class="line">-<span class="string">j :</span>是否同时具有bz2的属性，即是否需要用bzip2压缩（记不住的就是它）</span><br><span class="line">-<span class="string">v :</span>压缩过程中显示文件，这个常用，呵基本上我现在每次解压都会看一下里面的文件</span><br><span class="line">-<span class="string">f :</span>使用文件名，之后立即加文件名，不能再加别的参数</span><br><span class="line">-<span class="string">p :</span>使用原文件的原来属性（属性不会根据用户而变），这个从来没用过。。</span><br><span class="line">-<span class="string">P :</span>可以使用绝对路径来压缩</span><br><span class="line">-<span class="string">N :</span>比后面接的日期（yyyy<span class="regexp">/mm/</span>dd)还要新的才会被打包进新建的文件中</span><br><span class="line">–exclude <span class="string">FILE :</span>在压缩的过程中，不要将FILE打包</span><br></pre></td></tr></table></figure>
-<h4 id="如果只想将文件打成tar包，不做压缩，同样很简单："><a href="#如果只想将文件打成tar包，不做压缩，同样很简单：" class="headerlink" title="如果只想将文件打成tar包，不做压缩，同样很简单："></a>如果只想将文件打成tar包，不做压缩，同样很简单：</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf <span class="keyword">shell</span>.<span class="bash">tar shell/</span></span><br><span class="line">同样，解压你也就知道了</span><br><span class="line">tar -xvf <span class="keyword">shell</span>.<span class="bash">tar</span></span><br></pre></td></tr></table></figure>
+<h4 id="如果只想将文件打成tar包不做压缩同样很简单"><a class="markdownIt-Anchor" href="#如果只想将文件打成tar包不做压缩同样很简单"></a> 如果只想将文件打成tar包，不做压缩，同样很简单：</h4>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf <span class="keyword">shell</span>.<span class="bash">tar shell/</span></span><br><span class="line">同样，解压你也就知道了</span><br><span class="line">tar -xvf <span class="keyword">shell</span>.<span class="bash">tar</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -524,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -579,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tar压缩和解压缩打包命令"><span class="nav-number">1.</span> <span class="nav-text">tar压缩和解压缩打包命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果只想将文件打成tar包，不做压缩，同样很简单："><span class="nav-number">1.1.</span> <span class="nav-text">如果只想将文件打成tar包，不做压缩，同样很简单：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tar压缩和解压缩打包命令"><span class="nav-number">1.</span> <span class="nav-text"> tar压缩和解压缩打包命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果只想将文件打成tar包不做压缩同样很简单"><span class="nav-number">1.1.</span> <span class="nav-text"> 如果只想将文件打成tar包，不做压缩，同样很简单：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -599,7 +601,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

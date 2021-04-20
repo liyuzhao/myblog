@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。 gyp简述GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj">
+<meta name="description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。  gyp简述 GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcpr">
 <meta name="keywords" content="gyp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gyp-学习记录">
 <meta property="og:url" content="http://lyuzhao.com/2017/12/25/Gyp-学习记录/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。 gyp简述GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj">
+<meta property="og:description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。  gyp简述 GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcpr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
+<meta property="og:updated_time" content="2021-04-19T04:54:35.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gyp-学习记录">
-<meta name="twitter:description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。 gyp简述GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj">
+<meta name="twitter:description" content="Gyp 学习记录 GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。  gyp简述 GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。 gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcpr">
 
 
 
@@ -295,8 +295,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
                   </a>
                 </span>
 
@@ -355,18 +355,23 @@
       
         <p>Gyp 学习记录</p>
 <p>GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。</p>
-<h5 id="gyp简述"><a href="#gyp简述" class="headerlink" title="gyp简述"></a>gyp简述</h5><p>GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。</p>
+<h5 id="gyp简述"><a class="markdownIt-Anchor" href="#gyp简述"></a> gyp简述</h5>
+<p>GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。</p>
 <p>gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj。</p>
 <a id="more"></a>
-<h5 id="1-1-设计目标"><a href="#1-1-设计目标" class="headerlink" title="1.1 设计目标"></a>1.1 设计目标</h5><p>gyp设计针对目标就是为了解决chromium浏览器构建问题，最重要的就是支持多平台的构建。因为Chromium内部都是c/c++文件，因此主要考虑方便c/c++程序的构建。设计时候还考虑到下面这些问题：</p>
+<h5 id="11-设计目标"><a class="markdownIt-Anchor" href="#11-设计目标"></a> 1.1 设计目标</h5>
+<p>gyp设计针对目标就是为了解决chromium浏览器构建问题，最重要的就是支持多平台的构建。因为Chromium内部都是c/c<ins>文件，因此主要考虑方便c/c</ins>程序的构建。设计时候还考虑到下面这些问题：</p>
 <ul>
 <li>debug vs release</li>
 <li>cross compile</li>
 <li>toolchain interface</li>
 </ul>
-<h5 id="1-2-构建文件"><a href="#1-2-构建文件" class="headerlink" title="1.2 构建文件"></a>1.2 构建文件</h5><p>构建文件名字不固定，但是后缀通常是.gyp和.gypi(gyp included).构建文件内容就是python的一个数据结构.<br>example:</p>
+<h5 id="12-构建文件"><a class="markdownIt-Anchor" href="#12-构建文件"></a> 1.2 构建文件</h5>
+<p>构建文件名字不固定，但是后缀通常是.gyp和.gypi(gyp included).构建文件内容就是python的一个数据结构.<br>
+example:</p>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">	<span class="string">'target_defaults'</span>:&#123;</span><br><span class="line">		<span class="string">'defines'</span>:[<span class="string">'DEBUG'</span>],</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">'targets'</span>:[</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">'target_name'</span>:<span class="string">'test'</span>, #生成的文件.</span><br><span class="line">			<span class="string">'type'</span>:<span class="string">'executable'</span>, #可执行程序.</span><br><span class="line">			<span class="string">'sources'</span>:[<span class="string">'test.cc'</span>],</span><br><span class="line">			<span class="string">'defines'</span>:[<span class="string">'FOO'</span>]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="1-3-gyp文件剖析"><a href="#1-3-gyp文件剖析" class="headerlink" title="1.3 .gyp文件剖析"></a>1.3 .gyp文件剖析</h5><p>整个构建文件最顶层是一个字典，包含了下面这些key:</p>
+<h5 id="13-gyp文件剖析"><a class="markdownIt-Anchor" href="#13-gyp文件剖析"></a> 1.3 .gyp文件剖析</h5>
+<p>整个构建文件最顶层是一个字典，包含了下面这些key:</p>
 <ul>
 <li>conditions //条件判断</li>
 <li>includes // 包含的构建文件</li>
@@ -374,14 +379,17 @@
 <li>targets // 构建目标列表</li>
 <li>variables // 构建文件使用的变量</li>
 </ul>
-<h6 id="1-3-1-conditions"><a href="#1-3-1-conditions" class="headerlink" title="1.3.1 conditions"></a>1.3.1 conditions</h6><p>conditions分两种行为。 普通的conditions就在load构建文件之后立即计算，另外一种是target(conditions)是在计算完成依赖之后然后来进行计算的，两个过程分别就是early and late phases阶段。对于conditions写法非常简单</p>
+<h6 id="131-conditions"><a class="markdownIt-Anchor" href="#131-conditions"></a> 1.3.1 conditions</h6>
+<p>conditions分两种行为。 普通的conditions就在load构建文件之后立即计算，另外一种是target(conditions)是在计算完成依赖之后然后来进行计算的，两个过程分别就是early and late phases阶段。对于conditions写法非常简单</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'conditions</span><span class="symbol">':</span>[</span><br><span class="line">	[<span class="symbol">'OS==Linux</span>', &#123;<span class="symbol">'sources</span><span class="symbol">':</span>[<span class="symbol">'linux_interface.cc</span>']&#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>对于condition的判断，主要还是为了能够修改一些描述属性。从文档上来看，默认提供的条件就是OS判断，其他判断应该都是变量的判断。</p>
-<h6 id="1-3-2-targets"><a href="#1-3-2-targets" class="headerlink" title="1.3.2 targets"></a>1.3.2 targets</h6><p>target部分的话对target(default)里面设定的内容默认进行merge。比如上面例子的话，对于target/test来说，使用的define就会是-DDEBUG -DFOO.当然对于这种东西是可以进行其他策略选择的，比如如果修改成下面格式，那么就是直接替换：</p>
+<h6 id="132-targets"><a class="markdownIt-Anchor" href="#132-targets"></a> 1.3.2 targets</h6>
+<p>target部分的话对target(default)里面设定的内容默认进行merge。比如上面例子的话，对于target/test来说，使用的define就会是-DDEBUG -DFOO.当然对于这种东西是可以进行其他策略选择的，比如如果修改成下面格式，那么就是直接替换：</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'defines=</span><span class="symbol">':</span>[<span class="symbol">'FOO</span>']</span><br></pre></td></tr></table></figure>
 <p>生成的defines就是-DFOO了。或者是可以剔除掉：</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'defines!</span><span class="symbol">':</span>[<span class="symbol">'DEBUG</span>']</span><br></pre></td></tr></table></figure>
-<p>生成的defines就没有任何内容了。通过在选项key后面添加操作符号来达到自定义目的(相对于全局环境).<br>对于一个target包括了下面这些重要属性：</p>
+<p>生成的defines就没有任何内容了。通过在选项key后面添加操作符号来达到自定义目的(相对于全局环境).<br>
+对于一个target包括了下面这些重要属性：</p>
 <ul>
 <li>actions(list) //执行命令</li>
 <li>all<sub>dependentsettings</sub>(dict) //如果依赖这个target的话，需要使用的设置</li>
@@ -397,12 +405,17 @@
 <li>target<sub>name</sub>(string) //名字</li>
 <li>type //目标类型，现在只是支持static<sub>library</sub>,shared<sub>library</sub>,executable和none</li>
 </ul>
-<h6 id="1-3-3-includes"><a href="#1-3-3-includes" class="headerlink" title="1.3.3 includes"></a>1.3.3 includes</h6><p>gyp倾向的组织就是在toplevel上面存在一个gyp文件，可以存在子目录下面，但是子目录下面并不存放一个完整的构建文件， 通常只是存放构建文件的片段。为了区分，后缀为gypi。本身来说，这个gypi并不可以直接被gyp所接受生成native构建系统文件， 唯一的作用就是被toplevel的gyp文件进行include。如果对于Linux系统来说，最终生成的Makefile应该是一份大Makefile并且没有递归make的操作。 关于构造一个没有递归的Makefile是非常有价值的，不管是对于调试还是提升编译速度方面。可以参考文章Recusive Make Considered Harmful.<br>一旦我们允许include子目录的gypi文件进来，我们就必须规定哪些字段应该是文件。原因是假设存在src目录下面有src/BUILD.gypi这样一个文件，sources内容如下:</p>
+<h6 id="133-includes"><a class="markdownIt-Anchor" href="#133-includes"></a> 1.3.3 includes</h6>
+<p>gyp倾向的组织就是在toplevel上面存在一个gyp文件，可以存在子目录下面，但是子目录下面并不存放一个完整的构建文件， 通常只是存放构建文件的片段。为了区分，后缀为gypi。本身来说，这个gypi并不可以直接被gyp所接受生成native构建系统文件， 唯一的作用就是被toplevel的gyp文件进行include。如果对于Linux系统来说，最终生成的Makefile应该是一份大Makefile并且没有递归make的操作。 关于构造一个没有递归的Makefile是非常有价值的，不管是对于调试还是提升编译速度方面。可以参考文章Recusive Make Considered Harmful.<br>
+一旦我们允许include子目录的gypi文件进来，我们就必须规定哪些字段应该是文件。原因是假设存在src目录下面有src/BUILD.gypi这样一个文件，sources内容如下:</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'sources</span><span class="symbol">':</span>[<span class="symbol">'src.cc</span>']</span><br></pre></td></tr></table></figure>
 <p>而在上层BUILD.gyp文件里面，使用includes语法：</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'includes</span><span class="symbol">':</span>[<span class="symbol">'./src/BUILD.gypi</span>']</span><br></pre></td></tr></table></figure>
-<p>那么在生成大Makefile的时候，我们必须清楚’sources’字段里面内容都是文件，不应该直接使用src.cc， 相反应该加上目录前缀src，<br>最终应该使用src/src.cc这样一个文件。关于哪些字段里面内容是路径， 这个在gyp里面有详细规定，在后面小节里面我们也会提到。</p>
-<h6 id="1-3-4-actions"><a href="#1-3-4-actions" class="headerlink" title="1.3.4 actions"></a>1.3.4 actions</h6><p>actions是targets里面的一个特殊属性，主要是用来进行target的自定义操作的.<br>每个action是一个dict，主要包含4个属性：</p>
+<p>那么在生成大Makefile的时候，我们必须清楚’sources’字段里面内容都是文件，<a href="http://xn--src-628d49d4v4bo9hzq0bhndy92e.cc" target="_blank" rel="noopener">不应该直接使用src.cc</a>， 相反应该加上目录前缀src，<br>
+最终应该使用src/src.cc这样一个文件。关于哪些字段里面内容是路径， 这个在gyp里面有详细规定，在后面小节里面我们也会提到。</p>
+<h6 id="134-actions"><a class="markdownIt-Anchor" href="#134-actions"></a> 1.3.4 actions</h6>
+<p>actions是targets里面的一个特殊属性，主要是用来进行target的自定义操作的.<br>
+每个action是一个dict，主要包含4个属性：</p>
 <ul>
 <li>action<sub>name</sub>(string). //操作名称</li>
 <li>input(list) //输入文件</li>
@@ -410,32 +423,44 @@
 <li>actions(list) //命令</li>
 </ul>
 <p>有了这些属性就可以做一个完整的操作抽象。</p>
-<h6 id="1-3-5-variable"><a href="#1-3-5-variable" class="headerlink" title="1.3.5 variable"></a>1.3.5 variable</h6><p>variables这个小节里面是进行变量的定义，格式是dict。下面是一个例子：</p>
+<h6 id="135-variable"><a class="markdownIt-Anchor" href="#135-variable"></a> 1.3.5 variable</h6>
+<p>variables这个小节里面是进行变量的定义，格式是dict。下面是一个例子：</p>
 <figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'variables'</span>:&#123;</span><br><span class="line">    <span class="symbol">'common_files'</span>:[<span class="symbol">'src</span>/common.cc',<span class="symbol">'src</span>/interface.cc'],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了引用变量，我们可以这样写：</p>
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="comment">(common_files)</span></span><br><span class="line">&lt;@<span class="comment">(common_files)</span></span><br><span class="line">&gt;<span class="comment">(common_files)</span></span><br><span class="line">&gt;@<span class="comment">(common_files)</span></span><br></pre></td></tr></table></figure>
-<p>总之引用变量必须加上(),同时在前面加上&lt;,&lt;@,&gt;,&gt;@的4种中一种前缀符号。关于前缀符号的含义， 会在后面的operator小节里面说明。<br>对于变量类型，一共分为3类：</p>
+<p>总之引用变量必须加上(),同时在前面加上&lt;,&lt;@,&gt;,&gt;@的4种中一种前缀符号。关于前缀符号的含义， 会在后面的operator小节里面说明。<br>
+对于变量类型，一共分为3类：</p>
 <ul>
 <li>predefined variables //预定义变量</li>
 <li>user-defined variables //用户定义变量</li>
 <li>automatic variables //自动变量</li>
 </ul>
-<p>预定义变量比如OS(系统环境),EXECUTABLE<sub>SUFFIX</sub>(可执行文件后缀).用户自定义变量就不再赘述。<br>自动变量类似于Makefile里面的$@,$这样的变量，好比反射。比如在target<sub>conditions</sub>部门的话，我们根据不同类型程序来做不同的condition:</p>
+<p>预定义变量比如OS(系统环境),EXECUTABLE<sub>SUFFIX</sub>(可执行文件后缀).用户自定义变量就不再赘述。<br>
+自动变量类似于Makefile里面的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">@</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">@,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">@</span><span class="mpunct">,</span></span></span></span>这样的变量，好比反射。比如在target<sub>conditions</sub>部门的话，我们根据不同类型程序来做不同的condition:</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'target_conditions</span><span class="symbol">':</span>[</span><br><span class="line">	[<span class="symbol">'_type==static_library</span>',&#123;<span class="symbol">'source</span><span class="symbol">':</span>[<span class="symbol">'func.cc</span>']&#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>这样对于target为static<sub>library</sub>都会联编func.cc这个文件了，自动变量就是属性名称之前加上构成的。<br>存在自动变量非常必要。有时候我们在全局环境中，希望根据不同的条件来定义不同的行为，并且是在计算的同时在来做条件判断的。 这样就提出一个要求就是，条件判断部分必须有能力知道，当前到底在计算什么东西(反射)。</p>
-<h5 id="1-4-early-and-late-phases"><a href="#1-4-early-and-late-phases" class="headerlink" title="1.4 early and late phases"></a>1.4 early and late phases</h5><p>对于变量展开和条件判断有两个不同的阶段：<br>载入文件之后进行，就是early phase。<br>计算完成之后进行，就是late phase。<br>对于两个阶段允许不同操作是非常必要的。对于early phase这个肯定需要，而对于late phase的话， 有时候我们是希望了解到gyp处理完成某个target之后所有信息，然后进行判断的。<br>ps:comake2在设计的时候，就没有考虑late phase这个功能。造成没有办法在应用层添加延迟计算这样一个特性。 最终只能够是修改comake2代码来完成需求。</p>
-<h5 id="1-5-operator"><a href="#1-5-operator" class="headerlink" title="1.5 operator"></a>1.5 operator</h5><p>关于每个操作符号的含义：</p>
+<p>这样对于target为static<sub>library</sub>都会联编func.cc这个文件了，自动变量就是属性名称之前加上构成的。<br>
+存在自动变量非常必要。有时候我们在全局环境中，希望根据不同的条件来定义不同的行为，并且是在计算的同时在来做条件判断的。 这样就提出一个要求就是，条件判断部分必须有能力知道，当前到底在计算什么东西(反射)。</p>
+<h5 id="14-early-and-late-phases"><a class="markdownIt-Anchor" href="#14-early-and-late-phases"></a> 1.4 early and late phases</h5>
+<p>对于变量展开和条件判断有两个不同的阶段：<br>
+载入文件之后进行，就是early phase。<br>
+计算完成之后进行，就是late phase。<br>
+对于两个阶段允许不同操作是非常必要的。对于early phase这个肯定需要，而对于late phase的话， 有时候我们是希望了解到gyp处理完成某个target之后所有信息，然后进行判断的。<br>
+ps:comake2在设计的时候，就没有考虑late phase这个功能。造成没有办法在应用层添加延迟计算这样一个特性。 最终只能够是修改comake2代码来完成需求。</p>
+<h5 id="15-operator"><a class="markdownIt-Anchor" href="#15-operator"></a> 1.5 operator</h5>
+<p>关于每个操作符号的含义：</p>
 <ul>
 <li>x= //字段内容进行覆盖</li>
 <li>x? //如果字段没有定义，那么就进行覆盖</li>
 <li>x+ //字段内容进行merge</li>
 <li>&lt; (x) //early phase计算变量x，并且以string类型返回结果</li>
-<li><blockquote>
+<li>
+<blockquote>
 <p>(x) //late phase计算变量x，并且以string类型返回结果</p>
 </blockquote>
 </li>
 <li>&lt; @(x) //early phase计算变量x，并且以list类型返回结果</li>
-<li><blockquote>
+<li>
+<blockquote>
 <p>@(x) //late phase计算变量x，并且以list类型返回结果</p>
 </blockquote>
 </li>
@@ -444,7 +469,8 @@
 <li>&lt; !(x) //认为x是一个shell command，得到执行结果作为string类型返回</li>
 <li>&lt; !@(x) //认为x是一个shell command，得到执行结果作为list类型返回</li>
 </ul>
-<h5 id="1-6-路径内容属性"><a href="#1-6-路径内容属性" class="headerlink" title="1.6 路径内容属性"></a>1.6 路径内容属性</h5><p>在includes这个小节提到了，gyp规定了某些属性的内容必须为路径。这些属性是：</p>
+<h5 id="16-路径内容属性"><a class="markdownIt-Anchor" href="#16-路径内容属性"></a> 1.6 路径内容属性</h5>
+<p>在includes这个小节提到了，gyp规定了某些属性的内容必须为路径。这些属性是：</p>
 <ul>
 <li>files.</li>
 <li>include<sub>dirs</sub>.</li>
@@ -457,33 +483,40 @@
 <ul>
 <li>/ //绝对路径</li>
 <li>$ //变量</li>
-<li><ul>
+<li>
+<ul>
 <li>//链接参数比如-lm</li>
 </ul>
 </li>
 <li>&lt; ,&gt;,! //operator</li>
 <li>其他作为相对路径</li>
 </ul>
-<h5 id="1-7-在Ubuntu下使用gyp"><a href="#1-7-在Ubuntu下使用gyp" class="headerlink" title="1.7 在Ubuntu下使用gyp"></a>1.7 在Ubuntu下使用gyp</h5><blockquote>
+<h5 id="17-在ubuntu下使用gyp"><a class="markdownIt-Anchor" href="#17-在ubuntu下使用gyp"></a> 1.7 在Ubuntu下使用gyp</h5>
+<blockquote>
 <p>安装工具： sudo apt-get install gyp</p>
 </blockquote>
-<h6 id="1-7-1-简单实例"><a href="#1-7-1-简单实例" class="headerlink" title="1.7.1 简单实例"></a>1.7.1 简单实例</h6><p>hello.c</p>
+<h6 id="171-简单实例"><a class="markdownIt-Anchor" href="#171-简单实例"></a> 1.7.1 简单实例</h6>
+<p>hello.c</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello gyp\n"</span>);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>main.gyp</p>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;    </span><br><span class="line">   <span class="string">'targets'</span>: [    </span><br><span class="line">     &#123;    </span><br><span class="line">       <span class="string">'target_name'</span>: <span class="string">'hello'</span>,    </span><br><span class="line">       <span class="string">'type'</span>: <span class="string">'executable'</span>,    </span><br><span class="line">       <span class="string">'sources'</span>: [    </span><br><span class="line">         <span class="string">'hello.c'</span>,    </span><br><span class="line">       ],    </span><br><span class="line">     &#125;,    </span><br><span class="line">   ],    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>构建：</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gyp <span class="params">--depth=</span><span class="string">./</span> main.gyp</span><br></pre></td></tr></table></figure>
-<p>编译<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make</span></span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./hello</span></span><br></pre></td></tr></table></figure></p>
-<h6 id="1-7-2-改进"><a href="#1-7-2-改进" class="headerlink" title="1.7.2 改进"></a>1.7.2 改进</h6><p>把上面的构建命令做成脚本 genPrj.sh</p>
+<p>编译</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make</span></span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./hello</span></span><br></pre></td></tr></table></figure>
+<h6 id="172-改进"><a class="markdownIt-Anchor" href="#172-改进"></a> 1.7.2 改进</h6>
+<p>把上面的构建命令做成脚本 <a href="http://genPrj.sh" target="_blank" rel="noopener">genPrj.sh</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">gyp --depth=./ --generator-output=./build main.gyp</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -d build ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">cd</span> build</span><br><span class="line">	make</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <p>所有生成非源码文件都生成到了build目录下，看起来比较干净，在做一个清除脚本，清除就更省事了。do_clean.sh:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">rm -rf build</span><br></pre></td></tr></table></figure>
-<h6 id="1-7-3-c-实例"><a href="#1-7-3-c-实例" class="headerlink" title="1.7.3 c++实例"></a>1.7.3 c++实例</h6><p>目录结构</p>
+<h6 id="173-c实例"><a class="markdownIt-Anchor" href="#173-c实例"></a> 1.7.3 c++实例</h6>
+<p>目录结构</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- do_clean.sh</span></span><br><span class="line"><span class="string">|-- genPrj.sh</span></span><br><span class="line"><span class="string">|---src</span></span><br><span class="line">     <span class="string">|-- hello.cc</span></span><br><span class="line">     <span class="string">|-- main.gyp</span></span><br><span class="line">     <span class="string">|-- my_class</span></span><br><span class="line">           <span class="string">|-- my_class.cc</span></span><br><span class="line">           <span class="string">|-- my_class.h</span></span><br></pre></td></tr></table></figure>
-<p>genPrj.sh</p>
+<p><a href="http://genPrj.sh" target="_blank" rel="noopener">genPrj.sh</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">gyp --depth=. --generator-output=build src/main.gyp</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -d build ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">cd</span> bulid</span><br><span class="line">	make</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<p>hello.cc</p>
+<p><a href="http://hello.cc" target="_blank" rel="noopener">hello.cc</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"my_class/my_class.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);</span><br><span class="line">	<span class="function">MyClass <span class="title">my_class</span><span class="params">(<span class="number">100</span>)</span></span>;</span><br><span class="line">	my_class.Fun1();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>main.gyp</p>
 <figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;    </span><br><span class="line">   <span class="symbol">'targets'</span>: [    </span><br><span class="line">     &#123;    </span><br><span class="line">       <span class="symbol">'target_name'</span>: <span class="symbol">'my_class'</span>,    </span><br><span class="line">       <span class="symbol">'type'</span>: <span class="symbol">'executable'</span>,    </span><br><span class="line">       <span class="symbol">'sources'</span>: [    </span><br><span class="line">         <span class="symbol">'hello</span>.cc',    </span><br><span class="line">         <span class="symbol">'my_class</span>/my_class.h',    </span><br><span class="line">         <span class="symbol">'my_class</span>/my_class.cc',    </span><br><span class="line">       ],    </span><br><span class="line">     &#125;,    </span><br><span class="line">   ],    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
@@ -491,65 +524,67 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"my_class.h"</span>    </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;    </span></span></span><br><span class="line"><span class="keyword">void</span> MyClass::Fun1() &#123;    </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"the value is %d\n"</span>, value_);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>my_class.h</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;    </span><br><span class="line"><span class="keyword">public</span>:    </span><br><span class="line">  MyClass(<span class="keyword">int</span> <span class="keyword">value</span>) : value_(<span class="keyword">value</span>) &#123;&#125;    </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Fun1</span>(<span class="params"></span>)</span>;    </span><br><span class="line"><span class="keyword">private</span>:    </span><br><span class="line">  <span class="keyword">int</span> value_;    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="1-8-ninja"><a href="#1-8-ninja" class="headerlink" title="1.8 ninja"></a>1.8 ninja</h5><p>gyp是google为chromium项目开发的管理工具，功能类似于cmake。gyp只能产生编译脚本，真正的编译工作还有靠其他工具，例如: ninja。</p>
-<h6 id="1-8-1-安装gyp和ninja"><a href="#1-8-1-安装gyp和ninja" class="headerlink" title="1.8.1 安装gyp和ninja"></a>1.8.1 安装gyp和ninja</h6><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install gyp</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install ninja-build</span><br></pre></td></tr></table></figure>
-<h6 id="1-8-2-一个简单的例子"><a href="#1-8-2-一个简单的例子" class="headerlink" title="1.8.2 一个简单的例子"></a>1.8.2 一个简单的例子</h6><ol>
-<li><p>首先准备一个源文件，我写了template_sample.cpp,代码如下：</p>
+<h5 id="18-ninja"><a class="markdownIt-Anchor" href="#18-ninja"></a> 1.8 ninja</h5>
+<p>gyp是google为chromium项目开发的管理工具，功能类似于cmake。gyp只能产生编译脚本，真正的编译工作还有靠其他工具，例如: ninja。</p>
+<h6 id="181-安装gyp和ninja"><a class="markdownIt-Anchor" href="#181-安装gyp和ninja"></a> 1.8.1 安装gyp和ninja</h6>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install gyp</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install ninja-build</span><br></pre></td></tr></table></figure>
+<h6 id="182-一个简单的例子"><a class="markdownIt-Anchor" href="#182-一个简单的例子"></a> 1.8.2 一个简单的例子</h6>
+<ol>
+<li>
+<p>首先准备一个源文件，我写了template_sample.cpp,代码如下：</p>
  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  </span><br><span class="line"><span class="function">T <span class="title">add</span><span class="params">(T a, T b)</span></span>&#123; <span class="keyword">return</span> a+b; &#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">     <span class="built_in">cout</span>&lt;&lt; add&lt;<span class="keyword">int</span>&gt;(<span class="number">5</span>,<span class="number">6</span>)&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">     <span class="built_in">cout</span>&lt;&lt; add&lt;<span class="keyword">double</span>&gt;(<span class="number">3.4</span>,<span class="number">4.0</span>)&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>编写gyp使用的文件，build.gyp（后缀是.gyp即可，名字随意）</p>
+<li>
+<p>编写gyp使用的文件，build.gyp（后缀是.gyp即可，名字随意）</p>
  <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'template_sample.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>生成ninja脚本，命令如下：</p>
+<li>
+<p>生成ninja脚本，命令如下：</p>
  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gyp <span class="attribute">-depth</span>=. <span class="attribute">-format</span>=ninja ./build.gyp</span><br></pre></td></tr></table></figure>
+<p>其中<code>-depth=.</code> 表示在当前文件夹下寻找开始的gyp脚本，必须显示的指出gyp没有默认设置。 <code>-format=ninja</code> 表示要生成ninja的脚本，默认生成的是Makefile<br>
+执行后，会在当前目录下生成一个out目录。其结构如下：</p>
+ <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">out</span></span><br><span class="line">|<span class="comment">-- Default</span></span><br><span class="line">		|<span class="comment">-- an</span></span><br><span class="line">		|<span class="comment">-- build.ninja</span></span><br><span class="line">		|<span class="comment">-- obj</span></span><br><span class="line">			  |<span class="comment">-- an.ninja</span></span><br><span class="line">			  |<span class="comment">-- an.template_sample.o</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<pre><code>其中`-depth=.` 表示在当前文件夹下寻找开始的gyp脚本，必须显示的指出gyp没有默认设置。 `-format=ninja` 表示要生成ninja的脚本，默认生成的是Makefile
-执行后，会在当前目录下生成一个out目录。其结构如下：
-
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">out</span></span><br><span class="line">|<span class="comment">-- Default</span></span><br><span class="line">		|<span class="comment">-- an</span></span><br><span class="line">		|<span class="comment">-- build.ninja</span></span><br><span class="line">		|<span class="comment">-- obj</span></span><br><span class="line">			  |<span class="comment">-- an.ninja</span></span><br><span class="line">			  |<span class="comment">-- an.template_sample.o</span></span><br></pre></td></tr></table></figure>
-</code></pre><ol start="4">
-<li><p>编译，执行如下命令：</p>
+<li>
+<p>编译，执行如下命令：</p>
  <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ninja -C <span class="keyword">out</span>/<span class="keyword">Default</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>: -C是大写，执行成功后会在out/Default目录下生成一个叫做an的可执行文件，这个an就是在target_name字段指定的名字。</p>
+</li>
+<li>
+<p>clean整个工程重新编译</p>
+<p>目前，gyp没有提供clean的方案，所以只能手动删除out目录。</p>
 </li>
 </ol>
-<pre><code>**注意**: -C是大写，执行成功后会在out/Default目录下生成一个叫做an的可执行文件，这个an就是在target_name字段指定的名字。
-</code></pre><ol start="5">
-<li><p>clean整个工程重新编译</p>
-<p> 目前，gyp没有提供clean的方案，所以只能手动删除out目录。</p>
-</li>
-</ol>
-<h6 id="1-8-3-gyp脚本的编写"><a href="#1-8-3-gyp脚本的编写" class="headerlink" title="1.8.3 gyp脚本的编写"></a>1.8.3 gyp脚本的编写</h6><ol>
-<li><p>如何增加编译、链接参数<br> 编译参数一般增加在conditions字段，根据系统的不同增加cflags和ldflags,如下：</p>
+<h6 id="183-gyp脚本的编写"><a class="markdownIt-Anchor" href="#183-gyp脚本的编写"></a> 1.8.3 gyp脚本的编写</h6>
+<ol>
+<li>
+<p>如何增加编译、链接参数<br>
+编译参数一般增加在conditions字段，根据系统的不同增加cflags和ldflags,如下：</p>
  <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'template_sample.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[  </span><br><span class="line">              [<span class="string">'OS=="win"'</span>,&#123;  </span><br><span class="line">                             <span class="string">'cflags'</span>:[],  </span><br><span class="line">                             <span class="string">'ldflags'</span>:[]  </span><br><span class="line">                         &#125;,&#123;  </span><br><span class="line">                              <span class="string">'cflags'</span>:[  </span><br><span class="line">                                   <span class="string">'--std=c++11'</span>,  </span><br><span class="line">                               ],  </span><br><span class="line">                              <span class="string">'ldflags'</span>:[]  </span><br><span class="line">                         &#125;  </span><br><span class="line">              ],  </span><br><span class="line">            ]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意conditions字段的变化：<code>'OS=&quot;win&quot;'</code>是条件语句的后要有<code>,</code>号，第一个括号内表示条件为真时的参数，第二个括号表示条件为假时的参数。上面的例子中，我在不是win的系统上增加了<code>--std=c++11</code>这个参数。<br>
+另外，这里有必要提一下链接顺序问题。在链接的时候，链接器对符号表的寻找是按照你输入的命令的顺序进行的，比如a.o需要libm.so的函数，那么libm.so在链接命令里就必须写在a.o的后面，因为链接器发现a.o有函数没有找到，就只会去他后面的库里找，如果你把libm.so写在前面，自然就找不到。所以在增加链接库的时候，不要在ldflags里增加-l类的参数，这类参数要加到libraries字段里 如：</p>
+ <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'template_sample.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[  </span><br><span class="line">              [<span class="string">'OS=="win"'</span>,&#123;  </span><br><span class="line">                             <span class="string">'cflags'</span>:[],  </span><br><span class="line">                             <span class="string">'ldflags'</span>:[]  </span><br><span class="line">                         &#125;,&#123;  </span><br><span class="line">                              <span class="string">'cflags'</span>:[  </span><br><span class="line">                                   <span class="string">'--std=c++11'</span>,  </span><br><span class="line">                               ],  </span><br><span class="line">                              <span class="string">'ldflags'</span>:[]，  </span><br><span class="line">                              <span class="string">'libraries'</span>:[  </span><br><span class="line">                                  <span class="string">'-lm'</span>  </span><br><span class="line">                              ]  </span><br><span class="line">                         &#125;  </span><br><span class="line">              ],  </span><br><span class="line">            ]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<pre><code>注意conditions字段的变化：`&apos;OS=&quot;win&quot;&apos;`是条件语句的后要有`,`号，第一个括号内表示条件为真时的参数，第二个括号表示条件为假时的参数。上面的例子中，我在不是win的系统上增加了`--std=c++11`这个参数。
-另外，这里有必要提一下链接顺序问题。在链接的时候，链接器对符号表的寻找是按照你输入的命令的顺序进行的，比如a.o需要libm.so的函数，那么libm.so在链接命令里就必须写在a.o的后面，因为链接器发现a.o有函数没有找到，就只会去他后面的库里找，如果你把libm.so写在前面，自然就找不到。所以在增加链接库的时候，不要在ldflags里增加-l类的参数，这类参数要加到libraries字段里 如：
-
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'template_sample.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[  </span><br><span class="line">              [<span class="string">'OS=="win"'</span>,&#123;  </span><br><span class="line">                             <span class="string">'cflags'</span>:[],  </span><br><span class="line">                             <span class="string">'ldflags'</span>:[]  </span><br><span class="line">                         &#125;,&#123;  </span><br><span class="line">                              <span class="string">'cflags'</span>:[  </span><br><span class="line">                                   <span class="string">'--std=c++11'</span>,  </span><br><span class="line">                               ],  </span><br><span class="line">                              <span class="string">'ldflags'</span>:[]，  </span><br><span class="line">                              <span class="string">'libraries'</span>:[  </span><br><span class="line">                                  <span class="string">'-lm'</span>  </span><br><span class="line">                              ]  </span><br><span class="line">                         &#125;  </span><br><span class="line">              ],  </span><br><span class="line">            ]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><ol start="2">
-<li><p>头文件路径设定 –include_dirs字段的使用<br> 有如下工程目录结构</p>
+<li>
+<p>头文件路径设定 --include_dirs字段的使用<br>
+有如下工程目录结构</p>
  <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">-- build.gyp</span></span><br><span class="line">|<span class="string">-- include</span></span><br><span class="line">|<span class="string">		</span>|<span class="string">-- define.h</span></span><br><span class="line">|<span class="string">-- main.cpp</span></span><br></pre></td></tr></table></figure>
+<p>main.cpp的代码如下</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"defines.h"</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; MY_NUMBER &lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可见main.cpp文件引用了defines.h这个头文件，所以在编译的时候需要告诉编译系统到哪里去寻找这个defines.h文件。为此buid.gyp如下：</p>
+ <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[  </span><br><span class="line">                <span class="string">'include'</span>  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'main.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出头文件的位置include在include_dirs字段中被指出。这里需要注意，两个单引号之间一定是文件的路径，不要包含不必要的空格等其他字符。</p>
 </li>
-</ol>
-<pre><code>main.cpp的代码如下
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"defines.h"</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; MY_NUMBER &lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-可见main.cpp文件引用了defines.h这个头文件，所以在编译的时候需要告诉编译系统到哪里去寻找这个defines.h文件。为此buid.gyp如下：
-
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[  </span><br><span class="line">                <span class="string">'include'</span>  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'main.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-可以看出头文件的位置include在include_dirs字段中被指出。这里需要注意，两个单引号之间一定是文件的路径，不要包含不必要的空格等其他字符。
-</code></pre><ol start="3">
-<li><p>编译参数增加宏定义 –defines字段使用<br> 测试程序的源码如下：</p>
+<li>
+<p>编译参数增加宏定义 --defines字段使用<br>
+测试程序的源码如下：</p>
  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> BIG_NUMBER  </span></span><br><span class="line"><span class="keyword">int</span> out_number = <span class="number">10</span>;   </span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span>  </span></span><br><span class="line"><span class="keyword">int</span> out_number = <span class="number">1</span>;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; out_number &lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 可以看出，如果BIG_NUMBER宏被定义，则输出为10 ，否则为1。在使用Makefile的时候，我们可以通过为gcc增加-DBIG_NUBMER参数的方式来定义这个宏。那在gyp管理的时候，我们就要使用defines字段，代码如下：</p>
+<p>可以看出，如果BIG_NUMBER宏被定义，则输出为10 ，否则为1。在使用Makefile的时候，我们可以通过为gcc增加-DBIG_NUBMER参数的方式来定义这个宏。那在gyp管理的时候，我们就要使用defines字段，代码如下：</p>
  <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'executable'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[  </span><br><span class="line">                 <span class="string">'BIG_NUMBER'</span>  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'main.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>编译静态库(动态库)</p>
-<p> 有时我们不是要输出一个可执行文件，而是要编译一个静态库或动态库。这就要修改type字段，上文中type字段使用了executable，实际还可以设置为<code>static_library</code>,修改后的gyp脚本如下：</p>
+<li>
+<p>编译静态库(动态库)</p>
+<p>有时我们不是要输出一个可执行文件，而是要编译一个静态库或动态库。这就要修改type字段，上文中type字段使用了executable，实际还可以设置为<code>static_library</code>,修改后的gyp脚本如下：</p>
  <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">   <span class="string">'targets'</span>:[  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="string">'target_name'</span>:<span class="string">'an'</span>,  </span><br><span class="line">            <span class="string">'type'</span>:<span class="string">'static_library'</span>,  </span><br><span class="line">            <span class="string">'dependencies'</span>:[],  </span><br><span class="line">            <span class="string">'defines'</span>:[],  </span><br><span class="line">            <span class="string">'include_dirs'</span>:[],  </span><br><span class="line">            <span class="string">'sources'</span>:[  </span><br><span class="line">                <span class="string">'main.cpp'</span>,  </span><br><span class="line">            ],  </span><br><span class="line">            <span class="string">'conditions'</span>:[]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -565,7 +600,10 @@
 
 
 这样生成ninja脚本后，也可以生成静态库，这样做的好处是你可以在真正输出时再决定输出静态库还是动态库。尤其对于要一次生成多个库的情况下，这种方法尤其好用。
-</code></pre><h5 id="1-9-更多功能介绍"><a href="#1-9-更多功能介绍" class="headerlink" title="1.9 更多功能介绍"></a>1.9 更多功能介绍</h5><h6 id="设计准则："><a href="#设计准则：" class="headerlink" title="设计准则："></a>设计准则：</h6><ul>
+</code></pre>
+<h5 id="19-更多功能介绍"><a class="markdownIt-Anchor" href="#19-更多功能介绍"></a> 1.9 更多功能介绍</h5>
+<h6 id="设计准则"><a class="markdownIt-Anchor" href="#设计准则"></a> 设计准则：</h6>
+<ul>
 <li>关键字一致性：所有的关键字都和平台项目的配置字段相同</li>
 <li>通过前缀表明配置属于的特定平台。比如：<code>msvs_disabled_warnings</code>,<code>xcode_framework_dirs</code></li>
 </ul>
@@ -575,66 +613,111 @@
 <p>.gyp文件中定义了一些targets和构建规则。</p>
 <p>下面的关键字可以定义在最顶层：</p>
 <ul>
-<li>conditions:条件定义。 </li>
-<li><p>includes:包含.gypi文件的列表</p>
+<li>
+<p>conditions:条件定义。</p>
+</li>
+<li>
+<p>includes:包含.gypi文件的列表</p>
   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"targets"</span>: [</span><br><span class="line">	  &#123;</span><br><span class="line">		<span class="attr">"target_name"</span>: <span class="string">"Thread"</span>,</span><br><span class="line">		<span class="attr">"type"</span>: <span class="string">"executable"</span>,</span><br><span class="line">		<span class="attr">"includes"</span>: [</span><br><span class="line">		<span class="string">"../common.gypi"</span>,</span><br><span class="line">		<span class="string">"./thread.gypi"</span></span><br><span class="line">		]</span><br><span class="line">		...</span><br><span class="line">	  &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>target_defaults:默认的项目配置，每个项目(targets)的配置都需要从这个配置继承</p>
+<li>
+<p>target_defaults:默认的项目配置，每个项目(targets)的配置都需要从这个配置继承</p>
 </li>
-<li><p>targets:项目列表</p>
+<li>
+<p>targets:项目列表</p>
   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"targets"</span>: [</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">"target_name"</span>: <span class="string">"hello1"</span>,</span><br><span class="line">		<span class="attr">"product_extension"</span>: <span class="string">"stuff"</span>,</span><br><span class="line">		<span class="attr">"type"</span>: <span class="string">"executable"</span>,</span><br><span class="line">		<span class="attr">"sources"</span>: [</span><br><span class="line">		<span class="string">"hello.c"</span></span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">"target_name"</span>: <span class="string">"hello2"</span>,</span><br><span class="line">		<span class="attr">"target_extension"</span>: <span class="string">"stuff"</span>,</span><br><span class="line">		<span class="attr">"type"</span>: <span class="string">"executable"</span>,</span><br><span class="line">		<span class="attr">"sources"</span>: [</span><br><span class="line">		<span class="string">"hello.c"</span></span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>variable: 定义了键值对，可以被其他地方以<code>&lt;(varname)</code>的方式引用</p>
+<li>
+<p>variable: 定义了键值对，可以被其他地方以<code>&lt;(varname)</code>的方式引用</p>
   <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'variables'</span>: &#123;</span><br><span class="line">    <span class="string">'pi'</span>: <span class="string">'import math; print math.pi'</span>,</span><br><span class="line">    <span class="string">'third_letters'</span>: <span class="string">"&lt;(other_letters)HIJK"</span>,</span><br><span class="line">    <span class="string">'letters_list'</span>: <span class="string">'ABCD'</span>,</span><br><span class="line">    <span class="string">'other_letters'</span>: <span class="string">'&lt;(letters_list)EFG'</span>,</span><br><span class="line">    <span class="string">'check_included'</span>: <span class="string">'&lt;(included_variable)'</span>,</span><br><span class="line">    <span class="string">'check_lists'</span>: [</span><br><span class="line">      <span class="string">'&lt;(included_variable)'</span>,</span><br><span class="line">      <span class="string">'&lt;(third_letters)'</span>,</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'check_int'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'check_str_int'</span>: <span class="string">'6'</span>,</span><br><span class="line">    <span class="string">'check_list_int'</span>: [</span><br><span class="line">      <span class="number">7</span>,</span><br><span class="line">      <span class="string">'8'</span>,</span><br><span class="line">      <span class="number">9</span>,</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'not_int_1'</span>: <span class="string">' 10'</span>,</span><br><span class="line">    <span class="string">'not_int_2'</span>: <span class="string">'11 '</span>,</span><br><span class="line">    <span class="string">'not_int_3'</span>: <span class="string">'012'</span>,</span><br><span class="line">    <span class="string">'not_int_4'</span>: <span class="string">'13.0'</span>,</span><br><span class="line">    <span class="string">'not_int_5'</span>: <span class="string">'+14'</span>,</span><br><span class="line">    <span class="string">'negative_int'</span>: <span class="string">'-15'</span>,</span><br><span class="line">    <span class="string">'zero_int'</span>: <span class="string">'0'</span>,</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>项目(targets)</strong></p>
 <p>.gyp文件定义的一套构建项目的规则。targets中也可以包含<code>includes</code>,<code>conditions</code>和<code>variables</code>。下面的是一些targets中的专有字段：</p>
 <ul>
-<li>target_name: 指定定义的target的名称</li>
-<li>type: target的类型。支持<code>executable</code>、<code>static_library</code>、<code>shared_library</code>和<code>none</code>.其中<code>none</code>类型也很有用，可以作为处理资源、文档等特别项目的类型。例如，在Windows中,<code>none</code>将作为工具集类型的项目存在</li>
-<li>product_extension:指定target生成目标的扩展名，不包含’.’</li>
-<li>product_name: 指定tareget生成目标的文件名，与 <code>product_extension</code> 组成一个文件全名</li>
-<li><p>dependencies:指定target依赖的其他target</p>
+<li>
+<p>target_name: 指定定义的target的名称</p>
+</li>
+<li>
+<p>type: target的类型。支持<code>executable</code>、<code>static_library</code>、<code>shared_library</code>和<code>none</code>.其中<code>none</code>类型也很有用，可以作为处理资源、文档等特别项目的类型。例如，在Windows中,<code>none</code>将作为工具集类型的项目存在</p>
+</li>
+<li>
+<p>product_extension:指定target生成目标的扩展名，不包含’.’</p>
+</li>
+<li>
+<p>product_name: 指定tareget生成目标的文件名，与 <code>product_extension</code> 组成一个文件全名</p>
+</li>
+<li>
+<p>dependencies:指定target依赖的其他target</p>
   <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'targets'</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'target_name'</span>: <span class="string">'a'</span>,</span><br><span class="line">      <span class="string">'type'</span>: <span class="string">'static_library'</span>,</span><br><span class="line">      <span class="string">'dependencies'</span>: [</span><br><span class="line">        <span class="string">'b/b.gyp:b'</span>,</span><br><span class="line">        <span class="string">'c/c.gyp:*'</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">'sources'</span>: [</span><br><span class="line">        <span class="string">'a.c'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">  ],</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li><p>defines: 定义了预处理宏。类似于C/C++命令行编译中的-D或者/D选项</p>
+<li>
+<p>defines: 定义了预处理宏。类似于C/C++命令行编译中的-D或者/D选项</p>
   <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'targets'</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'target_name'</span>: <span class="string">'defines'</span>,</span><br><span class="line">      <span class="string">'type'</span>: <span class="string">'executable'</span>,</span><br><span class="line">      <span class="string">'defines'</span>: [</span><br><span class="line">        <span class="string">'FOO'</span>,</span><br><span class="line">        <span class="string">'VALUE=1'</span>,</span><br><span class="line">        <span class="string">'PAREN_VALUE=(1+2+3)'</span>,</span><br><span class="line">        <span class="string">'HASH_VALUE="a#1"'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      <span class="string">'sources'</span>: [</span><br><span class="line">        <span class="string">'defines.c'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li><p>include_dirs: 指定了包含文件的查找目录。类似于C/C++命令行编译中的-I或/I选项</p>
+<li>
+<p>include_dirs: 指定了包含文件的查找目录。类似于C/C++命令行编译中的-I或/I选项</p>
   <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'targets'</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'target_name'</span>: <span class="string">'includes'</span>,</span><br><span class="line">      <span class="string">'type'</span>: <span class="string">'executable'</span>,</span><br><span class="line">      <span class="string">'dependencies'</span>: [</span><br><span class="line">        <span class="string">'subdir/subdir_includes.gyp:subdir_includes'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      <span class="string">'cflags'</span>: [</span><br><span class="line">        <span class="string">'-Ishadow1'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      <span class="string">'include_dirs'</span>: [</span><br><span class="line">        <span class="string">'.'</span>,</span><br><span class="line">        <span class="string">'inc1'</span>,</span><br><span class="line">        <span class="string">'shadow2'</span>,</span><br><span class="line">        <span class="string">'subdir/inc2'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      <span class="string">'sources'</span>: [</span><br><span class="line">        <span class="string">'includes.c'</span>,</span><br><span class="line">        </span><br><span class="line">      ],</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">  ],</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>sources:列出了项目中的代码文件和一些项目相关的文件.<code>sources!</code>段中可以指定被排除的文件</p>
+<li>
+<p>sources:列出了项目中的代码文件和一些项目相关的文件.<code>sources!</code>段中可以指定被排除的文件</p>
 </li>
-<li>configurations:为targets定义的一套构建配置。</li>
-<li>link_settings:指定target需要链接的库。<code>executable</code>和<code>shared_library</code> 类型的target需要指定链接库。这个段内可以指定target中可包含的除了<code>configurations</code>、<code>target_name</code>和<code>type</code>的所有配置。可以与<code>all_dependent_settings</code>、<code>direct_dependent_setting</code>做对比</li>
-<li>direct_dependent_settings:指定依赖本target的target设置。这个段内可以指定target中可包含的除了<code>configurations</code>、<code>target_name</code>和<code>type</code>的所有属性。可以与<code>all_dependent_settings</code>、<code>link_settings</code>做对比</li>
-<li>all_dependent_settings:</li>
-<li><p>libraries:指定target依赖的库，见<code>link_settings&gt;libraries</code></p>
+<li>
+<p>configurations:为targets定义的一套构建配置。</p>
+</li>
+<li>
+<p>link_settings:指定target需要链接的库。<code>executable</code>和<code>shared_library</code> 类型的target需要指定链接库。这个段内可以指定target中可包含的除了<code>configurations</code>、<code>target_name</code>和<code>type</code>的所有配置。可以与<code>all_dependent_settings</code>、<code>direct_dependent_setting</code>做对比</p>
+</li>
+<li>
+<p>direct_dependent_settings:指定依赖本target的target设置。这个段内可以指定target中可包含的除了<code>configurations</code>、<code>target_name</code>和<code>type</code>的所有属性。可以与<code>all_dependent_settings</code>、<code>link_settings</code>做对比</p>
+</li>
+<li>
+<p>all_dependent_settings:</p>
+</li>
+<li>
+<p>libraries:指定target依赖的库，见<code>link_settings&gt;libraries</code></p>
   <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="string">'link_settings'</span>: &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">'libraries'</span>: [</span><br><span class="line"></span><br><span class="line"><span class="string">'libiconv.dylib'</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">'&lt;(ZLIB_DIR)contrib/minizip/libminizip.a'</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">'libcurl.dylib'</span>,],</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>actions:针对输入的文件，定义了一组自定义的构建动作。</p>
+<li>
+<p>actions:针对输入的文件，定义了一组自定义的构建动作。</p>
 </li>
-<li>copies:定义了一套拷贝动作。</li>
-<li>rules:</li>
-<li>target_conditions:类似于conditions,但是起左右的时间比conditions晚</li>
-<li>msvs_precompiled_header:指定预编译头文件。只能用于Visual Studio</li>
-<li>msvs_precompiled_source:指定预编译源文件。只能用于Visual Studio</li>
-<li>msvs_prebuild:生成之前事件。只能用于Visual Studio</li>
-<li><p>msvs_postbuild:生成之后事件。只能用于Visual Studio</p>
+<li>
+<p>copies:定义了一套拷贝动作。</p>
+</li>
+<li>
+<p>rules:</p>
+</li>
+<li>
+<p>target_conditions:类似于conditions,但是起左右的时间比conditions晚</p>
+</li>
+<li>
+<p>msvs_precompiled_header:指定预编译头文件。只能用于Visual Studio</p>
+</li>
+<li>
+<p>msvs_precompiled_source:指定预编译源文件。只能用于Visual Studio</p>
+</li>
+<li>
+<p>msvs_prebuild:生成之前事件。只能用于Visual Studio</p>
+</li>
+<li>
+<p>msvs_postbuild:生成之后事件。只能用于Visual Studio</p>
   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'msvs_postbuild'</span>:<span class="string">r'copy "$&#123;OutDir&#125;$&#123;TargetName&#125;" "C:\$&#123;TargetName&#125;"'</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li>msvs_props:指定target的属性页文件(.vsprops)。只能用于Visual Studio</li>
-<li>msvs_cygwin_shell:指定action运行在cygwin下。只能用于Visual Studio</li>
-<li>msvs_cygwin_dirs:指定cygwin的目录。只能用于Visual Studio</li>
-<li>xcode_config_file:在xcode中，指定target的配置文件(.xcconfig)。只能用于xcode</li>
-<li>xcode_framework_dirs:在xcode中，指定框架的目录。只能用于xcode</li>
+<li>
+<p>msvs_props:指定target的属性页文件(.vsprops)。只能用于Visual Studio</p>
+</li>
+<li>
+<p>msvs_cygwin_shell:指定action运行在cygwin下。只能用于Visual Studio</p>
+</li>
+<li>
+<p>msvs_cygwin_dirs:指定cygwin的目录。只能用于Visual Studio</p>
+</li>
+<li>
+<p>xcode_config_file:在xcode中，指定target的配置文件(.xcconfig)。只能用于xcode</p>
+</li>
+<li>
+<p>xcode_framework_dirs:在xcode中，指定框架的目录。只能用于xcode</p>
+</li>
 </ul>
 
       
@@ -786,7 +869,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -808,7 +891,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -841,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#gyp简述"><span class="nav-number">1.</span> <span class="nav-text">gyp简述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-设计目标"><span class="nav-number">2.</span> <span class="nav-text">1.1 设计目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-构建文件"><span class="nav-number">3.</span> <span class="nav-text">1.2 构建文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-gyp文件剖析"><span class="nav-number">4.</span> <span class="nav-text">1.3 .gyp文件剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-1-conditions"><span class="nav-number">4.1.</span> <span class="nav-text">1.3.1 conditions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-2-targets"><span class="nav-number">4.2.</span> <span class="nav-text">1.3.2 targets</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-3-includes"><span class="nav-number">4.3.</span> <span class="nav-text">1.3.3 includes</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-4-actions"><span class="nav-number">4.4.</span> <span class="nav-text">1.3.4 actions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-5-variable"><span class="nav-number">4.5.</span> <span class="nav-text">1.3.5 variable</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-early-and-late-phases"><span class="nav-number">5.</span> <span class="nav-text">1.4 early and late phases</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-operator"><span class="nav-number">6.</span> <span class="nav-text">1.5 operator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-路径内容属性"><span class="nav-number">7.</span> <span class="nav-text">1.6 路径内容属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-在Ubuntu下使用gyp"><span class="nav-number">8.</span> <span class="nav-text">1.7 在Ubuntu下使用gyp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-7-1-简单实例"><span class="nav-number">8.1.</span> <span class="nav-text">1.7.1 简单实例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-7-2-改进"><span class="nav-number">8.2.</span> <span class="nav-text">1.7.2 改进</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-7-3-c-实例"><span class="nav-number">8.3.</span> <span class="nav-text">1.7.3 c++实例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-8-ninja"><span class="nav-number">9.</span> <span class="nav-text">1.8 ninja</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-8-1-安装gyp和ninja"><span class="nav-number">9.1.</span> <span class="nav-text">1.8.1 安装gyp和ninja</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-8-2-一个简单的例子"><span class="nav-number">9.2.</span> <span class="nav-text">1.8.2 一个简单的例子</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-8-3-gyp脚本的编写"><span class="nav-number">9.3.</span> <span class="nav-text">1.8.3 gyp脚本的编写</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-9-更多功能介绍"><span class="nav-number">10.</span> <span class="nav-text">1.9 更多功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设计准则："><span class="nav-number">10.1.</span> <span class="nav-text">设计准则：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#gyp简述"><span class="nav-number">1.</span> <span class="nav-text"> gyp简述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-设计目标"><span class="nav-number">2.</span> <span class="nav-text"> 1.1 设计目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-构建文件"><span class="nav-number">3.</span> <span class="nav-text"> 1.2 构建文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-gyp文件剖析"><span class="nav-number">4.</span> <span class="nav-text"> 1.3 .gyp文件剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#131-conditions"><span class="nav-number">4.1.</span> <span class="nav-text"> 1.3.1 conditions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#132-targets"><span class="nav-number">4.2.</span> <span class="nav-text"> 1.3.2 targets</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#133-includes"><span class="nav-number">4.3.</span> <span class="nav-text"> 1.3.3 includes</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#134-actions"><span class="nav-number">4.4.</span> <span class="nav-text"> 1.3.4 actions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#135-variable"><span class="nav-number">4.5.</span> <span class="nav-text"> 1.3.5 variable</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-early-and-late-phases"><span class="nav-number">5.</span> <span class="nav-text"> 1.4 early and late phases</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-operator"><span class="nav-number">6.</span> <span class="nav-text"> 1.5 operator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-路径内容属性"><span class="nav-number">7.</span> <span class="nav-text"> 1.6 路径内容属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-在ubuntu下使用gyp"><span class="nav-number">8.</span> <span class="nav-text"> 1.7 在Ubuntu下使用gyp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#171-简单实例"><span class="nav-number">8.1.</span> <span class="nav-text"> 1.7.1 简单实例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#172-改进"><span class="nav-number">8.2.</span> <span class="nav-text"> 1.7.2 改进</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#173-c实例"><span class="nav-number">8.3.</span> <span class="nav-text"> 1.7.3 c++实例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-ninja"><span class="nav-number">9.</span> <span class="nav-text"> 1.8 ninja</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#181-安装gyp和ninja"><span class="nav-number">9.1.</span> <span class="nav-text"> 1.8.1 安装gyp和ninja</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#182-一个简单的例子"><span class="nav-number">9.2.</span> <span class="nav-text"> 1.8.2 一个简单的例子</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#183-gyp脚本的编写"><span class="nav-number">9.3.</span> <span class="nav-text"> 1.8.3 gyp脚本的编写</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-更多功能介绍"><span class="nav-number">10.</span> <span class="nav-text"> 1.9 更多功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设计准则"><span class="nav-number">10.1.</span> <span class="nav-text"> 设计准则：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -861,7 +944,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

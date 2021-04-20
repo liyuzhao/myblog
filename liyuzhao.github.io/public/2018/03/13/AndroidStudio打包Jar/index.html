@@ -353,11 +353,16 @@
       
 
       
-        <h2 id="Android-Studio-打包Jar"><a href="#Android-Studio-打包Jar" class="headerlink" title="Android Studio 打包Jar"></a>Android Studio 打包Jar</h2><a id="more"></a>
-<h5 id="需要在module的gradle中配置如下task"><a href="#需要在module的gradle中配置如下task" class="headerlink" title="需要在module的gradle中配置如下task"></a>需要在module的gradle中配置如下task</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Copy类型</span></span><br><span class="line"><span class="keyword">task</span> makeJar(type: <span class="keyword">Copy</span>) &#123;</span><br><span class="line">    <span class="comment">//删除存在的</span></span><br><span class="line">    <span class="keyword">delete</span> <span class="string">'build/libs/myjar.jar'</span></span><br><span class="line">    <span class="comment">//设置拷贝的文件</span></span><br><span class="line">    <span class="keyword">from</span>(<span class="string">'build/intermediates/bundles/release/'</span>)</span><br><span class="line">    <span class="comment">//打进jar包后的文件目录</span></span><br><span class="line">    <span class="keyword">into</span>(<span class="string">'build/libs/'</span>)</span><br><span class="line">    <span class="comment">//将classes.jar放入build/libs/目录下</span></span><br><span class="line">    <span class="comment">//include ,exclude参数来设置过滤</span></span><br><span class="line">    <span class="comment">//（我们只关心classes.jar这个文件）</span></span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'classes.jar'</span>)</span><br><span class="line">    <span class="comment">//重命名</span></span><br><span class="line">    rename(<span class="string">'classes.jar'</span>, <span class="string">'myjar.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makeJar.dependsOn(build)</span><br></pre></td></tr></table></figure>
-<h5 id="在终端执行"><a href="#在终端执行" class="headerlink" title="在终端执行"></a>在终端执行</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gradlew markJar</span></span><br></pre></td></tr></table></figure>
-<h5 id="打包后的位置：module的-build-libs-下"><a href="#打包后的位置：module的-build-libs-下" class="headerlink" title="打包后的位置：module的/build/libs/下"></a>打包后的位置：module的/build/libs/下</h5><p>具体位置自己可以修改</p>
-<h5 id="可能的报错"><a href="#可能的报错" class="headerlink" title="可能的报错"></a>可能的报错</h5><blockquote>
+        <h2 id="android-studio-打包jar"><a class="markdownIt-Anchor" href="#android-studio-打包jar"></a> Android Studio 打包Jar</h2>
+<a id="more"></a>
+<h5 id="需要在module的gradle中配置如下task"><a class="markdownIt-Anchor" href="#需要在module的gradle中配置如下task"></a> 需要在module的gradle中配置如下task</h5>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Copy类型</span></span><br><span class="line"><span class="keyword">task</span> makeJar(type: <span class="keyword">Copy</span>) &#123;</span><br><span class="line">    <span class="comment">//删除存在的</span></span><br><span class="line">    <span class="keyword">delete</span> <span class="string">'build/libs/myjar.jar'</span></span><br><span class="line">    <span class="comment">//设置拷贝的文件</span></span><br><span class="line">    <span class="keyword">from</span>(<span class="string">'build/intermediates/bundles/release/'</span>)</span><br><span class="line">    <span class="comment">//打进jar包后的文件目录</span></span><br><span class="line">    <span class="keyword">into</span>(<span class="string">'build/libs/'</span>)</span><br><span class="line">    <span class="comment">//将classes.jar放入build/libs/目录下</span></span><br><span class="line">    <span class="comment">//include ,exclude参数来设置过滤</span></span><br><span class="line">    <span class="comment">//（我们只关心classes.jar这个文件）</span></span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'classes.jar'</span>)</span><br><span class="line">    <span class="comment">//重命名</span></span><br><span class="line">    rename(<span class="string">'classes.jar'</span>, <span class="string">'myjar.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makeJar.dependsOn(build)</span><br></pre></td></tr></table></figure>
+<h5 id="在终端执行"><a class="markdownIt-Anchor" href="#在终端执行"></a> 在终端执行</h5>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gradlew markJar</span></span><br></pre></td></tr></table></figure>
+<h5 id="打包后的位置module的buildlibs下"><a class="markdownIt-Anchor" href="#打包后的位置module的buildlibs下"></a> 打包后的位置：module的/build/libs/下</h5>
+<p>具体位置自己可以修改</p>
+<h5 id="可能的报错"><a class="markdownIt-Anchor" href="#可能的报错"></a> 可能的报错</h5>
+<blockquote>
 <p>Fix the issues identified by lint, or add the following to your build script to proceed with errors</p>
 </blockquote>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">android</span> &#123;</span><br><span class="line">	<span class="section">lintOptions</span> &#123;</span><br><span class="line">		<span class="attribute">abortOnError</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -512,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -534,7 +539,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Studio-打包Jar"><span class="nav-number">1.</span> <span class="nav-text">Android Studio 打包Jar</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#需要在module的gradle中配置如下task"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">需要在module的gradle中配置如下task</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在终端执行"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">在终端执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打包后的位置：module的-build-libs-下"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">打包后的位置：module的/build/libs/下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可能的报错"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">可能的报错</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#android-studio-打包jar"><span class="nav-number">1.</span> <span class="nav-text"> Android Studio 打包Jar</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#需要在module的gradle中配置如下task"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 需要在module的gradle中配置如下task</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在终端执行"><span class="nav-number">1.0.0.2.</span> <span class="nav-text"> 在终端执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打包后的位置module的buildlibs下"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"> 打包后的位置：module的/build/libs/下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可能的报错"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"> 可能的报错</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -587,7 +592,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

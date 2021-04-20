@@ -355,16 +355,19 @@
       
         <p>假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。</p>
 <a id="more"></a>
-<h4 id="找到具体的应用的包名"><a href="#找到具体的应用的包名" class="headerlink" title="找到具体的应用的包名"></a>找到具体的应用的包名</h4><p>连接到手机，用adb命令执行如下命令：</p>
+<h4 id="找到具体的应用的包名"><a class="markdownIt-Anchor" href="#找到具体的应用的包名"></a> 找到具体的应用的包名</h4>
+<p>连接到手机，用adb命令执行如下命令：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm list package</span></span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.gba</span></span><br><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.ims</span></span><br><span class="line">package:com<span class="selector-class">.flyme</span><span class="selector-class">.roamingpay</span></span><br><span class="line">package:com<span class="selector-class">.github</span><span class="selector-class">.shadowsocks</span></span><br><span class="line">package:org<span class="selector-class">.simalliance</span><span class="selector-class">.openmobileapi</span><span class="selector-class">.uicc2terminal</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.telephony</span></span><br><span class="line">package:com<span class="selector-class">.meizu</span><span class="selector-class">.documentsui</span></span><br><span class="line">package:com<span class="selector-class">.goodix</span><span class="selector-class">.fingerprint</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.calendar</span></span><br><span class="line">package:com<span class="selector-class">.zgczw</span><span class="selector-class">.chezhiwang</span></span><br><span class="line">package:cc.mianfeinovel</span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.media</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<h4 id="找到需要备份的安装包的位置"><a href="#找到需要备份的安装包的位置" class="headerlink" title="找到需要备份的安装包的位置"></a>找到需要备份的安装包的位置</h4><p>如果要找到应用包名为：cc.mianfeinovel</p>
+<h4 id="找到需要备份的安装包的位置"><a class="markdownIt-Anchor" href="#找到需要备份的安装包的位置"></a> 找到需要备份的安装包的位置</h4>
+<p>如果要找到应用包名为：cc.mianfeinovel</p>
 <p>可通过如下命令，找到具体安装包的位置：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm path cc.mianfeinovel</span></span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>:<span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
-<h4 id="把安装包取出"><a href="#把安装包取出" class="headerlink" title="把安装包取出"></a>把安装包取出</h4><p>可通过adb的pull命令：</p>
+<h4 id="把安装包取出"><a class="markdownIt-Anchor" href="#把安装包取出"></a> 把安装包取出</h4>
+<p>可通过adb的pull命令：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb pull <span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
 <p>结果为：</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data/app/cc.mianfeinovel<span class="number">-2</span>/base.apk: <span class="number">1</span> file pulled. <span class="number">5.7</span> MB/s (<span class="number">11417386</span> bytes <span class="keyword">in</span> <span class="number">1.913</span>s)</span><br></pre></td></tr></table></figure>
@@ -521,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -576,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到具体的应用的包名"><span class="nav-number">1.</span> <span class="nav-text">找到具体的应用的包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到需要备份的安装包的位置"><span class="nav-number">2.</span> <span class="nav-text">找到需要备份的安装包的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把安装包取出"><span class="nav-number">3.</span> <span class="nav-text">把安装包取出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到具体的应用的包名"><span class="nav-number">1.</span> <span class="nav-text"> 找到具体的应用的包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到需要备份的安装包的位置"><span class="nav-number">2.</span> <span class="nav-text"> 找到需要备份的安装包的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把安装包取出"><span class="nav-number">3.</span> <span class="nav-text"> 把安装包取出</span></a></li></ol></div>
             
 
           </div>
@@ -596,7 +599,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

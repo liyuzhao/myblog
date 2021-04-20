@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
+<meta name="description" content="首先需要在app的build.gradle中加入 1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：&amp;quot;+&amp;quot;表示始终请求最新版">
 <meta name="keywords" content="glide">
 <meta property="og:type" content="article">
 <meta property="og:title" content="glide的简单用法">
 <meta property="og:url" content="http://lyuzhao.com/2016/08/29/glide的简单用法/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
+<meta property="og:description" content="首先需要在app的build.gradle中加入 1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：&amp;quot;+&amp;quot;表示始终请求最新版">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="glide的简单用法">
-<meta name="twitter:description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
+<meta name="twitter:description" content="首先需要在app的build.gradle中加入 1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：&amp;quot;+&amp;quot;表示始终请求最新版">
 
 
 
@@ -353,16 +353,23 @@
       
 
       
-        <p>首先需要在app的build.gradle中加入<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:+'</span></span><br></pre></td></tr></table></figure></p>
-<p>注：”+”表示始终请求最新版</p>
+        <p>首先需要在app的build.gradle中加入</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:+'</span></span><br></pre></td></tr></table></figure>
+<p>注：&quot;+&quot;表示始终请求最新版</p>
 <a id="more"></a>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">        .load(url)<span class="comment">//图片地址</span></span><br><span class="line">        .placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.default_image)<span class="comment">//加载中显示的图片</span></span><br><span class="line">        .error(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.error_image)<span class="comment">//加载出错显示的图片</span></span><br><span class="line">        .cross<span class="constructor">Fade()</span><span class="comment">//淡入效果</span></span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
-<h3 id="缓存多尺寸"><a href="#缓存多尺寸" class="headerlink" title="缓存多尺寸"></a>缓存多尺寸</h3><p>因为Glide默认只缓存一种尺寸大小的图片，即当前要加载的ImageView大小的图片，当你要在另一个不同大小的ImageView中加载同一张图片时Glide就会再次请求加载新的尺寸的图片，但是Glide给我们提供了一个设置可以缓存全尺寸的图片，这样在不同大小的ImageView中加载同一张图片就只会产生一次请求。</p>
+<h3 id="基本用法"><a class="markdownIt-Anchor" href="#基本用法"></a> 基本用法</h3>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">        .load(url)<span class="comment">//图片地址</span></span><br><span class="line">        .placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.default_image)<span class="comment">//加载中显示的图片</span></span><br><span class="line">        .error(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.error_image)<span class="comment">//加载出错显示的图片</span></span><br><span class="line">        .cross<span class="constructor">Fade()</span><span class="comment">//淡入效果</span></span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
+<h3 id="缓存多尺寸"><a class="markdownIt-Anchor" href="#缓存多尺寸"></a> 缓存多尺寸</h3>
+<p>因为Glide默认只缓存一种尺寸大小的图片，即当前要加载的ImageView大小的图片，当你要在另一个不同大小的ImageView中加载同一张图片时Glide就会再次请求加载新的尺寸的图片，但是Glide给我们提供了一个设置可以缓存全尺寸的图片，这样在不同大小的ImageView中加载同一张图片就只会产生一次请求。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.diskCacheStrategy</span>(<span class="selector-tag">DiskCacheStrategy</span><span class="selector-class">.ALL</span>)</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="加载特定大小的图片"><a href="#加载特定大小的图片" class="headerlink" title="加载特定大小的图片"></a>加载特定大小的图片</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context)</span><br><span class="line">        .load(url)</span><br><span class="line">        .<span class="keyword">override</span>(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">        .<span class="built_in">int</span>o(imageView);</span><br></pre></td></tr></table></figure>
-<h3 id="Center-Cropping"><a href="#Center-Cropping" class="headerlink" title="Center Cropping"></a>Center Cropping</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.centerCrop</span>();</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Transforming"><a href="#Transforming" class="headerlink" title="Transforming"></a>Transforming</h3><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">        .load(url)</span><br><span class="line">        .transform(<span class="keyword">new</span> <span class="constructor">CircleTransform(<span class="params">context</span>)</span>)</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
-<h3 id="特性：加载Gif、加载本地图片、asbitmap"><a href="#特性：加载Gif、加载本地图片、asbitmap" class="headerlink" title="特性：加载Gif、加载本地图片、asbitmap"></a>特性：加载Gif、加载本地图片、asbitmap</h3><p>Glide可以加载Gif动态图，使用方法和加载普通图片一样，同时因为Glide和Activity/Fragment的生命周期是一致的，因此gif的动画也会自动的随着Activity/Fragment的状态暂停、重放。Glide 的缓存在gif这里也是一样，调整大小然后缓存。</p>
+<h3 id="加载特定大小的图片"><a class="markdownIt-Anchor" href="#加载特定大小的图片"></a> 加载特定大小的图片</h3>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context)</span><br><span class="line">        .load(url)</span><br><span class="line">        .<span class="keyword">override</span>(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">        .<span class="built_in">int</span>o(imageView);</span><br></pre></td></tr></table></figure>
+<h3 id="center-cropping"><a class="markdownIt-Anchor" href="#center-cropping"></a> Center Cropping</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.centerCrop</span>();</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="transforming"><a class="markdownIt-Anchor" href="#transforming"></a> Transforming</h3>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">        .load(url)</span><br><span class="line">        .transform(<span class="keyword">new</span> <span class="constructor">CircleTransform(<span class="params">context</span>)</span>)</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
+<h3 id="特性加载gif-加载本地图片-asbitmap"><a class="markdownIt-Anchor" href="#特性加载gif-加载本地图片-asbitmap"></a> 特性：加载Gif、加载本地图片、asbitmap</h3>
+<p>Glide可以加载Gif动态图，使用方法和加载普通图片一样，同时因为Glide和Activity/Fragment的生命周期是一致的，因此gif的动画也会自动的随着Activity/Fragment的状态暂停、重放。Glide 的缓存在gif这里也是一样，调整大小然后缓存。</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">        .load(url)<span class="comment">//图片地址</span></span><br><span class="line">        .<span class="keyword">as</span><span class="constructor">Gif()</span><span class="comment">//asGif加载Gif动态图，asBitmap可以将Gif解码成bitmap</span></span><br><span class="line">        .placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.default_image)<span class="comment">//加载中显示的图片</span></span><br><span class="line">        .error(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.error_image)<span class="comment">//加载出错显示的图片</span></span><br><span class="line">        .cross<span class="constructor">Fade()</span><span class="comment">//淡入效果</span></span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
 
       
@@ -514,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +543,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -569,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存多尺寸"><span class="nav-number">2.</span> <span class="nav-text">缓存多尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载特定大小的图片"><span class="nav-number">3.</span> <span class="nav-text">加载特定大小的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Center-Cropping"><span class="nav-number">4.</span> <span class="nav-text">Center Cropping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transforming"><span class="nav-number">5.</span> <span class="nav-text">Transforming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性：加载Gif、加载本地图片、asbitmap"><span class="nav-number">6.</span> <span class="nav-text">特性：加载Gif、加载本地图片、asbitmap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text"> 基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存多尺寸"><span class="nav-number">2.</span> <span class="nav-text"> 缓存多尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载特定大小的图片"><span class="nav-number">3.</span> <span class="nav-text"> 加载特定大小的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#center-cropping"><span class="nav-number">4.</span> <span class="nav-text"> Center Cropping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transforming"><span class="nav-number">5.</span> <span class="nav-text"> Transforming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性加载gif-加载本地图片-asbitmap"><span class="nav-number">6.</span> <span class="nav-text"> 特性：加载Gif、加载本地图片、asbitmap</span></a></li></ol></div>
             
 
           </div>
@@ -589,7 +596,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.设置leftBarButtonItem的文字在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBarBu">
+<meta name="description" content="1.设置leftBarButtonItem的文字 在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。 1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBa">
 <meta name="keywords" content="ios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iPhone开发-leftBarButtonItem">
 <meta property="og:url" content="http://lyuzhao.com/2017/11/15/iPhone开发-leftBarButtonItem/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="1.设置leftBarButtonItem的文字在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBarBu">
+<meta property="og:description" content="1.设置leftBarButtonItem的文字 在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。 1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBa">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iPhone开发-leftBarButtonItem">
-<meta name="twitter:description" content="1.设置leftBarButtonItem的文字在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBarBu">
+<meta name="twitter:description" content="1.设置leftBarButtonItem的文字 在设置 leftBarButtonItem的时候，又会少了一个左箭头。 一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。 1self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]initWithTitle:@&quot;返回&quot; style:UIBa">
 
 
 
@@ -353,21 +353,31 @@
       
 
       
-        <h3 id="1-设置leftBarButtonItem的文字"><a href="#1-设置leftBarButtonItem的文字" class="headerlink" title="1.设置leftBarButtonItem的文字"></a>1.设置leftBarButtonItem的文字</h3><p>在设置 leftBarButtonItem的时候，又会少了一个左箭头。</p>
-<p>一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]<span class="string">initWithTitle:</span>@<span class="string">"返回"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self  <span class="string">action:</span><span class="meta">@selector</span>(onSelect)];</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下，自定义 UIBarButtonItem 使用设置图片有如下，但发现文本不能设置显示了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIBarButtonItem alloc]</span><span class="selector-tag">initWithImage</span><span class="selector-pseudo">:image</span> <span class="selector-tag">style</span><span class="selector-pseudo">:UIBarButtonItemStylePlain</span> <span class="selector-tag">target</span><span class="selector-pseudo">:self</span></span><br><span class="line">                                   <span class="selector-tag">action</span>:@<span class="keyword">selector</span>(<span class="keyword">onSelect</span>)];</span><br></pre></td></tr></table></figure></p>
-<p>还有一种方式，既有文本又有左箭头的需求，只能使用下面这种方式，自定义一个按钮视图。<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="name">UIBarButtonItem</span> alloc]initWithCustomView:backButton]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>问题前提： 使用pushViewController的时候，该界面返回情况会默认是上一级的标题， 更改文字，又会对本身产生影响。原本意图很简单，就是想设置自己的文字，又想有左箭头。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self.navigationController </span><span class="keyword">pushViewController:cityController </span>animated:YES]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+        <h3 id="1设置leftbarbuttonitem的文字"><a class="markdownIt-Anchor" href="#1设置leftbarbuttonitem的文字"></a> 1.设置leftBarButtonItem的文字</h3>
+<p>在设置 leftBarButtonItem的时候，又会少了一个左箭头。</p>
+<p>一般情况下，自定义一个新的标题会这样操作，设置完成后，问题来了，发现左箭头不见了。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc]<span class="string">initWithTitle:</span>@<span class="string">"返回"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self  <span class="string">action:</span><span class="meta">@selector</span>(onSelect)];</span><br></pre></td></tr></table></figure>
+<p>一般情况下，自定义 UIBarButtonItem 使用设置图片有如下，但发现文本不能设置显示了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIBarButtonItem alloc]</span><span class="selector-tag">initWithImage</span><span class="selector-pseudo">:image</span> <span class="selector-tag">style</span><span class="selector-pseudo">:UIBarButtonItemStylePlain</span> <span class="selector-tag">target</span><span class="selector-pseudo">:self</span></span><br><span class="line">                                   <span class="selector-tag">action</span>:@<span class="keyword">selector</span>(<span class="keyword">onSelect</span>)];</span><br></pre></td></tr></table></figure>
+<p>还有一种方式，既有文本又有左箭头的需求，只能使用下面这种方式，自定义一个按钮视图。</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="name">UIBarButtonItem</span> alloc]initWithCustomView:backButton]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>问题前提： 使用pushViewController的时候，该界面返回情况会默认是上一级的标题， 更改文字，又会对本身产生影响。原本意图很简单，就是想设置自己的文字，又想有左箭头。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self.navigationController </span><span class="keyword">pushViewController:cityController </span>animated:YES]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="2-实现过程"><a href="#2-实现过程" class="headerlink" title="2.实现过程"></a>2.实现过程</h3><p>实现这个过程改用了一种做法是 用按钮的方式去完成这件事。这里涉及几个问题。设置了图片的时候，按钮点下去还是会出现<strong>蓝色</strong>。</p>
-<p>在写的时候，会发现Button 的 setImage 和 setBackGroundImage 是有区别的。<br><strong>setBackGroundImage</strong>： 会对原图拉伸产生影响，跟随性。也就是说，按钮宽度改变，底图也发生改变</p>
-<p><strong>setImage</strong> ： 会保持原图性质，不随改变而改变。<br>在测试过程也是一样。</p>
+<h3 id="2实现过程"><a class="markdownIt-Anchor" href="#2实现过程"></a> 2.实现过程</h3>
+<p>实现这个过程改用了一种做法是 用按钮的方式去完成这件事。这里涉及几个问题。设置了图片的时候，按钮点下去还是会出现<strong>蓝色</strong>。</p>
+<p>在写的时候，会发现Button 的 setImage 和 setBackGroundImage 是有区别的。<br>
+<strong>setBackGroundImage</strong>： 会对原图拉伸产生影响，跟随性。也就是说，按钮宽度改变，底图也发生改变</p>
+<p><strong>setImage</strong> ： 会保持原图性质，不随改变而改变。<br>
+在测试过程也是一样。</p>
 <p>为了解决点击后保存一致的效果， 改用暴力的方式，对点击下去的情况设置一张透明度的图 。同时对文本设置透明度。这样有点罗嗦和累赘。暂时还没发现更好的方式。有一些人说是设置backBarButtonItem 但是没有效果。我也遇到这个问题。<strong>backBarButtonItem 和 leftBarButtonItem 还是有区别</strong>。</p>
-<p>为了解决按钮图片和文本点击后透明度变化，采取的办法是对两个状态设置不同的UIImage信息。其中这里使用到复制位图的操作，UIGraphicsBeginImageContext 使用这个方式。拷贝一个UIImage副本出来，对其透明度alpha 设置。<br>这个设计的目标是为 了解决点击后还是变蓝色的问题。</p>
+<p>为了解决按钮图片和文本点击后透明度变化，采取的办法是对两个状态设置不同的UIImage信息。其中这里使用到复制位图的操作，UIGraphicsBeginImageContext 使用这个方式。拷贝一个UIImage副本出来，对其透明度alpha 设置。<br>
+这个设计的目标是为 了解决点击后还是变蓝色的问题。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按钮</span></span><br><span class="line">[backButton <span class="string">setImage:</span>image <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">[backButton <span class="string">setImage:</span>neImage <span class="string">forState:</span>UIControlStateHighlighted];</span><br><span class="line"><span class="comment">//文本颜色</span></span><br><span class="line">[backButton <span class="string">setTitleColor:</span>[UIColor whiteColor] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">[backButton <span class="string">setTitleColor:</span>[UIColor <span class="string">colorWithWhite:</span><span class="number">1.0</span> <span class="string">alpha:</span><span class="number">0.7</span>] <span class="string">forState:</span>UIControlStateHighlighted];</span><br></pre></td></tr></table></figure>
 <p>一切完成后，在刚运行的过程当中，按钮背景图片和文本粘贴在比较紧，可以使用 setImageEdgeInsets的方式让其他拉开一点距离。这样子可以实现一个自定义LeftBarButtonItem。</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">UIButton *<span class="keyword">backButton </span>= [[UIButton alloc ]initWithFrame:CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">60</span>, <span class="number">30</span>)]<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span><span class="keyword">addTarget:self </span>action:@selector(onSelectCity:) forControlEvents:UIControlEventTouchUpInside]<span class="comment">;</span></span><br><span class="line">UIImage  *image =[[UIImage imageNamed:@<span class="string">"navbar_btn@2x.png"</span>] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setImage:image forState:UIControlStateNormal]<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">UIGraphicsBeginImageContext(image.size)<span class="comment">;</span></span><br><span class="line">[image drawInRect:CGRectMake(<span class="number">0</span>,<span class="number">0</span>,image.size.width,image.size.height) <span class="keyword">blendMode:kCGBlendModeNormal </span>alpha:<span class="number">0</span>.<span class="number">7</span>]<span class="comment">;</span></span><br><span class="line">UIImage *neImage = UIGraphicsGetImageFromCurrentImageContext()<span class="comment">;</span></span><br><span class="line">UIGraphicsEndImageContext()<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setImage:neImage forState:UIControlStateHighlighted]<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]<span class="comment">;</span></span><br><span class="line"><span class="keyword">backButton.titleLabel.font </span> =[UIFont systemFontOfSize:<span class="number">14</span>] <span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setTitleColor:[UIColor colorWithWhite:<span class="number">1</span>.<span class="number">0</span> alpha:<span class="number">0</span>.<span class="number">7</span>] forState:UIControlStateHighlighted]<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setTitle:@<span class="string">"全部"</span> forState:UIControlStateNormal]<span class="comment">;</span></span><br><span class="line">[<span class="keyword">backButton </span>setImageEdgeInsets:UIEdgeInsetsMake(<span class="number">0</span>, -<span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>)]<span class="comment">;</span></span><br><span class="line">UIBarButtonItem *<span class="keyword">backItem </span>= [[UIBarButtonItem alloc]initWithCustomView:<span class="keyword">backButton];</span></span><br><span class="line"><span class="keyword">self.navigationItem.leftBarButtonItem </span>= <span class="keyword">backItem;</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3.遇到的问题"></a>3.遇到的问题</h3><p>问题1： UITabbar选择图片的问题，选中后出现蓝色的问题，而不是自定义的</p>
+<h3 id="3遇到的问题"><a class="markdownIt-Anchor" href="#3遇到的问题"></a> 3.遇到的问题</h3>
+<p>问题1： UITabbar选择图片的问题，选中后出现蓝色的问题，而不是自定义的</p>
 <p>问题2：按钮点击后，蓝色按钮蓝色的问题</p>
 <p>问题3：颜色设置缺少一个0会出现奇特现象</p>
 <p>问题4：UIImage的缩放操作</p>
@@ -526,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -581,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-设置leftBarButtonItem的文字"><span class="nav-number">1.</span> <span class="nav-text">1.设置leftBarButtonItem的文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现过程"><span class="nav-number">2.</span> <span class="nav-text">2.实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">3.遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1设置leftbarbuttonitem的文字"><span class="nav-number">1.</span> <span class="nav-text"> 1.设置leftBarButtonItem的文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2实现过程"><span class="nav-number">2.</span> <span class="nav-text"> 2.实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3遇到的问题"><span class="nav-number">3.</span> <span class="nav-text"> 3.遇到的问题</span></a></li></ol></div>
             
 
           </div>
@@ -601,7 +611,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

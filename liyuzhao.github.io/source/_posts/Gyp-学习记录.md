@@ -2,7 +2,7 @@
 title: Gyp-学习记录
 date: 2017-12-25 20:12:20
 tags: [gyp]
-categories: c++
+categories: cpp
 ---
 Gyp 学习记录
 

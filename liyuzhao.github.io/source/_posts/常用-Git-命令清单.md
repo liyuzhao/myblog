@@ -1,8 +1,8 @@
 ---
 title: 常用 Git 命令清单
 date: 2016-03-14 01:03:14
-tags: [Git]
-categories: Git
+tags: [linux, git]
+categories: git
 ---
 # 常用 Git 命令清单
 

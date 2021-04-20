@@ -355,10 +355,11 @@
       
         <p>cut是一个选取命令，就是将一段数据经过分析，取出我们想要的。一般来说，选取信息通常是针对“行”来进行分析的，并不是整篇信息分析的。</p>
 <a id="more"></a>
-<p>(1) 其语法格式为：</p>
-<font color="red">cut [-bn] [file] 或 cut [-c] [file] 或者 cut [-df] [file]</font>
-
-<p>使用说明<br>cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。<br><br>如果不指定 File 参数，cut 命令将读取标准输入。必须指定 -b、-c 或 -f 标志之一。</p>
+<p>(1) 其语法格式为：<br>
+<font color="red">cut [-bn] [file] 或 cut [-c] [file] 或者 cut [-df] [file]</font></p>
+<p>使用说明<br>
+cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。<br><br>
+如果不指定 File 参数，cut 命令将读取标准输入。必须指定 -b、-c 或 -f 标志之一。</p>
 <p>主要参数</p>
 <ul>
 <li>-b ：以字节为单位进行分割。这些字节位置将忽略多字节字符边界，除非也指定了 -n 标志。</li>
@@ -368,31 +369,148 @@
 <li>-n ：取消分割多字节字符。仅和 -b 标志一起使用。如果字符的最后一个字节落在由 -b 标志的 List 参数指示的<br>范围之内，该字符将被写出；否则，该字符将被排除。</li>
 </ul>
 <p>（2）cut一般以什么为依据呢? 也就是说，我怎么告诉cut我想定位到的剪切内容呢?</p>
-<p>cut命令主要是接受三个定位方法：<br>第一，字节（bytes），用选项-b<br>第二，字符（characters），用选项-c<br>第三，域（fields），用选项-f</p>
-<p>3）以“字节”定位<br>举个例子吧，当你执行ps命令时，会输出类似如下的内容：<br>[rocrocket@rocrocket programming]$ who<br>rocrocket :0           2009-01-08 11:07<br>rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>如果我们想提取每一行的第3个字节，就这样：<br>[rocrocket@rocrocket programming]$ who|cut -b 3<br>c<br>c<br>c</p>
-<p>4） 如果“字节”定位中，我想提取第3，第4、第5和第8个字节，怎么办?<br>-b支持形如3-5的写法，而且多个定位之间用逗号隔开就成了。看看例子吧：<br>[rocrocket@rocrocket programming]$ who|cut -b 3-5,8<br>croe<br>croe<br>croe<br>但有一点要注意，cut命令如果使用了-b选项，那么执行此命令时，cut会先把-b后面所有的定位进行从小到大排序，然后再提取。可不能颠倒定位的顺序哦。这个例子就可以说明这个问题：</p>
-<p>[rocrocket@rocrocket programming]$ who|cut -b 8,3-5<br>croe<br>croe<br>croe<br>（5） 还有哪些类似“3-5”这样的小技巧，列举一下吧!</p>
-<p>[rocrocket@rocrocket programming]$ who<br>rocrocket :0           2009-01-08 11:07<br>rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>[rocrocket@rocrocket programming]$ who|cut -b -3<br>roc<br>roc<br>roc<br>[rocrocket@rocrocket programming]$ who|cut -b 3-<br>crocket :0           2009-01-08 11:07<br>crocket pts/0        2009-01-08 11:23 (:0.0)<br>crocket pts/1        2009-01-08 14:15 (:0.0)<br>想必你也看到了，-3表示从第一个字节到第三个字节，而3-表示从第三个字节到行尾。如果你细心，你可以看到这两种情况下，都包括了第三个字节“c”。<br>如果我执行who|cut -b -3,3-，你觉得会如何呢？答案是输出整行，不会出现连续两个重叠的c的。看：</p>
-<p>[rocrocket@rocrocket programming]$ who|cut -b -3,3-<br>rocrocket :0           2009-01-08 11:07<br>rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>（6）给个以字符为定位标志的最简单的例子吧!</p>
+<p>cut命令主要是接受三个定位方法：<br>
+第一，字节（bytes），用选项-b<br>
+第二，字符（characters），用选项-c<br>
+第三，域（fields），用选项-f</p>
+<p>3）以“字节”定位<br>
+举个例子吧，当你执行ps命令时，会输出类似如下的内容：<br>
+[rocrocket@rocrocket programming]$ who<br>
+rocrocket :0           2009-01-08 11:07<br>
+rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>
+rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>
+如果我们想提取每一行的第3个字节，就这样：<br>
+[rocrocket@rocrocket programming]$ who|cut -b 3<br>
+c<br>
+c<br>
+c</p>
+<p>4） 如果“字节”定位中，我想提取第3，第4、第5和第8个字节，怎么办?<br>
+-b支持形如3-5的写法，而且多个定位之间用逗号隔开就成了。看看例子吧：<br>
+[rocrocket@rocrocket programming]$ who|cut -b 3-5,8<br>
+croe<br>
+croe<br>
+croe<br>
+但有一点要注意，cut命令如果使用了-b选项，那么执行此命令时，cut会先把-b后面所有的定位进行从小到大排序，然后再提取。可不能颠倒定位的顺序哦。这个例子就可以说明这个问题：</p>
+<p>[rocrocket@rocrocket programming]$ who|cut -b 8,3-5<br>
+croe<br>
+croe<br>
+croe<br>
+（5） 还有哪些类似“3-5”这样的小技巧，列举一下吧!</p>
+<p>[rocrocket@rocrocket programming]$ who<br>
+rocrocket :0           2009-01-08 11:07<br>
+rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>
+rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>
+[rocrocket@rocrocket programming]$ who|cut -b -3<br>
+roc<br>
+roc<br>
+roc<br>
+[rocrocket@rocrocket programming]$ who|cut -b 3-<br>
+crocket :0           2009-01-08 11:07<br>
+crocket pts/0        2009-01-08 11:23 (:0.0)<br>
+crocket pts/1        2009-01-08 14:15 (:0.0)<br>
+想必你也看到了，-3表示从第一个字节到第三个字节，而3-表示从第三个字节到行尾。如果你细心，你可以看到这两种情况下，都包括了第三个字节“c”。<br>
+如果我执行who|cut -b -3,3-，你觉得会如何呢？答案是输出整行，不会出现连续两个重叠的c的。看：</p>
+<p>[rocrocket@rocrocket programming]$ who|cut -b -3,3-<br>
+rocrocket :0           2009-01-08 11:07<br>
+rocrocket pts/0        2009-01-08 11:23 (:0.0)<br>
+rocrocket pts/1        2009-01-08 14:15 (:0.0)<br>
+（6）给个以字符为定位标志的最简单的例子吧!</p>
 <p>下面例子你似曾相识，提取第3，第4，第5和第8个字符：</p>
-<p>[rocrocket@rocrocket programming]$ who|cut -c 3-5,8<br>croe<br>croe<br>croe<br>不过，看着怎么和-b没有什么区别啊？莫非-b和-c作用一样? 其实不然，看似相同，只是因为这个例子举的不好，who输出的都是单字节字符，所以用-b和-c没有区别，如果你提取中文，区别就看出来了，来，看看中文提取的情况：</p>
-<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt<br>星期一<br>星期二<br>星期三<br>星期四<br>[rocrocket@rocrocket programming]$ cut -b 3 cut_ch.txt<br>�<br>�<br>�<br>�<br>[rocrocket@rocrocket programming]$ cut -c 3 cut_ch.txt<br>一<br>二<br>三<br>四<br>看到了吧，用-c则会以字符为单位，输出正常；而-b只会傻傻的以字节（8位二进制位）来计算，输出就是乱码。<br>既然提到了这个知识点，就再补充一句，如果你学有余力，就提高一下。<br>当遇到多字节字符时，可以使用-n选项，-n用于告诉cut不要将多字节字符拆开。例子如下：</p>
-<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -b 2<br>�<br>�<br>�<br>�<br>[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -nb 2</p>
-<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -nb 1,2,3<br>星<br>星<br>星<br>星<br>（7）域是怎么回事呢？解释解释:)</p>
+<p>[rocrocket@rocrocket programming]$ who|cut -c 3-5,8<br>
+croe<br>
+croe<br>
+croe<br>
+不过，看着怎么和-b没有什么区别啊？莫非-b和-c作用一样? 其实不然，看似相同，只是因为这个例子举的不好，who输出的都是单字节字符，所以用-b和-c没有区别，如果你提取中文，区别就看出来了，来，看看中文提取的情况：</p>
+<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt<br>
+星期一<br>
+星期二<br>
+星期三<br>
+星期四<br>
+[rocrocket@rocrocket programming]$ cut -b 3 cut_ch.txt<br>
+�<br>
+�<br>
+�<br>
+�<br>
+[rocrocket@rocrocket programming]$ cut -c 3 cut_ch.txt<br>
+一<br>
+二<br>
+三<br>
+四<br>
+看到了吧，用-c则会以字符为单位，输出正常；而-b只会傻傻的以字节（8位二进制位）来计算，输出就是乱码。<br>
+既然提到了这个知识点，就再补充一句，如果你学有余力，就提高一下。<br>
+当遇到多字节字符时，可以使用-n选项，-n用于告诉cut不要将多字节字符拆开。例子如下：</p>
+<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -b 2<br>
+�<br>
+�<br>
+�<br>
+�<br>
+[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -nb 2</p>
+<p>[rocrocket@rocrocket programming]$ cat cut_ch.txt |cut -nb 1,2,3<br>
+星<br>
+星<br>
+星<br>
+星<br>
+（7）域是怎么回事呢？解释解释:)</p>
 <p>为什么会有“域”的提取呢，因为刚才提到的-b和-c只能在固定格式的文档中提取信息，而对于非固定格式的信息则束手无策。这时候“域”就派上用场了。如果你观察过/etc/passwd文件，你会发现，它并不像who的输出信息那样具有固定格式，而是比较零散的排放。但是，冒号在这个文件的每一行中都起到了非常重要的作用，冒号用来隔开每一个项。</p>
 <p>我们很幸运，cut命令提供了这样的提取方式，具体的说就是设置“间隔符”，再设置“提取第几个域”，就OK了！</p>
 <p>以/etc/passwd的前五行内容为例：</p>
-<p>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5<br>root:x:0:0:root:/root:/bin/bash<br>bin:x:1:1:bin:/bin:/sbin/nologin<br>daemon:x:2:2:daemon:/sbin:/sbin/nologin<br>adm:x:3:4:adm:/var/adm:/sbin/nologin<br>lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin<br>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1<br>root<br>bin<br>daemon<br>adm<br>lp<br>看到了吧，用-d来设置间隔符为冒号，然后用-f来设置我要取的是第一个域，再按回车，所有的用户名就都列出来了！呵呵 有成就感吧！<br>当然，在设定-f时，也可以使用例如3-5或者4-类似的格式：</p>
-<p>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1,3-5<br>root:0:0:root<br>bin:1:1:bin<br>daemon:2:2:daemon<br>adm:3:4:adm<br>lp:4:7:lp<br>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1,3-5,7<br>root:0:0:root:/bin/bash<br>bin:1:1:bin:/sbin/nologin<br>daemon:2:2:daemon:/sbin/nologin<br>adm:3:4:adm:/sbin/nologin<br>lp:4:7:lp:/sbin/nologin<br>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f -2<br>root:x<br>bin:x<br>daemon:x<br>adm:x<br>lp:x<br>（8）如果遇到空格和制表符时，怎么分辨呢？我觉得有点乱，怎么办？</p>
+<p>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5<br>
+root❌0:0:root:/root:/bin/bash<br>
+bin❌1:1:bin:/bin:/sbin/nologin<br>
+daemon❌2:2:daemon:/sbin:/sbin/nologin<br>
+adm❌3:4:adm:/var/adm:/sbin/nologin<br>
+lp❌4:7:lp:/var/spool/lpd:/sbin/nologin<br>
+[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1<br>
+root<br>
+bin<br>
+daemon<br>
+adm<br>
+lp<br>
+看到了吧，用-d来设置间隔符为冒号，然后用-f来设置我要取的是第一个域，再按回车，所有的用户名就都列出来了！呵呵 有成就感吧！<br>
+当然，在设定-f时，也可以使用例如3-5或者4-类似的格式：</p>
+<p>[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1,3-5<br>
+root:0:0:root<br>
+bin:1:1:bin<br>
+daemon:2:2:daemon<br>
+adm:3:4:adm<br>
+lp:4:7:lp<br>
+[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f 1,3-5,7<br>
+root:0:0:root:/bin/bash<br>
+bin:1:1:bin:/sbin/nologin<br>
+daemon:2:2:daemon:/sbin/nologin<br>
+adm:3:4:adm:/sbin/nologin<br>
+lp:4:7:lp:/sbin/nologin<br>
+[rocrocket@rocrocket programming]$ cat /etc/passwd|head -n 5|cut -d : -f -2<br>
+root:x<br>
+bin:x<br>
+daemon:x<br>
+adm:x<br>
+lp:x<br>
+（8）如果遇到空格和制表符时，怎么分辨呢？我觉得有点乱，怎么办？</p>
 <p>有时候制表符确实很难辨认，有一个方法可以看出一段空格到底是由若干个空格组成的还是由一个制表符组成的。</p>
-<p>[rocrocket@rocrocket programming]$ cat tab_space.txt<br>this is tab finish.<br>this is several space      finish.<br>[rocrocket@rocrocket programming]$ sed -n l tab_space.txt<br>this is tab\tfinish.$<br>this is several space      finish.$<br>看到了吧，如果是制表符（TAB），那么会显示为\t符号，如果是空格，就会原样显示。<br>通过此方法即可以判断制表符和空格了。<br>注意，上面sed -n后面的字符是L的小写字母哦，不要看错。</p>
+<p>[rocrocket@rocrocket programming]$ cat tab_space.txt<br>
+this is tab finish.<br>
+this is several space      finish.<br>
+[rocrocket@rocrocket programming]$ sed -n l tab_space.txt<br>
+this is tab\tfinish.<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>p</mi><mi>a</mi><mi>c</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>n</mi><mi>i</mi><mi>s</mi><mi>h</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
+this is several space      finish.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord">.</span></span></span></span><br>
+看到了吧，如果是制表符（TAB），那么会显示为\t符号，如果是空格，就会原样显示。<br>
+通过此方法即可以判断制表符和空格了。<br>
+注意，上面sed -n后面的字符是L的小写字母哦，不要看错。</p>
 <p>（9）我应该在cut -d中用什么符号来设定制表符或空格呢?</p>
 <p>其实cut的-d选项的默认间隔符就是制表符，所以当你就是要使用制表符的时候，完全就可以省略-d选项，而直接用－f来取域就可以了。</p>
 <p>如果你设定一个空格为间隔符，那么就这样：</p>
-<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ‘ ‘ -f 1<br>this<br>this<br>注意，两个单引号之间可确实要有一个空格哦，不能偷懒。<br>而且，你只能在-d后面设置一个空格，可不许设置多个空格，因为cut只允许间隔符是一个字符。</p>
-<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ‘ ‘ -f 1<br>cut: the delimiter must be a single character<br>Try `cut –help’ for more information.</p>
+<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ’ ’ -f 1<br>
+this<br>
+this<br>
+注意，两个单引号之间可确实要有一个空格哦，不能偷懒。<br>
+而且，你只能在-d后面设置一个空格，可不许设置多个空格，因为cut只允许间隔符是一个字符。</p>
+<p>[rocrocket@rocrocket programming]$ cat tab_space.txt |cut -d ’ ’ -f 1<br>
+cut: the delimiter must be a single character<br>
+Try `cut --help’ for more information.</p>
 <p>（10）cut有哪些缺陷和不足？</p>
-<p>猜出来了吧？对，就是在处理多空格时。<br>如果文件里面的某些域是由若干个空格来间隔的，那么用cut就有点麻烦了，因为cut只擅长处理“以一个字符间隔”的文本内容</p>
+<p>猜出来了吧？对，就是在处理多空格时。<br>
+如果文件里面的某些域是由若干个空格来间隔的，那么用cut就有点麻烦了，因为cut只擅长处理“以一个字符间隔”的文本内容</p>
 
       
     </div>
@@ -534,7 +652,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +674,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -593,7 +711,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

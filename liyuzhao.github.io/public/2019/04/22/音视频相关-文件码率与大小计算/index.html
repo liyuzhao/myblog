@@ -354,28 +354,34 @@
 
       
         <blockquote>
-<p>编码率/比特率直接与文件体积有关。且编码率与编码格式配合是否合适，直接关系到视频文件是否清晰。 </p>
+<p>编码率/比特率直接与文件体积有关。且编码率与编码格式配合是否合适，直接关系到视频文件是否清晰。</p>
 </blockquote>
 <a id="more"></a>
-<p>在视频编码领域，比特率常翻译为编码率，单位是Kbps，例如800Kbps </p>
-<p>其中， 1K=1024 1M=1024K </p>
-<p>b 为 比特（bit） 这个就是电脑文件大小的计量单位，1KB=8Kb，区分大小写，B代表字节(Byte) s 为 秒（second） p 为 每（per）<br>以800kbps来编码表示经过编码后的数据每秒钟需要用800K比特来表示。<br>1MB=8Mb=1024KB=8192Kb </p>
-<p>Windows系统文件大小经常用B(字节)为单位表示，但网络运营商则用b(比特)，也就是为什么2Mb速度宽带在电脑上显示速度最快只有约256KB的原因，网络运营商宣传网速的时候省略了计量单位。 </p>
-<p>完整的视频文件是由音频流与视频流2个部分组成的，音频和视频分别使用的是不同的编码率，因此一个视频文件的最终技术大小的编码率是音频编码率+视频编码率。例如一个音频编码率为128Kbps，视频编码率为800Kbps的文件，其总编码率为928Kbps，意思是经过编码后的数据每秒钟需要用928K比特来表示。 </p>
-<p>了解了编码率的含义以后，根据视频播放时间长度，就不难了解和计算出最终文件的大小。编码率也高，视频播放时间越长，文件体积就越大。不是分辨率越大文件就越大，只是一般情况下，为了保证清晰度，较高的分辨率需要较高的编码率配合，所以使人产生分辨率越大的视频文件体积越大的感觉。 </p>
-<p>计算输出文件大小公式：<br>（音频编码率（Kbit为单位）/8 + 视频编码率（Kbit为单位）/8）× 影片总长度（秒为单位）= 文件大小（MB为单位）<br>这样以后大家就能精确的控制输出文件大小了。 </p>
-<p>例：有一个1.5小时（5400秒）的影片，希望转换后文件大小刚好为700M<br>计算方法如下： </p>
+<p>在视频编码领域，比特率常翻译为编码率，单位是Kbps，例如800Kbps</p>
+<p>其中， 1K=1024 1M=1024K</p>
+<p>b 为 比特（bit） 这个就是电脑文件大小的计量单位，1KB=8Kb，区分大小写，B代表字节(Byte) s 为 秒（second） p 为 每（per）<br>
+以800kbps来编码表示经过编码后的数据每秒钟需要用800K比特来表示。<br>
+1MB=8Mb=1024KB=8192Kb</p>
+<p>Windows系统文件大小经常用B(字节)为单位表示，但网络运营商则用b(比特)，也就是为什么2Mb速度宽带在电脑上显示速度最快只有约256KB的原因，网络运营商宣传网速的时候省略了计量单位。</p>
+<p>完整的视频文件是由音频流与视频流2个部分组成的，音频和视频分别使用的是不同的编码率，因此一个视频文件的最终技术大小的编码率是音频编码率+视频编码率。例如一个音频编码率为128Kbps，视频编码率为800Kbps的文件，其总编码率为928Kbps，意思是经过编码后的数据每秒钟需要用928K比特来表示。</p>
+<p>了解了编码率的含义以后，根据视频播放时间长度，就不难了解和计算出最终文件的大小。编码率也高，视频播放时间越长，文件体积就越大。不是分辨率越大文件就越大，只是一般情况下，为了保证清晰度，较高的分辨率需要较高的编码率配合，所以使人产生分辨率越大的视频文件体积越大的感觉。</p>
+<p>计算输出文件大小公式：<br>
+（音频编码率（Kbit为单位）/8 + 视频编码率（Kbit为单位）/8）× 影片总长度（秒为单位）= 文件大小（MB为单位）<br>
+这样以后大家就能精确的控制输出文件大小了。</p>
+<p>例：有一个1.5小时（5400秒）的影片，希望转换后文件大小刚好为700M<br>
+计算方法如下：</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">700</span>×<span class="number">8</span>÷<span class="number">5400</span>×<span class="number">1024</span>≈<span class="number">1061</span>Kbps</span><br></pre></td></tr></table></figure>
-<p>意思是只要音频编码率加上视频编码率之和为1061Kb，则1个半小时的影片转换后文件体积大小刚好为700M。 </p>
-<p>至于音频编码率和视频编码率具体如何设置，就看选择的编码格式和个人喜好了，只要2者之和为1061即可。如可以设置为视频编码格式H264，视频编码率900 Kbps，音频编码格式AAC，编码率161 Kbps。 </p>
-<p>与文件体积大小有关的码率是指的平均码率，因此，不论是使用固定比特一次编码方式还是使用二次（多次）动态编码方式，都是可以保证文件大小的。只有使用基于质量编码的方式的时候，文件大小才不可控制。 </p>
-<p>编码格式有很多种，在技术不断进步的情况下，针对不同的用途，产生了各种编码格式。不同编码格式的压缩率不一样，且有各自的特点，有些在低码率情况下能保持较高的画面质量，但在高码率情况下反而画面质量提示不大，有些适合在高码率情况下保持高清晰度画面，但可能在低码率情况下效果不佳。介绍常见的几种。 </p>
+<p>意思是只要音频编码率加上视频编码率之和为1061Kb，则1个半小时的影片转换后文件体积大小刚好为700M。</p>
+<p>至于音频编码率和视频编码率具体如何设置，就看选择的编码格式和个人喜好了，只要2者之和为1061即可。如可以设置为视频编码格式H264，视频编码率900 Kbps，音频编码格式AAC，编码率161 Kbps。</p>
+<p>与文件体积大小有关的码率是指的平均码率，因此，不论是使用固定比特一次编码方式还是使用二次（多次）动态编码方式，都是可以保证文件大小的。只有使用基于质量编码的方式的时候，文件大小才不可控制。</p>
+<p>编码格式有很多种，在技术不断进步的情况下，针对不同的用途，产生了各种编码格式。不同编码格式的压缩率不一样，且有各自的特点，有些在低码率情况下能保持较高的画面质量，但在高码率情况下反而画面质量提示不大，有些适合在高码率情况下保持高清晰度画面，但可能在低码率情况下效果不佳。介绍常见的几种。</p>
 <p>RMVB/RM在制定的时候主要考虑的是网络传播，目的在于利用不快的网速传播视觉可以接受的画面质量。因此，RMVB/RM编码格式的特点是较低码率下能获得较好的视频质量。但高码率的情况下反不如其他编码格式。同样是RM/RMVB后缀的文件，其内部编码格式细分还有R8/R9/R10等，但总的来说，上面所说的特点依然是存在的。只是压缩率更高了，因此RMVB没人用在高清编码领域。RMVB追求的是高压缩率，能接受的画面质量，所以经常压缩掉一些不容易注意的细节。初看画面不错，细看就发现画面不锐利，层次不分明，总给人一直模糊的感觉。</p>
-<p>RMVB/RM后缀文件的音频编码部分同样存在这样的情况，声音压缩率很高，但只是能听，不要奢望达到声音动听的境界。 </p>
-<p>RMVB的流行，一是因为REAL的这种格式适合低速网络的传播，能以较小的文件体积获得可以接受的画面质量。二是随着RMVB的使用，开始出现功能比较完善的转码软件和解决方案，方便了视频爱好者，扩大了影片来源。但随着网速越来越快，H264等更好的编码器出现，同时也因为RMVB不适合高清视频制作，且若对于其他硬件厂家希望支持RMVB/RM格式，就必须向REAL公司支付相当昂贵的专利费，导致很多硬件厂商放弃了对RMVB文件的支持。RMVB的文件已经不是以前那种完全压倒性的优势了。 </p>
-<p>现在网络传播的视频文件已经很多都是AVI、MKV、MP4、3GP等后缀了。其中MKV等多用于高清视频文件，MP4、3GP等多用于手机和便携式设备等领域，AVI则使用范围更加广，不但在高清晰度视频文件中有AVI文件，在便携式设备领域也有AVI使用。 </p>
-<p>VCD用的视频编码格式为MPEG1，DVD则为MPEG2，VCD和DVD都主要用于家庭影音播放，而且一般来说，VCD用MPEG1编码为固定码率编码。DVD可以支持动态码率的MPEG2编码。<br>为了能保证激烈变化画面时的清晰度，其默认编码率都较高，VCD标准编码率1152Kbps，DVD开放些，根据影片播放时间，常设置为5000 Kbps -8000 Kbps之间，在不浪费DVD碟容量的前提下尽可能的使用较高的码率获得更高的清晰度。MPEG1和MPEG2在超低码率情况效果不佳，且过分提高码率，画面效果带来的提示也不明显。而MKV则以H.264编码，用于高清视频，1080p的画面达到了30Mbps的码率。 </p>
-<p>当然不经过压缩文件的计算公式又不同： </p>
+<p>RMVB/RM后缀文件的音频编码部分同样存在这样的情况，声音压缩率很高，但只是能听，不要奢望达到声音动听的境界。</p>
+<p>RMVB的流行，一是因为REAL的这种格式适合低速网络的传播，能以较小的文件体积获得可以接受的画面质量。二是随着RMVB的使用，开始出现功能比较完善的转码软件和解决方案，方便了视频爱好者，扩大了影片来源。但随着网速越来越快，H264等更好的编码器出现，同时也因为RMVB不适合高清视频制作，且若对于其他硬件厂家希望支持RMVB/RM格式，就必须向REAL公司支付相当昂贵的专利费，导致很多硬件厂商放弃了对RMVB文件的支持。RMVB的文件已经不是以前那种完全压倒性的优势了。</p>
+<p>现在网络传播的视频文件已经很多都是AVI、MKV、MP4、3GP等后缀了。其中MKV等多用于高清视频文件，MP4、3GP等多用于手机和便携式设备等领域，AVI则使用范围更加广，不但在高清晰度视频文件中有AVI文件，在便携式设备领域也有AVI使用。</p>
+<p>VCD用的视频编码格式为MPEG1，DVD则为MPEG2，VCD和DVD都主要用于家庭影音播放，而且一般来说，VCD用MPEG1编码为固定码率编码。DVD可以支持动态码率的MPEG2编码。<br>
+为了能保证激烈变化画面时的清晰度，其默认编码率都较高，VCD标准编码率1152Kbps，DVD开放些，根据影片播放时间，常设置为5000 Kbps -8000 Kbps之间，在不浪费DVD碟容量的前提下尽可能的使用较高的码率获得更高的清晰度。MPEG1和MPEG2在超低码率情况效果不佳，且过分提高码率，画面效果带来的提示也不明显。而MKV则以H.264编码，用于高清视频，1080p的画面达到了30Mbps的码率。</p>
+<p>当然不经过压缩文件的计算公式又不同：</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">声音为，数据量（位/秒）= (采样频率（Hz）*采样位数（bit）*声道数) </span><br><span class="line">其中，单声道的声道数为<span class="number">1</span>，立体声的声道数为<span class="number">2</span>。 </span><br><span class="line">数据量*时间/<span class="number">8</span>＝文件总字节 </span><br><span class="line">例如CD即为未经压缩的音频文件，采样<span class="number">44.1</span>k,<span class="number">16</span>位,双声道。 </span><br><span class="line">数据量＝<span class="number">44.1</span>*<span class="number">16</span>*<span class="number">2</span>=<span class="number">1411</span>kb/<span class="number">1024</span>=<span class="number">1.38</span>Mb,一般的MP3压缩后为<span class="number">128</span>kbps </span><br><span class="line">如果以一张CD放一个小时计算的话，CD总量＝<span class="number">1.38</span>*<span class="number">3600</span>/<span class="number">8</span>=<span class="number">621</span>MB,当然CD大约放<span class="number">1</span>小时多点,顶多也就<span class="number">700</span>MB。</span><br></pre></td></tr></table></figure>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">图象应该是，数据量（位/秒）= (画面尺寸*彩色位数（bit）*帧数) </span><br><span class="line">数据量*时间/<span class="number">8</span>＝文件总字节 </span><br><span class="line">例如<span class="number">2</span>分钟,<span class="number">25</span>帧/秒,<span class="number">640</span>×<span class="number">480</span>分辨率,<span class="number">24</span>位真彩色数字视频的不压缩的数据量约为，数据量＝<span class="number">640</span>x480x24*<span class="number">25</span>=<span class="number">184320</span>Kb=<span class="number">180</span>Mb,而VCD、MKV标准编码率(加上音频)分别为<span class="number">1152</span>Kbps和<span class="number">30</span>Mbps(<span class="number">1080</span>p高清) </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>分钟文件字节＝<span class="number">180</span>Mbx120/<span class="number">8</span>=<span class="number">2700000</span>KB=<span class="number">2636.71875</span>MB＝<span class="number">2.57</span>GB，而压缩后一部<span class="number">90</span>分钟高质量DVD电影可以达到<span class="number">9</span>GB。</span><br></pre></td></tr></table></figure>
       
@@ -520,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -579,7 +585,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

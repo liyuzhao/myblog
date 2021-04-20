@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="方法一1.通过lsof命令查看PID123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453 (LIS">
+<meta name="description" content="方法一  1.通过lsof命令查看PID 123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453">
 <meta name="keywords" content="linux,process">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下查看监听端口对应的进程">
 <meta property="og:url" content="http://lyuzhao.com/2018/12/10/linux下查看监听端口对应的进程/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="方法一1.通过lsof命令查看PID123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453 (LIS">
+<meta property="og:description" content="方法一  1.通过lsof命令查看PID 123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下查看监听端口对应的进程">
-<meta name="twitter:description" content="方法一1.通过lsof命令查看PID123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453 (LIS">
+<meta name="twitter:description" content="方法一  1.通过lsof命令查看PID 123456789ipv4[root@test proc]# lsof -Pnl +M -i4          COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAMEjava       1419     1401   10u  IPv4 6793357       TCP *:8453">
 
 
 
@@ -353,26 +353,51 @@
       
 
       
-        <h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><h5 id="1-通过lsof命令查看PID"><a href="#1-通过lsof命令查看PID" class="headerlink" title="1.通过lsof命令查看PID"></a>1.通过lsof命令查看PID</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4          </span><br><span class="line">COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAME</span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>    <span class="number">6</span>u  IPv4 <span class="number">7597365</span>       TCP *:<span class="number">20003</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>   <span class="number">14</span>u  IPv4 <span class="number">7597369</span>       TCP *:<span class="number">20000</span> (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4|grep <span class="number">8453</span></span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br></pre></td></tr></table></figure>
+        <h4 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h4>
+<h5 id="1通过lsof命令查看pid"><a class="markdownIt-Anchor" href="#1通过lsof命令查看pid"></a> 1.通过lsof命令查看PID</h5>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4          </span><br><span class="line">COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAME</span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>    <span class="number">6</span>u  IPv4 <span class="number">7597365</span>       TCP *:<span class="number">20003</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>   <span class="number">14</span>u  IPv4 <span class="number">7597369</span>       TCP *:<span class="number">20000</span> (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4|grep <span class="number">8453</span></span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br></pre></td></tr></table></figure>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipv6</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6</span><br><span class="line">COMMAND     PID    <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span> DEVICE SIZE NODE NAME</span><br><span class="line">java       1419     1401  286u <span class="built_in"> IPv6 </span>7616547       TCP 192.168.1.29:55829-&gt;192.168.1.17:7001 (CLOSE_WAIT)</span><br><span class="line">java       1419     1401  290u <span class="built_in"> IPv6 </span>6987470       TCP 192.168.1.29:33836-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  297u <span class="built_in"> IPv6 </span>6793642       UDP *:1133 </span><br><span class="line">java       1419     1401  304u <span class="built_in"> IPv6 </span>6987472       TCP 192.168.1.29:33838-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  306u <span class="built_in"> IPv6 </span>6987479       TCP 192.168.1.29:33839-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  307u <span class="built_in"> IPv6 </span>7006208       TCP 192.168.1.29:60340-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6|grep 5001</span><br><span class="line">java      12886        0  530u <span class="built_in"> IPv6 </span>6988341       TCP *:5001 (LISTEN)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h5 id="2-通过ps命令查看进程情况"><a href="#2-通过ps命令查看进程情况" class="headerlink" title="2.通过ps命令查看进程情况"></a>2.通过ps命令查看进程情况</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@test proc]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">43</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br></pre></td></tr></table></figure>
-<h5 id="3-lsof命令参数解释"><a href="#3-lsof命令参数解释" class="headerlink" title="3.lsof命令参数解释"></a>3.lsof命令参数解释</h5><ul>
-<li><p>1) -P :这个选项约束着网络文件的端口号到端口名称的转换。约束转换可以使lsof运行得更快一些。在端口名称的查找不能奏效时，这是很有用的。</p>
+<h5 id="2通过ps命令查看进程情况"><a class="markdownIt-Anchor" href="#2通过ps命令查看进程情况"></a> 2.通过ps命令查看进程情况</h5>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@test proc]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">43</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br></pre></td></tr></table></figure>
+<h5 id="3lsof命令参数解释"><a class="markdownIt-Anchor" href="#3lsof命令参数解释"></a> 3.lsof命令参数解释</h5>
+<ul>
+<li>
+<ol>
+<li>-P :这个选项约束着网络文件的端口号到端口名称的转换。约束转换可以使lsof运行得更快一些。在端口名称的查找不能奏效时，这是很有用的。</li>
+</ol>
 </li>
-<li><p>2) -n : 这个选项约束着网络文件的端口号到主机名称的转换。约束转换可以使lsof的运行更快一些。在主机名称的查找不能奏效时，它非常有用。</p>
+<li>
+<ol start="2">
+<li>-n : 这个选项约束着网络文件的端口号到主机名称的转换。约束转换可以使lsof的运行更快一些。在主机名称的查找不能奏效时，它非常有用。</li>
+</ol>
 </li>
-<li><p>3) -l :这个选项约束着用户ID号到登录名的转换。在登录名的查找不正确或很慢时，这个选项就很有用。</p>
+<li>
+<ol start="3">
+<li>-l :这个选项约束着用户ID号到登录名的转换。在登录名的查找不正确或很慢时，这个选项就很有用。</li>
+</ol>
 </li>
-<li><p>4) +M :此选项支持本地TCP和UDP端口映射程序的注册报告。</p>
+<li>
+<ol start="4">
+<li>+M :此选项支持本地TCP和UDP端口映射程序的注册报告。</li>
+</ol>
 </li>
-<li><p>5) -i4 :仅列示IPv4协议下的端口。</p>
+<li>
+<ol start="5">
+<li>-i4 :仅列示IPv4协议下的端口。</li>
+</ol>
 </li>
-<li><p>6) -i6 : 仅列示IPv6协议下的端口。</p>
+<li>
+<ol start="6">
+<li>-i6 : 仅列示IPv6协议下的端口。</li>
+</ol>
 </li>
 </ul>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><h5 id="1-使用netstat查看进程PID"><a href="#1-使用netstat查看进程PID" class="headerlink" title="1.使用netstat查看进程PID"></a>1.使用netstat查看进程PID</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>test ~]#  netstat -anp|grep <span class="number">5001</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> :::<span class="number">5001</span>                     :::*                        LISTEN      <span class="number">12886</span>/java</span><br></pre></td></tr></table></figure>
-<h5 id="2-使用ps查看进程情况"><a href="#2-使用ps查看进程情况" class="headerlink" title="2.使用ps查看进程情况"></a>2.使用ps查看进程情况</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@test <span class="number">12886</span>]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">01</span>:<span class="number">14</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br><span class="line">root     <span class="number">27592</span> <span class="number">27546</span>  <span class="number">0</span> <span class="number">09</span>:<span class="number">11</span> pts<span class="regexp">/2    00:00:00 grep 12886</span></span><br></pre></td></tr></table></figure>
+<h4 id="方法二"><a class="markdownIt-Anchor" href="#方法二"></a> 方法二：</h4>
+<h5 id="1使用netstat查看进程pid"><a class="markdownIt-Anchor" href="#1使用netstat查看进程pid"></a> 1.使用netstat查看进程PID</h5>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>test ~]#  netstat -anp|grep <span class="number">5001</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> :::<span class="number">5001</span>                     :::*                        LISTEN      <span class="number">12886</span>/java</span><br></pre></td></tr></table></figure>
+<h5 id="2使用ps查看进程情况"><a class="markdownIt-Anchor" href="#2使用ps查看进程情况"></a> 2.使用ps查看进程情况</h5>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@test <span class="number">12886</span>]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">01</span>:<span class="number">14</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br><span class="line">root     <span class="number">27592</span> <span class="number">27546</span>  <span class="number">0</span> <span class="number">09</span>:<span class="number">11</span> pts<span class="regexp">/2    00:00:00 grep 12886</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -525,7 +550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +572,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -580,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-通过lsof命令查看PID"><span class="nav-number">1.1.</span> <span class="nav-text">1.通过lsof命令查看PID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-通过ps命令查看进程情况"><span class="nav-number">1.2.</span> <span class="nav-text">2.通过ps命令查看进程情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-lsof命令参数解释"><span class="nav-number">1.3.</span> <span class="nav-text">3.lsof命令参数解释</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二："><span class="nav-number">2.</span> <span class="nav-text">方法二：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用netstat查看进程PID"><span class="nav-number">2.1.</span> <span class="nav-text">1.使用netstat查看进程PID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用ps查看进程情况"><span class="nav-number">2.2.</span> <span class="nav-text">2.使用ps查看进程情况</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text"> 方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1通过lsof命令查看pid"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.通过lsof命令查看PID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2通过ps命令查看进程情况"><span class="nav-number">1.2.</span> <span class="nav-text"> 2.通过ps命令查看进程情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3lsof命令参数解释"><span class="nav-number">1.3.</span> <span class="nav-text"> 3.lsof命令参数解释</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text"> 方法二：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1使用netstat查看进程pid"><span class="nav-number">2.1.</span> <span class="nav-text"> 1.使用netstat查看进程PID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2使用ps查看进程情况"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.使用ps查看进程情况</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -600,7 +625,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

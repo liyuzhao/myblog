@@ -2,7 +2,7 @@
 title: C++-OSI参考模型
 date: 2019-04-16 18:13:56
 tags: [c++]
-categories: c++
+categories: cpp
 ---
 
 ### OSI参考模型

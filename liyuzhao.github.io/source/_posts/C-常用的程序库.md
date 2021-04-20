@@ -2,7 +2,7 @@
 title: C++常用的程序库
 date: 2019-03-22 10:20:54
 tags: [c++]
-categories: c++
+categories: cpp
 ---
 
 - 合适的程序库，可以带来方便。

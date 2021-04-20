@@ -2,7 +2,7 @@
 title: C++调试技巧
 date: 2019-03-21 10:20:44
 tags: [c++, debug, gdb]
-categories: c++
+categories: cpp
 ---
 
 ### 1、常用调试技巧

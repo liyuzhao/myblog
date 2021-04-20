@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
+<meta name="description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中， 但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content=".gitignore文件不起作用">
 <meta property="og:url" content="http://lyuzhao.com/2017/01/03/gitignore文件不起作用/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
+<meta property="og:description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中， 但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=".gitignore文件不起作用">
-<meta name="twitter:description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
+<meta name="twitter:description" content="当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中， 但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。">
 
 
 
@@ -353,14 +353,17 @@
       
 
       
-        <p>当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，<br>但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。</p>
+        <p>当用git时，经常会添加一些忽略的文件到.gitignore文件中，这里面类似于git的黑名单，文件中指定的文件不会加入到git仓库中，<br>
+但当发现添加某个文件名后，通过git status查看，并不能忽略此文件。</p>
 <a id="more"></a>
 <p>遇到此问题原因是：git仓库中某些文件被stage标记，如果不想用此文件即使添加.gitignore后，也是不会被忽略的。</p>
-<p><strong> .gitignore </strong> 文件只是ignore没有被staged(cached)文件， 对于已经被staged文件，加入ignore文件时一定要先从staged移除。</p>
+<p>** .gitignore ** 文件只是ignore没有被staged(cached)文件， 对于已经被staged文件，加入ignore文件时一定要先从staged移除。</p>
 <p>从网络搜索到此解释：</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you already have <span class="keyword">a</span> <span class="built_in">file</span> checked <span class="keyword">in</span>, <span class="keyword">and</span> you want <span class="built_in">to</span> ignore <span class="keyword">it</span>, Git will <span class="keyword">not</span> ignore <span class="keyword">the</span> <span class="built_in">file</span> <span class="keyword">if</span> you <span class="built_in">add</span> <span class="keyword">a</span> rule later.</span><br><span class="line">In those cases, you must untrack <span class="keyword">the</span> <span class="built_in">file</span> <span class="keyword">first</span>, <span class="keyword">by</span> running <span class="keyword">the</span> following <span class="keyword">command</span> <span class="title">in</span> <span class="title">your</span> <span class="title">terminal</span>:</span><br><span class="line"></span><br><span class="line">$ git rm <span class="comment">--cached</span></span><br></pre></td></tr></table></figure>
-<p>通过上面这句话明白：把我们想要忽略的文件，从他们的staged中移除即可。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached <span class="keyword">file</span>/path/<span class="keyword">to</span>/<span class="keyword">be</span>/ignored</span><br><span class="line">git <span class="built_in">add</span> .</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">"fix untracked files"</span></span><br></pre></td></tr></table></figure></p>
-<p><strong> 引用 </strong>：<br><a href="http://stackoverflow.com/questions/11451535/gitignore-not-working" target="_blank" rel="noopener">ignore-not-working</a></p>
+<p>通过上面这句话明白：把我们想要忽略的文件，从他们的staged中移除即可。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached <span class="keyword">file</span>/path/<span class="keyword">to</span>/<span class="keyword">be</span>/ignored</span><br><span class="line">git <span class="built_in">add</span> .</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">"fix untracked files"</span></span><br></pre></td></tr></table></figure>
+<p>** 引用 **：<br>
+<a href="http://stackoverflow.com/questions/11451535/gitignore-not-working" target="_blank" rel="noopener">ignore-not-working</a></p>
 
       
     </div>
@@ -502,7 +505,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -524,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -561,7 +564,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Android，iOS打开手机QQ与指定聊天界面 在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。在移动端可以使用schema模式来启动手机QQ。">
+<meta name="description" content="Android，iOS打开手机QQ与指定聊天界面  在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。 在移动端可以使用schema模式来启动手机QQ。">
 <meta name="keywords" content="android,qq,intent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android,iOS打开手机QQ与指定聊天界面">
 <meta property="og:url" content="http://lyuzhao.com/2016/04/15/Android-iOS打开手机QQ与指定聊天界面/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="Android，iOS打开手机QQ与指定聊天界面 在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。在移动端可以使用schema模式来启动手机QQ。">
+<meta property="og:description" content="Android，iOS打开手机QQ与指定聊天界面  在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。 在移动端可以使用schema模式来启动手机QQ。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:29:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android,iOS打开手机QQ与指定聊天界面">
-<meta name="twitter:description" content="Android，iOS打开手机QQ与指定聊天界面 在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。在移动端可以使用schema模式来启动手机QQ。">
+<meta name="twitter:description" content="Android，iOS打开手机QQ与指定聊天界面  在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。 在移动端可以使用schema模式来启动手机QQ。">
 
 
 
@@ -353,14 +353,20 @@
       
 
       
-        <h3 id="Android，iOS打开手机QQ与指定聊天界面"><a href="#Android，iOS打开手机QQ与指定聊天界面" class="headerlink" title="Android，iOS打开手机QQ与指定聊天界面"></a>Android，iOS打开手机QQ与指定聊天界面</h3><blockquote>
-<p>在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。<br>在移动端可以使用schema模式来启动手机QQ。</p>
+        <h3 id="androidios打开手机qq与指定聊天界面"><a class="markdownIt-Anchor" href="#androidios打开手机qq与指定聊天界面"></a> Android，iOS打开手机QQ与指定聊天界面</h3>
+<blockquote>
+<p>在浏览器中可以通过JS代码打开QQ并弹出聊天界面，一般作为客服QQ使用。<br>
+在移动端可以使用schema模式来启动手机QQ。</p>
 </blockquote>
  <a id="more"></a>
-<h4 id="Android"><a href="#Android" class="headerlink" title="Android:"></a>Android:</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url=<span class="string">"mqqwpa://im/chat?chat_type=wpa&amp;uin=123456"</span><span class="comment">;  </span></span><br><span class="line">startActivity(<span class="name">new</span> Intent(<span class="name">Intent</span>.ACTION_VIEW, Uri.parse(<span class="name">url</span>)))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<h4 id="iOS"><a href="#iOS" class="headerlink" title="iOS:"></a>iOS:</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIWebView</span> *webView = [[<span class="built_in">UIWebView</span> alloc] initWithFrame:<span class="built_in">CGRectZero</span>];  </span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"mqq://im/chat?chat_type=wpa&amp;uin=123456&amp;version=1&amp;src_type=web"</span>];  </span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];  </span><br><span class="line">webView.delegate = <span class="keyword">self</span>;  </span><br><span class="line">[webView loadRequest:request];  </span><br><span class="line">[<span class="keyword">self</span>.view addSubview:webView];</span><br></pre></td></tr></table></figure>
-<h4 id="浏览器："><a href="#浏览器：" class="headerlink" title="浏览器："></a>浏览器：</h4><pre><code>&lt;a target=&quot;_blank&quot; href=&quot;http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=qq&amp;menu=yes&quot;&gt;click here&lt;/a&gt;  
+<h4 id="android"><a class="markdownIt-Anchor" href="#android"></a> Android:</h4>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url=<span class="string">"mqqwpa://im/chat?chat_type=wpa&amp;uin=123456"</span><span class="comment">;  </span></span><br><span class="line">startActivity(<span class="name">new</span> Intent(<span class="name">Intent</span>.ACTION_VIEW, Uri.parse(<span class="name">url</span>)))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h4 id="ios"><a class="markdownIt-Anchor" href="#ios"></a> iOS:</h4>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIWebView</span> *webView = [[<span class="built_in">UIWebView</span> alloc] initWithFrame:<span class="built_in">CGRectZero</span>];  </span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"mqq://im/chat?chat_type=wpa&amp;uin=123456&amp;version=1&amp;src_type=web"</span>];  </span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];  </span><br><span class="line">webView.delegate = <span class="keyword">self</span>;  </span><br><span class="line">[webView loadRequest:request];  </span><br><span class="line">[<span class="keyword">self</span>.view addSubview:webView];</span><br></pre></td></tr></table></figure>
+<h4 id="浏览器"><a class="markdownIt-Anchor" href="#浏览器"></a> 浏览器：</h4>
+<pre class="highlight"><code class>&lt;a target=&quot;_blank&quot; href=&quot;http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=qq&amp;menu=yes&quot;&gt;click here&lt;/a&gt;  
 </code></pre>
+
       
     </div>
     
@@ -514,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -569,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android，iOS打开手机QQ与指定聊天界面"><span class="nav-number">1.</span> <span class="nav-text">Android，iOS打开手机QQ与指定聊天界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android"><span class="nav-number">1.1.</span> <span class="nav-text">Android:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS"><span class="nav-number">1.2.</span> <span class="nav-text">iOS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器："><span class="nav-number">1.3.</span> <span class="nav-text">浏览器：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#androidios打开手机qq与指定聊天界面"><span class="nav-number">1.</span> <span class="nav-text"> Android，iOS打开手机QQ与指定聊天界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#android"><span class="nav-number">1.1.</span> <span class="nav-text"> Android:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ios"><span class="nav-number">1.2.</span> <span class="nav-text"> iOS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器"><span class="nav-number">1.3.</span> <span class="nav-text"> 浏览器：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -589,7 +595,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

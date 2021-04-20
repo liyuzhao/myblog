@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+<meta name="description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。 IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage">
 <meta name="keywords" content="ios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iPhone开发-UIImage,CIImage,CGImageRef">
 <meta property="og:url" content="http://lyuzhao.com/2017/11/15/iPhone开发-UIImage-CIImage-CGImageRef/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+<meta property="og:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。 IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iPhone开发-UIImage,CIImage,CGImageRef">
-<meta name="twitter:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage的">
+<meta name="twitter:description" content="UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。 IOS编程揭秘 书中记录着如下一段话。 12UIImage类的Core Graphics版本是CGImage（CGImageRef）这两个类之间很容易进行转换，因为一个UIImage类有一个CGImage">
 
 
 
@@ -353,24 +353,42 @@
       
 
       
-        <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>IOS编程揭秘 书中记录着如下一段话。</p>
+        <p>UIImage 有很多有用的东西，前段时间接触了coreImage的API，发现有一个CIImage的东西，同样还有一个CGImage的东西，这三者总是可以切换起来，多少让人觉得这个东西很能耐。<br>
+IOS编程揭秘 书中记录着如下一段话。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span>类的Core Graphics</span><br><span class="line">版本是<span class="built_in">CGImage</span>（<span class="built_in">CGImageRef</span>）这两个类之间很容易进行转换，因为一个<span class="built_in">UIImage</span>类有一个<span class="built_in">CGImage</span>的属性“</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="1-创建过程"><a href="#1-创建过程" class="headerlink" title="1.创建过程"></a>1.创建过程</h3><p>UIImage 常规创建过程<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br></pre></td></tr></table></figure></p>
-<p>CGImage的创建过程<br><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGImageRef imageRef = <span class="constructor">CGImageCreateWithImageInRect(<span class="params">image</span>.CGImage,CGRectMake(0,0,<span class="params">size</span>.<span class="params">width</span>,<span class="params">size</span>.<span class="params">height</span>)</span>);</span><br></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure></p>
+<h3 id="1创建过程"><a class="markdownIt-Anchor" href="#1创建过程"></a> 1.创建过程</h3>
+<p>UIImage 常规创建过程</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br></pre></td></tr></table></figure>
+<p>CGImage的创建过程</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGImageRef imageRef = <span class="constructor">CGImageCreateWithImageInRect(<span class="params">image</span>.CGImage,CGRectMake(0,0,<span class="params">size</span>.<span class="params">width</span>,<span class="params">size</span>.<span class="params">height</span>)</span>);</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure>
 <p>CIImage的创建过程</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"bbg"</span> ofType:<span class="string">@"jpg"</span>];</span><br><span class="line"><span class="built_in">NSURL</span> *myURL = [<span class="built_in">NSURL</span> fileURLWithPath:path];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CIImage</span> *ciImage = [<span class="built_in">CIImage</span> imageWithContentsOfURL:myURL];</span><br></pre></td></tr></table></figure>
-<h3 id="2-相互转换"><a href="#2-相互转换" class="headerlink" title="2.相互转换"></a>2.相互转换</h3><p>UIImage， CGImageRef， CIImage 三者之间可以通过一些联系进行转换</p>
-<h4 id="2-1-UIImage-转换CGImageRef"><a href="#2-1-UIImage-转换CGImageRef" class="headerlink" title="2.1 UIImage 转换CGImageRef"></a>2.1 UIImage 转换CGImageRef</h4><p>UIImage 类当中包含了CGImage的属性，所以很方便地就能转换，方法如下<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-2-CGImageRef-转换UIImage"><a href="#2-2-CGImageRef-转换UIImage" class="headerlink" title="2.2 CGImageRef 转换UIImage"></a>2.2 CGImageRef 转换UIImage</h4><p>UIImage里面包含了一个方法imageWithCGImage，如果知道了CGImage，则这样子也可以创建得到UIIamge类，在上面我们可以看到关系 UIImage 通过属性得到CGImageRef，同样地两者也可以关联起来。</p>
-<p>UIImage—&gt;CGImageRef<br>CGImageRef –&gt; UIImage</p>
+<h3 id="2相互转换"><a class="markdownIt-Anchor" href="#2相互转换"></a> 2.相互转换</h3>
+<p>UIImage， CGImageRef， CIImage 三者之间可以通过一些联系进行转换</p>
+<h4 id="21-uiimage-转换cgimageref"><a class="markdownIt-Anchor" href="#21-uiimage-转换cgimageref"></a> 2.1 UIImage 转换CGImageRef</h4>
+<p>UIImage 类当中包含了CGImage的属性，所以很方便地就能转换，方法如下</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image =[ <span class="built_in">UIImage</span> imageNamed:<span class="string">@"xx.png"</span>];</span><br><span class="line"><span class="built_in">CGImageRef</span> imageRef = [image <span class="built_in">CGImage</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="22-cgimageref-转换uiimage"><a class="markdownIt-Anchor" href="#22-cgimageref-转换uiimage"></a> 2.2 CGImageRef 转换UIImage</h4>
+<p>UIImage里面包含了一个方法imageWithCGImage，如果知道了CGImage，则这样子也可以创建得到UIIamge类，在上面我们可以看到关系 UIImage 通过属性得到CGImageRef，同样地两者也可以关联起来。</p>
+<p>UIImage—&gt;CGImageRef<br>
+CGImageRef –&gt; UIImage</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *uiImage =[<span class="built_in">UIImage</span> imageWithCGImage:cgImage];</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-CIImage-转换CGImageRef"><a href="#2-3-CIImage-转换CGImageRef" class="headerlink" title="2.3 CIImage 转换CGImageRef"></a>2.3 CIImage 转换CGImageRef</h4><p>CIContext 当中有一个方法createCGImage，可以创建得到CGImageRef，换句话可知道CIImage 可以通过其他方式转换CGImageRef<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CIContext <span class="number">*c</span>ontext = [CIContext contextWithOptions:nil];                </span><br><span class="line"> CIImage <span class="number">*c</span>iImage = [CIImage imageWithContentsOfURL:myURL];                </span><br><span class="line"><span class="built_in"> filter </span>= [filterWithName:@<span class="string">"CISepiaTone"</span>];            </span><br><span class="line"> [filter setValue:ciImage forKey:kCIInputImageKey];</span><br><span class="line"> [filter setValue:@0.8f forKey:kCIInputIntensityKey];</span><br><span class="line"> CIImage *outputImg = [filter outputImage];   </span><br><span class="line"> CGImageRef cgImage = [context createCGImage:outputImg fromRect:[outputImg extent]];</span><br></pre></td></tr></table></figure></p>
-<p>最主要的一句<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CGImageRef cgImage</span> = [context createCGImage:outputImg fromRect:[outputImg extent]];</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-4-UIImage-转换CIImage"><a href="#2-4-UIImage-转换CIImage" class="headerlink" title="2.4 UIImage 转换CIImage"></a>2.4 UIImage 转换CIImage</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CIImage</span>  *ciImage = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>].CIImage</span><br><span class="line"><span class="built_in">UIImage</span> *image = [[<span class="built_in">UIImage</span> alloc] initWithCIImage:ciImage];</span><br></pre></td></tr></table></figure>
-<p>但是采用这种方式转换，CIImage的值会是nil，<br>相反 采用CIImage 的initWithCGImage初始化的方式 则有值，很奇怪<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>];</span><br><span class="line"><span class="built_in">CIImage</span> *ciImage = [[<span class="built_in">CIImage</span> alloc]initWithCGImage:image.CGImage];</span><br></pre></td></tr></table></figure></p>
-<p>由此可见，三者都可以实现转换了，通过直接或者间接把他们联系起来。<br>UIImage –&gt; CGImageRef –&gt; CIImage<br>UIImage &lt;– CGImageRef &lt;– CIImage</p>
+<h4 id="23-ciimage-转换cgimageref"><a class="markdownIt-Anchor" href="#23-ciimage-转换cgimageref"></a> 2.3 CIImage 转换CGImageRef</h4>
+<p>CIContext 当中有一个方法createCGImage，可以创建得到CGImageRef，换句话可知道CIImage 可以通过其他方式转换CGImageRef</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CIContext <span class="number">*c</span>ontext = [CIContext contextWithOptions:nil];                </span><br><span class="line"> CIImage <span class="number">*c</span>iImage = [CIImage imageWithContentsOfURL:myURL];                </span><br><span class="line"><span class="built_in"> filter </span>= [filterWithName:@<span class="string">"CISepiaTone"</span>];            </span><br><span class="line"> [filter setValue:ciImage forKey:kCIInputImageKey];</span><br><span class="line"> [filter setValue:@0.8f forKey:kCIInputIntensityKey];</span><br><span class="line"> CIImage *outputImg = [filter outputImage];   </span><br><span class="line"> CGImageRef cgImage = [context createCGImage:outputImg fromRect:[outputImg extent]];</span><br></pre></td></tr></table></figure>
+<p>最主要的一句</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CGImageRef cgImage</span> = [context createCGImage:outputImg fromRect:[outputImg extent]];</span><br></pre></td></tr></table></figure>
+<h4 id="24-uiimage-转换ciimage"><a class="markdownIt-Anchor" href="#24-uiimage-转换ciimage"></a> 2.4 UIImage 转换CIImage</h4>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CIImage</span>  *ciImage = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>].CIImage</span><br><span class="line"><span class="built_in">UIImage</span> *image = [[<span class="built_in">UIImage</span> alloc] initWithCIImage:ciImage];</span><br></pre></td></tr></table></figure>
+<p>但是采用这种方式转换，CIImage的值会是nil，<br>
+相反 采用CIImage 的initWithCGImage初始化的方式 则有值，很奇怪</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"test.png"</span>];</span><br><span class="line"><span class="built_in">CIImage</span> *ciImage = [[<span class="built_in">CIImage</span> alloc]initWithCGImage:image.CGImage];</span><br></pre></td></tr></table></figure>
+<p>由此可见，三者都可以实现转换了，通过直接或者间接把他们联系起来。<br>
+UIImage –&gt; CGImageRef –&gt; CIImage<br>
+UIImage &lt;– CGImageRef &lt;– CIImage</p>
 
       
     </div>
@@ -521,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -576,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建过程"><span class="nav-number">1.</span> <span class="nav-text">1.创建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-相互转换"><span class="nav-number">2.</span> <span class="nav-text">2.相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-UIImage-转换CGImageRef"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 UIImage 转换CGImageRef</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-CGImageRef-转换UIImage"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 CGImageRef 转换UIImage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-CIImage-转换CGImageRef"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 CIImage 转换CGImageRef</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-UIImage-转换CIImage"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 UIImage 转换CIImage</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1创建过程"><span class="nav-number">1.</span> <span class="nav-text"> 1.创建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2相互转换"><span class="nav-number">2.</span> <span class="nav-text"> 2.相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-uiimage-转换cgimageref"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 UIImage 转换CGImageRef</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-cgimageref-转换uiimage"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 CGImageRef 转换UIImage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-ciimage-转换cgimageref"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 CIImage 转换CGImageRef</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24-uiimage-转换ciimage"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 UIImage 转换CIImage</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -596,7 +614,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

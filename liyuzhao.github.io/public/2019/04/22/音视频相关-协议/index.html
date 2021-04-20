@@ -355,31 +355,68 @@
       
         <p><a href="https://blog.51cto.com/2343338/411983" target="_blank" rel="noopener">【转载：51cto】</a></p>
 <a id="more"></a>
-<h4 id="1-1-音视频协议、通讯协议介绍"><a href="#1-1-音视频协议、通讯协议介绍" class="headerlink" title="1.1 音视频协议、通讯协议介绍"></a>1.1 音视频协议、通讯协议介绍</h4><h5 id="1-1-1-两大标准制定组织"><a href="#1-1-1-两大标准制定组织" class="headerlink" title="1.1.1 两大标准制定组织"></a>1.1.1 两大标准制定组织</h5><p>这里的标准，主要指的是音视频压缩标准。两大组织分别是国际标准化组织（ISO）和国际电信联盟（ITU），相信IT行业的从业者没听说过这两个行业的人很少。</p>
+<h4 id="11-音视频协议-通讯协议介绍"><a class="markdownIt-Anchor" href="#11-音视频协议-通讯协议介绍"></a> 1.1 音视频协议、通讯协议介绍</h4>
+<h5 id="111-两大标准制定组织"><a class="markdownIt-Anchor" href="#111-两大标准制定组织"></a> 1.1.1 两大标准制定组织</h5>
+<p>这里的标准，主要指的是音视频压缩标准。两大组织分别是国际标准化组织（ISO）和国际电信联盟（ITU），相信IT行业的从业者没听说过这两个行业的人很少。</p>
 <p>在音视频压缩标准方面，mpeg系列的协议是ISO制定的标准，而H系列的协议则是ITU制定的标准。</p>
-<h5 id="1-1-2-视频协议"><a href="#1-1-2-视频协议" class="headerlink" title="1.1.2 视频协议"></a>1.1.2 视频协议</h5><p>目前主要的视频压缩协议有：H.261、H.263、H.264和mpeg-1、mpeg-2和mpeg-4。第一个视频压缩标准是H.261，它的算法现在来看，非常简单，但是，它的很多视频压缩的思想，一直影响到现在最新的压缩标准H.264。H.264单看名字，感觉是ITU组织制定的，其实它还有一个名字叫mpeg-4 Part 10，翻译过来叫mpeg-4 第十部分，这是因为H.264是ISO和ITU组织共同制定的，版权共享。其实，一直以来，H系列的标准制定者和mpeg系列的标准制定者基本上就是同一群人，而且，这两个系列的算法思想基本上都差不多，唯一有一点不同的协议是mpeg-4，它在它的高级profile中提出了小波变换等算法来实现视频压缩，从实际发展看，个人感觉不是很成功，采用小波变换的商用codec很少，这可能和这些算法的达不到实时性有关系。</p>
-<p>从应用的角度看，mpeg系列在消费类应用更广些，大家也更熟悉些，我们熟悉的VCD格式视频主要是mpeg-1，DVD的视频则是mpeg-2，早期大家看的电影在电脑上存盘文件格式都是*.mpg，基本上也都是mpeg做的压缩了。在行业上，国内的监控行业，也是从mpeg-1到mpeg-2，到前两三年的mpeg-4，再到最近的H.264。而H系列的标准，用得最多的是视频会议，从H.261到H.263，再到H.263 、H.263 等，再到现在的H.264。<br>从技术角度说，H系列的协议对网络的支持更好些，这点mpeg系列要差一些，但是，mpeg它每一代都比H系列同一代的协议要出得晚些，算法也相对更先进些，因此，它用来做存储协议是很合适的，这也就是为什么普通消费类产品用户很少了解到H系列协议的原因。<br>H.264是两大组织最新的算法成果，它在算法层面应该说是非常先进了，有人评价，H.264是视频压缩技术的一个里程碑，在可预见的5到10年内，出现新的视频压缩协议可能性很小，除非压缩理论有重大突破。<br>除了上面说的协议，还有很多公司也有自己的压缩算法，不过基本上都是不公开的了，他们这些算法也都非常好，不过和开发人员关系倒不是很大了，典型的是微软的wmv、realplay公司的rm和rmvb等，他们的使用者也很多，而且他们都偏向流媒体应用。</p>
-<h5 id="1-1-3-音频协议"><a href="#1-1-3-音频协议" class="headerlink" title="1.1.3 音频协议"></a>1.1.3 音频协议</h5><p>音频协议也分两大类，ITU组织的主要是用于视频会议的G系列协议，包括g.711、g.722、g.723、g.726、g.728、g.729等。这些协议主要有两大特点，第一是比较关注语音压缩，毕竟开会主要是要听人讲话；对音乐的压缩效果可能就不是太好了；第二是压缩率都比较大，码率都比较低，典型的g.723支持5.9k/s这样的码率，而且语音音质还很不错。ISO的音频可能更为人熟知一些，最流行的就是mp3，它的全称是mpeg-1 Audio layer 3，意思是mpeg-1的音频第三层；另外，最新的音频算法被称为aac（也称为mp4），它定义在mpeg-2或mpeg-4的音频部分。他们的特点是音质好，支持多声道，高采样精度和采样频率，尤其对音乐的压缩效果比G系列要好太多。当然，这也是因为它们的应用领域侧重点不同造成的。<br>同样的，很多大公司也有自己的语音压缩标准，效果也非常好。不过都是他们自己的知识产权和算法，通用市场用的还是少。</p>
-<h5 id="1-1-4-上层通讯协议"><a href="#1-1-4-上层通讯协议" class="headerlink" title="1.1.4 上层通讯协议"></a>1.1.4 上层通讯协议</h5><p>在视频会议系统中，目前最流行的有H.323和SIP协议，在流媒体应用中，ISMA rtsp应用得比较多，它属于开源项目，而很多流媒体产商有自己的流媒体传输协议，比如微软的mms等。<br>H.323主要用于视频会议，被称为协议簇，我们前面提到的H系列视频压缩协议和G系列音频压缩协议都属于它的子协议。除了音视频编×××外；它还定义了各种数据应用，包括T.120、T.84、T.434等；另外还包括H.245控制信道、H.225.0呼叫信令信道以及RAS信道。详细的H.323的知识，这里就不深入介绍了。</p>
+<h5 id="112-视频协议"><a class="markdownIt-Anchor" href="#112-视频协议"></a> 1.1.2 视频协议</h5>
+<p>目前主要的视频压缩协议有：H.261、H.263、H.264和mpeg-1、mpeg-2和mpeg-4。第一个视频压缩标准是H.261，它的算法现在来看，非常简单，但是，它的很多视频压缩的思想，一直影响到现在最新的压缩标准H.264。H.264单看名字，感觉是ITU组织制定的，其实它还有一个名字叫mpeg-4 Part 10，翻译过来叫mpeg-4 第十部分，这是因为H.264是ISO和ITU组织共同制定的，版权共享。其实，一直以来，H系列的标准制定者和mpeg系列的标准制定者基本上就是同一群人，而且，这两个系列的算法思想基本上都差不多，唯一有一点不同的协议是mpeg-4，它在它的高级profile中提出了小波变换等算法来实现视频压缩，从实际发展看，个人感觉不是很成功，采用小波变换的商用codec很少，这可能和这些算法的达不到实时性有关系。</p>
+<p>从应用的角度看，mpeg系列在消费类应用更广些，大家也更熟悉些，我们熟悉的VCD格式视频主要是mpeg-1，DVD的视频则是mpeg-2，早期大家看的电影在电脑上存盘文件格式都是*.mpg，基本上也都是mpeg做的压缩了。在行业上，国内的监控行业，也是从mpeg-1到mpeg-2，到前两三年的mpeg-4，再到最近的H.264。而H系列的标准，用得最多的是视频会议，从H.261到H.263，再到H.263 、H.263 等，再到现在的H.264。<br>
+从技术角度说，H系列的协议对网络的支持更好些，这点mpeg系列要差一些，但是，mpeg它每一代都比H系列同一代的协议要出得晚些，算法也相对更先进些，因此，它用来做存储协议是很合适的，这也就是为什么普通消费类产品用户很少了解到H系列协议的原因。<br>
+H.264是两大组织最新的算法成果，它在算法层面应该说是非常先进了，有人评价，H.264是视频压缩技术的一个里程碑，在可预见的5到10年内，出现新的视频压缩协议可能性很小，除非压缩理论有重大突破。<br>
+除了上面说的协议，还有很多公司也有自己的压缩算法，不过基本上都是不公开的了，他们这些算法也都非常好，不过和开发人员关系倒不是很大了，典型的是微软的wmv、realplay公司的rm和rmvb等，他们的使用者也很多，而且他们都偏向流媒体应用。</p>
+<h5 id="113-音频协议"><a class="markdownIt-Anchor" href="#113-音频协议"></a> 1.1.3 音频协议</h5>
+<p>音频协议也分两大类，ITU组织的主要是用于视频会议的G系列协议，包括g.711、g.722、g.723、g.726、g.728、g.729等。这些协议主要有两大特点，第一是比较关注语音压缩，毕竟开会主要是要听人讲话；对音乐的压缩效果可能就不是太好了；第二是压缩率都比较大，码率都比较低，典型的g.723支持5.9k/s这样的码率，而且语音音质还很不错。ISO的音频可能更为人熟知一些，最流行的就是mp3，它的全称是mpeg-1 Audio layer 3，意思是mpeg-1的音频第三层；另外，最新的音频算法被称为aac（也称为mp4），它定义在mpeg-2或mpeg-4的音频部分。他们的特点是音质好，支持多声道，高采样精度和采样频率，尤其对音乐的压缩效果比G系列要好太多。当然，这也是因为它们的应用领域侧重点不同造成的。<br>
+同样的，很多大公司也有自己的语音压缩标准，效果也非常好。不过都是他们自己的知识产权和算法，通用市场用的还是少。</p>
+<h5 id="114-上层通讯协议"><a class="markdownIt-Anchor" href="#114-上层通讯协议"></a> 1.1.4 上层通讯协议</h5>
+<p>在视频会议系统中，目前最流行的有H.323和SIP协议，在流媒体应用中，ISMA rtsp应用得比较多，它属于开源项目，而很多流媒体产商有自己的流媒体传输协议，比如微软的mms等。<br>
+H.323主要用于视频会议，被称为协议簇，我们前面提到的H系列视频压缩协议和G系列音频压缩协议都属于它的子协议。除了音视频编×××外；它还定义了各种数据应用，包括T.120、T.84、T.434等；另外还包括H.245控制信道、H.225.0呼叫信令信道以及RAS信道。详细的H.323的知识，这里就不深入介绍了。</p>
 <p>SIP是由IETF提出来的一个应用控制（信令）协议。正如名字所隐含的–用于发起会话。它可用来创建、修改以及终结多个参与者参加的多媒体会话进程。参与会话的成员可以通过组播方式、单播连网或者两者结合的形式进行通信。</p>
-<p>H.323和SIP分别是通信领域与因特网两大阵营推出的建议。 H.323企图把IP电话当作是众所周知的传统电话，只是传输方式发生了改变，由电路交换变成了分组交换。而SIP协议侧重于将IP电话作为因特网上的一个应用，较其实应用（如FTP，E-mail等）增加了信令和QoS的要求，它们支持的业务基本相同，也都利用RTP作为媒体传输的协议。但H.323是一个相对复杂的协议。<br>RTSP主要用于流媒体传输，它的英文全称是real time streaming protocol。典型的应用就是网络电视的应用，由客户向服务器进行点播，如果在监控行业应用的话，建议当用户进行远程回放录像时，可采用RTSP协议。 </p>
-<h4 id="1-2-音视频基本概念介绍"><a href="#1-2-音视频基本概念介绍" class="headerlink" title="1.2 音视频基本概念介绍"></a>1.2 音视频基本概念介绍</h4><h5 id="1-2-1-视频的基本概念"><a href="#1-2-1-视频的基本概念" class="headerlink" title="1.2.1 视频的基本概念"></a>1.2.1 视频的基本概念</h5><h6 id="RGB和YUV"><a href="#RGB和YUV" class="headerlink" title="RGB和YUV"></a>RGB和YUV</h6><p>RGB指的是红绿蓝，应用还是很广泛的，比如显示器显示，BMP文件格式中的像素值等；而YUV主要指亮度和两个色差信号，被称为luminance和chrominance他们的转化关系可以自己去查一下，我们视频里面基本上都是用YUV格式。</p>
-<h6 id="YUV格式"><a href="#YUV格式" class="headerlink" title="YUV格式"></a>YUV格式</h6><p>YUV文件格式又分很多种，如果算上存储格式，就更多了，比如YUV444、YUV422、YUV411、YUV420等等，视频压缩用到的是420格式，这是因为人眼对亮度更敏感些，对色度相对要差些。另外要注意几个英文单词的意思，比如：packet、planar、interlace、progressive等。</p>
-<h6 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a>帧率</h6><p>每秒钟图像的刷新速度。PAL制式的电视，帧率是25帧每秒，NTSC制式的电视帧率是29.97帧每秒。我们常用的电脑也有刷新率，一般来说，电脑的刷新率要在75赫兹以上，人眼才不会觉得闪。</p>
-<h6 id="隔行扫描-interlace-和逐行扫描-progressive"><a href="#隔行扫描-interlace-和逐行扫描-progressive" class="headerlink" title="隔行扫描(interlace)和逐行扫描(progressive)"></a>隔行扫描(interlace)和逐行扫描(progressive)</h6><p>一般的电视上都是隔行扫描，而显示器都是逐行扫描。这里有一个场的概念，隔行扫描是一帧等于两场，而逐行扫描则是一帧就是一场。</p>
-<h6 id="码率"><a href="#码率" class="headerlink" title="码率"></a>码率</h6><p>它的单位是 bit per second，一般所有描述带宽的概念，单位都是bit，描述存储容量的单位一般都是大B，也就是BYTE（字节）。</p>
-<h6 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h6><p>图像的分辨率指的是它的像素数，一般用得最多的是CIF，也就是352*288，4cif自然就是指704*576，而D1的分辨率严格意义上是720*576，大小来说和4cif差不多了。当然现在还有很多高清的分辨率，这些我不是太了解，大家感兴趣可以查一下。另外，国外很多时候，对cif的高度取240，这是因为他们的帧率比我们高（29.97hz），自然，高度要小一些了。</p>
-<h6 id="实时与非实时"><a href="#实时与非实时" class="headerlink" title="实时与非实时"></a>实时与非实时</h6><p>主要用来形容编码器，它含有两个意思，一个是要保证帧率，也就是每秒25帧，另一个是“live”的意思，意味着直播，所谓的“实况转播”的“实”。 延时<br>也是形容编码器的一个重要指标，一般来说，200ms到300ms人的感觉不会很明显，到了500毫秒的话，还是可以很明显感觉到的。</p>
-<h6 id="音视频同步"><a href="#音视频同步" class="headerlink" title="音视频同步"></a>音视频同步</h6><p>作为视频会议的应用，一般要求做到所谓的“唇同步”。基本的保证音视频同步的手段就是时间戳（time stamp）。</p>
-<h6 id="复合视频和S-Video"><a href="#复合视频和S-Video" class="headerlink" title="复合视频和S-Video"></a>复合视频和S-Video</h6><p>NTSC和PAL彩色视频信号是这样构成的–首先有一个基本的黑白视频信号，然后在每个水平同步脉冲之后，加入一个颜色脉冲和一个亮度信号。因为彩色信号是由多种数据“叠加”起来的，故称之为“复合视频”。S-Video则是一种信号质量更高的视频接口，它取消了信号叠加的方法，可有效避免一些无谓的质量损失。它的 功能是将RGB三原色和亮度进行分离处理。</p>
-<h6 id="NTSC、PAL和SECAM"><a href="#NTSC、PAL和SECAM" class="headerlink" title="NTSC、PAL和SECAM"></a>NTSC、PAL和SECAM</h6><p>基带视频是一种简单的模拟信号，由视频模拟数据和视频同步数据构成，用于接收端正确地显示图像。信号的细节取决于应用的视频标准或者“制式”–NTSC（美国全国电视标准委员会，National Television Standards Committee）、PAL（逐行倒相，Phase Alternate Line）以及SECAM（顺序传送与存储彩色电视系统，法国采用的一种电视制式，SEquential Couleur Avec Memoire）。<br>中国的电视信号一般都是PAL，而美日则是NTSC。这2个制式的帧率，图像尺寸都有所不同。<br>线数<br>我们在买摄像头的时候，经常会提到一个叫线数的概念，它其实就是分辨率中的高（height）。举个例子：PAL制式的D1图像，线数就是576。</p>
-<h6 id="亮度、饱和度和对比度"><a href="#亮度、饱和度和对比度" class="headerlink" title="亮度、饱和度和对比度"></a>亮度、饱和度和对比度</h6><p>英文名分别是：brightness、saturation和 contrast。这是三个表示图像的重要指标。</p>
-<h5 id="1-2-2-音频的基本概念"><a href="#1-2-2-音频的基本概念" class="headerlink" title="1.2.2 音频的基本概念"></a>1.2.2 音频的基本概念</h5><h6 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h6><p>音频的采样率其实类似视频的帧率，意思是每秒钟采样的次数。G.711的采样率是8k（人的语音大概就在这个频率范围以内），而mp3支持的典型采样率是 44.1kHz（超过人耳响应频率的2倍多一点——奈奎斯特定理）。很明显，mp3压缩的原始声音要比g.711好多了。</p>
-<h6 id="采样精度"><a href="#采样精度" class="headerlink" title="采样精度"></a>采样精度</h6><p>就是每个采样进行模数转换时的量化系数。G.711是8bit采样精度，而mp3典型的是16bit。</p>
-<h6 id="回声消除"><a href="#回声消除" class="headerlink" title="回声消除"></a>回声消除</h6><p>视频会议应用中的音频最大问题。回声产生的原因很复杂，一般认为，在互联网中的语音传输，延时来源有三个：压缩延迟、分组传输延迟和处理延迟。语音压缩延迟是产生回声的主要延迟，例如在G.723.1标准中，压缩一帧（30ms）的最大延迟是37.5ms。分组传输延迟也是一个很重要的来源，测试表明，端到端的最大传输延迟可达250ms以上。处理延迟是指语音包的封装时延及其缓冲时延等。</p>
-<h5 id="1-3-视讯产品简介"><a href="#1-3-视讯产品简介" class="headerlink" title="1.3 视讯产品简介"></a>1.3 视讯产品简介</h5><h6 id="1-3-1-MP4"><a href="#1-3-1-MP4" class="headerlink" title="1.3.1 MP4"></a>1.3.1 MP4</h6><p>这是最近两年开始流行的新产品，它的定义其实业有些混乱。目前流行的说法是：只要和视频沾边的便携式播放器，都叫MP4。不过下面的图更能说明问题。</p>
-<h6 id="1-3-2-光端机"><a href="#1-3-2-光端机" class="headerlink" title="1.3.2 光端机"></a>1.3.2 光端机</h6><p>一种完成电——光信号转换的设备。主要用于模拟远程视频监控系统，它可将远端的摄像头模拟信号转换成光信号传送到监控中心，配合监控中心的DVR使用。</p>
-<h6 id="1-3-3-视频会议MCU"><a href="#1-3-3-视频会议MCU" class="headerlink" title="1.3.3 视频会议MCU"></a>1.3.3 视频会议MCU</h6><p>它是视频会议的核心设备之一。当参与视频会议的终端超过2个时，就必须通过MCU来召开会议。<br>MCU的基本功能是媒体流转发和混音，并进行会议管理，随着视频会议的发展，MCU支持的功能也越来越多，比如：混屏、远程摄像头控制等功能。</p>
+<p>H.323和SIP分别是通信领域与因特网两大阵营推出的建议。 H.323企图把IP电话当作是众所周知的传统电话，只是传输方式发生了改变，由电路交换变成了分组交换。而SIP协议侧重于将IP电话作为因特网上的一个应用，较其实应用（如FTP，E-mail等）增加了信令和QoS的要求，它们支持的业务基本相同，也都利用RTP作为媒体传输的协议。但H.323是一个相对复杂的协议。<br>
+RTSP主要用于流媒体传输，它的英文全称是real time streaming protocol。典型的应用就是网络电视的应用，由客户向服务器进行点播，如果在监控行业应用的话，建议当用户进行远程回放录像时，可采用RTSP协议。</p>
+<h4 id="12-音视频基本概念介绍"><a class="markdownIt-Anchor" href="#12-音视频基本概念介绍"></a> 1.2 音视频基本概念介绍</h4>
+<h5 id="121-视频的基本概念"><a class="markdownIt-Anchor" href="#121-视频的基本概念"></a> 1.2.1 视频的基本概念</h5>
+<h6 id="rgb和yuv"><a class="markdownIt-Anchor" href="#rgb和yuv"></a> RGB和YUV</h6>
+<p>RGB指的是红绿蓝，应用还是很广泛的，比如显示器显示，BMP文件格式中的像素值等；而YUV主要指亮度和两个色差信号，被称为luminance和chrominance他们的转化关系可以自己去查一下，我们视频里面基本上都是用YUV格式。</p>
+<h6 id="yuv格式"><a class="markdownIt-Anchor" href="#yuv格式"></a> YUV格式</h6>
+<p>YUV文件格式又分很多种，如果算上存储格式，就更多了，比如YUV444、YUV422、YUV411、YUV420等等，视频压缩用到的是420格式，这是因为人眼对亮度更敏感些，对色度相对要差些。另外要注意几个英文单词的意思，比如：packet、planar、interlace、progressive等。</p>
+<h6 id="帧率"><a class="markdownIt-Anchor" href="#帧率"></a> 帧率</h6>
+<p>每秒钟图像的刷新速度。PAL制式的电视，帧率是25帧每秒，NTSC制式的电视帧率是29.97帧每秒。我们常用的电脑也有刷新率，一般来说，电脑的刷新率要在75赫兹以上，人眼才不会觉得闪。</p>
+<h6 id="隔行扫描interlace和逐行扫描progressive"><a class="markdownIt-Anchor" href="#隔行扫描interlace和逐行扫描progressive"></a> 隔行扫描(interlace)和逐行扫描(progressive)</h6>
+<p>一般的电视上都是隔行扫描，而显示器都是逐行扫描。这里有一个场的概念，隔行扫描是一帧等于两场，而逐行扫描则是一帧就是一场。</p>
+<h6 id="码率"><a class="markdownIt-Anchor" href="#码率"></a> 码率</h6>
+<p>它的单位是 bit per second，一般所有描述带宽的概念，单位都是bit，描述存储容量的单位一般都是大B，也就是BYTE（字节）。</p>
+<h6 id="分辨率"><a class="markdownIt-Anchor" href="#分辨率"></a> 分辨率</h6>
+<p>图像的分辨率指的是它的像素数，一般用得最多的是CIF，也就是352*288，4cif自然就是指704*576，而D1的分辨率严格意义上是720*576，大小来说和4cif差不多了。当然现在还有很多高清的分辨率，这些我不是太了解，大家感兴趣可以查一下。另外，国外很多时候，对cif的高度取240，这是因为他们的帧率比我们高（29.97hz），自然，高度要小一些了。</p>
+<h6 id="实时与非实时"><a class="markdownIt-Anchor" href="#实时与非实时"></a> 实时与非实时</h6>
+<p>主要用来形容编码器，它含有两个意思，一个是要保证帧率，也就是每秒25帧，另一个是“live”的意思，意味着直播，所谓的“实况转播”的“实”。 延时<br>
+也是形容编码器的一个重要指标，一般来说，200ms到300ms人的感觉不会很明显，到了500毫秒的话，还是可以很明显感觉到的。</p>
+<h6 id="音视频同步"><a class="markdownIt-Anchor" href="#音视频同步"></a> 音视频同步</h6>
+<p>作为视频会议的应用，一般要求做到所谓的“唇同步”。基本的保证音视频同步的手段就是时间戳（time stamp）。</p>
+<h6 id="复合视频和s-video"><a class="markdownIt-Anchor" href="#复合视频和s-video"></a> 复合视频和S-Video</h6>
+<p>NTSC和PAL彩色视频信号是这样构成的–首先有一个基本的黑白视频信号，然后在每个水平同步脉冲之后，加入一个颜色脉冲和一个亮度信号。因为彩色信号是由多种数据“叠加”起来的，故称之为“复合视频”。S-Video则是一种信号质量更高的视频接口，它取消了信号叠加的方法，可有效避免一些无谓的质量损失。它的 功能是将RGB三原色和亮度进行分离处理。</p>
+<h6 id="ntsc-pal和secam"><a class="markdownIt-Anchor" href="#ntsc-pal和secam"></a> NTSC、PAL和SECAM</h6>
+<p>基带视频是一种简单的模拟信号，由视频模拟数据和视频同步数据构成，用于接收端正确地显示图像。信号的细节取决于应用的视频标准或者“制式”–NTSC（美国全国电视标准委员会，National Television Standards Committee）、PAL（逐行倒相，Phase Alternate Line）以及SECAM（顺序传送与存储彩色电视系统，法国采用的一种电视制式，SEquential Couleur Avec Memoire）。<br>
+中国的电视信号一般都是PAL，而美日则是NTSC。这2个制式的帧率，图像尺寸都有所不同。<br>
+线数<br>
+我们在买摄像头的时候，经常会提到一个叫线数的概念，它其实就是分辨率中的高（height）。举个例子：PAL制式的D1图像，线数就是576。</p>
+<h6 id="亮度-饱和度和对比度"><a class="markdownIt-Anchor" href="#亮度-饱和度和对比度"></a> 亮度、饱和度和对比度</h6>
+<p>英文名分别是：brightness、saturation和 contrast。这是三个表示图像的重要指标。</p>
+<h5 id="122-音频的基本概念"><a class="markdownIt-Anchor" href="#122-音频的基本概念"></a> 1.2.2 音频的基本概念</h5>
+<h6 id="采样率"><a class="markdownIt-Anchor" href="#采样率"></a> 采样率</h6>
+<p>音频的采样率其实类似视频的帧率，意思是每秒钟采样的次数。G.711的采样率是8k（人的语音大概就在这个频率范围以内），而mp3支持的典型采样率是 44.1kHz（超过人耳响应频率的2倍多一点——奈奎斯特定理）。很明显，mp3压缩的原始声音要比g.711好多了。</p>
+<h6 id="采样精度"><a class="markdownIt-Anchor" href="#采样精度"></a> 采样精度</h6>
+<p>就是每个采样进行模数转换时的量化系数。G.711是8bit采样精度，而mp3典型的是16bit。</p>
+<h6 id="回声消除"><a class="markdownIt-Anchor" href="#回声消除"></a> 回声消除</h6>
+<p>视频会议应用中的音频最大问题。回声产生的原因很复杂，一般认为，在互联网中的语音传输，延时来源有三个：压缩延迟、分组传输延迟和处理延迟。语音压缩延迟是产生回声的主要延迟，例如在G.723.1标准中，压缩一帧（30ms）的最大延迟是37.5ms。分组传输延迟也是一个很重要的来源，测试表明，端到端的最大传输延迟可达250ms以上。处理延迟是指语音包的封装时延及其缓冲时延等。</p>
+<h5 id="13-视讯产品简介"><a class="markdownIt-Anchor" href="#13-视讯产品简介"></a> 1.3 视讯产品简介</h5>
+<h6 id="131-mp4"><a class="markdownIt-Anchor" href="#131-mp4"></a> 1.3.1 MP4</h6>
+<p>这是最近两年开始流行的新产品，它的定义其实业有些混乱。目前流行的说法是：只要和视频沾边的便携式播放器，都叫MP4。不过下面的图更能说明问题。</p>
+<h6 id="132-光端机"><a class="markdownIt-Anchor" href="#132-光端机"></a> 1.3.2 光端机</h6>
+<p>一种完成电——光信号转换的设备。主要用于模拟远程视频监控系统，它可将远端的摄像头模拟信号转换成光信号传送到监控中心，配合监控中心的DVR使用。</p>
+<h6 id="133-视频会议mcu"><a class="markdownIt-Anchor" href="#133-视频会议mcu"></a> 1.3.3 视频会议MCU</h6>
+<p>它是视频会议的核心设备之一。当参与视频会议的终端超过2个时，就必须通过MCU来召开会议。<br>
+MCU的基本功能是媒体流转发和混音，并进行会议管理，随着视频会议的发展，MCU支持的功能也越来越多，比如：混屏、远程摄像头控制等功能。</p>
 
       
     </div>
@@ -532,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -554,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -587,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-音视频协议、通讯协议介绍"><span class="nav-number">1.</span> <span class="nav-text">1.1 音视频协议、通讯协议介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-1-两大标准制定组织"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.1 两大标准制定组织</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-视频协议"><span class="nav-number">1.2.</span> <span class="nav-text">1.1.2 视频协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-3-音频协议"><span class="nav-number">1.3.</span> <span class="nav-text">1.1.3 音频协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-4-上层通讯协议"><span class="nav-number">1.4.</span> <span class="nav-text">1.1.4 上层通讯协议</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-音视频基本概念介绍"><span class="nav-number">2.</span> <span class="nav-text">1.2 音视频基本概念介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-视频的基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">1.2.1 视频的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#RGB和YUV"><span class="nav-number">2.1.1.</span> <span class="nav-text">RGB和YUV</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#YUV格式"><span class="nav-number">2.1.2.</span> <span class="nav-text">YUV格式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#帧率"><span class="nav-number">2.1.3.</span> <span class="nav-text">帧率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#隔行扫描-interlace-和逐行扫描-progressive"><span class="nav-number">2.1.4.</span> <span class="nav-text">隔行扫描(interlace)和逐行扫描(progressive)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码率"><span class="nav-number">2.1.5.</span> <span class="nav-text">码率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分辨率"><span class="nav-number">2.1.6.</span> <span class="nav-text">分辨率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#实时与非实时"><span class="nav-number">2.1.7.</span> <span class="nav-text">实时与非实时</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#音视频同步"><span class="nav-number">2.1.8.</span> <span class="nav-text">音视频同步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#复合视频和S-Video"><span class="nav-number">2.1.9.</span> <span class="nav-text">复合视频和S-Video</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#NTSC、PAL和SECAM"><span class="nav-number">2.1.10.</span> <span class="nav-text">NTSC、PAL和SECAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#亮度、饱和度和对比度"><span class="nav-number">2.1.11.</span> <span class="nav-text">亮度、饱和度和对比度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2-音频的基本概念"><span class="nav-number">2.2.</span> <span class="nav-text">1.2.2 音频的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#采样率"><span class="nav-number">2.2.1.</span> <span class="nav-text">采样率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#采样精度"><span class="nav-number">2.2.2.</span> <span class="nav-text">采样精度</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#回声消除"><span class="nav-number">2.2.3.</span> <span class="nav-text">回声消除</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-视讯产品简介"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 视讯产品简介</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-1-MP4"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.3.1 MP4</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-2-光端机"><span class="nav-number">2.3.2.</span> <span class="nav-text">1.3.2 光端机</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-3-视频会议MCU"><span class="nav-number">2.3.3.</span> <span class="nav-text">1.3.3 视频会议MCU</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-音视频协议-通讯协议介绍"><span class="nav-number">1.</span> <span class="nav-text"> 1.1 音视频协议、通讯协议介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#111-两大标准制定组织"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1.1 两大标准制定组织</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#112-视频协议"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.1.2 视频协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#113-音频协议"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.1.3 音频协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#114-上层通讯协议"><span class="nav-number">1.4.</span> <span class="nav-text"> 1.1.4 上层通讯协议</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-音视频基本概念介绍"><span class="nav-number">2.</span> <span class="nav-text"> 1.2 音视频基本概念介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#121-视频的基本概念"><span class="nav-number">2.1.</span> <span class="nav-text"> 1.2.1 视频的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#rgb和yuv"><span class="nav-number">2.1.1.</span> <span class="nav-text"> RGB和YUV</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#yuv格式"><span class="nav-number">2.1.2.</span> <span class="nav-text"> YUV格式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#帧率"><span class="nav-number">2.1.3.</span> <span class="nav-text"> 帧率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#隔行扫描interlace和逐行扫描progressive"><span class="nav-number">2.1.4.</span> <span class="nav-text"> 隔行扫描(interlace)和逐行扫描(progressive)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码率"><span class="nav-number">2.1.5.</span> <span class="nav-text"> 码率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分辨率"><span class="nav-number">2.1.6.</span> <span class="nav-text"> 分辨率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#实时与非实时"><span class="nav-number">2.1.7.</span> <span class="nav-text"> 实时与非实时</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#音视频同步"><span class="nav-number">2.1.8.</span> <span class="nav-text"> 音视频同步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#复合视频和s-video"><span class="nav-number">2.1.9.</span> <span class="nav-text"> 复合视频和S-Video</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ntsc-pal和secam"><span class="nav-number">2.1.10.</span> <span class="nav-text"> NTSC、PAL和SECAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#亮度-饱和度和对比度"><span class="nav-number">2.1.11.</span> <span class="nav-text"> 亮度、饱和度和对比度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#122-音频的基本概念"><span class="nav-number">2.2.</span> <span class="nav-text"> 1.2.2 音频的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#采样率"><span class="nav-number">2.2.1.</span> <span class="nav-text"> 采样率</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#采样精度"><span class="nav-number">2.2.2.</span> <span class="nav-text"> 采样精度</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#回声消除"><span class="nav-number">2.2.3.</span> <span class="nav-text"> 回声消除</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-视讯产品简介"><span class="nav-number">2.3.</span> <span class="nav-text"> 1.3 视讯产品简介</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#131-mp4"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 1.3.1 MP4</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#132-光端机"><span class="nav-number">2.3.2.</span> <span class="nav-text"> 1.3.2 光端机</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#133-视频会议mcu"><span class="nav-number">2.3.3.</span> <span class="nav-text"> 1.3.3 视频会议MCU</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -607,7 +644,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

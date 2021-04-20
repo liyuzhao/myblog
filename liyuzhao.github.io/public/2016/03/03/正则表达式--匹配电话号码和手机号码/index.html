@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+<meta name="description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式--匹配电话号码和手机号码">
 <meta property="og:url" content="http://lyuzhao.com/2016/03/03/正则表达式--匹配电话号码和手机号码/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+<meta property="og:description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:29:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式--匹配电话号码和手机号码">
-<meta name="twitter:description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+<meta name="twitter:description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
 
 
 
@@ -353,18 +353,25 @@
       
 
       
-        <h3 id="正则表达式匹配电话号码和手机号码"><a href="#正则表达式匹配电话号码和手机号码" class="headerlink" title="正则表达式匹配电话号码和手机号码"></a>正则表达式匹配电话号码和手机号码</h3><hr>
-<h5 id="正则表达式（电话号码）一、"><a href="#正则表达式（电话号码）一、" class="headerlink" title="正则表达式（电话号码）一、"></a>正则表达式（电话号码）一、</h5><pre><code>\d{3}-\d{8}|\d{4}-\d{7}
+        <h3 id="正则表达式匹配电话号码和手机号码"><a class="markdownIt-Anchor" href="#正则表达式匹配电话号码和手机号码"></a> 正则表达式匹配电话号码和手机号码</h3>
+<hr>
+<h5 id="正则表达式电话号码一"><a class="markdownIt-Anchor" href="#正则表达式电话号码一"></a> 正则表达式（电话号码）一、</h5>
+<pre><code>\d{3}-\d{8}|\d{4}-\d{7}
 匹配 0511-1234567 | 022 -28191732
 不匹配 02-123456 12345-123456
-</code></pre><h5 id="正则表达式（电话号码）二、"><a href="#正则表达式（电话号码）二、" class="headerlink" title="正则表达式（电话号码）二、"></a>正则表达式（电话号码）二、</h5><pre><code>(^\([0]\d{2}|\d{4}\))(\d{6,7}$)
+</code></pre>
+<h5 id="正则表达式电话号码二"><a class="markdownIt-Anchor" href="#正则表达式电话号码二"></a> 正则表达式（电话号码）二、</h5>
+<pre><code>(^\([0]\d{2}|\d{4}\))(\d{6,7}$)
 匹配    (021)1234567 | (0411)123456 | (000)000000
 不匹配    (123)1234567 | 025123456 | 0252345678  
-</code></pre><a id="more"></a>
-<h5 id="正则表达式（手机号码）三、"><a href="#正则表达式（手机号码）三、" class="headerlink" title="正则表达式（手机号码）三、"></a>正则表达式（手机号码）三、</h5><pre><code>^(?&lt;national&gt;\+?(?:86)?)(?&lt;separator&gt;\s?-?)(?&lt;phone&gt;(?&lt;vender&gt;(13|15|18)[0-9])(?&lt;area&gt;\d{4})(?&lt;id&gt;\d{4}))$
+</code></pre>
+<a id="more"></a>
+<h5 id="正则表达式手机号码三"><a class="markdownIt-Anchor" href="#正则表达式手机号码三"></a> 正则表达式（手机号码）三、</h5>
+<pre><code>^(?&lt;national&gt;\+?(?:86)?)(?&lt;separator&gt;\s?-?)(?&lt;phone&gt;(?&lt;vender&gt;(13|15|18)[0-9])(?&lt;area&gt;\d{4})(?&lt;id&gt;\d{4}))$
 匹配 +8613012345678 | 86 13012345678 | 13245679087
 不匹配 +86130123456781231434352 | 13560012513 | ++8613012345678
 </code></pre>
+
       
     </div>
     
@@ -510,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -532,7 +539,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -565,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式匹配电话号码和手机号码"><span class="nav-number">1.</span> <span class="nav-text">正则表达式匹配电话号码和手机号码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式（电话号码）一、"><span class="nav-number">1.0.1.</span> <span class="nav-text">正则表达式（电话号码）一、</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式（电话号码）二、"><span class="nav-number">1.0.2.</span> <span class="nav-text">正则表达式（电话号码）二、</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式（手机号码）三、"><span class="nav-number">1.0.3.</span> <span class="nav-text">正则表达式（手机号码）三、</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式匹配电话号码和手机号码"><span class="nav-number">1.</span> <span class="nav-text"> 正则表达式匹配电话号码和手机号码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式电话号码一"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 正则表达式（电话号码）一、</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式电话号码二"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 正则表达式（电话号码）二、</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式手机号码三"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 正则表达式（手机号码）三、</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -585,7 +592,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

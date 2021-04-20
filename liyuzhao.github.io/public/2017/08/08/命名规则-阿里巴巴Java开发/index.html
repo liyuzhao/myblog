@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。反例： name / __name / $Object / name / name$ / Object$">
+<meta name="description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。 反例： _name / __name / Object/name/nameObject / name_ / nameObject/name/​name / Object$">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="命名规则-阿里巴巴Java开发">
 <meta property="og:url" content="http://lyuzhao.com/2017/08/08/命名规则-阿里巴巴Java开发/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。反例： name / __name / $Object / name / name$ / Object$">
+<meta property="og:description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。 反例： _name / __name / Object/name/nameObject / name_ / nameObject/name/​name / Object$">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-20T11:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命名规则-阿里巴巴Java开发">
-<meta name="twitter:description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。反例： name / __name / $Object / name / name$ / Object$">
+<meta name="twitter:description" content="【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。 反例： _name / __name / Object/name/nameObject / name_ / nameObject/name/​name / Object$">
 
 
 
@@ -354,24 +354,76 @@
 
       
         <ol>
-<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例： <em>name / __name / $Object / name</em> / name$ / Object$</li>
+<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>
+反例： _name / __name / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>b</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi mathvariant="normal">/</mi><mi>n</mi><mi>a</mi><mi>m</mi><msub><mi>e</mi><mi mathvariant="normal">/</mi></msub><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Object / name_ / name</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3551999999999999em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mord">/</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">/</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span></span></span></span> / Object$</li>
 </ol>
 <a id="more"></a>
 <ol start="2">
-<li>【强制】 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。<br>说明：正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式<br>也要避免采用。<br>反例：  DaZhePromotion [ 打折 ] /  getPingfenByName() [ 评分 ] /  int 某变量 = 3<br>正例：  alibaba /  taobao /  youku /  hangzhou 等国际通用的名称，可视同英文。</li>
-<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外： （ 领域模型<br>的相关命名 ）DO /  BO  /  DTO /  VO 等。<br>正例： MarcoPolo /  UserDO /  XmlService /  TcpUdpDeal /  TaPromotion<br>反例： macroPolo /  UserDo /  XMLService /  TCPUDPDeal /  TAPromotion</li>
-<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从<br>驼峰形式。<br>正例：  localValue /  getHttpMessage() /  inputUserId</li>
-<li>【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>正例：  MAX _ STOCK _ COUNT<br>反例：  MAX _ COUNT</li>
-<li>【强制】抽象类命名使用 Abstract 或 Base 开头 ； 异常类命名使用 Exception 结尾 ； 测试类<br>命名以它要测试的类的名称开始，以 Test 结尾。</li>
-<li>【强制】中括号是数组类型的一部分，数组定义如下： String[] args;<br>反例：使用 String args[] 的方式来定义。</li>
-<li>【强制】 POJO 类中布尔类型的变量，都不要加 is ，否则部分框架解析会引起序列化错误。<br>反例：定义为基本数据类型 Boolean isSuccess； 的属性，它的方法也是 isSuccess() ， RPC<br>框架在反向解析的时候，“以为”对应的属性名称是 success ，导致属性获取不到，进而抛出异<br>常。</li>
-<li>【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用<br>单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>正例： 应用工具类包名为 com . alibaba . open . util 、类名为 MessageUtils（ 此规则参考<br>spring 的框架结构 ）</li>
-<li>【强制】杜绝完全不规范的缩写，避免望文不知义。<br>反例：  AbstractClass “缩写”命名成 AbsClass；condition “缩写”命名成  condi ，此类<br>随意缩写严重降低了代码的可阅读性。</li>
-<li>【推荐】如果使用到了设计模式，建议在类名中体现出具体模式。<br>说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计思想。<br>正例： public class OrderFactory;<br>public class LoginProxy;<br>public class ResourceObserver;</li>
-<li>【推荐】接口类中的方法和属性不要加任何修饰符号 （public 也不要加 ） ，保持代码的简洁<br>性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是<br>与接口方法相关，并且是整个应用的基础常量。<br>正例：接口方法签名： void f();<br>接口基础常量表示： String COMPANY = “ alibaba “ ;<br>反例：接口方法定义： public abstract void f();<br>说明： JDK 8 中接口允许有默认实现，那么这个 default 方法，是对所有实现类都有价值的默<br>认实现。</li>
-<li>接口和实现类的命名有两套规则：<br>1 ） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部<br>的实现类用 Impl 的后缀与接口区别。<br>正例： CacheServiceImpl 实现 CacheService 接口。<br>2 ）  【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是– able 的形式 ） 。<br>正例： AbstractTranslator 实现  Translatable 。</li>
-<li>【参考】枚举类名建议带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>说明：枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>正例：枚举名字： DealStatusEnum， 成员名称： SUCCESS /  UNKOWN _ REASON 。</li>
-<li>【参考】各层命名规约：<br>A) Service / DAO 层方法命名规约<br>1 ） 获取单个对象的方法用 get 做前缀。<br>2 ） 获取多个对象的方法用 list 做前缀。<br>3 ） 获取统计值的方法用 count 做前缀。<br>4 ） 插入的方法用 save（ 推荐 ） 或 insert 做前缀。<br>5 ） 删除的方法用 remove（ 推荐 ） 或 delete 做前缀。<br>6 ） 修改的方法用 update 做前缀。<br>B) 领域模型命名规约<br>1 ） 数据对象： xxxDO ， xxx 即为数据表名。<br>2 ） 数据传输对象： xxxDTO ， xxx 为业务领域相关的名称。<br>3 ） 展示对象： xxxVO ， xxx 一般为网页名称。<br>4 ） POJO 是 DO / DTO / BO / VO 的统称，禁止命名成 xxxPOJO 。</li>
+<li>【强制】 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。<br>
+说明：正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式<br>
+也要避免采用。<br>
+反例：  DaZhePromotion [ 打折 ] /  getPingfenByName() [ 评分 ] /  int 某变量 = 3<br>
+正例：  alibaba /  taobao /  youku /  hangzhou 等国际通用的名称，可视同英文。</li>
+<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外： （ 领域模型<br>
+的相关命名 ）DO /  BO  /  DTO /  VO 等。<br>
+正例： MarcoPolo /  UserDO /  XmlService /  TcpUdpDeal /  TaPromotion<br>
+反例： macroPolo /  UserDo /  XMLService /  TCPUDPDeal /  TAPromotion</li>
+<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从<br>
+驼峰形式。<br>
+正例：  localValue /  getHttpMessage() /  inputUserId</li>
+<li>【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>
+正例：  MAX _ STOCK _ COUNT<br>
+反例：  MAX _ COUNT</li>
+<li>【强制】抽象类命名使用 Abstract 或 Base 开头 ； 异常类命名使用 Exception 结尾 ； 测试类<br>
+命名以它要测试的类的名称开始，以 Test 结尾。</li>
+<li>【强制】中括号是数组类型的一部分，数组定义如下： String[] args;<br>
+反例：使用 String args[] 的方式来定义。</li>
+<li>【强制】 POJO 类中布尔类型的变量，都不要加 is ，否则部分框架解析会引起序列化错误。<br>
+反例：定义为基本数据类型 Boolean isSuccess； 的属性，它的方法也是 isSuccess() ， RPC<br>
+框架在反向解析的时候，“以为”对应的属性名称是 success ，导致属性获取不到，进而抛出异<br>
+常。</li>
+<li>【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用<br>
+单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>
+正例： 应用工具类包名为 com . alibaba . open . util 、类名为 MessageUtils（ 此规则参考<br>
+spring 的框架结构 ）</li>
+<li>【强制】杜绝完全不规范的缩写，避免望文不知义。<br>
+反例：  AbstractClass “缩写”命名成 AbsClass；condition “缩写”命名成  condi ，此类<br>
+随意缩写严重降低了代码的可阅读性。</li>
+<li>【推荐】如果使用到了设计模式，建议在类名中体现出具体模式。<br>
+说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计思想。<br>
+正例： public class OrderFactory;<br>
+public class LoginProxy;<br>
+public class ResourceObserver;</li>
+<li>【推荐】接口类中的方法和属性不要加任何修饰符号 （public 也不要加 ） ，保持代码的简洁<br>
+性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是<br>
+与接口方法相关，并且是整个应用的基础常量。<br>
+正例：接口方法签名： void f();<br>
+接口基础常量表示： String COMPANY = &quot; alibaba &quot; ;<br>
+反例：接口方法定义： public abstract void f();<br>
+说明： JDK 8 中接口允许有默认实现，那么这个 default 方法，是对所有实现类都有价值的默<br>
+认实现。</li>
+<li>接口和实现类的命名有两套规则：<br>
+1 ） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部<br>
+的实现类用 Impl 的后缀与接口区别。<br>
+正例： CacheServiceImpl 实现 CacheService 接口。<br>
+2 ）  【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是– able 的形式 ） 。<br>
+正例： AbstractTranslator 实现  Translatable 。</li>
+<li>【参考】枚举类名建议带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>
+说明：枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>
+正例：枚举名字： DealStatusEnum， 成员名称： SUCCESS /  UNKOWN _ REASON 。</li>
+<li>【参考】各层命名规约：<br>
+A) Service / DAO 层方法命名规约<br>
+1 ） 获取单个对象的方法用 get 做前缀。<br>
+2 ） 获取多个对象的方法用 list 做前缀。<br>
+3 ） 获取统计值的方法用 count 做前缀。<br>
+4 ） 插入的方法用 save（ 推荐 ） 或 insert 做前缀。<br>
+5 ） 删除的方法用 remove（ 推荐 ） 或 delete 做前缀。<br>
+6 ） 修改的方法用 update 做前缀。<br>
+B) 领域模型命名规约<br>
+1 ） 数据对象： xxxDO ， xxx 即为数据表名。<br>
+2 ） 数据传输对象： xxxDTO ， xxx 为业务领域相关的名称。<br>
+3 ） 展示对象： xxxVO ， xxx 一般为网页名称。<br>
+4 ） POJO 是 DO / DTO / BO / VO 的统称，禁止命名成 xxxPOJO 。</li>
 </ol>
 
       
@@ -514,7 +566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +588,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -573,7 +625,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -2,7 +2,7 @@
 title: C++整型变量范围
 date: 2019-04-16 12:02:07
 tags: [c++, 变量]
-categories: c++
+categories: cpp
 ---
 
 

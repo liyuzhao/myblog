@@ -359,7 +359,7 @@
 <a id="more"></a>
 <p>首先要确认虚拟机磁盘存储的位置。打开VirtualBox，点击存储，鼠标指向虚拟磁盘，会提示虚拟磁盘的位置，如下图。</p>
 <p><img src="/assets/blogImg/20200915-vsbox.png" alt></p>
-<p> 现在打开终端，输入sudo su，取得管理员权限，依据刚刚获得的路径，使用VBoxManage命令调整硬盘大小，具体如下：VBoxManage modifyhd /Users/laoshu/VirtualBox\ VMs/windows7/windows7.vdi –resize 61440。resize的参数是MB，我需要60GB，所以就是61440MB。调整以后重启虚拟机，即可硬盘容量即为60GB。</p>
+<p>现在打开终端，输入sudo su，取得管理员权限，依据刚刚获得的路径，使用VBoxManage命令调整硬盘大小，具体如下：VBoxManage modifyhd /Users/laoshu/VirtualBox\ VMs/windows7/windows7.vdi --resize 61440。resize的参数是MB，我需要60GB，所以就是61440MB。调整以后重启虚拟机，即可硬盘容量即为60GB。</p>
 
       
     </div>
@@ -501,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +523,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -560,7 +560,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
